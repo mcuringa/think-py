@@ -1,5 +1,6 @@
-Coding Style
-===================================
+<aside id="coding-style">
+
+**Coding Style**
 
 Now that you are about to write longer, more complex pieces of Python,
 it is a good time to talk about coding style. Most languages can be
@@ -36,3 +37,5 @@ important points extracted for you:
 - Likewise, don’t use non-ASCII characters in identifiers if there is
   only the slightest chance people speaking a different language will read
   or maintain the code.
+
+</aside>

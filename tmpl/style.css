@@ -17,13 +17,10 @@ body, p, ul, ol, li, span, div
 
 aside
 {
-    width: 40%;
     border: medium solid gray;
     border-radius: 8px;
     padding: .5em;
-    margin: .5em;
-    margin-right: 0;
-    float: right;
+    margin: 3em .5em;
     background-color: #F6CCDA;
 }
 
@@ -64,16 +61,6 @@ dd p {padding: 0; margin: 0; }
 
 a { text-decoration: none; }
 a img { border-style: none; }
-
-table
-{
-    border-collapse:collapse;
-}
-table,th, td
-{
-    border: 1px solid black;
-    padding: 0 .5em;
-}
 
 tr.odd { background-color: #d3d3d3; }
 
@@ -116,14 +103,6 @@ blockquote
     line-height: 1.5em;
 }
 
-*[id*='books'] img
-{
-    max-width: 150px;
-    max-height: 150px;
-    display: block;
-}
-
-
 .figure
 {
     border-top: 2px solid black;
@@ -145,7 +124,7 @@ blockquote
     body
     {
         font-size: 14px;
-        width: 1100px;
+        width: 900px;
         margin: 0 auto;
     }
 
@@ -156,22 +135,13 @@ nav#TOC
     background: none repeat scroll 0 0 white;
     border: 1px solid black;
     counter-reset: toc;
-    float: left;
-    display: inline-block;
-    margin: 1.5em;   
+    margin: 1.5em;
 }
-#TOC > ul > li 
-{ 
-    list-style: upper-roman; 
-    counter-increment: toc; 
-    counter-reset: sub1;
-}
-/*#TOC>ul>li>ul>li:before { 
-    content: counter(toc) "." counter(sub1) " ";
-    counter-increment: toc; }*/
-#TOC li ul li { list-style: decimal;}
 
-#TOC ul li ul li ul { display: none; }
+nav#TOC li
+{
+    list-style: none;
+}
 
 #TOC h3 { text-align: center; }
 
@@ -181,11 +151,20 @@ footer
     margin-top: 1.5em;
 }
 
-
-
 /** code highlighting stuff **/
+
+table.sourceCode, pre.sourceCode
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
 td.lineNumbers {
     border-right: 0px none;
+    padding-right: 0px;
+    margin-right: 0px;
+    width: 2em;
+    text-align: right;
 }
 
 </style>
