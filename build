@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#pandoc -o tij.html -t html5 -s -S --toc --section-divs --template=./tmpl/tmpl.html -H ./tmpl/style.css -H ./tmpl/print.css  tij.md
+CHAPTERS="preface.md style.md functions.md contrib.md";
+
+pandoc -o   think-python.html -t html5 -s -S --toc --section-divs -N -H ./tmpl/style.css $CHAPTERS;

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+    /\      | |    | |     | |   (_)
+   /  \   __| | ___| |_ __ | |__  _ 
+  / /\ \ / _` |/ _ \ | '_ \| '_ \| |
+ / ____ \ (_| |  __/ | |_) | | | | |
+/_/    \_\__,_|\___|_| .__/|_| |_|_|
+                     | |            
+                     |_|            
+ ______    _   _______        _     
+|  ____|  | | |__   __|      | |    
+| |__   __| |    | | ___  ___| |__  
+|  __| / _` |    | |/ _ \/ __| '_ \ 
+| |___| (_| |    | |  __/ (__| | | |
+|______\__,_|    |_|\___|\___|_| |_|
+
+http://education.adelphi.edu/ed-tech
+-->
+
+<title>$title$ :: course syllabus</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+$for(author)$
+  <meta name="author" content="$author$" />
+$endfor$
+$if(date)$
+  <meta name="date" content="$date$" />
+$endif$
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+
+$for(header-includes)$
+  $header-includes$
+$endfor$
+
+
+</head>
+<body>
+<header>
+$if(title)$
+<h1 class="title">$title$</h1>
+$endif$
+</header>
+
+
+$if(toc)$
+<nav id="TOC">
+<h3>Course Outline</h3>
+$toc$
+</nav>
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+<section id="main">$body$</section>
+
+<footer>
+<hr class="clear-all" />
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />
+    <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" 
+    property="dct:title" rel="dct:type"><strong>$title$</strong></span> was created by:
+    <ul>
+    $for(author)$
+        <li><a xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName" rel="cc:attributionURL">$author$</a></li>
+    $endfor$
+    </ul>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />
+    Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/mcuringa/adelphi-ed-tech-courses" rel="dct:source">https://github.com/mcuringa/adelphi-ed-tech-courses</a>.
+
+$if(date)$
+<p><tt>Last modified: $date$</tt></p>
+$endif$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+</footer>
+</body>
+</html>
