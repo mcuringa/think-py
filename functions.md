@@ -1,10 +1,9 @@
 Functions
-=========
+=========================
 
 Functions
 -------------------------
-      
-     
+
 In Python, a **function** is a named sequence of statements
 that belong together.  Their primary purpose is to help us
 organize programs into chunks that match how we think about
@@ -52,7 +51,10 @@ let's write a function to capture the pattern of this "building block":
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 def calculate_tip(bill, pct):
-    """Calculate the tip on a bill, given the pct of the tip."""
+    """
+        Calculate the tip on a bill, given the pct of the tip.
+    """
+    
     tip = bill * (pct * .01) # convert pct to a decimal and calculate
     tip = round(tip, 2) # round the tip to 2 decimal places
     total = tip + bill
@@ -120,11 +122,14 @@ tip amounts for the same bill.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 def calculate_tip(bill, pct):
-    """Calculate the tip on a bill, given the pct of the tip."""
+    """
+        Calculate the tip on a bill, given the pct of the tip.
+    """
+    
     tip = bill * (pct * .01) # convert pct to a decimal and calculate
     tip = round(tip, 2) # round the tip to 2 decimal places
     total = tip + bill
-    
+
     # now show the results to the user
     print("Bill total: $" + str(bill))
     print("Tip percentage: " + str(pct) + "%")
@@ -179,7 +184,6 @@ the most important points extracted for you:
 
 </aside>
 
-
 Composition: Functions can call other functions
 --------------------------------------------------
 
@@ -216,7 +220,6 @@ demonstrates two:
 As we might expect, we have to create a function before we can execute it.
 In other words, the function definition has to be executed before the
 function is called.
-
 
 Flow of execution
 ----------------------------------
@@ -270,9 +273,9 @@ computing the absolute value:
 In this example, the arguments to the ``abs`` function are 5 and -5.
 
 Some functions take more than one argument. For example the built-in function ``round``
- takes two arguments, the number to round and the (optional) number of
- decimal digits of precision. Inside the function, the values that are
- passed get assigned to variables called **parameters**.
+takes two arguments, the number to round and the (optional) number of
+decimal digits of precision. Inside the function, the values that are
+passed get assigned to variables called **parameters**.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> round(3.14159)
@@ -320,7 +323,7 @@ doesn't arrange to return a value, Python will automatically return the value ``
 How do we write our own fruitful function? Let's look at the standard
 formula for compound interest as an example fo a fruitful function:   
 
-![](illustrations/compoundInterest.png)
+![](figs/compoundInterest.png)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 def final_amt(p, r, n, t):
@@ -366,55 +369,45 @@ the caller, in ``final_amt`` its name is ``p``.
 These short variable names are getting quite tricky, so perhaps we'd prefer one of these
 versions instead:       
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-       :linenos:
-     
-       def final_amt_v2(principalAmount, nominalPercentageRate, 
-                                           numTimesPerYear, years):
-           a = principalAmount * (1 + nominalPercentageRate / 
-                                numTimesPerYear) ** (numTimesPerYear*years)
-           return a
-           
-       def final_amt_v3(amt, rate, compounded, years):
-           a = amt * (1 + rate/compounded) ** (componded*years)
-           return a                  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+def final_amt_v2(principalAmount, nominalPercentageRate, 
+                                   numTimesPerYear, years):
+   a = principalAmount * (1 + nominalPercentageRate / 
+                        numTimesPerYear) ** (numTimesPerYear*years)
+   return a
+   
+def final_amt_v3(amt, rate, compounded, years):
+   a = amt * (1 + rate/compounded) ** (componded*years)
+   return a
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-They all do the same thing.   Use your judgement to write code that can be best 
+They all do the same thing. Use your judgement to write code that can be best 
 understood by other humans!  
 Short variable names are more economical and sometimes make 
 code easier to read: 
-E = mc\ :sup:`2` would not be nearly so memorable if Einstein had
-used longer variable names!  If you do prefer short names, 
+E = mc<sup>2</sup> would not be nearly so memorable if Einstein had
+used longer variable names! If you do prefer short names, 
 make sure you also have some comments to enlighten the reader 
 about what the variables are used for.
-  
 
 
-.. index::
-    single: local variable
-    single: variable; local
-    single: lifetime
-    
-Variables and parameters are local
-———————————-
+-----------------------------------------------
 
 When we create a **local variable** inside a function, it only exists inside
 the function, and we cannot use it outside. For example, consider again this function:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-       :linenos: 
-
-       def final_amt(p, r, n, t):
-           a = p * (1 + r/n) ** (n*t)
-           return a           
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+def final_amt(p, r, n, t):
+   a = p * (1 + r/n) ** (n*t)
+   return a           
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
 If we try to use ``a``, outside the function, we'll get an error:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-        
-        >>> a
-        NameError: name 'a' is not defined
-    
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}        
+>>> a
+NameError: name 'a' is not defined
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
  
 The variable ``a`` is local to ``final_amt``, and is not visible
 outside the function.
@@ -433,210 +426,288 @@ value, complete its execution, and then when it is called again next
 time, recover the local variable.  Each call of the function creates
 new local variables, and their lifetimes expire when the function returns
 to the caller. 
-    
-.. index:: refactoring code, chunking    
 
-Turtles Revisited
-—————--
+Tips Revisited
+---------------------------------
 
 Now that we have fruitful functions, we can focus our attention on 
 reorganizing our code so that it fits more nicely into our mental chunks.  
 This process of rearrangement is called **refactoring** the code.  
  
-Two things we're always going to want to do when working with turtles
-is to create the window for the turtle, and to create one or more turtles.
-We could write some functions to make these tasks easier in future:
+Two things want to do in our tip calculator is to find the amount of the tip
+and show the results to the user. In the example below, we separate the various
+functions of the program to make a more complete tip calculator. As you'll
+see, we're starting to build code that is useful. Using functions allows us
+to make changes to one part of a program without affecting other parts
+of the program. For example, we can change the welcome message without
+worrying about breaking our calculations.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-       :linenos: 
+def welcome():
+    """
+        Give the user a welcome message.
+    """
+    print("""
 
-       def make_window(colr, ttle):   
-           """
-             Set up the window with the given background color and title. 
-             Returns the new window.
-           """
-           w = turtle.Screen()             
-           w.bgcolor(colr)
-           w.title(ttle)
-           return w
-           
-           
-       def make_turtle(colr, sz):      
-           """
-             Set up a turtle with the given color and pensize.
-             Returns the new turtle.
-           """
-           t = turtle.Turtle()
-           t.color(colr)
-           t.pensize(sz)
-           return t
+-----------------------------------
+   Welcome to the Tip Calculator   
+-----------------------------------
+""")
 
-           
-       wn = make_window("lightgreen", "Tess and Alex dancing")
-       tess = make_turtle("hotpink", 5)
-       alex = make_turtle("black", 1)
-       dave = make_turtle("yellow", 2)  
-   
+def calc_tip(bill, pct):
+    """
+        Calculate the tip on a bill, given the pct of the tip.
+        Return the amount of the tip
+    """
+    tip = bill * (pct * .01) # convert pct to a decimal and calculate
+    tip = round(tip, 2) # round the tip to 2 decimal places
+    return tip
+
+def get_bill_amt():
+    """
+        Ask the user to enter the amount of the bill
+        and return this amount as a <float>
+    """
+
+    return float(input("How much was your total bill: "))
+
+def get_tip_pct():
+    """
+        Allow the user to choose a tip amount
+        from a menu.
+    """
+    
+    print("""
+What percent tip do you want to leave?
+  1 - 10%, lousy service
+  2 - 15%, good service, but I'm cheap
+  3 - 20%, the server is hard working and deserves a decent tip
+  4 - 25%, outstanding service""")
+
+    menu = input("enter your choice (1-4):")
+    
+    if menu == "1":
+        return 10
+    if menu == "2":
+        return 15
+    if menu == "3":
+        return 20
+    if menu == "4":
+        return 25
+    
+    return -1 # return -1 for any invalid choice
+
+def show_results(bill, tip, pct):
+    """
+        Prints a message to the user showing
+        the result of the calculations.
+    """
+    
+    total = tip + bill
+
+    print("Bill amount: $" + str(bill))
+    print("Tip percentage: " + str(pct) + "%")
+    print("Tip amount due: $" + str(total))
+    print("""
+-----------------------------------
+             GOOD BYE      
+-----------------------------------
+""")
+
+def main():
+    """
+        Read in the basic information, calcualte the tip
+        and the share, then dispaly the results to the user.
+    """
+    
+    welcome()
+    myBill = get_bill_amt()
+    pct = get_tip_pct()
+    tip = calc_tip(myBill, pct)
+    show_results(myBill, tip, pct)
+
+
+if __name__ == "__main__":
+    main()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The trick about refactoring code is to anticipate which things we are likely to want to change
 each time we call the function: these should become the parameters, or changeable parts,
 of the functions we write.
 
+<aside id="main">
+**The ``main`` function**
+
+In our code example above, we encounter Python's special syntax
+for running a program from the command line:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python }
+if __name__ == "__main__":
+    main()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This conditional statement allows the program to execute code if it is being run
+as a standalone Python program. In our case, we choose to call the ``main`` function
+which we defined. main() has no special meaning in Python, though, and we could
+execute any statements we choose under that block.
+
+</aside>
+
 Glossary
-——--
+-------------------------------
 
-.. glossary::
+argument
 
-    argument
-        A value provided to a function when the function is called. This value
-        is assigned to the corresponding parameter in the function.  The argument
-        can be the result of an expression which may involve operators, 
-        operands and calls to other fruitful functions.
+:    A value provided to a function when the function is called. This value
+    is assigned to the corresponding parameter in the function.  The argument
+    can be the result of an expression which may involve operators, 
+    operands and calls to other fruitful functions.
 
-    body
-        The second part of a compound statement. The body consists of a
-        sequence of statements all indented the same amount from the beginning
-        of the header.  The standard amount of indentation used within the
-        Python community is 4 spaces.
+body
 
-    compound statement
-        A statement that consists of two parts:
+:    The second part of a compound statement. The body consists of a
+    sequence of statements all indented the same amount from the beginning
+    of the header.  The standard amount of indentation used within the
+    Python community is 4 spaces.
 
-        #. header - which begins with a keyword determining the statement
-           type, and ends with a colon.
-        #. body - containing one or more statements indented the same amount
-           from the header.
+compound statement
 
-        The syntax of a compound statement looks like this:
+:    A statement that consists of two parts:
 
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-            
-                keyword ... :
-                    statement
-                    statement ...
-                                               
-    docstring
-        A special string that is attached to a function as its ``__doc__`` attribute.
-        Tools like PyScripter can use docstrings to provide documentation or hints for the programmer.
-        When we get to modules, classes, and methods, we'll see that docstrings can also be used there. 
+    1. header - which begins with a keyword determining the statement
+       type, and ends with a colon.
+    2. body - containing one or more statements indented the same amount
+       from the header.
 
-    flow of execution
-        The order in which statements are executed during a program run.
+    The syntax of a compound statement looks like this:
 
-    frame
-        A box in a stack diagram that represents a function call. It contains
-        the local variables and parameters of the function.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+    keyword ... :
+        statement
+        statement ...
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                           
+docstring
 
-    function
-        A named sequence of statements that performs some useful operation.
-        Functions may or may not take parameters and may or may not produce a
-        result.
+:   A special string that is attached to a function as its ``__doc__`` attribute.
+    Tools like PyScripter can use docstrings to provide documentation or hints for the programmer.
+    When we get to modules, classes, and methods, we'll see that docstrings can also be used there. 
 
-    function call
-        A statement that executes a function. It consists of the name of the
-        function followed by a list of arguments enclosed in parentheses.
+flow of execution
 
-    function composition
-        Using the output from one function call as the input to another.
+:   The order in which statements are executed during a program run.
 
-    function definition
-        A statement that creates a new function, specifying its name,
-        parameters, and the statements it executes.
-        
-    fruitful function
-        A function that returns a value when it is called.
+frame
 
-    header line
-        The first part of a compound statement. A header line begins with a keyword and
-        ends with a colon (:)
+:   A box in a stack diagram that represents a function call. It contains
+    the local variables and parameters of the function.
 
-    import statement
-        A statement which permits functions and variables defined in another Python
-        module to be brought into the environment of another script.  To use the 
-        features of the turtle, we need to first import the turtle module.
-        
-    lifetime
-        Variables and objects have lifetimes — they are created at some point during
-        program execution, and will be destroyed at some time. 
-        
-    local variable
-        A variable defined inside a function. A local variable can only be used
-        inside its function.  Parameters of a function are also a special kind
-        of local variable.
+function
 
-    parameter
-        A name used inside a function to refer to the value which was passed 
-        to it as an argument.
-           
-    refactor
-        A fancy word to describe reorganizing our program code, usually to make 
-        it more understandable.  Typically, we have a program that is already working,
-        then we go back to "tidy it up".  It often involves choosing better variable
-        names, or spotting repeated patterns and moving that code into a function.    
-        
-    stack diagram
-        A graphical representation of a stack of functions, their variables,
-        and the values to which they refer.
+:   A named sequence of statements that performs some useful operation.
+    Functions may or may not take parameters and may or may not produce a
+    result.
 
-    traceback
-        A list of the functions that are executing, printed when a runtime
-        error occurs. A traceback is also commonly refered to as a
-        *stack trace*, since it lists the functions in the order in which they
-        are stored in the
-        `runtime stack <http://en.wikipedia.org/wiki/Runtime_stack>`__.
-        
-    void function
-        The opposite of a fruitful function: one that does not return a value.  It is
-        executed for the work it does, rather than for the value it returns.
+function call
 
+:   A statement that executes a function. It consists of the name of the
+    function followed by a list of arguments enclosed in parentheses.
 
+function composition
+
+:   Using the output from one function call as the input to another.
+
+function definition
+
+:   A statement that creates a new function, specifying its name,
+    parameters, and the statements it executes.
+    
+fruitful function
+
+:   A function that returns a value when it is called.
+
+header line
+
+:   The first part of a compound statement. A header line begins with a keyword and
+    ends with a colon (:)
+
+import statement
+
+:   A statement which permits functions and variables defined in another Python
+    module to be brought into the environment of another script.  To use the 
+    features of the turtle, we need to first import the turtle module.
+    
+lifetime
+
+:   Variables and objects have lifetimes — they are created at some point during
+    program execution, and will be destroyed at some time. 
+    
+local variable
+
+:   A variable defined inside a function. A local variable can only be used
+    inside its function.  Parameters of a function are also a special kind
+    of local variable.
+
+parameter
+
+:   A name used inside a function to refer to the value which was passed 
+    to it as an argument.
+       
+refactor
+
+:   A fancy word to describe reorganizing our program code, usually to make 
+    it more understandable.  Typically, we have a program that is already working,
+    then we go back to "tidy it up".  It often involves choosing better variable
+    names, or spotting repeated patterns and moving that code into a function.    
+    
+stack diagram
+
+:   A graphical representation of a stack of functions, their variables,
+    and the values to which they refer.
+
+traceback
+
+:   A list of the functions that are executing, printed when a runtime
+    error occurs. A traceback is also commonly refered to as a
+    *stack trace*, since it lists the functions in the order in which they
+    are stored in the
+    `runtime stack <http://en.wikipedia.org/wiki/Runtime_stack>`__.
+    
+void function
+
+:    The opposite of a fruitful function: one that does not return a value.  It is
+    executed for the work it does, rather than for the value it returns.
 
 Exercises
-———
+------------------------------
 
-#.  Write a void (non-fruitful) function to draw a square.  Use it in a program to draw the image shown below. 
-    Assume each side is 20 units.
-    (Hint: notice that the turtle has already moved away from the ending point of the last 
-    square when the program ends.)
+1.  Write a void (non-fruitful) function to that prints out centered text to the console.
+    Your function should have two parameters, ``text``—the string to center,
+    and ``maxLen``—the width of the document (in spaces).\
+    (Hint: you will want to use the built-in ``len`` function and might want to 
+    use the * operator with spaces.)
     
-    .. image:: illustrations/five_squares.png
-    
-#.  Write a program to draw this. Assume the innermost square is 20 units per side,
-    and each successive square is 20 units bigger, per side, than the one inside it.   
-    
-    .. image:: illustrations/nested_squares.png
+2.  Write a function ``area_of_circle(r)`` which returns the area of a circle of radius ``r``.\
+    (Hint: if you can't remember how to find the area of a circle, look it up or ask a friend.)
 
-#.  Write a void function ``draw_poly(t, n, sz)`` which makes a turtle 
-    draw a regular polygon. 
-    When called with ``draw_poly(tess, 8, 50)``, it will draw a shape like this:
-    
-    .. image:: illustrations/regularpolygon.png
+3. _Lemonade Stand_. Diego has a lemonade stand and he needs a program to estimate costs. Write
+   a Python program called lemonade.py that allows him to see potential profits
+   for his stand. Use the following skeleton to start your program:
 
-#. Draw this pretty pattern.
-
-   .. image:: illustrations/tess08.png    
-   
-#.  The two spirals in this picture differ only by the turn angle.  Draw both.
-
-    .. image:: illustrations/tess_spirals.png
-       :height: 240
-       
-#.  Write a void function ``draw_equitriangle(t, sz)`` which calls ``draw_poly`` from the 
-    previous question to have its turtle draw a equilateral triangle. 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+    def estimate_profit(lemonCost, cupCost, estPeople, price):
+        # write a doc string
+        # write the code
+        # return the estimate
     
-#.  Write a fruitful function ``sum_to(n)`` that returns the sum of all integer numbers up to and 
-    including ``n``.   So ``sum_to(10)`` would be `1+2+3...+10` which would return the value 55.
+    def main():
+        l = .3
+        c = .15
+        n = 100
+        p = 2.50
+        profit = estimate_profit(l, c, n, p)
+        show_results(l, c, n, p, price) # you need to define this one yourself
     
-#.  Write a function ``area_of_circle(r)`` which returns the area of a circle of radius ``r``.
-
-#.  Write a void function to draw a star, where the length of each side is 100 units.
-    (Hint: You should turn the turtle by 144 degrees at each point.)  
-    
-     .. image:: illustrations/star.png
-     
-#.  Extend your program above.  Draw five stars, but between each, pick up the pen, 
-    move forward by 350 units, turn right by 144, put the pen down, and draw the next star.
-    You'll get something like this:
-    
-    .. image:: illustrations/five_stars.png
-    
-    What would it look like if you didn't pick up the pen?
+    if __name__ == "__main__":
+        main()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

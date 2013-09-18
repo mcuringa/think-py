@@ -16,7 +16,7 @@
   <style type="text/css">
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; }
+table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
 code > span.kw { color: #007020; font-weight: bold; }
@@ -47,6 +47,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
   body, p, ul, ol, li, span, div
   {
        font-family: "FreeSans", "Helvetica", sans-serif; 
+  }
+  
+  pre, code, tt, code span, pre span
+  {
+      font-family: "FeeMono", Monaco, Courier, monospaced;
   }
   
   aside
@@ -89,7 +94,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
       padding: .5em;
   }
   
-  dt { font-weight: bold; }
+  dl { margin-left: 2em; }
+  dt
+  { 
+      font-weight: bold; 
+      font-size: 115%; 
+      margin-top: .5em;
+  }
   dd p {padding: 0; margin: 0; }
   
   
@@ -229,17 +240,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#flow-of-execution"><span class="toc-section-number">5.3</span> Flow of execution</a></li>
 <li><a href="#functions-that-require-arguments"><span class="toc-section-number">5.4</span> Functions that require arguments</a></li>
 <li><a href="#functions-that-return-values"><span class="toc-section-number">5.5</span> Functions that return values</a></li>
+<li><a href="#tips-revisited"><span class="toc-section-number">5.6</span> Tips Revisited</a></li>
+<li><a href="#glossary"><span class="toc-section-number">5.7</span> Glossary</a></li>
+<li><a href="#exercises"><span class="toc-section-number">5.8</span> Exercises</a></li>
 </ul></li>
 <li><a href="#contributor-list"><span class="toc-section-number">6</span> Contributor List</a></li>
 </ul>
 </nav>
 <p><strong>Adelphi University Mod</strong><br />based on the <em>Learning with Python 3 (RLE)</em> by Peter Wentworth</p>
-<section class="level1" id="copyright-notice">
+<section id="copyright-notice" class="level1">
 <h1><a href="#copyright-notice"><span class="header-section-number">1</span> Copyright Notice</a></h1>
 <p>Copyright (C) Peter Wentworth.</p>
 <p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
 </section>
-<section class="level1" id="foreword">
+<section id="foreword" class="level1">
 <h1><a href="#foreword"><span class="header-section-number">2</span> Foreword</a></h1>
 <p>By David Beazley</p>
 <p>As an educator, researcher, and book author, I am delighted to see the completion of this book. Python is a fun and extremely easy-to-use programming language that has steadily gained in popularity over the last few years. Developed over ten years ago by Guido van Rossum, Python’s simple syntax and overall feel is largely derived from ABC, a teaching language that was developed in the 1980’s. However, Python was also created to solve real problems and it borrows a wide variety of features from programming languages such as C++, Java, Modula-3, and Scheme. Because of this, one of Python’s most remarkable features is its broad appeal to professional software developers, scientists, researchers, artists, and educators.</p>
@@ -249,19 +263,19 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>In reading Jeffrey’s preface, I am struck by his comments that Python allowed him to see a higher level of success and a lower level of frustration and that he was able to move faster with better results. Although these comments refer to his introductory course, I sometimes use Python for these exact same reasons in advanced graduate level computer science courses at the University of Chicago. In these courses, I am constantly faced with the daunting task of covering a lot of difficult course material in a blistering nine week quarter. Although it is certainly possible for me to inflict a lot of pain and suffering by using a language like C++, I have often found this approach to be counterproductive—especially when the course is about a topic unrelated to just programming. I find that using Python allows me to better focus on the actual topic at hand while allowing students to complete substantial class projects.</p>
 <p>Although Python is still a young and evolving language, I believe that it has a bright future in education. This book is an important step in that direction. David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
 </section>
-<section class="level1" id="preface">
+<section id="preface" class="level1">
 <h1><a href="#preface"><span class="header-section-number">3</span> Preface</a></h1>
 <p>By Jeffrey Elkner</p>
 <p>This book owes its existence to the collaboration made possible by the Internet and the free software movement. Its three authors—a college professor, a high school teacher, and a professional programmer—never met face to face to work on it, but we have been able to collaborate closely, aided by many other folks who have taken the time and energy to send us their feedback.</p>
 <p>We think this book is a testament to the benefits and future possibilities of this kind of collaboration, the framework for which has been put in place by Richard Stallman and the Free Software Foundation.</p>
-<section class="level2" id="how-and-why-i-came-to-use-python">
+<section id="how-and-why-i-came-to-use-python" class="level2">
 <h2><a href="#how-and-why-i-came-to-use-python"><span class="header-section-number">3.1</span> How and why I came to use Python</a></h2>
 <p>In 1999, the College Board’s Advanced Placement (AP) Computer Science exam was given in C++ for the first time. As in many high schools throughout the country, the decision to change languages had a direct impact on the computer science curriculum at Yorktown High School in Arlington, Virginia, where I teach. Up to this point, Pascal was the language of instruction in both our first-year and AP courses. In keeping with past practice of giving students two years of exposure to the same language, we made the decision to switch to C++ in the first year course for the 1997-98 school year so that we would be in step with the College Board’s change for the AP course the following year.</p>
 <p>Two years later, I was convinced that C++ was a poor choice to use for introducing students to computer science. While it is certainly a very powerful programming language, it is also an extremely difficult language to learn and teach. I found myself constantly fighting with C++’s difficult syntax and multiple ways of doing things, and I was losing many students unnecessarily as a result. Convinced there had to be a better language choice for our first-year class, I went looking for an alternative to C++.</p>
 <p>I needed a language that would run on the machines in our GNU/Linux lab as well as on the Windows and Macintosh platforms most students have at home. I wanted it to be free software, so that students could use it at home regardless of their income. I wanted a language that was used by professional programmers, and one that had an active developer community around it. It had to support both procedural and object-oriented programming. And most importantly, it had to be easy to learn and teach. When I investigated the choices with these goals in mind, Python stood out as the best candidate for the job.</p>
 <p>I asked one of Yorktown’s talented students, Matt Ahrens, to give Python a try. In two months he not only learned the language but wrote an application called pyTicket that enabled our staff to report technology problems via the Web. I knew that Matt could not have finished an application of that scale in so short a time in C++, and this accomplishment, combined with Matt’s positive assessment of Python, suggested that Python was the solution I was looking for.</p>
 </section>
-<section class="level2" id="finding-a-textbook">
+<section id="finding-a-textbook" class="level2">
 <h2><a href="#finding-a-textbook"><span class="header-section-number">3.2</span> Finding a textbook</a></h2>
 <p>Having decided to use Python in both of my introductory computer science classes the following year, the most pressing problem was the lack of an available textbook.</p>
 <p>Free documents came to the rescue. Earlier in the year, Richard Stallman had introduced me to Allen Downey. Both of us had written to Richard expressing an interest in developing free educational materials. Allen had already written a first-year computer science textbook, <em>How to Think Like a Computer Scientist</em>. When I read this book, I knew immediately that I wanted to use it in my class. It was the clearest and most helpful computer science text I had seen. It emphasized the processes of thought involved in programming rather than the features of a particular language. Reading it immediately made me a better teacher.</p>
@@ -270,7 +284,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
 <p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
-<section class="level2" id="introducing-programming-with-python">
+<section id="introducing-programming-with-python" class="level2">
 <h2><a href="#introducing-programming-with-python"><span class="header-section-number">3.3</span> Introducing programming with Python</a></h2>
 <p>The process of translating and using <em>How to Think Like a Computer Scientist</em> for the past two years has confirmed Python’s suitability for teaching beginning students. Python greatly simplifies programming examples and makes important programming ideas easier to teach.</p>
 <p>The first example from the text illustrates this point. It is the traditional hello, world program, which in the Java version of the book looks like this:</p>
@@ -289,7 +303,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Another example of how Python aids in the teaching and learning of programming is in its syntax for functions. My students have always had a great deal of difficulty understanding functions. The main problem centers around the difference between a function definition and a function call, and the related distinction between a parameter and an argument. Python comes to the rescue with syntax that is nothing short of beautiful. Function definitions begin with the keyword <code>def</code>, so I simply tell my students, When you define a function, begin with <code>def</code>, followed by the name of the function that you are defining; when you call a function, simply call (type) out its name. Parameters go with definitions; arguments go with calls. There are no return types, parameter types, or reference and value parameters to get in the way, so I am now able to teach functions in less than half the time that it previously took me, with better comprehension.</p>
 <p>Using Python improved the effectiveness of our computer science program for all students. I saw a higher general level of success and a lower level of frustration than I experienced teaching with either C++ or Java. I moved faster with better results. More students left the course with the ability to create meaningful programs and with the positive attitude toward the experience of programming that this engenders.</p>
 </section>
-<section class="level2" id="building-a-community">
+<section id="building-a-community" class="level2">
 <h2><a href="#building-a-community"><span class="header-section-number">3.4</span> Building a community</a></h2>
 <p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
@@ -301,7 +315,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
 </section>
 </section>
-<section class="level1" id="the-rhodes-local-edition-rle-version-of-august-2012">
+<section id="the-rhodes-local-edition-rle-version-of-august-2012" class="level1">
 <h1><a href="#the-rhodes-local-edition-rle-version-of-august-2012"><span class="header-section-number">4</span> The Rhodes Local Edition (RLE) (Version of August, 2012)</a></h1>
 <p>By Peter Wentworth</p>
 <aside>
@@ -370,9 +384,9 @@ Many thanks to all the contributors and the authors for making their hard work a
 <li><p>We’re interested in issues around teaching and learning. Some research indicates that “intellectual playfulness” is important. The study referenced in the Odds-and-ends workbook at the end just didn’t seem to have anywhere sensible to go in the book, yet I wanted it included. It is quite likely that we’ll allow more issues like this to creep into the book, to try to make it more than just about programming in Python.</p></li>
 </ul>
 </section>
-<section class="level1" id="functions">
+<section id="functions" class="level1">
 <h1><a href="#functions"><span class="header-section-number">5</span> Functions</a></h1>
-<section class="level2" id="functions-1">
+<section id="functions-1" class="level2">
 <h2><a href="#functions-1"><span class="header-section-number">5.1</span> Functions</a></h2>
 <p>In Python, a <strong>function</strong> is a named sequence of statements that belong together. Their primary purpose is to help us organize programs into chunks that match how we think about the problem.</p>
 <p>The syntax for a <strong>function definition</strong> is:</p>
@@ -401,8 +415,14 @@ Many thanks to all the contributors and the authors for making their hard work a
 11
 12
 13
+14
+15
+16
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> calculate_tip(bill, pct):
-    <span class="co">&quot;&quot;&quot;Calculate the tip on a bill, given the pct of the tip.&quot;&quot;&quot;</span>
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Calculate the tip on a bill, given the pct of the tip.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    
     tip = bill * (pct * .<span class="dv">01</span>) <span class="co"># convert pct to a decimal and calculate</span>
     tip = <span class="dt">round</span>(tip, <span class="dv">2</span>) <span class="co"># round the tip to 2 decimal places</span>
     total = tip + bill
@@ -440,12 +460,18 @@ Just to differentiate from comments, a string at the start of a function (a docs
 13
 14
 15
+16
+17
+18
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> calculate_tip(bill, pct):
-    <span class="co">&quot;&quot;&quot;Calculate the tip on a bill, given the pct of the tip.&quot;&quot;&quot;</span>
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Calculate the tip on a bill, given the pct of the tip.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    
     tip = bill * (pct * .<span class="dv">01</span>) <span class="co"># convert pct to a decimal and calculate</span>
     tip = <span class="dt">round</span>(tip, <span class="dv">2</span>) <span class="co"># round the tip to 2 decimal places</span>
     total = tip + bill
-    
+
     <span class="co"># now show the results to the user</span>
     <span class="kw">print</span>(<span class="st">&quot;Bill total: $&quot;</span> + <span class="dt">str</span>(bill))
     <span class="kw">print</span>(<span class="st">&quot;Tip percentage: &quot;</span> + <span class="dt">str</span>(pct) + <span class="st">&quot;%&quot;</span>)
@@ -475,9 +501,8 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </ul>
 </aside>
 
-
 </section>
-<section class="level2" id="composition-functions-can-call-other-functions">
+<section id="composition-functions-can-call-other-functions" class="level2">
 <h2><a href="#composition-functions-can-call-other-functions"><span class="header-section-number">5.2</span> Composition: Functions can call other functions</a></h2>
 <p>So far, we have looked at the elements of a program—<code>variables</code>, <code>expressions</code>, and <code>statements</code>—in isolation, without talking about how to combine them.</p>
 <p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them. In our calculate_tip example, we call several Python built-in functions: <code>round</code> to keep our amounts to 2 decimal places and <code>str</code> to convert numeric data (ints and floats) to strings when we print them. As we will see, we can compose our programs of many functions that we define ourselves.</p>
@@ -494,7 +519,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </ol>
 <p>As we might expect, we have to create a function before we can execute it. In other words, the function definition has to be executed before the function is called.</p>
 </section>
-<section class="level2" id="flow-of-execution">
+<section id="flow-of-execution" class="level2">
 <h2><a href="#flow-of-execution"><span class="header-section-number">5.3</span> Flow of execution</a></h2>
 <p>In order to ensure that a function is defined before its first use, we have to know the order in which statements are executed, which is called the <strong>flow of execution</strong>.</p>
 <p>Execution always begins at the first statement of the program. Statements are executed one at a time, in order from top to bottom.</p>
@@ -504,7 +529,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <p>Fortunately, Python is adept at keeping track of where it is, so each time a function completes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.</p>
 <p>What’s the moral of this sordid tale? When we read a program, don’t read from top to bottom. Instead, follow the flow of execution.</p>
 </section>
-<section class="level2" id="functions-that-require-arguments">
+<section id="functions-that-require-arguments" class="level2">
 <h2><a href="#functions-that-require-arguments"><span class="header-section-number">5.4</span> Functions that require arguments</a></h2>
 <p>Most functions require arguments: the arguments provide for generalization. For example, if we want to find the absolute value of a number, we have to indicate what the number is. Python has a built-in function for computing the absolute value:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">abs</span>(<span class="dv">5</span>)
@@ -526,14 +551,14 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <span class="dv">503</span></code></pre>
 <p><code>max</code> can be passed any number of arguments, separated by commas, and will return the largest value passed. The arguments can be either simple values or expressions. In the last example, 503 is returned, since it is larger than 33, 125, and 1.</p>
 </section>
-<section class="level2" id="functions-that-return-values">
+<section id="functions-that-return-values" class="level2">
 <h2><a href="#functions-that-return-values"><span class="header-section-number">5.5</span> Functions that return values</a></h2>
 <p>All the functions in the previous section return values. Furthermore, functions like <code>range</code>, <code>int</code>, <code>abs</code> all return values that can be used to build more complex expressions.</p>
 <p>So an important difference between these functions and one like <code>calculate_tip</code> is that <code>calculate_tip</code> does not return a useful value — it computes a value and displays the results on the screen.</p>
 <p>A function that returns a value is called a <strong>fruitful function</strong> in this book. The opposite of a fruitful function is <strong>void function</strong> — one that is not executed for its resulting value, but is executed because it does something useful. (Languages like Java, C#, C and C++ use the term “void function”, other languages like Pascal call it a <strong>procedure</strong>.) Even though void functions are not executed for their resulting value, Python always wants to return something. So if the programmer doesn’t arrange to return a value, Python will automatically return the value <code>None</code>.</p>
 <p>How do we write our own fruitful function? Let’s look at the standard formula for compound interest as an example fo a fruitful function:</p>
 <figure>
-<img src="illustrations/compoundInterest.png" />
+<img src="figs/compoundInterest.png" />
 </figure>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -571,193 +596,254 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <p>This is a bit messy with all these decimal places, but remember that Python doesn’t understand that we’re working with money: it just does the calculation to the best of its ability, without rounding. Later we’ll see how to format the string that is printed in such a way that it does get nicely rounded to two decimal places before printing. * The line <code>toInvest = float(input(&quot;How much do you want to invest?&quot;))</code> also shows yet another example of <em>composition</em> — we can call a function like <code>float</code>, and its arguments can be the results of other function calls (like <code>input</code>) that we’ve called along the way.</p>
 <p>Notice something else very important here. The name of the variable we pass as an argument — <code>toInvest</code> — has nothing to do with the name of the parameter — <code>p</code>. It is as if <code>p = toInvest</code> is executed when <code>final_amt</code> is called. It doesn’t matter what the value was named in the caller, in <code>final_amt</code> its name is <code>p</code>.</p>
 <p>These short variable names are getting quite tricky, so perhaps we’d prefer one of these versions instead:</p>
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python} :linenos:</p>
-<pre><code>   def final_amt_v2(principalAmount, nominalPercentageRate, 
-                                       numTimesPerYear, years):
-       a = principalAmount * (1 + nominalPercentageRate / 
-                            numTimesPerYear) ** (numTimesPerYear*years)
-       return a
-       
-   def final_amt_v3(amt, rate, compounded, years):
-       a = amt * (1 + rate/compounded) ** (componded*years)
-       return a                  </code></pre>
-<p>They all do the same thing. Use your judgement to write code that can be best understood by other humans!<br />Short variable names are more economical and sometimes make code easier to read: E = mc :sup:<code>2</code> would not be nearly so memorable if Einstein had used longer variable names! If you do prefer short names, make sure you also have some comments to enlighten the reader about what the variables are used for.</p>
-<p>.. index:: single: local variable single: variable; local single: lifetime</p>
-<p>Variables and parameters are local ———————————-</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> final_amt_v2(principalAmount, nominalPercentageRate, 
+                                   numTimesPerYear, years):
+   a = principalAmount * (<span class="dv">1</span> + nominalPercentageRate / 
+                        numTimesPerYear) ** (numTimesPerYear*years)
+   <span class="kw">return</span> a
+   
+<span class="kw">def</span> final_amt_v3(amt, rate, compounded, years):
+   a = amt * (<span class="dv">1</span> + rate/compounded) ** (componded*years)
+   <span class="kw">return</span> a</code></pre></td></tr></table>
+<p>They all do the same thing. Use your judgement to write code that can be best understood by other humans!<br />Short variable names are more economical and sometimes make code easier to read: E = mc<sup>2</sup> would not be nearly so memorable if Einstein had used longer variable names! If you do prefer short names, make sure you also have some comments to enlighten the reader about what the variables are used for.</p>
+<hr />
 <p>When we create a <strong>local variable</strong> inside a function, it only exists inside the function, and we cannot use it outside. For example, consider again this function:</p>
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python} :linenos:</p>
-<pre><code>   def final_amt(p, r, n, t):
-       a = p * (1 + r/n) ** (n*t)
-       return a           </code></pre>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> final_amt(p, r, n, t):
+   a = p * (<span class="dv">1</span> + r/n) ** (n*t)
+   <span class="kw">return</span> a           </code></pre></td></tr></table>
 <p>If we try to use <code>a</code>, outside the function, we’ll get an error:</p>
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}</p>
-<pre><code>    &gt;&gt;&gt; a
-    NameError: name &#39;a&#39; is not defined</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a
+<span class="ot">NameError</span>: name <span class="st">&#39;a&#39;</span> is not defined</code></pre>
 <p>The variable <code>a</code> is local to <code>final_amt</code>, and is not visible outside the function.</p>
 <p>Additionally, <code>a</code> only exists while the function is being executed — we call this its <strong>lifetime</strong>. When the execution of the function terminates, the local variables are destroyed.</p>
 <p>Parameters are also local, and act like local variables. For example, the lifetimes of <code>p</code>, <code>r</code>, <code>n</code>, <code>t</code> begin when <code>final_amt</code> is called, and the lifetime ends when the function completes its execution.</p>
 <p>So it is not possible for a function to set some local variable to a value, complete its execution, and then when it is called again next time, recover the local variable. Each call of the function creates new local variables, and their lifetimes expire when the function returns to the caller.</p>
-<p>.. index:: refactoring code, chunking</p>
-<p>Turtles Revisited —————–</p>
+</section>
+<section id="tips-revisited" class="level2">
+<h2><a href="#tips-revisited"><span class="header-section-number">5.6</span> Tips Revisited</a></h2>
 <p>Now that we have fruitful functions, we can focus our attention on reorganizing our code so that it fits more nicely into our mental chunks.<br />This process of rearrangement is called <strong>refactoring</strong> the code.</p>
-<p>Two things we’re always going to want to do when working with turtles is to create the window for the turtle, and to create one or more turtles. We could write some functions to make these tasks easier in future:</p>
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python} :linenos:</p>
-<pre><code>   def make_window(colr, ttle):   
-       &quot;&quot;&quot;
-         Set up the window with the given background color and title. 
-         Returns the new window.
-       &quot;&quot;&quot;
-       w = turtle.Screen()             
-       w.bgcolor(colr)
-       w.title(ttle)
-       return w
-       
-       
-   def make_turtle(colr, sz):      
-       &quot;&quot;&quot;
-         Set up a turtle with the given color and pensize.
-         Returns the new turtle.
-       &quot;&quot;&quot;
-       t = turtle.Turtle()
-       t.color(colr)
-       t.pensize(sz)
-       return t
+<p>Two things want to do in our tip calculator is to find the amount of the tip and show the results to the user. In the example below, we separate the various functions of the program to make a more complete tip calculator. As you’ll see, we’re starting to build code that is useful. Using functions allows us to make changes to one part of a program without affecting other parts of the program. For example, we can change the welcome message without worrying about breaking our calculations.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> welcome():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Give the user a welcome message.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="kw">print</span>(<span class="st">&quot;&quot;&quot;</span>
+
+<span class="st">-----------------------------------</span>
+<span class="st">   Welcome to the Tip Calculator   </span>
+<span class="st">-----------------------------------</span>
+<span class="st">&quot;&quot;&quot;</span>)
+
+<span class="kw">def</span> calc_tip(bill, pct):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Calculate the tip on a bill, given the pct of the tip.</span>
+<span class="co">        Return the amount of the tip</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    tip = bill * (pct * .<span class="dv">01</span>) <span class="co"># convert pct to a decimal and calculate</span>
+    tip = <span class="dt">round</span>(tip, <span class="dv">2</span>) <span class="co"># round the tip to 2 decimal places</span>
+    <span class="kw">return</span> tip
+
+<span class="kw">def</span> get_bill_amt():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Ask the user to enter the amount of the bill</span>
+<span class="co">        and return this amount as a &lt;float&gt;</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    <span class="kw">return</span> <span class="dt">float</span>(<span class="dt">input</span>(<span class="st">&quot;How much was your total bill: &quot;</span>))
+
+<span class="kw">def</span> get_tip_pct():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Allow the user to choose a tip amount</span>
+<span class="co">        from a menu.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    
+    <span class="kw">print</span>(<span class="st">&quot;&quot;&quot;</span>
+<span class="st">What percent tip do you want to leave?</span>
+<span class="st">  1 - 10%, lousy service</span>
+<span class="st">  2 - 15%, good service, but I&#39;m cheap</span>
+<span class="st">  3 - 20%, the server is hard working and deserves a decent tip</span>
+<span class="st">  4 - 25%, outstanding service&quot;&quot;&quot;</span>)
+
+    menu = <span class="dt">input</span>(<span class="st">&quot;enter your choice (1-4):&quot;</span>)
+    
+    <span class="kw">if</span> menu == <span class="st">&quot;1&quot;</span>:
+        <span class="kw">return</span> <span class="dv">10</span>
+    <span class="kw">if</span> menu == <span class="st">&quot;2&quot;</span>:
+        <span class="kw">return</span> <span class="dv">15</span>
+    <span class="kw">if</span> menu == <span class="st">&quot;3&quot;</span>:
+        <span class="kw">return</span> <span class="dv">20</span>
+    <span class="kw">if</span> menu == <span class="st">&quot;4&quot;</span>:
+        <span class="kw">return</span> <span class="dv">25</span>
+    
+    <span class="kw">return</span> -<span class="dv">1</span> <span class="co"># return -1 for any invalid choice</span>
+
+<span class="kw">def</span> show_results(bill, tip, pct):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Prints a message to the user showing</span>
+<span class="co">        the result of the calculations.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    
+    total = tip + bill
+
+    <span class="kw">print</span>(<span class="st">&quot;Bill amount: $&quot;</span> + <span class="dt">str</span>(bill))
+    <span class="kw">print</span>(<span class="st">&quot;Tip percentage: &quot;</span> + <span class="dt">str</span>(pct) + <span class="st">&quot;%&quot;</span>)
+    <span class="kw">print</span>(<span class="st">&quot;Tip amount due: $&quot;</span> + <span class="dt">str</span>(total))
+    <span class="kw">print</span>(<span class="st">&quot;&quot;&quot;</span>
+<span class="st">-----------------------------------</span>
+<span class="st">             GOOD BYE      </span>
+<span class="st">-----------------------------------</span>
+<span class="st">&quot;&quot;&quot;</span>)
+
+<span class="kw">def</span> main():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Read in the basic information, calcualte the tip</span>
+<span class="co">        and the share, then dispaly the results to the user.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    
+    welcome()
+    myBill = get_bill_amt()
+    pct = get_tip_pct()
+    tip = calc_tip(myBill, pct)
+    show_results(myBill, tip, pct)
 
 
-   wn = make_window(&quot;lightgreen&quot;, &quot;Tess and Alex dancing&quot;)
-   tess = make_turtle(&quot;hotpink&quot;, 5)
-   alex = make_turtle(&quot;black&quot;, 1)
-   dave = make_turtle(&quot;yellow&quot;, 2)  </code></pre>
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre>
 <p>The trick about refactoring code is to anticipate which things we are likely to want to change each time we call the function: these should become the parameters, or changeable parts, of the functions we write.</p>
-<p>Glossary ——–</p>
-<p>.. glossary::</p>
-<pre><code>argument
-    A value provided to a function when the function is called. This value
-    is assigned to the corresponding parameter in the function.  The argument
-    can be the result of an expression which may involve operators, 
-    operands and calls to other fruitful functions.
+<aside id="main">
+<p><strong>The <code>main</code> function</strong></p>
+<p>In our code example above, we encounter Python’s special syntax for running a program from the command line:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre>
+<p>This conditional statement allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python, though, and we could execute any statements we choose under that block.</p>
+</aside>
 
-body
-    The second part of a compound statement. The body consists of a
-    sequence of statements all indented the same amount from the beginning
-    of the header.  The standard amount of indentation used within the
-    Python community is 4 spaces.
-
-compound statement
-    A statement that consists of two parts:
-
-    #. header - which begins with a keyword determining the statement
-       type, and ends with a colon.
-    #. body - containing one or more statements indented the same amount
-       from the header.
-
-    The syntax of a compound statement looks like this:
-
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-        
-            keyword ... :
-                statement
-                statement ...
-                                           
-docstring
-    A special string that is attached to a function as its ``__doc__`` attribute.
-    Tools like PyScripter can use docstrings to provide documentation or hints for the programmer.
-    When we get to modules, classes, and methods, we&#39;ll see that docstrings can also be used there. 
-
-flow of execution
-    The order in which statements are executed during a program run.
-
-frame
-    A box in a stack diagram that represents a function call. It contains
-    the local variables and parameters of the function.
-
-function
-    A named sequence of statements that performs some useful operation.
-    Functions may or may not take parameters and may or may not produce a
-    result.
-
-function call
-    A statement that executes a function. It consists of the name of the
-    function followed by a list of arguments enclosed in parentheses.
-
-function composition
-    Using the output from one function call as the input to another.
-
-function definition
-    A statement that creates a new function, specifying its name,
-    parameters, and the statements it executes.
-    
-fruitful function
-    A function that returns a value when it is called.
-
-header line
-    The first part of a compound statement. A header line begins with a keyword and
-    ends with a colon (:)
-
-import statement
-    A statement which permits functions and variables defined in another Python
-    module to be brought into the environment of another script.  To use the 
-    features of the turtle, we need to first import the turtle module.
-    
-lifetime
-    Variables and objects have lifetimes — they are created at some point during
-    program execution, and will be destroyed at some time. 
-    
-local variable
-    A variable defined inside a function. A local variable can only be used
-    inside its function.  Parameters of a function are also a special kind
-    of local variable.
-
-parameter
-    A name used inside a function to refer to the value which was passed 
-    to it as an argument.
-       
-refactor
-    A fancy word to describe reorganizing our program code, usually to make 
-    it more understandable.  Typically, we have a program that is already working,
-    then we go back to &quot;tidy it up&quot;.  It often involves choosing better variable
-    names, or spotting repeated patterns and moving that code into a function.    
-    
-stack diagram
-    A graphical representation of a stack of functions, their variables,
-    and the values to which they refer.
-
-traceback
-    A list of the functions that are executing, printed when a runtime
-    error occurs. A traceback is also commonly refered to as a
-    *stack trace*, since it lists the functions in the order in which they
-    are stored in the
-    `runtime stack &lt;http://en.wikipedia.org/wiki/Runtime_stack&gt;`__.
-    
-void function
-    The opposite of a fruitful function: one that does not return a value.  It is
-    executed for the work it does, rather than for the value it returns.</code></pre>
-<p>Exercises ———</p>
-<ol>
-<li><p>Write a void (non-fruitful) function to draw a square. Use it in a program to draw the image shown below. Assume each side is 20 units. (Hint: notice that the turtle has already moved away from the ending point of the last square when the program ends.)</p>
-<p>.. image:: illustrations/five_squares.png</p></li>
-<li><p>Write a program to draw this. Assume the innermost square is 20 units per side, and each successive square is 20 units bigger, per side, than the one inside it.</p>
-<p>.. image:: illustrations/nested_squares.png</p></li>
-<li><p>Write a void function <code>draw_poly(t, n, sz)</code> which makes a turtle draw a regular polygon. When called with <code>draw_poly(tess, 8, 50)</code>, it will draw a shape like this:</p>
-<p>.. image:: illustrations/regularpolygon.png</p></li>
-<li><p>Draw this pretty pattern.</p></li>
+</section>
+<section id="glossary" class="level2">
+<h2><a href="#glossary"><span class="header-section-number">5.7</span> Glossary</a></h2>
+<dl>
+<dt>argument</dt>
+<dd><p>A value provided to a function when the function is called. This value is assigned to the corresponding parameter in the function. The argument can be the result of an expression which may involve operators, operands and calls to other fruitful functions.</p>
+</dd>
+<dt>body</dt>
+<dd><p>The second part of a compound statement. The body consists of a sequence of statements all indented the same amount from the beginning of the header. The standard amount of indentation used within the Python community is 4 spaces.</p>
+</dd>
+<dt>compound statement</dt>
+<dd><p>A statement that consists of two parts:</p>
+<ol type="1">
+<li>header - which begins with a keyword determining the statement type, and ends with a colon.</li>
+<li>body - containing one or more statements indented the same amount from the header.</li>
 </ol>
-<p>.. image:: illustrations/tess08.png</p>
-<ol>
-<li><p>The two spirals in this picture differ only by the turn angle. Draw both.</p>
-<p>.. image:: illustrations/tess_spirals.png :height: 240</p></li>
-<li><p>Write a void function <code>draw_equitriangle(t, sz)</code> which calls <code>draw_poly</code> from the previous question to have its turtle draw a equilateral triangle.</p></li>
-<li><p>Write a fruitful function <code>sum_to(n)</code> that returns the sum of all integer numbers up to and including <code>n</code>. So <code>sum_to(10)</code> would be <code>1+2+3...+10</code> which would return the value 55.</p></li>
-<li><p>Write a function <code>area_of_circle(r)</code> which returns the area of a circle of radius <code>r</code>.</p></li>
-<li><p>Write a void function to draw a star, where the length of each side is 100 units. (Hint: You should turn the turtle by 144 degrees at each point.)</p>
-<p>.. image:: illustrations/star.png</p></li>
-<li><p>Extend your program above. Draw five stars, but between each, pick up the pen, move forward by 350 units, turn right by 144, put the pen down, and draw the next star. You’ll get something like this:</p>
-<p>.. image:: illustrations/five_stars.png</p>
-<p>What would it look like if you didn’t pick up the pen?</p></li>
+<p>The syntax of a compound statement looks like this:</p>
+<pre class="sourceCode python"><code class="sourceCode python">keyword ... :
+    statement
+    statement ...</code></pre>
+</dd>
+<dt>docstring</dt>
+<dd><p>A special string that is attached to a function as its <code>__doc__</code> attribute. Tools like PyScripter can use docstrings to provide documentation or hints for the programmer. When we get to modules, classes, and methods, we’ll see that docstrings can also be used there.</p>
+</dd>
+<dt>flow of execution</dt>
+<dd><p>The order in which statements are executed during a program run.</p>
+</dd>
+<dt>frame</dt>
+<dd><p>A box in a stack diagram that represents a function call. It contains the local variables and parameters of the function.</p>
+</dd>
+<dt>function</dt>
+<dd><p>A named sequence of statements that performs some useful operation. Functions may or may not take parameters and may or may not produce a result.</p>
+</dd>
+<dt>function call</dt>
+<dd><p>A statement that executes a function. It consists of the name of the function followed by a list of arguments enclosed in parentheses.</p>
+</dd>
+<dt>function composition</dt>
+<dd><p>Using the output from one function call as the input to another.</p>
+</dd>
+<dt>function definition</dt>
+<dd><p>A statement that creates a new function, specifying its name, parameters, and the statements it executes.</p>
+</dd>
+<dt>fruitful function</dt>
+<dd><p>A function that returns a value when it is called.</p>
+</dd>
+<dt>header line</dt>
+<dd><p>The first part of a compound statement. A header line begins with a keyword and ends with a colon (:)</p>
+</dd>
+<dt>import statement</dt>
+<dd><p>A statement which permits functions and variables defined in another Python module to be brought into the environment of another script. To use the features of the turtle, we need to first import the turtle module.</p>
+</dd>
+<dt>lifetime</dt>
+<dd><p>Variables and objects have lifetimes — they are created at some point during program execution, and will be destroyed at some time.</p>
+</dd>
+<dt>local variable</dt>
+<dd><p>A variable defined inside a function. A local variable can only be used inside its function. Parameters of a function are also a special kind of local variable.</p>
+</dd>
+<dt>parameter</dt>
+<dd><p>A name used inside a function to refer to the value which was passed to it as an argument.</p>
+</dd>
+<dt>refactor</dt>
+<dd><p>A fancy word to describe reorganizing our program code, usually to make it more understandable. Typically, we have a program that is already working, then we go back to “tidy it up”. It often involves choosing better variable names, or spotting repeated patterns and moving that code into a function.</p>
+</dd>
+<dt>stack diagram</dt>
+<dd><p>A graphical representation of a stack of functions, their variables, and the values to which they refer.</p>
+</dd>
+<dt>traceback</dt>
+<dd><p>A list of the functions that are executing, printed when a runtime error occurs. A traceback is also commonly refered to as a <em>stack trace</em>, since it lists the functions in the order in which they are stored in the <code>runtime stack &lt;http://en.wikipedia.org/wiki/Runtime_stack&gt;</code>__.</p>
+</dd>
+<dt>void function</dt>
+<dd><p>The opposite of a fruitful function: one that does not return a value. It is executed for the work it does, rather than for the value it returns.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises" class="level2">
+<h2><a href="#exercises"><span class="header-section-number">5.8</span> Exercises</a></h2>
+<ol type="1">
+<li><p>Write a void (non-fruitful) function to that prints out centered text to the console. Your function should have two parameters, <code>text</code>—the string to center, and <code>maxLen</code>—the width of the document (in spaces).<br /> (Hint: you will want to use the built-in <code>len</code> function and might want to use the * operator with spaces.)</p></li>
+<li><p>Write a function <code>area_of_circle(r)</code> which returns the area of a circle of radius <code>r</code>.<br /> (Hint: if you can’t remember how to find the area of a circle, look it up or ask a friend.)</p></li>
+<li><p><em>Lemonade Stand</em>. Diego has a lemonade stand and he needs a program to estimate costs. Write a Python program called lemonade.py that allows him to see potential profits for his stand. Use the following skeleton to start your program:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> estimate_profit(lemonCost, cupCost, estPeople, price):
+    <span class="co"># write a doc string</span>
+    <span class="co"># write the code</span>
+    <span class="co"># return the estimate</span>
+
+<span class="kw">def</span> main():
+    l = .<span class="dv">3</span>
+    c = .<span class="dv">15</span>
+    n = <span class="dv">100</span>
+    p = <span class="fl">2.50</span>
+    profit = estimate_profit(l, c, n, p)
+    show_results(l, c, n, p, price) <span class="co"># you need to define this one yourself</span>
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre></td></tr></table></li>
 </ol>
 </section>
 </section>
-<section class="level1" id="contributor-list">
+<section id="contributor-list" class="level1">
 <h1><a href="#contributor-list"><span class="header-section-number">6</span> Contributor List</a></h1>
 <p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
 <p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>

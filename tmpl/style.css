@@ -15,6 +15,11 @@ body, p, ul, ol, li, span, div
      font-family: "FreeSans", "Helvetica", sans-serif; 
 }
 
+pre, code, tt, code span, pre span
+{
+    font-family: "FeeMono", Monaco, Courier, monospaced;
+}
+
 aside
 {
     border: medium solid gray;
@@ -55,7 +60,13 @@ pre
     padding: .5em;
 }
 
-dt { font-weight: bold; }
+dl { margin-left: 2em; }
+dt
+{ 
+    font-weight: bold; 
+    font-size: 115%; 
+    margin-top: .5em;
+}
 dd p {padding: 0; margin: 0; }
 
 

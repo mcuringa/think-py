@@ -32,7 +32,8 @@ version of the contributor list (unless you ask to be omitted). Thank you!
 
 
 Second Edition
-~~~~~~~~~~~~~~
+----------------
+
 * An email from Mike MacHenry set me straight on tail recursion. He not only
   pointed out an error in the presentation, but suggested how to correct it.
 * It wasn't until 5th Grade student Owen Davies came to me in a Saturday
@@ -68,7 +69,7 @@ Second Edition
 
 
 First Edition
-~~~~~~~~~~~~~
+----------------
 
 * Lloyd Hugh Allen sent in a correction to Section 8.4.
 * Yvon Boulianne sent in a correction of a semantic error in Chapter 5.
