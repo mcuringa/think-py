@@ -17,7 +17,7 @@ body, p, ul, ol, li, span, div
 
 pre, code, tt, code span, pre span
 {
-    font-family: "FeeMono", Monaco, Courier, monospaced;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
 
 aside
@@ -47,11 +47,9 @@ h1.title
     color: black;
     clear: both;
     font-size: 200%;
-    font-weight: bold; 
+    font-weight: bold;
+    color: #ab1c19;
 }
-
-h1.title,.rsa-red-text { color: #ab1c19; }
-.rsa-red-bg { background-color: #ab1c19; }
 
 pre
 {
@@ -89,47 +87,6 @@ blockquote
     padding-left: 1em;
 }
 
-.img-right 
-{
-    float: right;
-    background-color: #d3d3d3;
-    padding: .25em;
-    font-weight: bold;
-    font-size: 80%;
-    text-align: center;
-}
-.img-right img { display: block; margin-bottom: .25em; }
-.clear-all {clear: both;}
-.warn { color: red; font-weight: bold; text-align: center; }
-.center { text-align: center; }
-.single, .single p { line-height: 1.25; }
-
-/* hanging indents for references/citations */
-#required-books p, #suggested-books p,*[id*='reading'] p, .ref p, *[id*='bibliography'] p
-{
-    margin-bottom: 1em;
-    margin-left: 2em;
-    margin-bottom: .25em;
-    text-indent: -2em;
-    line-height: 1.5em;
-}
-
-.figure
-{
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: .25em 0;
-}
-.figure svg, .figure img
-{
-    max-width: 100%;
-}
-.caption
-{
-    font-weight: bold; font-size: 80%;
-}
-
-
 @media screen
 {
     body
@@ -156,11 +113,7 @@ nav#TOC li
 
 #TOC h3 { text-align: center; }
 
-footer
-{
-    border-top: 2px dotted gray;
-    margin-top: 1.5em;
-}
+
 
 /** code highlighting stuff **/
 
@@ -168,6 +121,7 @@ table.sourceCode, pre.sourceCode
 {
     width: 90%;
     margin: 0 auto;
+    line-height: 1.15em;
 }
 
 td.lineNumbers {

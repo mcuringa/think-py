@@ -442,7 +442,7 @@ to make changes to one part of a program without affecting other parts
 of the program. For example, we can change the welcome message without
 worrying about breaking our calculations.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 def welcome():
     """
         Give the user a welcome message.
@@ -530,6 +530,7 @@ def main():
 if __name__ == "__main__":
     main()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Download and run the source code: tip2.py](examples/tip2.py)
 
 The trick about refactoring code is to anticipate which things we are likely to want to change
 each time we call the function: these should become the parameters, or changeable parts,
