@@ -16,7 +16,7 @@
   <style type="text/css">
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
+table.sourceCode { width: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
 code > span.kw { color: #007020; font-weight: bold; }
@@ -205,12 +205,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 </nav>
 <p><strong>Adelphi University Mod</strong><br />based on the <em>Learning with Python 3 (RLE)</em> by Peter Wentworth</p>
-<section id="copyright-notice" class="level1">
+<section class="level1" id="copyright-notice">
 <h1><a href="#copyright-notice"><span class="header-section-number">1</span> Copyright Notice</a></h1>
 <p>Copyright (C) Peter Wentworth.</p>
 <p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
 </section>
-<section id="foreword" class="level1">
+<section class="level1" id="foreword">
 <h1><a href="#foreword"><span class="header-section-number">2</span> Foreword</a></h1>
 <p>By David Beazley</p>
 <p>As an educator, researcher, and book author, I am delighted to see the completion of this book. Python is a fun and extremely easy-to-use programming language that has steadily gained in popularity over the last few years. Developed over ten years ago by Guido van Rossum, Python’s simple syntax and overall feel is largely derived from ABC, a teaching language that was developed in the 1980’s. However, Python was also created to solve real problems and it borrows a wide variety of features from programming languages such as C++, Java, Modula-3, and Scheme. Because of this, one of Python’s most remarkable features is its broad appeal to professional software developers, scientists, researchers, artists, and educators.</p>
@@ -220,19 +220,19 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>In reading Jeffrey’s preface, I am struck by his comments that Python allowed him to see a higher level of success and a lower level of frustration and that he was able to move faster with better results. Although these comments refer to his introductory course, I sometimes use Python for these exact same reasons in advanced graduate level computer science courses at the University of Chicago. In these courses, I am constantly faced with the daunting task of covering a lot of difficult course material in a blistering nine week quarter. Although it is certainly possible for me to inflict a lot of pain and suffering by using a language like C++, I have often found this approach to be counterproductive—especially when the course is about a topic unrelated to just programming. I find that using Python allows me to better focus on the actual topic at hand while allowing students to complete substantial class projects.</p>
 <p>Although Python is still a young and evolving language, I believe that it has a bright future in education. This book is an important step in that direction. David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
 </section>
-<section id="preface" class="level1">
+<section class="level1" id="preface">
 <h1><a href="#preface"><span class="header-section-number">3</span> Preface</a></h1>
 <p>By Jeffrey Elkner</p>
 <p>This book owes its existence to the collaboration made possible by the Internet and the free software movement. Its three authors—a college professor, a high school teacher, and a professional programmer—never met face to face to work on it, but we have been able to collaborate closely, aided by many other folks who have taken the time and energy to send us their feedback.</p>
 <p>We think this book is a testament to the benefits and future possibilities of this kind of collaboration, the framework for which has been put in place by Richard Stallman and the Free Software Foundation.</p>
-<section id="how-and-why-i-came-to-use-python" class="level2">
+<section class="level2" id="how-and-why-i-came-to-use-python">
 <h2><a href="#how-and-why-i-came-to-use-python"><span class="header-section-number">3.1</span> How and why I came to use Python</a></h2>
 <p>In 1999, the College Board’s Advanced Placement (AP) Computer Science exam was given in C++ for the first time. As in many high schools throughout the country, the decision to change languages had a direct impact on the computer science curriculum at Yorktown High School in Arlington, Virginia, where I teach. Up to this point, Pascal was the language of instruction in both our first-year and AP courses. In keeping with past practice of giving students two years of exposure to the same language, we made the decision to switch to C++ in the first year course for the 1997-98 school year so that we would be in step with the College Board’s change for the AP course the following year.</p>
 <p>Two years later, I was convinced that C++ was a poor choice to use for introducing students to computer science. While it is certainly a very powerful programming language, it is also an extremely difficult language to learn and teach. I found myself constantly fighting with C++’s difficult syntax and multiple ways of doing things, and I was losing many students unnecessarily as a result. Convinced there had to be a better language choice for our first-year class, I went looking for an alternative to C++.</p>
 <p>I needed a language that would run on the machines in our GNU/Linux lab as well as on the Windows and Macintosh platforms most students have at home. I wanted it to be free software, so that students could use it at home regardless of their income. I wanted a language that was used by professional programmers, and one that had an active developer community around it. It had to support both procedural and object-oriented programming. And most importantly, it had to be easy to learn and teach. When I investigated the choices with these goals in mind, Python stood out as the best candidate for the job.</p>
 <p>I asked one of Yorktown’s talented students, Matt Ahrens, to give Python a try. In two months he not only learned the language but wrote an application called pyTicket that enabled our staff to report technology problems via the Web. I knew that Matt could not have finished an application of that scale in so short a time in C++, and this accomplishment, combined with Matt’s positive assessment of Python, suggested that Python was the solution I was looking for.</p>
 </section>
-<section id="finding-a-textbook" class="level2">
+<section class="level2" id="finding-a-textbook">
 <h2><a href="#finding-a-textbook"><span class="header-section-number">3.2</span> Finding a textbook</a></h2>
 <p>Having decided to use Python in both of my introductory computer science classes the following year, the most pressing problem was the lack of an available textbook.</p>
 <p>Free documents came to the rescue. Earlier in the year, Richard Stallman had introduced me to Allen Downey. Both of us had written to Richard expressing an interest in developing free educational materials. Allen had already written a first-year computer science textbook, <em>How to Think Like a Computer Scientist</em>. When I read this book, I knew immediately that I wanted to use it in my class. It was the clearest and most helpful computer science text I had seen. It emphasized the processes of thought involved in programming rather than the features of a particular language. Reading it immediately made me a better teacher.</p>
@@ -241,7 +241,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
 <p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
-<section id="introducing-programming-with-python" class="level2">
+<section class="level2" id="introducing-programming-with-python">
 <h2><a href="#introducing-programming-with-python"><span class="header-section-number">3.3</span> Introducing programming with Python</a></h2>
 <p>The process of translating and using <em>How to Think Like a Computer Scientist</em> for the past two years has confirmed Python’s suitability for teaching beginning students. Python greatly simplifies programming examples and makes important programming ideas easier to teach.</p>
 <p>The first example from the text illustrates this point. It is the traditional hello, world program, which in the Java version of the book looks like this:</p>
@@ -260,7 +260,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Another example of how Python aids in the teaching and learning of programming is in its syntax for functions. My students have always had a great deal of difficulty understanding functions. The main problem centers around the difference between a function definition and a function call, and the related distinction between a parameter and an argument. Python comes to the rescue with syntax that is nothing short of beautiful. Function definitions begin with the keyword <code>def</code>, so I simply tell my students, When you define a function, begin with <code>def</code>, followed by the name of the function that you are defining; when you call a function, simply call (type) out its name. Parameters go with definitions; arguments go with calls. There are no return types, parameter types, or reference and value parameters to get in the way, so I am now able to teach functions in less than half the time that it previously took me, with better comprehension.</p>
 <p>Using Python improved the effectiveness of our computer science program for all students. I saw a higher general level of success and a lower level of frustration than I experienced teaching with either C++ or Java. I moved faster with better results. More students left the course with the ability to create meaningful programs and with the positive attitude toward the experience of programming that this engenders.</p>
 </section>
-<section id="building-a-community" class="level2">
+<section class="level2" id="building-a-community">
 <h2><a href="#building-a-community"><span class="header-section-number">3.4</span> Building a community</a></h2>
 <p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
@@ -272,7 +272,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
 </section>
 </section>
-<section id="the-rhodes-local-edition-rle-version-of-august-2012" class="level1">
+<section class="level1" id="the-rhodes-local-edition-rle-version-of-august-2012">
 <h1><a href="#the-rhodes-local-edition-rle-version-of-august-2012"><span class="header-section-number">4</span> The Rhodes Local Edition (RLE) (Version of August, 2012)</a></h1>
 <p>By Peter Wentworth</p>
 <aside>
@@ -341,9 +341,9 @@ Many thanks to all the contributors and the authors for making their hard work a
 <li><p>We’re interested in issues around teaching and learning. Some research indicates that “intellectual playfulness” is important. The study referenced in the Odds-and-ends workbook at the end just didn’t seem to have anywhere sensible to go in the book, yet I wanted it included. It is quite likely that we’ll allow more issues like this to creep into the book, to try to make it more than just about programming in Python.</p></li>
 </ul>
 </section>
-<section id="functions" class="level1">
+<section class="level1" id="functions">
 <h1><a href="#functions"><span class="header-section-number">5</span> Functions</a></h1>
-<section id="functions-1" class="level2">
+<section class="level2" id="functions-1">
 <h2><a href="#functions-1"><span class="header-section-number">5.1</span> Functions</a></h2>
 <p>In Python, a <strong>function</strong> is a named sequence of statements that belong together. Their primary purpose is to help us organize programs into chunks that match how we think about the problem.</p>
 <p>The syntax for a <strong>function definition</strong> is:</p>
@@ -459,7 +459,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </aside>
 
 </section>
-<section id="composition-functions-can-call-other-functions" class="level2">
+<section class="level2" id="composition-functions-can-call-other-functions">
 <h2><a href="#composition-functions-can-call-other-functions"><span class="header-section-number">5.2</span> Composition: Functions can call other functions</a></h2>
 <p>So far, we have looked at the elements of a program—<code>variables</code>, <code>expressions</code>, and <code>statements</code>—in isolation, without talking about how to combine them.</p>
 <p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them. In our calculate_tip example, we call several Python built-in functions: <code>round</code> to keep our amounts to 2 decimal places and <code>str</code> to convert numeric data (ints and floats) to strings when we print them. As we will see, we can compose our programs of many functions that we define ourselves.</p>
@@ -476,7 +476,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </ol>
 <p>As we might expect, we have to create a function before we can execute it. In other words, the function definition has to be executed before the function is called.</p>
 </section>
-<section id="flow-of-execution" class="level2">
+<section class="level2" id="flow-of-execution">
 <h2><a href="#flow-of-execution"><span class="header-section-number">5.3</span> Flow of execution</a></h2>
 <p>In order to ensure that a function is defined before its first use, we have to know the order in which statements are executed, which is called the <strong>flow of execution</strong>.</p>
 <p>Execution always begins at the first statement of the program. Statements are executed one at a time, in order from top to bottom.</p>
@@ -486,7 +486,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <p>Fortunately, Python is adept at keeping track of where it is, so each time a function completes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.</p>
 <p>What’s the moral of this sordid tale? When we read a program, don’t read from top to bottom. Instead, follow the flow of execution.</p>
 </section>
-<section id="functions-that-require-arguments" class="level2">
+<section class="level2" id="functions-that-require-arguments">
 <h2><a href="#functions-that-require-arguments"><span class="header-section-number">5.4</span> Functions that require arguments</a></h2>
 <p>Most functions require arguments: the arguments provide for generalization. For example, if we want to find the absolute value of a number, we have to indicate what the number is. Python has a built-in function for computing the absolute value:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">abs</span>(<span class="dv">5</span>)
@@ -508,7 +508,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <span class="dv">503</span></code></pre>
 <p><code>max</code> can be passed any number of arguments, separated by commas, and will return the largest value passed. The arguments can be either simple values or expressions. In the last example, 503 is returned, since it is larger than 33, 125, and 1.</p>
 </section>
-<section id="functions-that-return-values" class="level2">
+<section class="level2" id="functions-that-return-values">
 <h2><a href="#functions-that-return-values"><span class="header-section-number">5.5</span> Functions that return values</a></h2>
 <p>All the functions in the previous section return values. Furthermore, functions like <code>range</code>, <code>int</code>, <code>abs</code> all return values that can be used to build more complex expressions.</p>
 <p>So an important difference between these functions and one like <code>calculate_tip</code> is that <code>calculate_tip</code> does not return a useful value — it computes a value and displays the results on the screen.</p>
@@ -588,7 +588,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <p>Parameters are also local, and act like local variables. For example, the lifetimes of <code>p</code>, <code>r</code>, <code>n</code>, <code>t</code> begin when <code>final_amt</code> is called, and the lifetime ends when the function completes its execution.</p>
 <p>So it is not possible for a function to set some local variable to a value, complete its execution, and then when it is called again next time, recover the local variable. Each call of the function creates new local variables, and their lifetimes expire when the function returns to the caller.</p>
 </section>
-<section id="tips-revisited" class="level2">
+<section class="level2" id="tips-revisited">
 <h2><a href="#tips-revisited"><span class="header-section-number">5.6</span> Tips Revisited</a></h2>
 <p>Now that we have fruitful functions, we can focus our attention on reorganizing our code so that it fits more nicely into our mental chunks.<br />This process of rearrangement is called <strong>refactoring</strong> the code.</p>
 <p>Two things want to do in our tip calculator is to find the amount of the tip and show the results to the user. In the example below, we separate the various functions of the program to make a more complete tip calculator. As you’ll see, we’re starting to build code that is useful. Using functions allows us to make changes to one part of a program without affecting other parts of the program. For example, we can change the welcome message without worrying about breaking our calculations.</p>
@@ -775,7 +775,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </aside>
 
 </section>
-<section id="glossary" class="level2">
+<section class="level2" id="glossary">
 <h2><a href="#glossary"><span class="header-section-number">5.7</span> Glossary</a></h2>
 <dl>
 <dt>argument</dt>
@@ -848,7 +848,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </dd>
 </dl>
 </section>
-<section id="exercises" class="level2">
+<section class="level2" id="exercises">
 <h2><a href="#exercises"><span class="header-section-number">5.8</span> Exercises</a></h2>
 <ol type="1">
 <li><p>Write a void (non-fruitful) function to that prints out centered text to the console. Your function should have two parameters, <code>text</code>—the string to center, and <code>maxLen</code>—the width of the document (in spaces).<br /> (Hint: you will want to use the built-in <code>len</code> function and might want to use the * operator with spaces.)</p></li>
@@ -887,13 +887,13 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </ol>
 </section>
 </section>
-<section id="contributor-list" class="level1">
+<section class="level1" id="contributor-list">
 <h1><a href="#contributor-list"><span class="header-section-number">6</span> Contributor List</a></h1>
 <p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
 <p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>
 <p>If you have a chance to look through the list, you should realize that each person here has spared you and all subsequent readers from the confusion of a technical error or a less-than-transparent explanation, just by sending us a note.</p>
 <p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <code>p.wentworth@ru.ac.za &lt;mailto:p.wentworth@ru.ac.za&gt;</code>__ . Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
-<section id="second-edition" class="level2">
+<section class="level2" id="second-edition">
 <h2><a href="#second-edition"><span class="header-section-number">6.1</span> Second Edition</a></h2>
 <ul>
 <li>An email from Mike MacHenry set me straight on tail recursion. He not only pointed out an error in the presentation, but suggested how to correct it.</li>
@@ -911,7 +911,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <li>Michael Vogt reported an indentation error in an example in chapter 6, and sent in a suggestion for improving the clarity of the shell vs. script section in chapter 1.</li>
 </ul>
 </section>
-<section id="first-edition" class="level2">
+<section class="level2" id="first-edition">
 <h2><a href="#first-edition"><span class="header-section-number">6.2</span> First Edition</a></h2>
 <ul>
 <li>Lloyd Hugh Allen sent in a correction to Section 8.4.</li>

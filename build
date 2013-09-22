@@ -2,4 +2,4 @@
 
 CHAPTERS="forward.md preface.md functions.md contrib.md";
 
-pandoc -o   think-python.html -t html5 -s -S --toc --section-divs -N -H ./tmpl/style.css $CHAPTERS;
+pandoc -o index.html -t html5 -s -S --toc --section-divs -N -H ./tmpl/style.css $CHAPTERS;
