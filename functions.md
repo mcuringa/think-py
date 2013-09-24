@@ -443,6 +443,10 @@ of the program. For example, we can change the welcome message without
 worrying about breaking our calculations.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+# tip2.py
+# example of an interactive tip calculator
+# by: mxc
+
 def welcome():
     """
         Give the user a welcome message.
@@ -507,7 +511,9 @@ def show_results(bill, tip, pct):
 
     print("Bill amount: $" + str(bill))
     print("Tip percentage: " + str(pct) + "%")
-    print("Tip amount due: $" + str(total))
+    print("Tip amount due: $" + str(tip))
+    print("Total with tip: $" + str(total))
+
     print("""
 -----------------------------------
              GOOD BYE      
@@ -529,7 +535,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [Download and run the source code: tip2.py](examples/tip2.py)
 
 The trick about refactoring code is to anticipate which things we are likely to want to change

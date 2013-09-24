@@ -66,7 +66,9 @@ def show_results(bill, tip, pct):
 
     print("Bill amount: $" + str(bill))
     print("Tip percentage: " + str(pct) + "%")
-    print("Tip amount due: $" + str(total))
+    print("Tip amount due: $" + str(tip))
+    print("Total with tip: $" + str(total))
+
     print("""
 -----------------------------------
              GOOD BYE      
