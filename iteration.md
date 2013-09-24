@@ -7,56 +7,52 @@ computers do well and people do poorly.
 
 Repeated execution of a set of statements is called **iteration**.
 Because iteration is so common, Python provides several language
-features to make it easier. We've already seen the `for` statement in
-chapter 3. This the the form of iteration you'll likely be using most
-often. But in this chapter we've going to look at the `while` statement
---- another way to have your program do iteration, useful in slightly
+features to make it easier. The `for` loop is the form of iteration
+you'll likely be using most often, and we will look at that first.
+But in this chapter we've going to look at the `while` statement —
+another way to have your program do iteration, useful in slightly
 different circumstances.
 
-Before we do that, let's just review a few ideas...
-
-The **for** loop
+The `for` loop
 ----------------
 
 A basic building block of all programs is to be able to repeat some
 code, over and over again. Python's **for** loop solves this for
-us.. Let's say we have some friends, and we'd like to send them each
-an email inviting them to our party.. We don't quite know how to
+us. Let's say we have some friends, and we'd like to send them each
+an email inviting them to our party. We don't quite know how to
 send email yet, so for the moment we'll just print a message for
 each friend:
 
-    .. sourcecode:: python3
-        :linenos:
-
-        for f in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
-            invite = "Hi " + f + ".  Please come to my party on Saturday!"
-            print(invite)
-        # more code can follow here ...            
-      
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for f in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
+    invite = "Hi " + f + ".  Please come to my party on Saturday!"
+    print(invite)
+# more code can follow here …            
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      
 
 When we run this, the output looks like this:
 
-    .. sourcecode:: pycon
-
-        Hi Joe.  Please come to my party on Saturday!
-        Hi Zoe.  Please come to my party on Saturday!
-        Hi Brad.  Please come to my party on Saturday!
-        Hi Angelina.  Please come to my party on Saturday!
-        Hi Zuki.  Please come to my party on Saturday!
-        Hi Thandi.  Please come to my party on Saturday!
-        Hi Paris.  Please come to my party on Saturday! 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hi Joe.  Please come to my party on Saturday!
+Hi Zoe.  Please come to my party on Saturday!
+Hi Brad.  Please come to my party on Saturday!
+Hi Angelina.  Please come to my party on Saturday!
+Hi Zuki.  Please come to my party on Saturday!
+Hi Thandi.  Please come to my party on Saturday!
+Hi Paris.  Please come to my party on Saturday! 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * The variable ``f`` in the ``for`` statement at line 1 is called the **loop variable**.  
   We could have chosen any other variable name instead.
 * Lines 2 and 3 are the **loop body**.  The loop body is always
   indented. The indentation determines exactly what statements are "in the body of the loop".
 * On each *iteration* or *pass* of the loop, first a check is done to see if there are 
-  still more items to be processed.. If there are none left (this is called
+  still more items to be processed. If there are none left (this is called
   the **terminating condition** of the loop), the loop has finished.
   Program execution continues at the next statement after the loop body, (e.g. in this case
   the next statement below the comment in line 4).  
 * If there are items still to be processed, the loop variable is updated to refer to the
-  next item in the list.. This means, in this case, that the loop body is executed 
+  next item in the list. This means, in this case, that the loop body is executed 
   here 7 times, and each time ``f`` will refer to a different friend. 
 * At the end of each execution of the body of the loop, Python returns 
   to the ``for`` statement, to see if there are more items to be handled, and to assign the
@@ -66,12 +62,12 @@ Flow of Execution of the for loop
 ---------------------------------
  
 As a program executes, the interpreter always keeps track of which statement is
-about to be executed.. We call this the **control flow**, of the **flow of execution** 
-of the program.. When humans execute programs, they often use their finger to point 
-to each statement in turn.. So we could think of control flow as "Python's moving finger". 
+about to be executed. We call this the **control flow**, of the **flow of execution** 
+of the program. When humans execute programs, they often use their finger to point 
+to each statement in turn. So we could think of control flow as "Python's moving finger". 
 
 Control flow until now has been strictly
-top to bottom, one statement at a time.. The ``for`` loop changes this. 
+top to bottom, one statement at a time. The ``for`` loop changes this. 
 
 <aside id="for-loop-flow">
 **Flowchart of a ``for`` loop**
@@ -79,7 +75,7 @@ top to bottom, one statement at a time.. The ``for`` loop changes this.
 Control flow is often easy to visualize and understand if we draw a flowchart.
 This shows the exact steps and logic of how the ``for`` statement executes.
 
-![](illustrations/flowchart_for.png)
+![](figs/flowchart_for.png)
 
 </aside>
 
@@ -282,7 +278,7 @@ eventually ended up at 1. But who knows? Perhaps there is some as-yet
 untested number which does not reduce to 1.
 
 You'll notice that if you don't stop when you reach 1, the sequence gets
-into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 ... So one possibility
+into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility
 is that there might be other cycles that we just haven't found yet.
 
 Wikipedia has an informative article about the Collatz conjecture. The
@@ -416,7 +412,7 @@ accessing this help. In PyScripter, click on the *Help* menu item, and
 select *Python Manuals*. Then search for help on the built-in function
 **range**. You'll get something like this:
 
-![image](illustrations/help_range.png)
+![image](figs/help_range.png)
 
 Notice the square brackets in the description of the arguments. These
 are examples of **meta-notation** --- notation that describes Python
@@ -443,10 +439,10 @@ means you can substitute any legal variable and any legal list when you
 write your Python code.
 
 This (simplified) description of the `print` function, shows another
-example of meta-notation in which the ellipses (`...`) mean that you can
+example of meta-notation in which the ellipses (`…`) mean that you can
 have as many objects as you like (even zero), separated by commas:
 
-> **print( [***object,* ... **] )**
+> **print( [***object,* … **] )**
 
 Meta-notation gives us a concise and powerful way to describe the
 *pattern* of some syntax or feature.
@@ -597,7 +593,7 @@ The stack diagram for this program shows that the two variables named
 `i` are not the same variable. They can refer to different values, and
 changing one does not affect the other.
 
-> ![Stack 2 diagram](illustrations/stack2.png)
+> ![Stack 2 diagram](figs/stack2.png)
 
 The value of `i` in `print_mult_table` goes from 1 to 6. In the diagram
 it happens to be 3. The next time through the loop it will be 4. Each
@@ -634,7 +630,7 @@ This prints:
 > test happens before (pre) the body. `break` and `return` are our tools
 > for adapting this standard behaviour.
 >
-> ![image](illustrations/pre_test_loop.png)
+> ![image](figs/pre_test_loop.png)
 
 Other flavours of loops
 -----------------------
@@ -654,7 +650,7 @@ exit, or else process the number:
 
 > > **The middle-test loop flowchart**
 > >
-> > ![image](illustrations/mid_test_loop.png)
+> > ![image](figs/mid_test_loop.png)
 
 Convince yourself that this fits the middle-exit loop flowchart: line 3
 does some useful work, lines 4 and 5 can exit the loop, and if they
@@ -713,7 +709,7 @@ lines 6, 12 and 14. Each time through the loop we extend the message
 being displayed: this allows us to display the program's feedback right
 at the same place as we're asking for the next guess.
 
-> ![image](illustrations/python_input.png)
+> ![image](figs/python_input.png)
 
 The `continue` statement
 ------------------------
@@ -975,7 +971,7 @@ method
 invoke
 :  invoke
    method*.  Invoking a method is done by putting parentheses after the method
-   name, with some possible arguments.. So  ``tess.forward()`` is an invocation
+   name, with some possible arguments. So  ``tess.forward()`` is an invocation
    of the ``forward`` method.  
     
 module
@@ -1002,14 +998,14 @@ Exercises
 
 #. Write a program that prints ``We like Python's turtles!`` 1000 times. 
 
-#. Give three attributes of your cellphone object.. Give three methods of your cellphone.  
+#. Give three attributes of your cellphone object. Give three methods of your cellphone.  
 
 #. Write a program that uses a for loop to print
      |  ``One of the months of the year is January``
      |  ``One of the months of the year is February``
-     |  ...
+     |  …
      
-#. Suppose our turtle ``tess`` is at heading 0 --- facing east.. We execute the statement
+#. Suppose our turtle ``tess`` is at heading 0 --- facing east. We execute the statement
    ``tess.left(3645)``.  What does ``tess`` do, and what is her final heading?
      
 #. Assume you have the assignment ``xs = [12, 10, 32, 3, 66, 17, 42, 99, 20]``
@@ -1110,13 +1106,13 @@ write using only these building blocks.
     over any of the lines / edges more than once, and without lifting
     your pen.
 
-    ![image](illustrations/tess_house.png)
+    ![image](figs/tess_house.png)
 
 7.  Not all shapes like the one above can be drawn without lifting your
     pen, or going over an edge more than once. Which of these can be
     drawn?
 
-    ![image](illustrations/tess_more_houses.png)
+    ![image](figs/tess_more_houses.png)
 
     Now read Wikipedia's
     article(<http://en.wikipedia.org/wiki/Eulerian_path>) about Eulerian

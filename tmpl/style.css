@@ -20,6 +20,12 @@ pre, code, tt, code span, pre span
     font-family: "DejaVu Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
 
+p code
+{
+    background: #efefef;
+    padding: 0 .25em; 
+}
+
 aside
 {
     border: medium solid gray;
