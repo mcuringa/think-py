@@ -931,13 +931,6 @@ form of a step-by-step mechanical algorithm.
 Glossary
 --------
 
-
-Glossary
---------
-
-.. glossary::
-
-
 attribute
 :  attribute
    a color. 

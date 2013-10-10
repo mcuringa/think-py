@@ -26,21 +26,22 @@ List values
 There are several ways to create a new list; the simplest is to enclose the
 elements in square brackets (``[`` and ``]``):
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         ps = [10, 20, 30, 40]
         qs = ["spam", "bungee", "swallow"]
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The first example is a list of four integers. The second is a list of three
 strings. The elements of a list don't have to be the same type.  The following
 list contains a string, a float, an integer, and
 (amazingly) another list:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         zs = ["hello", 2.0, 5, [10, 20]]
+~~~~~~~~~~~~~~~~~~~~~~~
+
 
 A list within another list is said to be **nested**.
 
@@ -49,18 +50,15 @@ and is denoted ``[]``.
 
 We have already seen that we can assign list values to variables or pass lists as parameters to functions:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> vocabulary = ["apple", "cheese", "dog"]
         >>> numbers = [17, 123]
         >>> an_empty_list = []
         >>> print(vocabulary, numbers, an_empty_list)
         ["apple", "cheese", "dog"] [17, 123] []
+~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _accessing-elements:
-
-.. index:: list index, index, list traversal
 
 Accessing elements
 ------------------
@@ -70,14 +68,16 @@ accessing the characters of a string --- the index operator: ``[]`` (not to
 be confused with an empty list). The expression inside the brackets specifies
 the index. Remember that the indices start at 0:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> numbers[0]
         17
+~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Any expression evaluating to an integer can be used as an index:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> numbers[9-8]
         5
@@ -85,26 +85,28 @@ Any expression evaluating to an integer can be used as an index:
         Traceback (most recent call last):
           File "<interactive input>", line 1, in <module>
         TypeError: list indices must be integers, not float
+~~~~~~~~~~~~~~~~~~~~~~~
 
 If you try to access or assign to an element that does not exist, you get a runtime
 error:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> numbers[2]
         Traceback (most recent call last):
           File "<interactive input>", line 1, in <module>
         IndexError: list index out of range
+~~~~~~~~~~~~~~~~~~~~~~~
 
 It is common to use a loop variable as a list index.
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         horsemen = ["war", "famine", "pestilence", "death"]
 
         for i in [0, 1, 2, 3]:
             print(horsemen[i])
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Each time through the loop, the variable ``i`` is used as an index into the
 list, printing the ``i``'th element. This pattern of computation is called a
@@ -114,14 +116,13 @@ The above sample doesn't need or use the index ``i`` for anything besides gettin
 the items from the list, so this more direct version --- where the ``for`` loop gets
 the items --- might be preferred:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         horsemen = ["war", "famine", "pestilence", "death"]
 
         for h in horsemen:
             print(h)
-
+~~~~~~~~~~~~~~~~~~~~~~~
         
 
 List length
@@ -134,14 +135,13 @@ loop instead of a constant. That way, if the size of the list changes, you
 won't have to go through the program changing all the loops; they will work
 correctly for any size list:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         horsemen = ["war", "famine", "pestilence", "death"]
            
         for i in range(len(horsemen)):
             print(horsemen[i])
-
+~~~~~~~~~~~~~~~~~~~~~~~
     
 The last time the body of the loop is executed, ``i`` is ``len(horsemen) - 1``, 
 which is the index of the last element. (But the version without the index
@@ -150,11 +150,11 @@ looks even better now!)
 Although a list can contain another list, the nested list still counts as a
 single element in its parent list. The length of this list is 4:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> len(["car makers", 1, ["Ford", "Toyota", "BMW"], [1, 2, 3]])
         4
-
+~~~~~~~~~~~~~~~~~~~~~~~
 
 List membership
 ---------------
@@ -163,7 +163,7 @@ List membership
 used them previously with strings, but they also work with lists and
 other sequences:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> horsemen = ["war", "famine", "pestilence", "death"]
         >>> "pestilence" in horsemen
@@ -172,13 +172,13 @@ other sequences:
         False
         >>> "debauchery" not in horsemen
         True
-    
+~~~~~~~~~~~~~~~~~~~~~~~
+
 Using this produces a more elegant version of the nested loop program we previously used 
 to count the number of students doing Computer Science
 in the section :ref:`nested_data`:  
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         students = [
             ("John", ["CompSci", "Physics"]),
@@ -194,29 +194,31 @@ in the section :ref:`nested_data`:
                    counter += 1
                    
         print("The number of students taking CompSci is", counter)
-
+~~~~~~~~~~~~~~~~~~~~~~~
 
 List operations
 ---------------
 
 The ``+`` operator concatenates lists:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a = [1, 2, 3]
         >>> b = [4, 5, 6]
         >>> c = a + b
         >>> c
         [1, 2, 3, 4, 5, 6]
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Similarly, the ``*`` operator repeats a list a given number of times:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> [0] * 4
         [0, 0, 0, 0]
         >>> [1, 2, 3] * 3
         [1, 2, 3, 1, 2, 3, 1, 2, 3]
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The first example repeats ``[0]`` four times. The second example repeats the
 list ``[1, 2, 3]`` three times.
@@ -229,7 +231,7 @@ List slices
 
 The slice operations we saw previously with strings let us work with sublists:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a_list = ["a", "b", "c", "d", "e", "f"]
         >>> a_list[1:3]
@@ -240,8 +242,7 @@ The slice operations we saw previously with strings let us work with sublists:
         ['d', 'e', 'f']
         >>> a_list[:]
         ['a', 'b', 'c', 'd', 'e', 'f']
-
-.. index:: mutable, item assignment, immutable
+~~~~~~~~~~~~~~~~~~~~~~~
     
 Lists are mutable
 -----------------
@@ -250,13 +251,14 @@ Unlike strings, lists are **mutable**, which means we can change their
 elements. Using the index operator on the left side of an assignment, we can
 update one of the elements:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> fruit = ["banana", "apple", "quince"]
         >>> fruit[0] = "pear"
         >>> fruit[2] = "orange"
         >>> fruit
         ['pear', 'apple', 'orange']
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The bracket operator applied to a list can appear anywhere in an expression.
 When it appears on the left side of an assignment, it changes one of the
@@ -265,46 +267,49 @@ elements in the list, so the first element of ``fruit`` has been changed from
 assignment to an element of a list is called **item assignment**. Item
 assignment does not work for strings:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> my_string = "TEST"
         >>> my_string[2] = "X"
         Traceback (most recent call last):
           File "<interactive input>", line 1, in <module>
         TypeError: 'str' object does not support item assignment
+~~~~~~~~~~~~~~~~~~~~~~~
 
 but it does for lists:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> my_list = ["T", "E", "S", "T"]
         >>> my_list[2] = "X"
         >>> my_list
         ['T', 'E', 'X', 'T']
-
+~~~~~~~~~~~~~~~~~~~~~~~
 
 With the slice operator we can update a whole sublist at once:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a_list = ["a", "b", "c", "d", "e", "f"]
         >>> a_list[1:3] = ["x", "y"]
         >>> a_list
         ['a', 'x', 'y', 'd', 'e', 'f']
+~~~~~~~~~~~~~~~~~~~~~~~
 
 We can also remove elements from a list by assigning an empty list to them:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a_list = ["a", "b", "c", "d", "e", "f"]
         >>> a_list[1:3] = []
         >>> a_list
         ['a', 'd', 'e', 'f']
+~~~~~~~~~~~~~~~~~~~~~~~
 
 And we can add elements to a list by squeezing them into an empty slice at the
 desired location:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a_list = ["a", "d", "f"]
         >>> a_list[1:1] = ["b", "c"]
@@ -313,8 +318,7 @@ desired location:
         >>> a_list[4:4] = ["e"]
         >>> a_list
         ['a', 'b', 'c', 'd', 'e', 'f']
-
-.. index:: del statement, statement; del
+~~~~~~~~~~~~~~~~~~~~~~~
 
 List deletion
 -------------
@@ -323,40 +327,40 @@ Using slices to delete list elements can be error-prone.
 Python provides an alternative that is more readable.
 The ``del`` statement removes an element from a list:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a = ["one", "two", "three"]
         >>> del a[1]
         >>> a
         ['one', 'three']
+~~~~~~~~~~~~~~~~~~~~~~~
 
 As you might expect, ``del`` causes a runtime
 error if the index is out of range.
 
 You can also use ``del`` with a slice to delete a sublist:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a_list = ["a", "b", "c", "d", "e", "f"]
         >>> del a_list[1:5]
         >>> a_list
         ['a', 'f']
+~~~~~~~~~~~~~~~~~~~~~~~
 
 As usual, the sublist selected by slice contains all the elements up to, but not including, the second
 index.
-
-.. index:: is operator, objects and values
 
 Objects and references
 ----------------------
 
 After we execute these assignment statements
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         a = "banana"
         b = "banana"
+~~~~~~~~~~~~~~~~~~~~~~~
 
 we know that ``a`` and ``b`` will refer to a string object with the letters
 ``"banana"``. But we don't know yet whether they point to the *same* string object.
@@ -372,7 +376,7 @@ value. In the second case, they refer to the same object.
 We can test whether two names refer to the same object using the ``is``
 operator: 
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> a is b
         True
@@ -385,7 +389,7 @@ that refer to the same string value refer to the same object.
 
 This is not the case with lists:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a = [1, 2, 3]
         >>> b = [1, 2, 3]
@@ -409,7 +413,7 @@ Aliasing
 Since variables refer to objects, if we assign one variable to another, both
 variables refer to the same object:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a = [1, 2, 3]
         >>> b = a
@@ -424,7 +428,7 @@ In this case, the state snapshot looks like this:
 Because the same list has two different names, ``a`` and ``b``, we say that it
 is **aliased**. Changes made with one alias affect the other:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> b[0] = 5
         >>> a
@@ -451,7 +455,7 @@ sometimes called **cloning**, to avoid the ambiguity of the word copy.
 
 The easiest way to clone a list is to use the slice operator:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> a = [1, 2, 3]
         >>> b = a[:]
@@ -467,7 +471,7 @@ consist of the whole list.  So now the relationship is like this:
 Now we are free to make changes to ``b`` without worrying that we'll inadvertently be
 changing ``a``:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> b[0] = 5
         >>> a
@@ -482,15 +486,14 @@ Lists and ``for`` loops
 The ``for`` loop also works with lists, as we've already seen. The generalized syntax of a ``for``
 loop is:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         for VARIABLE in LIST:
             BODY
 
 So, as we've seen
         
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         friends = ["Joe", "Zoe", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]
         for friend in friends:
@@ -501,8 +504,7 @@ print (the name of the) friend.
 
 Any list expression can be used in a ``for`` loop:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         for number in range(20):
             if number % 3 == 0:
@@ -518,8 +520,7 @@ example expresses enthusiasm for various fruits.
 Since lists are mutable, we often want to traverse a list, changing
 each of its elements. The following squares all the numbers in the list ``xs``:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         xs = [1, 2, 3, 4, 5]
         
@@ -533,8 +534,7 @@ In this example we are interested in both the *value* of an item, (we want to
 square that value), and its *index* (so that we can assign the new value to that position).
 This pattern is common enough that Python provides a nicer way to implement it:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         xs = [1, 2, 3, 4, 5]
         
@@ -545,8 +545,7 @@ This pattern is common enough that Python provides a nicer way to implement it:
 the list traversal. Try this next example to see more clearly how ``enumerate``
 works:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         for (i, v) in enumerate(["banana", "apple", "pear", "lemon"]):
              print(i, v)
@@ -571,8 +570,7 @@ is only one underlying list object.
 For example, the function below takes a list as an
 argument and multiplies each element in the list by 2:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         def double_stuff(a_list):
             """ Overwrite each element in a_list with double its value. """
@@ -581,8 +579,7 @@ argument and multiplies each element in the list by 2:
 
 If we add the following onto our script:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         things = [2, 5, 9]
         double_stuff(things)
@@ -623,7 +620,7 @@ List methods
 The dot operator can also be used to access built-in methods of list objects.  We'll
 start with the most useful method for adding something onto the end of an existing list:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> mylist = []
         >>> mylist.append(5)
@@ -637,7 +634,7 @@ start with the most useful method for adding something onto the end of an existi
 the list. We'll use it heavily when we're creating new lists.
 Continuing with this example, we show several other list methods:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> mylist.insert(1, 12)  # Insert 12 at pos 1, shift other items up
         >>> mylist
@@ -676,8 +673,7 @@ A **pure function** does not produce side effects. It communicates with the
 calling program only through parameters, which it does not modify, and a return
 value. Here is ``double_stuff`` written as a pure function:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         def double_stuff(a_list):
             """ Return a new list which contains 
@@ -692,7 +688,7 @@ value. Here is ``double_stuff`` written as a pure function:
       
 This version of ``double_stuff`` does not change its arguments:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> things = [2, 5, 9]
         >>> xs = double_stuff(things)
@@ -705,7 +701,7 @@ An early rule we saw for assignment said "first evaluate the right hand side, th
 assign the resulting value to the variable".  So it is quite safe to assign the function
 result to the same variable that was passed to the function:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> things = [2, 5, 9]
         >>> things = double_stuff(things)
@@ -732,8 +728,7 @@ important **pattern** for your toolbox. Whenever you need to
 write a function that creates and returns a list, the pattern is
 usually:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         initialize a result variable to be an empty list
         loop
@@ -745,7 +740,7 @@ Let us show another use of this pattern.  Assume you already have a function
 ``is_prime(x)`` that can test if x is prime.  Write a function
 to return a list of all prime numbers less than n:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
        :linenos:
 
        def primes_lessthan(n):
@@ -767,7 +762,7 @@ The ``split`` method (which we've already seen)
 breaks a string into a list of words.  By
 default, any number of whitespace characters is considered a word boundary:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> song = "The rain in Spain..."
         >>> wds = song.split()
@@ -778,7 +773,7 @@ An optional argument called a **delimiter** can be used to specify which
 string to use as the boundary marker between substrings. 
 The following example uses the string ``ai`` as the delimiter:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> song.split("ai")
         ['The r', 'n in Sp', 'n...']
@@ -789,7 +784,7 @@ The inverse of the ``split`` method is ``join``.  You choose a
 desired **separator** string, (often called the *glue*) 
 and join the list with the glue between each of the elements: 
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> glue = ";"
         >>> s = glue.join(wds)
@@ -799,7 +794,7 @@ and join the list with the glue between each of the elements:
 The list that you glue together (``wds`` in this example) is not modified.  Also, as these
 next examples show, you can use empty glue or multi-character strings as glue:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> " --- ".join(wds)
         'The --- rain --- in --- Spain...'
@@ -815,7 +810,7 @@ Python has a built-in type conversion function called
 ``list`` that tries to turn whatever you give it
 into a list.  
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> xs = list("Crunchy Frog")
         >>> xs
@@ -829,8 +824,7 @@ and does it on demand, or "lazily".  We'll say that it gives a **promise**
 to produce the values when they are needed.   This is very convenient if your
 computation short-circuits a search and returns early, as in this case: 
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         def f(n):
             """ Find the first positive integer between 101 and less 
@@ -864,7 +858,7 @@ further elements are generated, and the function returns.  (Note: Before Python 
 You'll sometimes find the lazy ``range`` wrapped in a call to ``list``.  This forces
 Python to turn the lazy promise into an actual list: 
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
         >>> range(10)           # Create a lazy promise 
         range(0, 10)
@@ -879,20 +873,20 @@ Nested lists
 A nested list is a list that appears as an element in another list. In this
 list, the element with index 3 is a nested list:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> nested = ["hello", 2.0, 5, [10, 20]]
 
 If we output the element at index 3, we get:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 
        >>> print(nested[3]) 
        [10, 20]
 
 To extract an element from the nested list, we can proceed in two steps:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> elem = nested[3]
         >>> elem[0]
@@ -900,7 +894,7 @@ To extract an element from the nested list, we can proceed in two steps:
 
 Or we can combine them:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> nested[3][1]
         20
@@ -919,21 +913,21 @@ Nested lists are often used to represent matrices. For example, the matrix:
 
 might be represented as:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> mx = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 ``mx`` is a list with three elements, where each element is a row of the
 matrix. We can select an entire row from the matrix in the usual way:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> mx[1]
         [4, 5, 6]
 
 Or we can extract a single element from the matrix using the double-index form:
 
-    .. sourcecode:: python3
+~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
         >>> mx[1][2]
         6
@@ -1035,7 +1029,7 @@ Exercises
 
 #. What is the Python interpreter's response to the following?
 
-       .. sourcecode:: python3
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
         
            >>> list(range(10, 0, -2))
 
@@ -1047,9 +1041,8 @@ Exercises
 #. Consider this fragment of code: 
 
 
-       .. sourcecode:: python3
-            :linenos:
-            
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+                
             import turtle
             
             tess = turtle.Turtle()
@@ -1062,18 +1055,16 @@ Exercises
 #. Draw a state snapshot for ``a`` and ``b`` before and after the third line of
    the following Python code is executed:
 
-       .. sourcecode:: python3
-            :linenos:
-        
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+            
             a = [1, 2, 3]
             b = a[:]
             b[0] = 5
 
 #. What will be the output of the following program?
 
-       .. sourcecode:: python3
-           :linenos:
-        
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+           
            this = ["I", "am", "not", "a", "crook"]
            that = ["I", "am", "not", "a", "crook"]
            print("Test 1: {0}".format(this is that))
@@ -1091,9 +1082,8 @@ Exercises
    the same length, and returns a new list containing the sums of the
    corresponding elements of each:
    
-        .. sourcecode:: python3
-           :linenos:
-            
+    ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+               
            test(add_vectors([1, 1], [1, 1]) == [2, 2])
            test(add_vectors([1, 2], [1, 4]) == [2, 6])
            test(add_vectors([1, 2, 1], [1, 4, 3]) == [2, 6, 4])
@@ -1102,9 +1092,8 @@ Exercises
    list, ``v`` and returns the `scalar multiple
    <http://en.wikipedia.org/wiki/Scalar_multiple>`__ of ``v`` by ``s``. : 
 
-        .. sourcecode:: python3
-            :linenos:
-            
+    ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+                
             test(scalar_mult(5, [1, 2]) == [5, 10])
             test(scalar_mult(3, [1, 0, -1]) == [3, 0, -3])
             test(scalar_mult(7, [3, 0, 5, 11, 2]) == [21, 0, 35, 77, 14])
@@ -1114,9 +1103,8 @@ Exercises
    elements of each (the `dot_product
    <http://en.wikipedia.org/wiki/Dot_product>`__).
 
-       .. sourcecode:: python3
-            :linenos:
-        
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+            
             test(dot_product([1, 1], [1, 1]) ==  2)
             test(dot_product([1, 2], [1, 4]) ==  9)
             test(dot_product([1, 2, 1], [1, 4, 3]) == 12)
@@ -1132,17 +1120,15 @@ Exercises
    Are they the same for all strings assigned to ``song``? 
    When would they be different? 
    
-       .. sourcecode:: python3
-            :linenos:
-
+   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+    
             song = "The rain in Spain..."
    
 #. Write a function ``replace(s, old, new)`` that replaces all occurrences of
    ``old`` with ``new`` in a string ``s``: 
    
-        .. sourcecode:: python3
-            :linenos:
-
+    ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+    
             test(replace("Mississippi", "i", "I") == "MIssIssIppI")
           
             s = "I love spom! Spom is my favorite food. Spom, spom, yum!"
@@ -1157,9 +1143,8 @@ Exercises
 #. Suppose you want to swap around the values in two variables.  You decide
    to factor this out into a reusable function, and write this code:
 
-        .. sourcecode:: python3
-            :linenos:
-        
+    ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+            
             def swap(x, y):      # Incorrect version
                  print("before swap statement: x:", x, "y:", y)
                  (x, y) = (y, x)

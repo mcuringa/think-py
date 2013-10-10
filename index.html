@@ -239,8 +239,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#newtons-method-for-finding-square-roots"><span class="toc-section-number">6.25</span> Newton’s method for finding square roots</a></li>
 <li><a href="#algorithms"><span class="toc-section-number">6.26</span> Algorithms</a></li>
 <li><a href="#glossary-1"><span class="toc-section-number">6.27</span> Glossary</a></li>
-<li><a href="#glossary-2"><span class="toc-section-number">6.28</span> Glossary</a></li>
-<li><a href="#exercises-1"><span class="toc-section-number">6.29</span> Exercises</a></li>
+<li><a href="#exercises-1"><span class="toc-section-number">6.28</span> Exercises</a></li>
 </ul></li>
 <li><a href="#lists"><span class="toc-section-number">7</span> Lists</a><ul>
 <li><a href="#list-values"><span class="toc-section-number">7.1</span> List values</a></li>
@@ -263,7 +262,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#list-and-range"><span class="toc-section-number">7.18</span> <code>list</code> and <code>range</code></a></li>
 <li><a href="#nested-lists"><span class="toc-section-number">7.19</span> Nested lists</a></li>
 <li><a href="#matrices"><span class="toc-section-number">7.20</span> Matrices</a></li>
-<li><a href="#glossary-3"><span class="toc-section-number">7.21</span> Glossary</a></li>
+<li><a href="#glossary-2"><span class="toc-section-number">7.21</span> Glossary</a></li>
 <li><a href="#exercises-2"><span class="toc-section-number">7.22</span> Exercises</a></li>
 </ul></li>
 <li><a href="#contributor-list"><span class="toc-section-number">8</span> Contributor List</a><ul>
@@ -1296,10 +1295,6 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 </section>
 <section id="glossary-1" class="level2">
 <h2><a href="#glossary-1"><span class="header-section-number">6.27</span> Glossary</a></h2>
-</section>
-<section id="glossary-2" class="level2">
-<h2><a href="#glossary-2"><span class="header-section-number">6.28</span> Glossary</a></h2>
-<p>.. glossary::</p>
 <p>attribute : attribute a color.</p>
 <p>canvas : canvas</p>
 <p>control flow : control flow</p>
@@ -1315,7 +1310,7 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <p>terminating condition : terminating condition In the <code>for</code> loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.</p>
 </section>
 <section id="exercises-1" class="level2">
-<h2><a href="#exercises-1"><span class="header-section-number">6.29</span> Exercises</a></h2>
+<h2><a href="#exercises-1"><span class="header-section-number">6.28</span> Exercises</a></h2>
 <ol>
 <li><p>Write a program that prints <code>We like Python's turtles!</code> 1000 times.</p></li>
 <li><p>Give three attributes of your cellphone object. Give three methods of your cellphone.</p></li>
@@ -1404,229 +1399,639 @@ test(sum_of_squares([2, -3, 4]) == 29)</code></pre></li>
 </section>
 <section id="lists" class="level1">
 <h1><a href="#lists"><span class="header-section-number">7</span> Lists</a></h1>
-<p>A <strong>list</strong> is an ordered collection of values. The values that make up a list are called its <strong>elements</strong>, or its <strong>items</strong>. We will use the term element or item to mean the same thing. Lists are similar to strings, which are ordered collections of characters, except that the elements of a list can be of any type. Lists and strings — and other collections that maintain the order of their items — are called <strong>sequences</strong>.</p>
+<p>A <strong>list</strong> is an ordered collection of values. The values that make up a list are called its <strong>elements</strong>, or its <strong>items</strong>. We will use the term <code>element</code> or <code>item</code> to mean the same thing. Lists are similar to strings, which are ordered collections of characters, except that the elements of a list can be of any type. Lists and strings — and other collections that maintain the order of their items — are called <strong>sequences</strong>.</p>
 <section id="list-values" class="level2">
 <h2><a href="#list-values"><span class="header-section-number">7.1</span> List values</a></h2>
 <p>There are several ways to create a new list; the simplest is to enclose the elements in square brackets (<code>[</code> and <code>]</code>):</p>
+<pre class="sourceCode python"><code class="sourceCode python">ps = [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]
+qs = [<span class="st">&quot;spam&quot;</span>, <span class="st">&quot;bungee&quot;</span>, <span class="st">&quot;swallow&quot;</span>]</code></pre>
 <p>The first example is a list of four integers. The second is a list of three strings. The elements of a list don’t have to be the same type. The following list contains a string, a float, an integer, and (amazingly) another list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">zs = [<span class="st">&quot;hello&quot;</span>, <span class="fl">2.0</span>, <span class="dv">5</span>, [<span class="dv">10</span>, <span class="dv">20</span>]]</code></pre>
 <p>A list within another list is said to be <strong>nested</strong>.</p>
 <p>Finally, a list with no elements is called an empty list, and is denoted <code>[]</code>.</p>
 <p>We have already seen that we can assign list values to variables or pass lists as parameters to functions:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; vocabulary = [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;dog&quot;</span>]
+&gt;&gt;&gt; numbers = [<span class="dv">17</span>, <span class="dv">123</span>]
+&gt;&gt;&gt; an_empty_list = []
+&gt;&gt;&gt; <span class="kw">print</span>(vocabulary, numbers, an_empty_list)
+[<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;dog&quot;</span>] [<span class="dv">17</span>, <span class="dv">123</span>] []</code></pre>
 </section>
 <section id="accessing-elements" class="level2">
 <h2><a href="#accessing-elements"><span class="header-section-number">7.2</span> Accessing elements</a></h2>
 <p>The syntax for accessing the elements of a list is the same as the syntax for accessing the characters of a string — the index operator: <code>[]</code> (not to be confused with an empty list). The expression inside the brackets specifies the index. Remember that the indices start at 0:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; numbers[<span class="dv">0</span>]
+<span class="dv">17</span></code></pre>
 <p>Any expression evaluating to an integer can be used as an index:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; numbers[<span class="dv">9-8</span>]
+<span class="dv">5</span>
+&gt;&gt;&gt; numbers[<span class="fl">1.0</span>]
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">TypeError</span>: <span class="dt">list</span> indices must be integers, not <span class="dt">float</span></code></pre>
 <p>If you try to access or assign to an element that does not exist, you get a runtime error:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; numbers[<span class="dv">2</span>]
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">IndexError</span>: <span class="dt">list</span> index out of <span class="dt">range</span></code></pre>
 <p>It is common to use a loop variable as a list index.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">horsemen = [<span class="st">&quot;war&quot;</span>, <span class="st">&quot;famine&quot;</span>, <span class="st">&quot;pestilence&quot;</span>, <span class="st">&quot;death&quot;</span>]
+
+<span class="kw">for</span> i in [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:
+    <span class="kw">print</span>(horsemen[i])</code></pre></td></tr></table>
 <p>Each time through the loop, the variable <code>i</code> is used as an index into the list, printing the <code>i</code>’th element. This pattern of computation is called a <strong>list traversal</strong>.</p>
 <p>The above sample doesn’t need or use the index <code>i</code> for anything besides getting the items from the list, so this more direct version — where the <code>for</code> loop gets the items — might be preferred:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">horsemen = [<span class="st">&quot;war&quot;</span>, <span class="st">&quot;famine&quot;</span>, <span class="st">&quot;pestilence&quot;</span>, <span class="st">&quot;death&quot;</span>]
+
+<span class="kw">for</span> h in horsemen:
+    <span class="kw">print</span>(h)</code></pre></td></tr></table>
 </section>
 <section id="list-length" class="level2">
 <h2><a href="#list-length"><span class="header-section-number">7.3</span> List length</a></h2>
 <p>The function <code>len</code> returns the length of a list, which is equal to the number of its elements. If you are going to use an integer index to access the list, it is a good idea to use this value as the upper bound of a loop instead of a constant. That way, if the size of the list changes, you won’t have to go through the program changing all the loops; they will work correctly for any size list:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">horsemen = [<span class="st">&quot;war&quot;</span>, <span class="st">&quot;famine&quot;</span>, <span class="st">&quot;pestilence&quot;</span>, <span class="st">&quot;death&quot;</span>]
+   
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(horsemen)):
+    <span class="kw">print</span>(horsemen[i])</code></pre></td></tr></table>
 <p>The last time the body of the loop is executed, <code>i</code> is <code>len(horsemen) - 1</code>, which is the index of the last element. (But the version without the index looks even better now!)</p>
 <p>Although a list can contain another list, the nested list still counts as a single element in its parent list. The length of this list is 4:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">len</span>([<span class="st">&quot;car makers&quot;</span>, <span class="dv">1</span>, [<span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;Toyota&quot;</span>, <span class="st">&quot;BMW&quot;</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]])
+<span class="dv">4</span></code></pre>
 </section>
 <section id="list-membership" class="level2">
 <h2><a href="#list-membership"><span class="header-section-number">7.4</span> List membership</a></h2>
 <p><code>in</code> and <code>not in</code> are Boolean operators that test membership in a sequence. We used them previously with strings, but they also work with lists and other sequences:</p>
-<p>Using this produces a more elegant version of the nested loop program we previously used to count the number of students doing Computer Science in the section nested_data:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; horsemen = [<span class="st">&quot;war&quot;</span>, <span class="st">&quot;famine&quot;</span>, <span class="st">&quot;pestilence&quot;</span>, <span class="st">&quot;death&quot;</span>]
+&gt;&gt;&gt; <span class="st">&quot;pestilence&quot;</span> in horsemen
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;debauchery&quot;</span> in horsemen
+<span class="ot">False</span>
+&gt;&gt;&gt; <span class="st">&quot;debauchery&quot;</span> not in horsemen
+<span class="ot">True</span></code></pre>
+<p>Using this produces a more elegant version of the nested loop program we previously used to count the number of students doing Computer Science in the section :ref:<code>nested_data</code>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">students = [
+    (<span class="st">&quot;John&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Physics&quot;</span>]),
+    (<span class="st">&quot;Vusi&quot;</span>, [<span class="st">&quot;Maths&quot;</span>, <span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Stats&quot;</span>]),
+    (<span class="st">&quot;Jess&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Management&quot;</span>]),
+    (<span class="st">&quot;Sarah&quot;</span>, [<span class="st">&quot;InfSys&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;CommLaw&quot;</span>]),
+    (<span class="st">&quot;Zuki&quot;</span>, [<span class="st">&quot;Sociology&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Law&quot;</span>, <span class="st">&quot;Stats&quot;</span>, <span class="st">&quot;Music&quot;</span>])]
+        
+<span class="co"># Count how many students are taking CompSci</span>
+counter = <span class="dv">0</span>
+<span class="kw">for</span> (name, subjects) in students:
+    <span class="kw">if</span> <span class="st">&quot;CompSci&quot;</span> in subjects:            
+           counter += <span class="dv">1</span>
+           
+<span class="kw">print</span>(<span class="st">&quot;The number of students taking CompSci is&quot;</span>, counter)</code></pre></td></tr></table>
 </section>
 <section id="list-operations" class="level2">
 <h2><a href="#list-operations"><span class="header-section-number">7.5</span> List operations</a></h2>
 <p>The <code>+</code> operator concatenates lists:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;&gt;&gt; b = [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; c
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</code></pre>
 <p>Similarly, the <code>*</code> operator repeats a list a given number of times:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; [<span class="dv">0</span>] * <span class="dv">4</span>
+[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]
+&gt;&gt;&gt; [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] * <span class="dv">3</span>
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 <p>The first example repeats <code>[0]</code> four times. The second example repeats the list <code>[1, 2, 3]</code> three times.</p>
 </section>
 <section id="list-slices" class="level2">
 <h2><a href="#list-slices"><span class="header-section-number">7.6</span> List slices</a></h2>
 <p>The slice operations we saw previously with strings let us work with sublists:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">1</span>:<span class="dv">3</span>]
+[<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]
+&gt;&gt;&gt; a_list[:<span class="dv">4</span>]
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">3</span>:]
+[<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]
+&gt;&gt;&gt; a_list[:]
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 </section>
 <section id="lists-are-mutable" class="level2">
 <h2><a href="#lists-are-mutable"><span class="header-section-number">7.7</span> Lists are mutable</a></h2>
 <p>Unlike strings, lists are <strong>mutable</strong>, which means we can change their elements. Using the index operator on the left side of an assignment, we can update one of the elements:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = [<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;quince&quot;</span>]
+&gt;&gt;&gt; fruit[<span class="dv">0</span>] = <span class="st">&quot;pear&quot;</span>
+&gt;&gt;&gt; fruit[<span class="dv">2</span>] = <span class="st">&quot;orange&quot;</span>
+&gt;&gt;&gt; fruit
+[<span class="st">&#39;pear&#39;</span>, <span class="st">&#39;apple&#39;</span>, <span class="st">&#39;orange&#39;</span>]</code></pre>
 <p>The bracket operator applied to a list can appear anywhere in an expression. When it appears on the left side of an assignment, it changes one of the elements in the list, so the first element of <code>fruit</code> has been changed from <code>&quot;banana&quot;</code> to <code>&quot;pear&quot;</code>, and the last from <code>&quot;quince&quot;</code> to <code>&quot;orange&quot;</code>. An assignment to an element of a list is called <strong>item assignment</strong>. Item assignment does not work for strings:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; my_string = <span class="st">&quot;TEST&quot;</span>
+&gt;&gt;&gt; my_string[<span class="dv">2</span>] = <span class="st">&quot;X&quot;</span>
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">TypeError</span>: <span class="st">&#39;str&#39;</span> <span class="dt">object</span> does not support item assignment</code></pre>
 <p>but it does for lists:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; my_list = [<span class="st">&quot;T&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;T&quot;</span>]
+&gt;&gt;&gt; my_list[<span class="dv">2</span>] = <span class="st">&quot;X&quot;</span>
+&gt;&gt;&gt; my_list
+[<span class="st">&#39;T&#39;</span>, <span class="st">&#39;E&#39;</span>, <span class="st">&#39;X&#39;</span>, <span class="st">&#39;T&#39;</span>]</code></pre>
 <p>With the slice operator we can update a whole sublist at once:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">1</span>:<span class="dv">3</span>] = [<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>]
+&gt;&gt;&gt; a_list
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 <p>We can also remove elements from a list by assigning an empty list to them:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">1</span>:<span class="dv">3</span>] = []
+&gt;&gt;&gt; a_list
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 <p>And we can add elements to a list by squeezing them into an empty slice at the desired location:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;f&quot;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">1</span>:<span class="dv">1</span>] = [<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>]
+&gt;&gt;&gt; a_list
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;f&#39;</span>]
+&gt;&gt;&gt; a_list[<span class="dv">4</span>:<span class="dv">4</span>] = [<span class="st">&quot;e&quot;</span>]
+&gt;&gt;&gt; a_list
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 </section>
 <section id="list-deletion" class="level2">
 <h2><a href="#list-deletion"><span class="header-section-number">7.8</span> List deletion</a></h2>
 <p>Using slices to delete list elements can be error-prone. Python provides an alternative that is more readable. The <code>del</code> statement removes an element from a list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>]
+&gt;&gt;&gt; <span class="kw">del</span> a[<span class="dv">1</span>]
+&gt;&gt;&gt; a
+[<span class="st">&#39;one&#39;</span>, <span class="st">&#39;three&#39;</span>]</code></pre>
 <p>As you might expect, <code>del</code> causes a runtime error if the index is out of range.</p>
 <p>You can also use <code>del</code> with a slice to delete a sublist:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>]
+&gt;&gt;&gt; <span class="kw">del</span> a_list[<span class="dv">1</span>:<span class="dv">5</span>]
+&gt;&gt;&gt; a_list
+[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 <p>As usual, the sublist selected by slice contains all the elements up to, but not including, the second index.</p>
 </section>
 <section id="objects-and-references" class="level2">
 <h2><a href="#objects-and-references"><span class="header-section-number">7.9</span> Objects and references</a></h2>
 <p>After we execute these assignment statements</p>
+<pre class="sourceCode python"><code class="sourceCode python">a = <span class="st">&quot;banana&quot;</span>
+b = <span class="st">&quot;banana&quot;</span></code></pre>
 <p>we know that <code>a</code> and <code>b</code> will refer to a string object with the letters <code>&quot;banana&quot;</code>. But we don’t know yet whether they point to the <em>same</em> string object.</p>
 <p>There are two possible ways the Python interpreter could arrange its memory:</p>
-<blockquote>
 <figure>
-<img src="illustrations/list1.png" alt="List illustration" /><figcaption>List illustration</figcaption>
+<img src="figs/list1.png" />
 </figure>
-</blockquote>
 <p>In one case, <code>a</code> and <code>b</code> refer to two different objects that have the same value. In the second case, they refer to the same object.</p>
 <p>We can test whether two names refer to the same object using the <code>is</code> operator:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a is b
+<span class="ot">True</span></code></pre>
 <p>This tells us that both <code>a</code> and <code>b</code> refer to the same object, and that it is the second of the two state snapshots that accurately describes the relationship.</p>
 <p>Since strings are <em>immutable</em>, Python optimizes resources by making two names that refer to the same string value refer to the same object.</p>
 <p>This is not the case with lists:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;&gt;&gt; b = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;&gt;&gt; a == b
+<span class="ot">True</span>
+&gt;&gt;&gt; a is b
+<span class="ot">False</span>   </code></pre>
 <p>The state snapshot here looks like this:</p>
-<blockquote>
 <figure>
-<img src="illustrations/mult_references2.png" alt="State snapshot for equal different lists" /><figcaption>State snapshot for equal different lists</figcaption>
+<img src="figs/mult_references2.png" title="State snapshot for equal different lists" />
 </figure>
-</blockquote>
 <p><code>a</code> and <code>b</code> have the same value but do not refer to the same object.</p>
 </section>
 <section id="aliasing" class="level2">
 <h2><a href="#aliasing"><span class="header-section-number">7.10</span> Aliasing</a></h2>
 <p>Since variables refer to objects, if we assign one variable to another, both variables refer to the same object:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; a is b
+<span class="ot">True</span></code></pre>
 <p>In this case, the state snapshot looks like this:</p>
-<blockquote>
 <figure>
-<img src="illustrations/mult_references3.png" alt="State snapshot for multiple references (aliases) to a list" /><figcaption>State snapshot for multiple references (aliases) to a list</figcaption>
+<img src="figs/mult_references3.png" title="State snapshot for multiple references (aliases) to a list" />
 </figure>
-</blockquote>
 <p>Because the same list has two different names, <code>a</code> and <code>b</code>, we say that it is <strong>aliased</strong>. Changes made with one alias affect the other:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; b[<span class="dv">0</span>] = <span class="dv">5</span>
+&gt;&gt;&gt; a
+[<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 <p>Although this behavior can be useful, it is sometimes unexpected or undesirable. In general, it is safer to avoid aliasing when you are working with mutable objects (i.e. lists at this point in our textbook, but we’ll meet more mutable objects as we cover classes and objects, dictionaries and sets). Of course, for immutable objects (i.e. strings, tuples), there’s no problem — it is just not possible to change something and get a surprise when you access an alias name. That’s why Python is free to alias strings (and any other immutable kinds of data) when it sees an opportunity to economize.</p>
 </section>
 <section id="cloning-lists" class="level2">
 <h2><a href="#cloning-lists"><span class="header-section-number">7.11</span> Cloning lists</a></h2>
 <p>If we want to modify a list and also keep a copy of the original, we need to be able to make a copy of the list itself, not just the reference. This process is sometimes called <strong>cloning</strong>, to avoid the ambiguity of the word copy.</p>
 <p>The easiest way to clone a list is to use the slice operator:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+&gt;&gt;&gt; b = a[:]
+&gt;&gt;&gt; b
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 <p>Taking any slice of <code>a</code> creates a new list. In this case the slice happens to consist of the whole list. So now the relationship is like this:</p>
-<blockquote>
 <figure>
-<img src="illustrations/mult_references2.png" alt="State snapshot for equal different lists" /><figcaption>State snapshot for equal different lists</figcaption>
+<img src="figs/mult_references2.png" title="State snapshot for equal different lists" />
 </figure>
-</blockquote>
 <p>Now we are free to make changes to <code>b</code> without worrying that we’ll inadvertently be changing <code>a</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; b[<span class="dv">0</span>] = <span class="dv">5</span>
+&gt;&gt;&gt; a
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 </section>
 <section id="lists-and-for-loops" class="level2">
 <h2><a href="#lists-and-for-loops"><span class="header-section-number">7.12</span> Lists and <code>for</code> loops</a></h2>
 <p>The <code>for</code> loop also works with lists, as we’ve already seen. The generalized syntax of a <code>for</code> loop is:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">for</span> VARIABLE in LIST:
+    BODY</code></pre>
 <p>So, as we’ve seen</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">friends = [<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Brad&quot;</span>, <span class="st">&quot;Angelina&quot;</span>, <span class="st">&quot;Zuki&quot;</span>, <span class="st">&quot;Thandi&quot;</span>, <span class="st">&quot;Paris&quot;</span>]
+<span class="kw">for</span> friend in friends:
+    <span class="kw">print</span>(friend)</code></pre></td></tr></table>
 <p>It almost reads like English: For (every) friend in (the list of) friends, print (the name of the) friend.</p>
 <p>Any list expression can be used in a <code>for</code> loop:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> number in <span class="dt">range</span>(<span class="dv">20</span>):
+    <span class="kw">if</span> number % <span class="dv">3</span> == <span class="dv">0</span>:
+        <span class="kw">print</span>(number)
+   
+<span class="kw">for</span> fruit in [<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;quince&quot;</span>]:
+    <span class="kw">print</span>(<span class="st">&quot;I like to eat &quot;</span> + fruit + <span class="st">&quot;s!&quot;</span>)</code></pre></td></tr></table>
 <p>The first example prints all the multiples of 3 between 0 and 19. The second example expresses enthusiasm for various fruits.</p>
 <p>Since lists are mutable, we often want to traverse a list, changing each of its elements. The following squares all the numbers in the list <code>xs</code>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">xs = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
+
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(xs)):
+    xs[i] = xs[i]**<span class="dv">2</span></code></pre></td></tr></table>
 <p>Take a moment to think about <code>range(len(xs))</code> until you understand how it works.</p>
 <p>In this example we are interested in both the <em>value</em> of an item, (we want to square that value), and its <em>index</em> (so that we can assign the new value to that position). This pattern is common enough that Python provides a nicer way to implement it:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">xs = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
+
+<span class="kw">for</span> (i, val) in <span class="dt">enumerate</span>(xs):
+    xs[i] = val**<span class="dv">2</span></code></pre></td></tr></table>
 <p><code>enumerate</code> generates pairs of both (index, value) during the list traversal. Try this next example to see more clearly how <code>enumerate</code> works:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> (i, v) in <span class="dt">enumerate</span>([<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;lemon&quot;</span>]):
+     <span class="kw">print</span>(i, v)
+
+
+<span class="dv">0</span> banana
+<span class="dv">1</span> apple
+<span class="dv">2</span> pear
+<span class="dv">3</span> lemon</code></pre></td></tr></table>
 </section>
 <section id="list-parameters" class="level2">
 <h2><a href="#list-parameters"><span class="header-section-number">7.13</span> List parameters</a></h2>
-<p>Passing a list as an argument actually passes a reference to the list, not a copy or clone of the list. So parameter passing creates an alias for you: the caller has one variable referencing the list, and the called function has an alias, but there is only one underlying list object. For example, the function below takes a list as an argument and multiplies each element in the list by 2:</p>
+<p>Passing a list as an argument actually passes a <em>reference</em> to the list, not a copy or clone of the list. So parameter passing creates an alias for you: the caller has one variable referencing the list, and the called function has an alias, but there is only one underlying list object.</p>
+<p>For example, the function below takes a list as an argument and multiplies each element in the list by 2:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> double_stuff(a_list):
+    <span class="co">&quot;&quot;&quot; Overwrite each element in a_list with double its value. &quot;&quot;&quot;</span>
+    <span class="kw">for</span> (idx, val) in <span class="dt">enumerate</span>(a_list):
+        a_list[idx] = <span class="dv">2</span> * val</code></pre></td></tr></table>
 <p>If we add the following onto our script:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">things = [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>]
+double_stuff(things)
+<span class="kw">print</span>(things)</code></pre></td></tr></table>
 <p>When we run it we’ll get:</p>
+<p>~~~~~~~~~~~~~~~~~~~~~~~{.python} [4, 10, 18] ~~~~~~~~~~~~~~~~~~~~~~~{.python</p>
 <p>In the function above, the parameter <code>a_list</code> and the variable <code>things</code> are aliases for the same object. So before any changes to the elements in the list, the state snapshot looks like this:</p>
-<blockquote>
 <figure>
-<img src="illustrations/mult_references4.png" alt="State snapshot for multiple references to a list as a parameter" /><figcaption>State snapshot for multiple references to a list as a parameter</figcaption>
+<img src="figs/mult_references4.png" title="State snapshot for multiple references to a list as a parameter" />
 </figure>
-</blockquote>
 <p>Since the list object is shared by two frames, we drew it between them.</p>
 <p>If a function modifies the items of a list parameter, the caller sees the change.</p>
-<blockquote>
-<blockquote>
+<aside id="visualizer">
+
 <p><strong>Use the Python visualizer!</strong></p>
-<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
-</blockquote>
-</blockquote>
+<p>We’ve already mentioned the Python visualizer at http://netserv.ict.ru.ac.za/python3_viz. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
+</aside>
+    
 </section>
 <section id="list-methods" class="level2">
 <h2><a href="#list-methods"><span class="header-section-number">7.14</span> List methods</a></h2>
 <p>The dot operator can also be used to access built-in methods of list objects. We’ll start with the most useful method for adding something onto the end of an existing list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mylist = []
+&gt;&gt;&gt; mylist.append(<span class="dv">5</span>)
+&gt;&gt;&gt; mylist.append(<span class="dv">27</span>)
+&gt;&gt;&gt; mylist.append(<span class="dv">3</span>)
+&gt;&gt;&gt; mylist.append(<span class="dv">12</span>)
+&gt;&gt;&gt; mylist
+[<span class="dv">5</span>, <span class="dv">27</span>, <span class="dv">3</span>, <span class="dv">12</span>]</code></pre>
 <p><code>append</code> is a list method which adds the argument passed to it to the end of the list. We’ll use it heavily when we’re creating new lists. Continuing with this example, we show several other list methods:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mylist.insert(<span class="dv">1</span>, <span class="dv">12</span>)  <span class="co"># Insert 12 at pos 1, shift other items up</span>
+&gt;&gt;&gt; mylist
+[<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">3</span>, <span class="dv">12</span>]
+&gt;&gt;&gt; mylist.count(<span class="dv">12</span>)       <span class="co"># How many times is 12 in mylist?</span>
+<span class="dv">2</span>
+&gt;&gt;&gt; mylist.extend([<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">11</span>])   <span class="co"># Put whole list onto end of mylist</span>
+&gt;&gt;&gt; mylist
+[<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">11</span>])
+&gt;&gt;&gt; mylist.index(<span class="dv">9</span>)                <span class="co"># Find index of first 9 in mylist</span>
+<span class="dv">6</span>
+&gt;&gt;&gt; mylist.reverse()
+&gt;&gt;&gt; mylist
+[<span class="dv">11</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">27</span>, <span class="dv">12</span>, <span class="dv">5</span>]
+&gt;&gt;&gt; mylist.sort()
+&gt;&gt;&gt; mylist
+[<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">27</span>]   
+&gt;&gt;&gt; mylist.remove(<span class="dv">12</span>)             <span class="co"># Remove the first 12 in the list</span>
+&gt;&gt;&gt; mylist
+[<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">27</span>]</code></pre>
 <p>Experiment and play with the list methods shown here, and read their documentation until you feel confident that you understand how they work.</p>
 </section>
 <section id="pure-functions-and-modifiers" class="level2">
 <h2><a href="#pure-functions-and-modifiers"><span class="header-section-number">7.15</span> Pure functions and modifiers</a></h2>
 <p>Functions which take lists as arguments and change them during execution are called <strong>modifiers</strong> and the changes they make are called <strong>side effects</strong>.</p>
 <p>A <strong>pure function</strong> does not produce side effects. It communicates with the calling program only through parameters, which it does not modify, and a return value. Here is <code>double_stuff</code> written as a pure function:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> double_stuff(a_list):
+    <span class="co">&quot;&quot;&quot; Return a new list which contains </span>
+<span class="co">        doubles of the elements in a_list. </span>
+<span class="co">    &quot;&quot;&quot;</span>
+    new_list = []
+    <span class="kw">for</span> value in a_list:
+        new_elem = <span class="dv">2</span> * value
+        new_list.append(new_elem)
+        
+    <span class="kw">return</span> new_list</code></pre></td></tr></table>
 <p>This version of <code>double_stuff</code> does not change its arguments:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; things = [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>]
+&gt;&gt;&gt; xs = double_stuff(things)
+&gt;&gt;&gt; things
+[<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>]
+&gt;&gt;&gt; xs
+[<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>]</code></pre>
 <p>An early rule we saw for assignment said “first evaluate the right hand side, then assign the resulting value to the variable”. So it is quite safe to assign the function result to the same variable that was passed to the function:</p>
-<blockquote>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; things = [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>]
+&gt;&gt;&gt; things = double_stuff(things)
+&gt;&gt;&gt; things
+[<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>]      </code></pre>
+<aside id="pure-functions">
+
 <p><strong>Which style is better?</strong></p>
 <p>Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. Nevertheless, modifiers are convenient at times, and in some cases, functional programs are less efficient.</p>
 <p>In general, we recommend that you write pure functions whenever it is reasonable to do so and resort to modifiers only if there is a compelling advantage. This approach might be called a <em>functional programming style</em>.</p>
-</blockquote>
+</aside>
+
+
 </section>
 <section id="functions-that-produce-lists" class="level2">
 <h2><a href="#functions-that-produce-lists"><span class="header-section-number">7.16</span> Functions that produce lists</a></h2>
 <p>The pure version of <code>double_stuff</code> above made use of an important <strong>pattern</strong> for your toolbox. Whenever you need to write a function that creates and returns a list, the pattern is usually:</p>
+<pre class="sourceCode python"><code class="sourceCode python">initialize a result variable to be an empty <span class="dt">list</span>
+loop
+   create a new element 
+   append it to result
+<span class="kw">return</span> the result</code></pre>
 <p>Let us show another use of this pattern. Assume you already have a function <code>is_prime(x)</code> that can test if x is prime. Write a function to return a list of all prime numbers less than n:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> primes_lessthan(n):
+   <span class="co">&quot;&quot;&quot; Return a list of all prime numbers less than n. &quot;&quot;&quot;</span>
+   result = []
+   <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>, n):
+       <span class="kw">if</span> is_prime(i):
+          result.append(i)
+   <span class="kw">return</span> result</code></pre></td></tr></table>
 </section>
 <section id="strings-and-lists" class="level2">
 <h2><a href="#strings-and-lists"><span class="header-section-number">7.17</span> Strings and lists</a></h2>
-<p>Two of the most useful methods on strings involve conversion to and from lists of substrings. The <code>split</code> method (which we’ve already seen) breaks a string into a list of words. By default, any number of whitespace characters is considered a word boundary:</p>
+<p>Two of the most useful methods on strings involve conversion to and from lists of substrings.<br />The <code>split</code> method (which we’ve already seen) breaks a string into a list of words. By default, any number of whitespace characters is considered a word boundary:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; song = <span class="st">&quot;The rain in Spain...&quot;</span>
+&gt;&gt;&gt; wds = song.split()
+&gt;&gt;&gt; wds
+[<span class="st">&#39;The&#39;</span>, <span class="st">&#39;rain&#39;</span>, <span class="st">&#39;in&#39;</span>, <span class="st">&#39;Spain...&#39;</span>]</code></pre>
 <p>An optional argument called a <strong>delimiter</strong> can be used to specify which string to use as the boundary marker between substrings. The following example uses the string <code>ai</code> as the delimiter:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; song.split(<span class="st">&quot;ai&quot;</span>)
+[<span class="st">&#39;The r&#39;</span>, <span class="st">&#39;n in Sp&#39;</span>, <span class="st">&#39;n...&#39;</span>]</code></pre>
 <p>Notice that the delimiter doesn’t appear in the result.</p>
 <p>The inverse of the <code>split</code> method is <code>join</code>. You choose a desired <strong>separator</strong> string, (often called the <em>glue</em>) and join the list with the glue between each of the elements:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; glue = <span class="st">&quot;;&quot;</span>
+&gt;&gt;&gt; s = glue.join(wds)
+&gt;&gt;&gt; s
+<span class="co">&#39;The;rain;in;Spain...&#39;</span></code></pre>
 <p>The list that you glue together (<code>wds</code> in this example) is not modified. Also, as these next examples show, you can use empty glue or multi-character strings as glue:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot; --- &quot;</span>.join(wds)
+<span class="co">&#39;The --- rain --- in --- Spain...&#39;</span>
+&gt;&gt;&gt; <span class="st">&quot;&quot;</span>.join(wds)
+<span class="co">&#39;TheraininSpain...&#39;</span></code></pre>
 </section>
 <section id="list-and-range" class="level2">
 <h2><a href="#list-and-range"><span class="header-section-number">7.18</span> <code>list</code> and <code>range</code></a></h2>
 <p>Python has a built-in type conversion function called <code>list</code> that tries to turn whatever you give it into a list.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; xs = <span class="dt">list</span>(<span class="st">&quot;Crunchy Frog&quot;</span>)
+&gt;&gt;&gt; xs
+[<span class="st">&quot;C&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;n&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;g&quot;</span>]
+&gt;&gt;&gt; <span class="st">&quot;&quot;</span>.join(xs)
+<span class="co">&#39;Crunchy Frog&#39;</span></code></pre>
 <p>One particular feature of <code>range</code> is that it doesn’t instantly compute all its values: it “puts off” the computation, and does it on demand, or “lazily”. We’ll say that it gives a <strong>promise</strong> to produce the values when they are needed. This is very convenient if your computation short-circuits a search and returns early, as in this case:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> f(n):
+    <span class="co">&quot;&quot;&quot; Find the first positive integer between 101 and less </span>
+<span class="co">        than n that is divisible by 21 </span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">101</span>, n):
+       <span class="kw">if</span> (i % <span class="dv">21</span> == <span class="dv">0</span>):
+           <span class="kw">return</span> i
+            
+            
+test(f(<span class="dv">110</span>) == <span class="dv">105</span>)
+test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code></pre></td></tr></table>
 <p>In the second test, if range were to eagerly go about building a list with all those elements, you would soon exhaust your computer’s available memory and crash the program. But it is cleverer than that! This computation works just fine, because the <code>range</code> object is just a promise to produce the elements if and when they are needed. Once the condition in the <code>if</code> becomes true, no further elements are generated, and the function returns. (Note: Before Python 3, <code>range</code> was not lazy. If you use an earlier versions of Python, YMMV!)</p>
-<blockquote>
-<blockquote>
+<aside id="ymmv">
+
 <p><strong>YMMV: Your Mileage May Vary</strong></p>
 <p>The acronym YMMV stands for <em>your mileage may vary</em>. American car advertisements often quoted fuel consumption figures for cars, e.g. that they would get 28 miles per gallon. But this always had to be accompanied by legal small-print warning the reader that they might not get the same. The term YMMV is now used idiomatically to mean “your results may differ”, e.g. <em>The battery life on this phone is 3 days, but YMMV.</em></p>
-</blockquote>
-</blockquote>
+</aside>
+    
 <p>You’ll sometimes find the lazy <code>range</code> wrapped in a call to <code>list</code>. This forces Python to turn the lazy promise into an actual list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">range</span>(<span class="dv">10</span>)           <span class="co"># Create a lazy promise </span>
+<span class="dt">range</span>(<span class="dv">0</span>, <span class="dv">10</span>)
+&gt;&gt;&gt; <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">10</span>))     <span class="co"># Call in the promise, to produce a list.</span>
+[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</code></pre>
 </section>
 <section id="nested-lists" class="level2">
 <h2><a href="#nested-lists"><span class="header-section-number">7.19</span> Nested lists</a></h2>
 <p>A nested list is a list that appears as an element in another list. In this list, the element with index 3 is a nested list:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">&gt;&gt;&gt; nested = [<span class="st">&quot;hello&quot;</span>, <span class="fl">2.0</span>, <span class="dv">5</span>, [<span class="dv">10</span>, <span class="dv">20</span>]]</code></pre></td></tr></table>
 <p>If we output the element at index 3, we get:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="kw">print</span>(nested[<span class="dv">3</span>]) 
+[<span class="dv">10</span>, <span class="dv">20</span>]</code></pre>
 <p>To extract an element from the nested list, we can proceed in two steps:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; elem = nested[<span class="dv">3</span>]
+&gt;&gt;&gt; elem[<span class="dv">0</span>]
+<span class="dv">10</span></code></pre>
 <p>Or we can combine them:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; nested[<span class="dv">3</span>][<span class="dv">1</span>]
+<span class="dv">20</span></code></pre>
 <p>Bracket operators evaluate from left to right, so this expression gets the 3’th element of <code>nested</code> and extracts the 1’th element from it.</p>
 </section>
 <section id="matrices" class="level2">
 <h2><a href="#matrices"><span class="header-section-number">7.20</span> Matrices</a></h2>
 <p>Nested lists are often used to represent matrices. For example, the matrix:</p>
-<blockquote>
 <figure>
-<img src="illustrations/matrix2.png" alt="image" /><figcaption>image</figcaption>
+<img src="figs/matrix2.png" />
 </figure>
-</blockquote>
 <p>might be represented as:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mx = [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</code></pre>
 <p><code>mx</code> is a list with three elements, where each element is a row of the matrix. We can select an entire row from the matrix in the usual way:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mx[<span class="dv">1</span>]
+[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</code></pre>
 <p>Or we can extract a single element from the matrix using the double-index form:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mx[<span class="dv">1</span>][<span class="dv">2</span>]
+<span class="dv">6</span></code></pre>
 <p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
 </section>
-<section id="glossary-3" class="level2">
-<h2><a href="#glossary-3"><span class="header-section-number">7.21</span> Glossary</a></h2>
+<section id="glossary-2" class="level2">
+<h2><a href="#glossary-2"><span class="header-section-number">7.21</span> Glossary</a></h2>
+<p>aliases : Multiple variables that contain references to the same object.</p>
+<p>clone : To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.</p>
+<p>delimiter : A character or string used to indicate where a string should be split.</p>
+<p>element : One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.</p>
+<p>immutable data value : A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p>index : An integer value that indicates the position of an item in a list. Indexes start from 0.</p>
+<p>item : See <em>element</em>.</p>
+<p>list : A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.</p>
+<p>list traversal : The sequential accessing of each element in a list.</p>
+<p>modifier : A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.</p>
+<p>mutable data value : A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<p>nested list : A list that is an element of another list.</p>
+<p>object : A thing to which a variable can refer.</p>
+<p>pattern : A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.</p>
+<p>promise : An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.</p>
+<p>pure function : A function which has no side effects. Pure functions only make changes to the calling program through their return values.</p>
+<p>sequence : Any of the data types that consist of an ordered collection of elements, with each element identified by an index.</p>
+<p>side effect : A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.</p>
+<p>step size : The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.</p>
 </section>
 <section id="exercises-2" class="level2">
 <h2><a href="#exercises-2"><span class="header-section-number">7.22</span> Exercises</a></h2>
-<ol type="1">
-<li><p>What is the Python interpreter’s response to the following?</p>
-<p>The three arguments to the <em>range</em> function are <em>start</em>, <em>stop</em>, and <em>step</em>, respectively. In this example, <code>start</code> is greater than <code>stop</code>. What happens if <code>start &lt; stop</code> and <code>step &lt; 0</code>? Write a rule for the relationships among <code>start</code>, <code>stop</code>, and <code>step</code>.</p></li>
-<li><p>Consider this fragment of code:</p>
-<p>Does this fragment create one or two turtle instances? Does setting the color of <code>alex</code> also change the color of <code>tess</code>? Explain in detail.</p></li>
-<li><p>Draw a state snapshot for <code>a</code> and <code>b</code> before and after the third line of the following Python code is executed:</p></li>
-<li><p>What will be the output of the following program?</p>
-<p>Provide a <em>detailed</em> explanation of the results.</p></li>
-<li><p>Lists can be used to represent mathematical <em>vectors</em>. In this exercise and several that follow you will write functions to perform standard operations on vectors. Create a script named <code>vectors.py</code> and write Python code to pass the tests in each case.</p>
-<p>Write a function <code>add_vectors(u, v)</code> that takes two lists of numbers of the same length, and returns a new list containing the sums of the corresponding elements of each:</p></li>
-<li><p>Write a function <code>scalar_mult(s, v)</code> that takes a number, <code>s</code>, and a list, <code>v</code> and returns the <a href="http://en.wikipedia.org/wiki/Scalar_multiple">scalar multiple</a> of <code>v</code> by <code>s</code>. :</p></li>
-<li><p>Write a function <code>dot_product(u, v)</code> that takes two lists of numbers of the same length, and returns the sum of the products of the corresponding elements of each (the <a href="http://en.wikipedia.org/wiki/Dot_product">dot_product</a>).</p></li>
-<li><p><em>Extra challenge for the mathematically inclined</em>: Write a function <code>cross_product(u, v)</code> that takes two lists of numbers of length 3 and returns their <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a>. You should write your own tests.</p></li>
-<li><p>Describe the relationship between <code>&quot; &quot;.join(song.split())</code> and <code>song</code> in the fragment of code below. Are they the same for all strings assigned to <code>song</code>? When would they be different?</p></li>
-<li><p>Write a function <code>replace(s, old, new)</code> that replaces all occurrences of <code>old</code> with <code>new</code> in a string <code>s</code>:</p>
-<p><em>Hint</em>: use the <code>split</code> and <code>join</code> methods.</p></li>
-<li><p>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</p>
-<p>Run this program and describe the results. Oops! So it didn’t do what you intended! Explain why not. Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on. What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
+<ol>
+<li>What is the Python interpreter’s response to the following?</li>
 </ol>
+<p>~~~~~~~~~~~~~~~~~~~~~~~{.python} &gt;&gt;&gt; list(range(10, 0, -2)) ~~~~~~~~~~~~~~~~~~~~~~~</p>
+<p>The three arguments to the <em>range</em> function are <em>start</em>, <em>stop</em>, and <em>step</em>, respectively. In this example, <code>start</code> is greater than <code>stop</code>. What happens if <code>start &lt; stop</code> and <code>step &lt; 0</code>? Write a rule for the relationships among <code>start</code>, <code>stop</code>, and <code>step</code>.</p>
+<ol>
+<li>Draw a state snapshot for <code>a</code> and <code>b</code> before and after the third line of the following Python code is executed:</li>
+</ol>
+<p>~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}<br /> a = [1, 2, 3] b = a[:] b[0] = 5 ~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ol>
+<li>What will be the output of the following program?</li>
+</ol>
+<p>~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}<br /> this = [“I”, “am”, “not”, “a”, “crook”] that = [“I”, “am”, “not”, “a”, “crook”] print(“Test 1: {0}”.format(this is that)) that = this print(“Test 2: {0}”.format(this is that)) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<p>Provide a <em>detailed</em> explanation of the results.</p>
+<ol>
+<li>Describe the relationship between <code>&quot; &quot;.join(song.split())</code> and <code>song</code> in the fragment of code below. Are they the same for all strings assigned to <code>song</code>? When would they be different?</li>
+</ol>
+<p>~~~~~~~~~~~~~~~~~~~~~~~{.python}<br /> song = “The rain in Spain…” ~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ol>
+<li><p>Write a function <code>replace(s, old, new)</code> that replaces all occurrences of <code>old</code> with <code>new</code> in a string <code>s</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">test(replace(<span class="st">&quot;Mississippi&quot;</span>, <span class="st">&quot;i&quot;</span>, <span class="st">&quot;I&quot;</span>) == <span class="st">&quot;MIssIssIppI&quot;</span>)
+
+s = <span class="st">&quot;I love spom! Spom is my favorite food. Spom, spom, yum!&quot;</span>
+test(replace(s, <span class="st">&quot;om&quot;</span>, <span class="st">&quot;am&quot;</span>) ==
+    <span class="co">&quot;I love spam! Spam is my favorite food. Spam, spam, yum!&quot;</span>)
+
+test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&quot;</span>) ==
+    <span class="co">&quot;I lave spam! Spam is my favarite faad. Spam, spam, yum!&quot;</span>)</code></pre></li>
+</ol>
+<p><em>Hint</em>: use the <code>split</code> and <code>join</code> methods.</p>
+<ol>
+<li><p>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">
+ <span class="kw">def</span> swap(x, y):      <span class="co"># Incorrect version</span>
+      <span class="kw">print</span>(<span class="st">&quot;before swap statement: x:&quot;</span>, x, <span class="st">&quot;y:&quot;</span>, y)
+      (x, y) = (y, x)
+      <span class="kw">print</span>(<span class="st">&quot;after swap statement: x:&quot;</span>, x, <span class="st">&quot;y:&quot;</span>, y)
+
+ a = [<span class="st">&quot;This&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;fun&quot;</span>]
+ b = [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>] 
+ <span class="kw">print</span>(<span class="st">&quot;before swap function call: a:&quot;</span>, a, <span class="st">&quot;b:&quot;</span>, b)
+ swap(a, b)
+ <span class="kw">print</span>(<span class="st">&quot;after swap function call: a:&quot;</span>, a, <span class="st">&quot;b:&quot;</span>, b)</code></pre></td></tr></table></li>
+</ol>
+<p>Run this program and describe the results. Oops! So it didn’t do what you intended!<br /> Explain why not.</p>
+<p>Using a Python visualizer like the one at http://netserv.ict.ru.ac.za/python3_viz may help you build a good conceptual model of what is going on.<br /> What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p>
 </section>
 </section>
 <section id="contributor-list" class="level1">
