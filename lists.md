@@ -535,7 +535,7 @@ When we run it we'll get:
 
 ~~~~~~~~~~~~~~~~~~~~~~~{.python}
 [4, 10, 18]
-~~~~~~~~~~~~~~~~~~~~~~~{.python
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In the function above, the parameter 
 ``a_list`` and the variable ``things`` are aliases for the
@@ -552,7 +552,7 @@ If a function modifies the items of a list parameter, the caller sees the change
 
 **Use the Python visualizer!**
 
-We've already mentioned the Python visualizer at http://netserv.ict.ru.ac.za/python3_viz.
+We've already mentioned the Python visualizer at <http://netserv.ict.ru.ac.za/python3_viz>.
 It is a very useful tool for building a good understanding of references, aliases, assignments,
 and passing arguments to functions.  Pay special attention to cases where you clone 
 a list or have two separate lists, and cases where there is only one underlying list,
@@ -885,135 +885,165 @@ Glossary
 --------
 
 aliases
-:  Multiple variables that contain references to the same object.
+  ~ Multiple variables that contain references to the same object.
 
 clone
-:  To create a new object that has the same value as an existing object.
-   Copying a reference to an object creates an alias but doesn't clone the
-   object.
+  ~ To create a new object that has the same value as an existing object.
+    Copying a reference to an object creates an alias but doesn't clone the
+    object.
 
 delimiter
-:  A character or string used to indicate where a string should be split.
+  ~ A character or string used to indicate where a string should be split.
 
 element
-:  One of the values in a list (or other sequence). The bracket operator
-   selects elements of a list.  Also called *item*.
+  ~ One of the values in a list (or other sequence). The bracket operator
+    selects elements of a list.  Also called *item*.
 
 immutable data value
-:  A data value which cannot be modified.  Assignments to elements or
-   slices (sub-parts) of immutable values cause a runtime error.
+  ~ A data value which cannot be modified.  Assignments to elements or
+    slices (sub-parts) of immutable values cause a runtime error.
 
 index
-:  An integer value that indicates the position of an item in a list.
-   Indexes start from 0. 
+  ~ An integer value that indicates the position of an item in a list.
+    Indexes start from 0. 
     
 item
-:  See *element*.
+  ~ See *element*.
 
 list
-:  A collection of values, each in a fixed position within the list.
-   Like other types ``str``, ``int``, ``float``, etc. there is also a
-   ``list`` type-converter function that tries to turn whatever argument 
-   you give it into a list. 
+  ~ A collection of values, each in a fixed position within the list.
+    Like other types ``str``, ``int``, ``float``, etc. there is also a
+    ``list`` type-converter function that tries to turn whatever argument 
+    you give it into a list. 
 
 list traversal
-:  The sequential accessing of each element in a list.
+  ~ The sequential accessing of each element in a list.
 
 modifier
-:  A function which changes its arguments inside the function body. Only
-   mutable types can be changed by modifiers.
+  ~ A function which changes its arguments inside the function body. Only
+    mutable types can be changed by modifiers.
     
 mutable data value
-:  A data value which can be modified. The types of all mutable values 
-   are compound types.  Lists and dictionaries are mutable; strings
-   and tuples are not.
+  ~ A data value which can be modified. The types of all mutable values 
+    are compound types.  Lists and dictionaries are mutable; strings
+    and tuples are not.
 
 nested list
-:  A list that is an element of another list.
+  ~ A list that is an element of another list.
 
 object
-:  A thing to which a variable can refer.
+  ~ A thing to which a variable can refer.
     
 pattern
-:  A sequence of statements, or a style of coding something that has
-   general applicability in a number of different situations.  Part of
-   becoming a mature Computer Scientist is to learn and establish the
-   patterns and algorithms that form your toolkit.  Patterns often 
-   correspond to your "mental chunking".   
+  ~ A sequence of statements, or a style of coding something that has
+    general applicability in a number of different situations.  Part of
+    becoming a mature Computer Scientist is to learn and establish the
+    patterns and algorithms that form your toolkit.  Patterns often 
+    correspond to your "mental chunking".   
 
 promise
-:  An object that promises to do some work or deliver some values if
-   they're eventually needed, but it lazily puts off doing the work immediately.
-   Calling ``range`` produces a promise.         
+  ~ An object that promises to do some work or deliver some values if
+    they're eventually needed, but it lazily puts off doing the work immediately.
+    Calling ``range`` produces a promise.         
 
 pure function
-:  A function which has no side effects. Pure functions only make changes
-   to the calling program through their return values.
+  ~ A function which has no side effects. Pure functions only make changes
+    to the calling program through their return values.
 
 sequence
-:  Any of the data types that consist of an ordered collection of elements, with
-   each element identified by an index.
+  ~ Any of the data types that consist of an ordered collection of elements, with
+    each element identified by an index.
     
 side effect
-:  A change in the state of a program made by calling a function. Side
-   effects can only be produced by modifiers.
+  ~ A change in the state of a program made by calling a function. Side
+    effects can only be produced by modifiers.
 
 step size
-:  The interval between successive elements of a linear sequence. The
-   third (and optional argument) to the ``range`` function is called the
-   step size.  If not specified, it defaults to 1.
-
+  ~ The interval between successive elements of a linear sequence. The
+    third (and optional argument) to the ``range`` function is called the
+    step size.  If not specified, it defaults to 1.
         
 Exercises
 ---------
 
-#. What is the Python interpreter's response to the following?
+### Basic Questions
 
-   ~~~~~~~~~~~~~~~~~~~~~~~{.python}
-   >>> list(range(10, 0, -2))
-   ~~~~~~~~~~~~~~~~~~~~~~~
+1. Write a loop that prints out the even numbers from 1-100 (including 100)
+2. Re-write your function from question 1 to solve the problem using
+   a ``range()`` where you pass 3 arguments to ``range``: **start**,
+   **stop**, and **step**. _Hint:_ see the [list and range](#list-and-range)
+   section above to see how to convert a range to a list.
+3. Write a function that returns a list with all of multiples of 5 between
+   5 and 100 (i.e. count by fives). [5,10,15,20 ..., 100]
+4. Write a function that finds and returns the average of a list of numbers.
+5. Write a function called ``filter_word`` which takes a list of strings
+   and a ``word`` to filter as arguments and returns a new list with
+   all instances of ``word`` removed. This function should not modify
+   the original list.
+6. Re-write question 5 as a modifier function without a return statement.
+   It should usethe list method ``remove()`` to remove all intances of
+   ``word`` from the list.
 
-   The three arguments to the *range* function are *start*, *stop*, and *step*, 
-   respectively. In this example, ``start`` is greater than ``stop``.  What
-   happens if ``start < stop`` and ``step < 0``? Write a rule for the
-   relationships among ``start``, ``stop``, and ``step``.
+### Advanced Questions
+
+7. Write a function called ``remove_duplicates`` that takes a list and returns a new
+   list with only the unique elements from the original. _Hint:_ they don’t have to
+   be in the same order.
+
+8. Write a function called ``combine`` that takes 2 lists of strings
+   as parameters and returns a new list of strings which concatenates
+   the items from the first list with the item from the second.
+   If the lists are not equal in length, the new list will end
+   with the item from the longer list. For example:
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+    a = ["cat", "dog", "bird"]
+    b = ["lion", "wolf", "eagle"]
+    c = combine(a,b)
+    print(c)
+    >>> ["catlion", "dogwolf", "birdeagle"]
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+9. Write a function called ``is_sorted`` which takes a list (of number or strings)
+   as a parameter. It should return ``True`` if the list is already
+   sorted (ascending order) or ``False`` if the list is not sorted.
+
+    You can use this function to test your code:
    
-#. Draw a state snapshot for ``a`` and ``b`` before and after the third line of
-   the following Python code is executed:
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+    def test_sort():
+       print("-----------------")
+       print("testing unsorted")
+       n1 = [4,77,2,4567,12]
+       print(is_sorted(n1))
+       print("-----------------")
+       print("testing sorted")
+       n2 = [1,2,3,4,5]
+       print(is_sorted(n2))
+       n3 = ["aardvark", "koala", "zebra", "dog","cat", "alligator", 
+             "elephant", "albatross", "coyote"]
+       print(is_sorted(n3))
+       print(is_sorted(sorted(n3)))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}         
-   a = [1, 2, 3]
-   b = a[:]
-   b[0] = 5
-   ~~~~~~~~~~~~~~~~~~~~~~~
-   
-#. What will be the output of the following program?
+10. What is the Python interpreter's response to the following?
 
-   ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}           
-   this = ["I", "am", "not", "a", "crook"]
-   that = ["I", "am", "not", "a", "crook"]
-   print("Test 1: {0}".format(this is that))
-   that = this
-   print("Test 2: {0}".format(this is that))
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~{.python}
+    >>> list(range(10, 0, -2))
+    ~~~~~~~~~~~~~~~~~~~~~~~
 
-   Provide a *detailed* explanation of the results.
-             
-#. Describe the relationship between ``" ".join(song.split())`` and
-   ``song`` in the fragment of code below. 
-   Are they the same for all strings assigned to ``song``? 
-   When would they be different? 
+    The three arguments to the *range* function are *start*, *stop*, and *step*, 
+    respectively. In this example, ``start`` is greater than ``stop``.  What
+    happens if ``start < stop`` and ``step < 0``? Write a rule for the
+    relationships among ``start``, ``stop``, and ``step``.
+
    
-   ~~~~~~~~~~~~~~~~~~~~~~~{.python}    
-   song = "The rain in Spain..."
-   ~~~~~~~~~~~~~~~~~~~~~~~
-   
-#. Write a function ``replace(s, old, new)`` that replaces all occurrences of
+11. Write a function ``replace(s, old, new)`` that replaces all occurrences of
    ``old`` with ``new`` in a string ``s``: 
    
     ~~~~~~~~~~~~~~~~~~~~~~~{.python}    
     test(replace("Mississippi", "i", "I") == "MIssIssIppI")
-  
+
     s = "I love spom! Spom is my favorite food. Spom, spom, yum!"
     test(replace(s, "om", "am") ==
         "I love spam! Spam is my favorite food. Spam, spam, yum!")
@@ -1022,18 +1052,17 @@ Exercises
         "I lave spam! Spam is my favarite faad. Spam, spam, yum!")
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   *Hint*: use the ``split`` and ``join`` methods.
+    *Hint*: use the ``split`` and ``join`` methods.
           
-#. Suppose you want to swap around the values in two variables.  You decide
+12. Suppose you want to swap around the values in two variables. You decide
    to factor this out into a reusable function, and write this code:
 
     ~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
-            
      def swap(x, y):      # Incorrect version
           print("before swap statement: x:", x, "y:", y)
           (x, y) = (y, x)
           print("after swap statement: x:", x, "y:", y)
- 
+
      a = ["This", "is", "fun"]
      b = [2,3,4] 
      print("before swap function call: a:", a, "b:", b)
@@ -1041,9 +1070,9 @@ Exercises
      print("after swap function call: a:", a, "b:", b)
     ~~~~~~~~~~~~~~~~~~~~~~~
     
-   Run this program and describe the results.  Oops!  So it didn't do what you intended!   
-   Explain why not. 
-   
-   Using a Python visualizer like the one at http://netserv.ict.ru.ac.za/python3_viz 
-   may help you build a good conceptual model of what is going on.  
-   What will be the values of ``a`` and ``b`` after the call to ``swap``?
+    Run this program and describe the results.  Oops!  So it didn't do what you intended!   
+    Explain why not. 
+
+    Using a Python visualizer like the one at <http://netserv.ict.ru.ac.za/python3_viz> 
+    may help you build a good conceptual model of what is going on.  
+    What will be the values of ``a`` and ``b`` after the call to ``swap``?
