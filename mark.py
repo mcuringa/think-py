@@ -1,21 +1,67 @@
+# mark.py
+# by:mxc
+"""
+Convert an rst chapter in Think Python to Mardkown.
+"""
 
+def skip_index(i, lines):
+    i += 1
+    line = lines[i]
+    while line.startswith(" "):
+        i += 1
+        line = lines[i]
 
+    return i
 
-def read(inFile):
-    f = open(inFile)
-    text = f.read()
-    return text
+def parse_image(i, lines):
+    pass
 
-
-def parse(text):
+def parse(lines):
 
     out = ""
-    code = ""
-    inCode = False
-    for line in text:
-        if line.startswith("    .. sourcecode:: python3"):
-            inCode = True
-            code += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python"
+    n = len(lines)
+    i = 0
+    while i in range(n):
+        line = lines[i]
+        if ".. sourcecode:: python3" in line:
+            i,code = parse_code(i,lines)
+            out += code
+        elif ".. index::" in line:
+            i = skip_index(i, lines)
+        elif ".. image::" in line:
+            parse_image(i,lines)
+        else:
+            out += line
+            i += 1
+    return out
 
-        if inCode:
-            if line.
+def parse_code(i,lines):
+    code = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python"
+    i += 1
+    numbers = False
+    if ":linenos:" in lines[i]:
+        code += " .numberLines"
+        i += 1
+    code += "}\n"
+    i += 1
+    line = lines[i]
+
+    while line[0] == " " or len(line.strip()) == 0:
+        code += lines[i]
+        i += 1
+        line = lines[i]
+
+    code = code.replace(" " * 8, "")
+    code += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+    return i, code
+
+def convert(f):
+    lines = list(open(f + ".rst"))
+    out = parse(lines)
+    f = open(f + ".md",'w')
+    f.write(out)
+    f.flush()
+    f.close()
+
+#convert("tuples")
+#convert("dictionaries")

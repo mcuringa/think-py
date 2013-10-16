@@ -6,7 +6,7 @@
   and Chris Meyers
 
 **Adelphi University Mod**\
-based on the _Learning with Python 3 (RLE)_ by Peter Wentworth
+based on the [_Learning with Python 3 (RLE)_ by Peter Wentworth](http://openbookproject.net/thinkcs/python/english3e/)
 
 
 Copyright Notice

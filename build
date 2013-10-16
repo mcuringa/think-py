@@ -1,5 +1,5 @@
 #!/bin/bash
 
-CHAPTERS="forward.md preface.md functions.md iteration.md lists.md contrib.md";
+CHAPTERS="forward.md preface.md functions.md iteration.md lists.md tuples.md dictionaries.md contrib.md";
 
 pandoc -o index.html -t html5 -s -S --toc --section-divs -N -H ./tmpl/style.css $CHAPTERS;

@@ -290,11 +290,15 @@ Dictionaries provide an elegant way to generate a frequency table:
 ...
 >>> letter_counts
 {'M': 1, 's': 4, 'p': 2, 'i': 4}
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 We start with an empty dictionary. For each letter in the string, we find the
 current count (possibly zero) and increment it. At the end, the dictionary
-contains pairs of letters and their frequencies.
+contains pairs of letters and their frequencies. Note that we access
+the letter using the dictionary's ``get`` method (rather than the
+index notation which would read ``letter_counts[letter]``) because
+``get`` allows us to pass in the default vaule, as the second parameter,
+in the event that the key is not yet in our dictionary.
 
 It might be more appealing to display the frequency table in alphabetical order. We
 can do that with the ``items`` and ``sort`` methods:
@@ -304,8 +308,8 @@ can do that with the ``items`` and ``sort`` methods:
 >>> letter_items.sort()
 >>> print(letter_items)
 [('M', 1), ('i', 4), ('p', 2), ('s', 4)]
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Notice in the first line we had to call the type conversion function ``list``.
 That turns the promise we get from ``items`` into a list, a step that is 
 needed before we can use the list's ``sort`` method. 
@@ -313,45 +317,37 @@ needed before we can use the list's ``sort`` method.
 Glossary
 --------
 
-.. glossary::
-       
-    call graph 
-        A graph consisting of nodes which represent function frames (or invocations), 
-        and directed edges (lines with arrows) showing which frames gave
-        rise to other frames.       
-        
-    dictionary
-        A collection of key:value pairs that maps from keys to values. The keys
-        can be any immutable value, and the associated value can be of any type.
+dictionary
+: A collection of key:value pairs that maps from keys to values. The keys
+  can be any immutable value, and the associated value can be of any type.
 
-    immutable data value
-        A data value which cannot be modified.  Assignments to elements or
-        slices (sub-parts) of immutable values cause a runtime error.
+immutable data value
+: A data value which cannot be modified.  Assignments to elements or
+  slices (sub-parts) of immutable values cause a runtime error.
 
-    key
-        A data item that is *mapped to* a value in a dictionary. Keys are used
-        to look up values in a dictionary. Each key must be unique
-        across the dictionary.
+key
+: A data item that is *mapped to* a value in a dictionary. Keys are used
+  to look up values in a dictionary. Each key must be unique
+  across the dictionary.
 
-    key:value pair
-        One of the pairs of items in a dictionary. Values are looked up in a
-        dictionary by key.
-        
-    mapping type
-        A mapping type is a data type comprised of a collection of keys and
-        associated values. Python's only built-in mapping type is the
-        dictionary.  Dictionaries implement the
-        `associative array <http://en.wikipedia.org/wiki/Associative_array>`__
-        abstract data type.
+key:value pair
+: One of the pairs of items in a dictionary. Values are looked up in a
+  dictionary by key.
+  
+mapping type
+: A mapping type is a data type comprised of a collection of keys and
+  associated values. Python's only built-in mapping type is the
+  dictionary.  Dictionaries implement the
+  [associative array](http://en.wikipedia.org/wiki/Associative_array)
+  abstract data type.
 
-    memo
-        Temporary storage of precomputed values to avoid duplicating the same computation.
+memo
+: Temporary storage of precomputed values to avoid duplicating the same computation.
 
-    mutable data value
-        A data value which can be modified. The types of all mutable values 
-        are compound types.  Lists and dictionaries are mutable; strings
-        and tuples are not.
-
+mutable data value
+: A data value which can be modified. The types of all mutable values 
+  are compound types.  Lists and dictionaries are mutable; strings
+  and tuples are not.
 
 Exercises
 ---------
