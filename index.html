@@ -16,7 +16,7 @@
   <style type="text/css">
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; }
+table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
 code > span.kw { color: #007020; font-weight: bold; }
@@ -166,8 +166,6 @@ code > span.er { color: #ff0000; font-weight: bold; }
   
   table.sourceCode, pre.sourceCode
   {
-      width: 90%;
-      margin: 0 auto;
       line-height: 1.15em;
   }
   
@@ -266,19 +264,36 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#advanced-questions"><span class="toc-section-number">7.22.2</span> Advanced Questions</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#contributor-list"><span class="toc-section-number">8</span> Contributor List</a><ul>
-<li><a href="#second-edition"><span class="toc-section-number">8.1</span> Second Edition</a></li>
-<li><a href="#first-edition"><span class="toc-section-number">8.2</span> First Edition</a></li>
+<li><a href="#tuples"><span class="toc-section-number">8</span> Tuples</a><ul>
+<li><a href="#tuples-are-used-for-grouping-data"><span class="toc-section-number">8.1</span> Tuples are used for grouping data</a></li>
+<li><a href="#tuple-assignment"><span class="toc-section-number">8.2</span> Tuple assignment</a></li>
+<li><a href="#tuples-as-return-values"><span class="toc-section-number">8.3</span> Tuples as return values</a></li>
+<li><a href="#composability-of-data-structures"><span class="toc-section-number">8.4</span> Composability of Data Structures</a></li>
+<li><a href="#glossary-3"><span class="toc-section-number">8.5</span> Glossary</a></li>
+<li><a href="#exercises-3"><span class="toc-section-number">8.6</span> Exercises</a></li>
+</ul></li>
+<li><a href="#dictionaries"><span class="toc-section-number">9</span> Dictionaries</a><ul>
+<li><a href="#practice-problems"><span class="toc-section-number">9.0.1</span> Practice problems</a></li>
+<li><a href="#dictionary-operations"><span class="toc-section-number">9.1</span> Dictionary operations</a></li>
+<li><a href="#dictionary-methods"><span class="toc-section-number">9.2</span> Dictionary methods</a></li>
+<li><a href="#aliasing-and-copying"><span class="toc-section-number">9.3</span> Aliasing and copying</a></li>
+<li><a href="#counting-letters"><span class="toc-section-number">9.4</span> Counting letters</a></li>
+<li><a href="#glossary-4"><span class="toc-section-number">9.5</span> Glossary</a></li>
+<li><a href="#exercises-4"><span class="toc-section-number">9.6</span> Exercises</a></li>
+</ul></li>
+<li><a href="#contributor-list"><span class="toc-section-number">10</span> Contributor List</a><ul>
+<li><a href="#second-edition"><span class="toc-section-number">10.1</span> Second Edition</a></li>
+<li><a href="#first-edition"><span class="toc-section-number">10.2</span> First Edition</a></li>
 </ul></li>
 </ul>
 </nav>
-<p><strong>Adelphi University Mod</strong><br />based on the <em>Learning with Python 3 (RLE)</em> by Peter Wentworth</p>
-<section class="level1" id="copyright-notice">
+<p><strong>Adelphi University Mod</strong><br />based on the <a href="http://openbookproject.net/thinkcs/python/english3e/"><em>Learning with Python 3 (RLE)</em> by Peter Wentworth</a></p>
+<section id="copyright-notice" class="level1">
 <h1><a href="#copyright-notice"><span class="header-section-number">1</span> Copyright Notice</a></h1>
 <p>Copyright (C) Peter Wentworth.</p>
 <p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
 </section>
-<section class="level1" id="foreword">
+<section id="foreword" class="level1">
 <h1><a href="#foreword"><span class="header-section-number">2</span> Foreword</a></h1>
 <p>By David Beazley</p>
 <p>As an educator, researcher, and book author, I am delighted to see the completion of this book. Python is a fun and extremely easy-to-use programming language that has steadily gained in popularity over the last few years. Developed over ten years ago by Guido van Rossum, Python’s simple syntax and overall feel is largely derived from ABC, a teaching language that was developed in the 1980’s. However, Python was also created to solve real problems and it borrows a wide variety of features from programming languages such as C++, Java, Modula-3, and Scheme. Because of this, one of Python’s most remarkable features is its broad appeal to professional software developers, scientists, researchers, artists, and educators.</p>
@@ -288,19 +303,19 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>In reading Jeffrey’s preface, I am struck by his comments that Python allowed him to see a higher level of success and a lower level of frustration and that he was able to move faster with better results. Although these comments refer to his introductory course, I sometimes use Python for these exact same reasons in advanced graduate level computer science courses at the University of Chicago. In these courses, I am constantly faced with the daunting task of covering a lot of difficult course material in a blistering nine week quarter. Although it is certainly possible for me to inflict a lot of pain and suffering by using a language like C++, I have often found this approach to be counterproductive—especially when the course is about a topic unrelated to just programming. I find that using Python allows me to better focus on the actual topic at hand while allowing students to complete substantial class projects.</p>
 <p>Although Python is still a young and evolving language, I believe that it has a bright future in education. This book is an important step in that direction. David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
 </section>
-<section class="level1" id="preface">
+<section id="preface" class="level1">
 <h1><a href="#preface"><span class="header-section-number">3</span> Preface</a></h1>
 <p>By Jeffrey Elkner</p>
 <p>This book owes its existence to the collaboration made possible by the Internet and the free software movement. Its three authors—a college professor, a high school teacher, and a professional programmer—never met face to face to work on it, but we have been able to collaborate closely, aided by many other folks who have taken the time and energy to send us their feedback.</p>
 <p>We think this book is a testament to the benefits and future possibilities of this kind of collaboration, the framework for which has been put in place by Richard Stallman and the Free Software Foundation.</p>
-<section class="level2" id="how-and-why-i-came-to-use-python">
+<section id="how-and-why-i-came-to-use-python" class="level2">
 <h2><a href="#how-and-why-i-came-to-use-python"><span class="header-section-number">3.1</span> How and why I came to use Python</a></h2>
 <p>In 1999, the College Board’s Advanced Placement (AP) Computer Science exam was given in C++ for the first time. As in many high schools throughout the country, the decision to change languages had a direct impact on the computer science curriculum at Yorktown High School in Arlington, Virginia, where I teach. Up to this point, Pascal was the language of instruction in both our first-year and AP courses. In keeping with past practice of giving students two years of exposure to the same language, we made the decision to switch to C++ in the first year course for the 1997-98 school year so that we would be in step with the College Board’s change for the AP course the following year.</p>
 <p>Two years later, I was convinced that C++ was a poor choice to use for introducing students to computer science. While it is certainly a very powerful programming language, it is also an extremely difficult language to learn and teach. I found myself constantly fighting with C++’s difficult syntax and multiple ways of doing things, and I was losing many students unnecessarily as a result. Convinced there had to be a better language choice for our first-year class, I went looking for an alternative to C++.</p>
 <p>I needed a language that would run on the machines in our GNU/Linux lab as well as on the Windows and Macintosh platforms most students have at home. I wanted it to be free software, so that students could use it at home regardless of their income. I wanted a language that was used by professional programmers, and one that had an active developer community around it. It had to support both procedural and object-oriented programming. And most importantly, it had to be easy to learn and teach. When I investigated the choices with these goals in mind, Python stood out as the best candidate for the job.</p>
 <p>I asked one of Yorktown’s talented students, Matt Ahrens, to give Python a try. In two months he not only learned the language but wrote an application called pyTicket that enabled our staff to report technology problems via the Web. I knew that Matt could not have finished an application of that scale in so short a time in C++, and this accomplishment, combined with Matt’s positive assessment of Python, suggested that Python was the solution I was looking for.</p>
 </section>
-<section class="level2" id="finding-a-textbook">
+<section id="finding-a-textbook" class="level2">
 <h2><a href="#finding-a-textbook"><span class="header-section-number">3.2</span> Finding a textbook</a></h2>
 <p>Having decided to use Python in both of my introductory computer science classes the following year, the most pressing problem was the lack of an available textbook.</p>
 <p>Free documents came to the rescue. Earlier in the year, Richard Stallman had introduced me to Allen Downey. Both of us had written to Richard expressing an interest in developing free educational materials. Allen had already written a first-year computer science textbook, <em>How to Think Like a Computer Scientist</em>. When I read this book, I knew immediately that I wanted to use it in my class. It was the clearest and most helpful computer science text I had seen. It emphasized the processes of thought involved in programming rather than the features of a particular language. Reading it immediately made me a better teacher.</p>
@@ -309,7 +324,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
 <p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
-<section class="level2" id="introducing-programming-with-python">
+<section id="introducing-programming-with-python" class="level2">
 <h2><a href="#introducing-programming-with-python"><span class="header-section-number">3.3</span> Introducing programming with Python</a></h2>
 <p>The process of translating and using <em>How to Think Like a Computer Scientist</em> for the past two years has confirmed Python’s suitability for teaching beginning students. Python greatly simplifies programming examples and makes important programming ideas easier to teach.</p>
 <p>The first example from the text illustrates this point. It is the traditional hello, world program, which in the Java version of the book looks like this:</p>
@@ -328,7 +343,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Another example of how Python aids in the teaching and learning of programming is in its syntax for functions. My students have always had a great deal of difficulty understanding functions. The main problem centers around the difference between a function definition and a function call, and the related distinction between a parameter and an argument. Python comes to the rescue with syntax that is nothing short of beautiful. Function definitions begin with the keyword <code>def</code>, so I simply tell my students, When you define a function, begin with <code>def</code>, followed by the name of the function that you are defining; when you call a function, simply call (type) out its name. Parameters go with definitions; arguments go with calls. There are no return types, parameter types, or reference and value parameters to get in the way, so I am now able to teach functions in less than half the time that it previously took me, with better comprehension.</p>
 <p>Using Python improved the effectiveness of our computer science program for all students. I saw a higher general level of success and a lower level of frustration than I experienced teaching with either C++ or Java. I moved faster with better results. More students left the course with the ability to create meaningful programs and with the positive attitude toward the experience of programming that this engenders.</p>
 </section>
-<section class="level2" id="building-a-community">
+<section id="building-a-community" class="level2">
 <h2><a href="#building-a-community"><span class="header-section-number">3.4</span> Building a community</a></h2>
 <p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
@@ -340,7 +355,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
 </section>
 </section>
-<section class="level1" id="the-rhodes-local-edition-rle-version-of-august-2012">
+<section id="the-rhodes-local-edition-rle-version-of-august-2012" class="level1">
 <h1><a href="#the-rhodes-local-edition-rle-version-of-august-2012"><span class="header-section-number">4</span> The Rhodes Local Edition (RLE) (Version of August, 2012)</a></h1>
 <p>By Peter Wentworth</p>
 <aside>
@@ -409,9 +424,9 @@ Many thanks to all the contributors and the authors for making their hard work a
 <li><p>We’re interested in issues around teaching and learning. Some research indicates that “intellectual playfulness” is important. The study referenced in the Odds-and-ends workbook at the end just didn’t seem to have anywhere sensible to go in the book, yet I wanted it included. It is quite likely that we’ll allow more issues like this to creep into the book, to try to make it more than just about programming in Python.</p></li>
 </ul>
 </section>
-<section class="level1" id="functions">
+<section id="functions" class="level1">
 <h1><a href="#functions"><span class="header-section-number">5</span> Functions</a></h1>
-<section class="level2" id="functions-1">
+<section id="functions-1" class="level2">
 <h2><a href="#functions-1"><span class="header-section-number">5.1</span> Functions</a></h2>
 <p>In Python, a <strong>function</strong> is a named sequence of statements that belong together. Their primary purpose is to help us organize programs into chunks that match how we think about the problem.</p>
 <p>The syntax for a <strong>function definition</strong> is:</p>
@@ -527,7 +542,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </aside>
 
 </section>
-<section class="level2" id="composition-functions-can-call-other-functions">
+<section id="composition-functions-can-call-other-functions" class="level2">
 <h2><a href="#composition-functions-can-call-other-functions"><span class="header-section-number">5.2</span> Composition: Functions can call other functions</a></h2>
 <p>So far, we have looked at the elements of a program—<code>variables</code>, <code>expressions</code>, and <code>statements</code>—in isolation, without talking about how to combine them.</p>
 <p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them. In our calculate_tip example, we call several Python built-in functions: <code>round</code> to keep our amounts to 2 decimal places and <code>str</code> to convert numeric data (ints and floats) to strings when we print them. As we will see, we can compose our programs of many functions that we define ourselves.</p>
@@ -544,7 +559,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 </ol>
 <p>As we might expect, we have to create a function before we can execute it. In other words, the function definition has to be executed before the function is called.</p>
 </section>
-<section class="level2" id="flow-of-execution">
+<section id="flow-of-execution" class="level2">
 <h2><a href="#flow-of-execution"><span class="header-section-number">5.3</span> Flow of execution</a></h2>
 <p>In order to ensure that a function is defined before its first use, we have to know the order in which statements are executed, which is called the <strong>flow of execution</strong>.</p>
 <p>Execution always begins at the first statement of the program. Statements are executed one at a time, in order from top to bottom.</p>
@@ -554,7 +569,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <p>Fortunately, Python is adept at keeping track of where it is, so each time a function completes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.</p>
 <p>What’s the moral of this sordid tale? When we read a program, don’t read from top to bottom. Instead, follow the flow of execution.</p>
 </section>
-<section class="level2" id="functions-that-require-arguments">
+<section id="functions-that-require-arguments" class="level2">
 <h2><a href="#functions-that-require-arguments"><span class="header-section-number">5.4</span> Functions that require arguments</a></h2>
 <p>Most functions require arguments: the arguments provide for generalization. For example, if we want to find the absolute value of a number, we have to indicate what the number is. Python has a built-in function for computing the absolute value:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">abs</span>(<span class="dv">5</span>)
@@ -576,7 +591,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <span class="dv">503</span></code></pre>
 <p><code>max</code> can be passed any number of arguments, separated by commas, and will return the largest value passed. The arguments can be either simple values or expressions. In the last example, 503 is returned, since it is larger than 33, 125, and 1.</p>
 </section>
-<section class="level2" id="functions-that-return-values">
+<section id="functions-that-return-values" class="level2">
 <h2><a href="#functions-that-return-values"><span class="header-section-number">5.5</span> Functions that return values</a></h2>
 <p>All the functions in the previous section return values. Furthermore, functions like <code>range</code>, <code>int</code>, <code>abs</code> all return values that can be used to build more complex expressions.</p>
 <p>So an important difference between these functions and one like <code>calculate_tip</code> is that <code>calculate_tip</code> does not return a useful value — it computes a value and displays the results on the screen.</p>
@@ -656,7 +671,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <p>Parameters are also local, and act like local variables. For example, the lifetimes of <code>p</code>, <code>r</code>, <code>n</code>, <code>t</code> begin when <code>final_amt</code> is called, and the lifetime ends when the function completes its execution.</p>
 <p>So it is not possible for a function to set some local variable to a value, complete its execution, and then when it is called again next time, recover the local variable. Each call of the function creates new local variables, and their lifetimes expire when the function returns to the caller.</p>
 </section>
-<section class="level2" id="tips-revisited">
+<section id="tips-revisited" class="level2">
 <h2><a href="#tips-revisited"><span class="header-section-number">5.6</span> Tips Revisited</a></h2>
 <p>Now that we have fruitful functions, we can focus our attention on reorganizing our code so that it fits more nicely into our mental chunks.<br />This process of rearrangement is called <strong>refactoring</strong> the code.</p>
 <p>Two things want to do in our tip calculator is to find the amount of the tip and show the results to the user. In the example below, we separate the various functions of the program to make a more complete tip calculator. As you’ll see, we’re starting to build code that is useful. Using functions allows us to make changes to one part of a program without affecting other parts of the program. For example, we can change the welcome message without worrying about breaking our calculations.</p>
@@ -855,7 +870,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </aside>
 
 </section>
-<section class="level2" id="glossary">
+<section id="glossary" class="level2">
 <h2><a href="#glossary"><span class="header-section-number">5.7</span> Glossary</a></h2>
 <dl>
 <dt>argument</dt>
@@ -928,7 +943,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </dd>
 </dl>
 </section>
-<section class="level2" id="exercises">
+<section id="exercises" class="level2">
 <h2><a href="#exercises"><span class="header-section-number">5.8</span> Exercises</a></h2>
 <ol type="1">
 <li><p>Write a void (non-fruitful) function to that prints out centered text to the console. Your function should have two parameters, <code>text</code>—the string to center, and <code>maxLen</code>—the width of the document (in spaces).<br /> (Hint: you will want to use the built-in <code>len</code> function and might want to use the * operator with spaces.)</p></li>
@@ -967,11 +982,11 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </ol>
 </section>
 </section>
-<section class="level1" id="iteration">
+<section id="iteration" class="level1">
 <h1><a href="#iteration"><span class="header-section-number">6</span> Iteration</a></h1>
 <p>Computers are often used to automate repetitive tasks. Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.</p>
 <p>Repeated execution of a set of statements is called <strong>iteration</strong>. Because iteration is so common, Python provides several language features to make it easier. The <code>for</code> loop is the form of iteration you’ll likely be using most often, and we will look at that first. But in this chapter we’ve going to look at the <code>while</code> statement — another way to have your program do iteration, useful in slightly different circumstances.</p>
-<section class="level2" id="the-for-loop">
+<section id="the-for-loop" class="level2">
 <h2><a href="#the-for-loop"><span class="header-section-number">6.1</span> The <code>for</code> loop</a></h2>
 <p>A basic building block of all programs is to be able to repeat some code, over and over again. Python’s <strong>for</strong> loop solves this for us. Let’s say we have some friends, and we’d like to send them each an email inviting them to our party. We don’t quite know how to send email yet, so for the moment we’ll just print a message for each friend:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -998,7 +1013,7 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <li>At the end of each execution of the body of the loop, Python returns to the <code>for</code> statement, to see if there are more items to be handled, and to assign the next one to <code>f</code>.</li>
 </ul>
 </section>
-<section class="level2" id="flow-of-execution-of-the-for-loop">
+<section id="flow-of-execution-of-the-for-loop" class="level2">
 <h2><a href="#flow-of-execution-of-the-for-loop"><span class="header-section-number">6.2</span> Flow of Execution of the for loop</a></h2>
 <p>As a program executes, the interpreter always keeps track of which statement is about to be executed. We call this the <strong>control flow</strong>, of the <strong>flow of execution</strong> of the program. When humans execute programs, they often use their finger to point to each statement in turn. So we could think of control flow as “Python’s moving finger”.</p>
 <p>Control flow until now has been strictly top to bottom, one statement at a time. The <code>for</code> loop changes this.</p>
@@ -1011,7 +1026,7 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 </aside>
 
 </section>
-<section class="level2" id="assignment">
+<section id="assignment" class="level2">
 <h2><a href="#assignment"><span class="header-section-number">6.3</span> Assignment</a></h2>
 <p>As we have mentioned previously, it is legal to make more than one assignment to the same variable. A new assignment makes an existing variable refer to a new value (and stop referring to the old value).</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1037,7 +1052,7 @@ b = a    <span class="co"># After executing this line, a and b are now equal</sp
 a = <span class="dv">3</span>    <span class="co"># After executing this line, a and b are no longer equal</span></code></pre></td></tr></table>
 <p>The third line changes the value of <code>a</code> but does not change the value of <code>b</code>, so they are no longer equal. (In some programming languages, a different symbol is used for assignment, such as <code>&lt;-</code> or <code>:=</code>, to avoid confusion. Some people also think that <em>variable</em> was an unfortunae word to choose, and instead we should have called them <em>assignables</em>. Python chooses to follow common terminology and token usage, also found in languages like C, C++, Java, and C#, so we use the tokens <code>=</code> for assignment, <code>==</code> for equality, and we talk of <em>variables</em>.</p>
 </section>
-<section class="level2" id="updating-variables">
+<section id="updating-variables" class="level2">
 <h2><a href="#updating-variables"><span class="header-section-number">6.4</span> Updating variables</a></h2>
 <p>When an assignment statement is executed, the right-hand side expression (i.e. the expression that comes after the assignment token) is evaluated first. This produces a value. Then the assignment is made, so that the variable on the left-hand side now refers to the new value.</p>
 <p>One of the most common forms of assignment is an update, where the new value of the variable depends on its old value. Deduct 40 cents from my airtime balance, or add one run to the scoreboard.</p>
@@ -1060,7 +1075,7 @@ Traceback (most recent call last):
 runs_scored = runs_scored + <span class="dv">1</span></code></pre></td></tr></table>
 <p>Line 3 — updating a variable by adding 1 to it — is very common.<br />It is called an <strong>increment</strong> of the variable; subtracting 1 is called a <strong>decrement</strong>.<br />Sometimes programmers also talk about <em>bumping</em> a variable, which means the same as incrementing it by 1.</p>
 </section>
-<section class="level2" id="the-for-loop-revisited">
+<section id="the-for-loop-revisited" class="level2">
 <h2><a href="#the-for-loop-revisited"><span class="header-section-number">6.5</span> The <code>for</code> loop revisited</a></h2>
 <p>Recall that the <code>for</code> loop processes each item in a list. Each item in turn is (re-)assigned to the loop variable, and the body of the loop is executed. We saw this example earlier:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1098,7 +1113,7 @@ test(mysum([<span class="dv">1</span>, -<span class="dv">2</span>, <span class="
 test(mysum([ ]) == <span class="dv">0</span>)
 test(mysum(<span class="dt">range</span>(<span class="dv">11</span>)) == <span class="dv">55</span>)  <span class="co"># 11 is not included in the list.</span></code></pre></td></tr></table>
 </section>
-<section class="level2" id="the-while-statement">
+<section id="the-while-statement" class="level2">
 <h2><a href="#the-while-statement"><span class="header-section-number">6.6</span> The <code>while</code> statement</a></h2>
 <p>Here is a fragment of code that demonstrates the use of the <code>while</code> statement:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1152,7 +1167,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>Notice the slightly tricky call to the <code>range</code> function — we had to add one onto <code>n</code>, because <code>range</code> generates its list up to but excluding the value you give it. It would be easy to make a programming mistake and overlook this, but because we’ve made the investment of writing some unit tests, our test suite would have caught our error.</p>
 <p>So why have two kinds of loop if <code>for</code> looks easier? This next example shows a case where we need the extra power that we get from the <code>while</code> loop.</p>
 </section>
-<section class="level2" id="the-collatz-3n-1-sequence">
+<section id="the-collatz-3n-1-sequence" class="level2">
 <h2><a href="#the-collatz-3n-1-sequence"><span class="header-section-number">6.7</span> The Collatz 3n + 1 sequence</a></h2>
 <p>Let’s look at a simple sequence that has fascinated and foxed mathematicians for many years. They still cannot answer even quite simple questions about this.</p>
 <p>The “computational rule” for creating the sequence is to start from some given <code>n</code>, and to generate the next term of the sequence from <code>n</code>, either by halving <code>n</code>, (whenever <code>n</code> is even), or else by multiplying it by three and adding 1. The sequence terminates when <code>n</code> reaches 1.</p>
@@ -1208,7 +1223,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 </aside>
 
 </section>
-<section class="level2" id="tracing-a-program">
+<section id="tracing-a-program" class="level2">
 <h2><a href="#tracing-a-program"><span class="header-section-number">6.8</span> Tracing a program</a></h2>
 <p>To write effective computer programs, and to build a good conceptual model of program execution, a programmer needs to develop the ability to <strong>trace</strong> the execution of a computer program. Tracing involves becoming the computer and following the flow of execution through a sample program run, recording the state of all variables and any output the program generates after each instruction is executed.</p>
 <p>To understand this process, let’s trace the call to <code>seq3np1(3)</code> from the previous section. At the start of the trace, we have a variable, <code>n</code> (the parameter), with an initial value of 3. Since 3 is not equal to 1, the <code>while</code> loop body is executed. 3 is printed and <code>3 % 2 == 0</code> is evaluated. Since it evaluates to <code>False</code>, the <code>else</code> branch is executed and <code>3 * 3 + 1</code> is evaluated and assigned to <code>n</code>.</p>
@@ -1233,7 +1248,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>There are also some great visualization tools becoming available to help you trace and understand small fragments of Python code. The one we recommend is at http://netserv.ict.ru.ac.za/python3_viz</p>
 <p>We’ve cautioned against chatterbox functions, but used them here.<br />As we learn a bit more Python, we’ll be able to show you how to generate a list of values to hold the sequence, rather than having the function print them. Doing this would remove the need to have all these pesky <code>print</code> functions in the middle of our logic, and will make the function more useful.</p>
 </section>
-<section class="level2" id="counting-digits">
+<section id="counting-digits" class="level2">
 <h2><a href="#counting-digits"><span class="header-section-number">6.9</span> Counting digits</a></h2>
 <p>The following function counts the number of decimal digits in a positive integer:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1271,7 +1286,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>Notice, however, that <code>test(num_digits(0) == 1)</code> fails. Explain why. Do you think this is a bug in the code, or a bug in the specifications, or our expectations, or the tests?</p>
 <p>.. index:: abbreviated assignment</p>
 </section>
-<section class="level2" id="abbreviated-assignment">
+<section id="abbreviated-assignment" class="level2">
 <h2><a href="#abbreviated-assignment"><span class="header-section-number">6.10</span> Abbreviated assignment</a></h2>
 <p>Incrementing a variable is so common that Python provides an abbreviated syntax for it:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; count = <span class="dv">0</span>
@@ -1301,7 +1316,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 &gt;&gt;&gt; n
 <span class="dv">1</span></code></pre>
 </section>
-<section class="level2" id="help-and-meta-notation">
+<section id="help-and-meta-notation" class="level2">
 <h2><a href="#help-and-meta-notation"><span class="header-section-number">6.11</span> Help and meta-notation</a></h2>
 <p>Python comes with extensive documentation for all its built-in functions, and its libraries. Different systems have different ways of accessing this help. In PyScripter, click on the <em>Help</em> menu item, and select <em>Python Manuals</em>. Then search for help on the built-in function <strong>range</strong>. You’ll get something like this:</p>
 <figure>
@@ -1316,7 +1331,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p><strong>print( [<em><em> </em>object,</em> … **] )</strong></p>
 <p>Meta-notation gives us a concise and powerful way to describe the <em>pattern</em> of some syntax or feature.</p>
 </section>
-<section class="level2" id="tables">
+<section id="tables" class="level2">
 <h2><a href="#tables"><span class="header-section-number">6.12</span> Tables</a></h2>
 <p>One of the things loops are good for is generating tables. Before computers were readily available, people had to calculate logarithms, sines and cosines, and other mathematical functions by hand. To make that easier, mathematics books contained long tables listing the values of these functions. Creating the tables was slow and boring, and they tended to be full of errors.</p>
 <p>When computers appeared on the scene, one of the initial reactions was, <em>“This is great! We can use the computers to generate the tables, so there will be no errors.”</em> That turned out to be true (mostly) but shortsighted. Soon thereafter, computers and calculators were so pervasive that the tables became obsolete.</p>
@@ -1345,7 +1360,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 12      4096</code></pre>
 <p>Because of the tab characters between the columns, the position of the second column does not depend on the number of digits in the first column.</p>
 </section>
-<section class="level2" id="two-dimensional-tables">
+<section id="two-dimensional-tables" class="level2">
 <h2><a href="#two-dimensional-tables"><span class="header-section-number">6.13</span> Two-dimensional tables</a></h2>
 <p>A two-dimensional table is a table where you read the value at the intersection of a row and a column. A multiplication table is a good example. Let’s say you want to print a multiplication table for the values from 1 to 6.</p>
 <p>A good way to start is to write a loop that prints the multiples of 2, all on one line:</p>
@@ -1361,7 +1376,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <pre><code>2      4      6      8      10     12Z</code></pre>
 <p>So far, so good. The next step is to <strong>encapsulate</strong> and <strong>generalize</strong>.</p>
 </section>
-<section class="level2" id="encapsulation-and-generalization">
+<section id="encapsulation-and-generalization" class="level2">
 <h2><a href="#encapsulation-and-generalization"><span class="header-section-number">6.14</span> Encapsulation and generalization</a></h2>
 <p>Encapsulation is the process of wrapping a piece of code in a function, allowing you to take advantage of all the things functions are good for. You have already seen some examples of encapsulation, including <code>is_divisible</code> in a previous chapter.</p>
 <p>Generalization means taking something specific, such as printing the multiples of 2, and making it more general, such as printing the multiples of any integer.</p>
@@ -1393,7 +1408,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 5      10     15     20     25     30
 6      12     18     24     30     36</code></pre>
 </section>
-<section class="level2" id="more-encapsulation">
+<section id="more-encapsulation" class="level2">
 <h2><a href="#more-encapsulation"><span class="header-section-number">6.15</span> More encapsulation</a></h2>
 <p>To demonstrate encapsulation again, let’s take the code from the last section and wrap it up in a function:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1405,7 +1420,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>This process is a common <strong>development plan</strong>. We develop code by writing lines of code outside any function, or typing them in to the interpreter. When we get the code working, we extract it and wrap it up in a function.</p>
 <p>This development plan is particularly useful if you don’t know how to divide the program into functions when you start writing. This approach lets you design as you go along.</p>
 </section>
-<section class="level2" id="local-variables">
+<section id="local-variables" class="level2">
 <h2><a href="#local-variables"><span class="header-section-number">6.16</span> Local variables</a></h2>
 <p>You might be wondering how we can use the same variable, <code>i</code>, in both <code>print_multiples</code> and <code>print_mult_table</code>. Doesn’t it cause problems when one of the functions changes the value of the variable?</p>
 <p>The answer is no, because the <code>i</code> in <code>print_multiples</code> and the <code>i</code> in <code>print_mult_table</code> are <em>not</em> the same variable.</p>
@@ -1421,7 +1436,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>The visualizer at http://netserv.ict.ru.ac.za/python3_viz/ shows very clearly how the two variables <code>i</code> are distinct variables, and how they have independent values.</p>
 <p>.. index:: break statement, statement: break</p>
 </section>
-<section class="level2" id="the-break-statement">
+<section id="the-break-statement" class="level2">
 <h2><a href="#the-break-statement"><span class="header-section-number">6.17</span> The <code>break</code> statement</a></h2>
 <p>The <strong>break</strong> statement is used to immediately leave the body of its loop. The next statement to be executed is the first one after the body:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1449,7 +1464,7 @@ done</code></pre>
 </aside>
     
 </section>
-<section class="level2" id="the-continue-statement">
+<section id="the-continue-statement" class="level2">
 <h2><a href="#the-continue-statement"><span class="header-section-number">6.18</span> The <code>continue</code> statement</a></h2>
 <p>This is a control flow statement that causes the program to immediately skip the processing of the rest of the body of the loop, <em>for the current iteration</em>. But the loop still carries on running for its remaining iterations:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1469,7 +1484,7 @@ done</code></pre>
 30
 done</code></pre>
 </section>
-<section class="level2" id="more-generalization">
+<section id="more-generalization" class="level2">
 <h2><a href="#more-generalization"><span class="header-section-number">6.19</span> More generalization</a></h2>
 <p>As another example of generalization, imagine you wanted a program that would print a multiplication table of any size, not just the six-by-six table. You could add a parameter to <code>print_mult_table</code>:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1528,7 +1543,7 @@ done</code></pre>
 6      12     18     24     30     36
 7      14     21     28     35     42     49</code></pre>
 </section>
-<section class="level2" id="functions-2">
+<section id="functions-2" class="level2">
 <h2><a href="#functions-2"><span class="header-section-number">6.20</span> Functions</a></h2>
 <p>A few times now, we have mentioned all the things functions are good for. By now, you might be wondering what exactly those things are. Here are some of them:</p>
 <ol>
@@ -1538,7 +1553,7 @@ done</code></pre>
 <li>Well-designed functions are often useful for many programs. Once you write and debug one, you can reuse it.</li>
 </ol>
 </section>
-<section class="level2" id="paired-data">
+<section id="paired-data" class="level2">
 <h2><a href="#paired-data"><span class="header-section-number">6.21</span> Paired Data</a></h2>
 <p>We’ve already seen lists of names and lists of numbers in Python. We’re going to peek ahead in the textbook a little, and show a more advanced way of representing our data. Making a pair of things in Python is as simple as putting them into parentheses, like this:</p>
 <pre class="sourceCode python"><code class="sourceCode python">year_born = (<span class="st">&quot;Paris Hilton&quot;</span>, <span class="dv">1981</span>) </code></pre>
@@ -1562,7 +1577,7 @@ done</code></pre>
 Jack Nicholson</code></pre>
 <p>This demonstrates something we have not seen yet in the <code>for</code> loop: instead of using a single loop control variable, we’ve used a pair of variable names, <code>(nm, yr)</code>, instead. The loop is executed three times — once for each pair in the list, and on each iteration both the variables are assigned values from the pair of data that is being handled.</p>
 </section>
-<section class="level2" id="nested-loops-for-nested-data">
+<section id="nested-loops-for-nested-data" class="level2">
 <h2><a href="#nested-loops-for-nested-data"><span class="header-section-number">6.22</span> Nested Loops for Nested Data</a></h2>
 <p>Now we’ll come up with an even more adventurous list of structured data. In this case, we have a list of students. Each student has a name which is paired up with another list of subjects that they are enrolled for:</p>
 <p>~~~~~~~~~~~~~~~~~~~~{.python .numberLines}<br /> students = [ (“John”, [“CompSci”, “Physics”]), (“Vusi”, [“Maths”, “CompSci”, “Stats”]), (“Jess”, [“CompSci”, “Accounting”, “Economics”, “Management”]), (“Sarah”, [“InfSys”, “Accounting”, “Economics”, “CommLaw”]), (“Zuki”, [“Sociology”, “Economics”, “Law”, “Stats”, “Music”])]</p>
@@ -1605,7 +1620,7 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 <p>You should set up a list of your own data that interests you — perhaps a list of your CDs, each containing a list of song titles on the CD, or a list of movie titles, each with a list of movie stars who acted in the movie. You could then ask questions like “Which movies starred Angelina Jolie?”</p>
 <p>.. index:: single: Newton’s method</p>
 </section>
-<section class="level2" id="newtons-method-for-finding-square-roots">
+<section id="newtons-method-for-finding-square-roots" class="level2">
 <h2><a href="#newtons-method-for-finding-square-roots"><span class="header-section-number">6.23</span> Newton’s method for finding square roots</a></h2>
 <p>Loops are often used in programs that compute numerical results by starting with an approximate answer and iteratively improving it.</p>
 <p>For example, before we had calculators or computers, people needed to calculate square roots manually. Newton used a particularly good method (there is some evidence that this method was known many years before).<br />Suppose that you want to know the square root of <code>n</code>. If you start with almost any approximation, you can compute a better approximation (closer to the actual answer) with the following formula:</p>
@@ -1652,7 +1667,7 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 <p>See if you can improve the approximations by changing the stopping condition. Also, step through the algorithm (perhaps by hand, using your calculator) to see how many iterations were needed before it achieved this level of accuracy for <code>sqrt(25)</code>.</p>
 <p>.. index:: algorithm</p>
 </section>
-<section class="level2" id="algorithms">
+<section id="algorithms" class="level2">
 <h2><a href="#algorithms"><span class="header-section-number">6.24</span> Algorithms</a></h2>
 <p>Newton’s method is an example of an <strong>algorithm</strong>: it is a mechanical process for solving a category of problems (in this case, computing square roots).</p>
 <p>Some kinds of knowledge are not algorithmic. For example, learning dates from history or your multiplication tables involves memorization of specific solutions.</p>
@@ -1661,7 +1676,7 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 <p>Understanding that hard problems can be solved by step-by-step algorithmic processes (and having technology to execute these algorithms for us) is one of the major breakthroughs that has had enormous benefits. So while the execution of the algorithm may be boring and may require no intelligence, algorithmic or computational thinking — i.e. using algorithms and automation as the basis for approaching problems — is rapidly transforming our society. Some claim that this shift towards algorithmic thinking and processes is going to have even more impact on our society than the invention of the printing press.<br />And the process of designing algorithms is interesting, intellectually challenging, and a central part of what we call programming.</p>
 <p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain <em>how</em> we do it, at least not in the form of a step-by-step mechanical algorithm.</p>
 </section>
-<section class="level2" id="glossary-1">
+<section id="glossary-1" class="level2">
 <h2><a href="#glossary-1"><span class="header-section-number">6.25</span> Glossary</a></h2>
 <p>attribute : attribute a color.</p>
 <p>canvas : canvas</p>
@@ -1677,7 +1692,7 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 <p>range : range useful when we need to write a for loop that executes a fixed number of times.</p>
 <p>terminating condition : terminating condition In the <code>for</code> loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.</p>
 </section>
-<section class="level2" id="exercises-1">
+<section id="exercises-1" class="level2">
 <h2><a href="#exercises-1"><span class="header-section-number">6.26</span> Exercises</a></h2>
 <ol>
 <li><p>Write a program that prints <code>We like Python's turtles!</code> 1000 times.</p></li>
@@ -1765,10 +1780,10 @@ test(sum_of_squares([2, -3, 4]) == 29)</code></pre></li>
 </ol>
 </section>
 </section>
-<section class="level1" id="lists">
+<section id="lists" class="level1">
 <h1><a href="#lists"><span class="header-section-number">7</span> Lists</a></h1>
 <p>A <strong>list</strong> is an ordered collection of values. The values that make up a list are called its <strong>elements</strong>, or its <strong>items</strong>. We will use the term <code>element</code> or <code>item</code> to mean the same thing. Lists are similar to strings, which are ordered collections of characters, except that the elements of a list can be of any type. Lists and strings — and other collections that maintain the order of their items — are called <strong>sequences</strong>.</p>
-<section class="level2" id="list-values">
+<section id="list-values" class="level2">
 <h2><a href="#list-values"><span class="header-section-number">7.1</span> List values</a></h2>
 <p>There are several ways to create a new list; the simplest is to enclose the elements in square brackets (<code>[</code> and <code>]</code>):</p>
 <pre class="sourceCode python"><code class="sourceCode python">ps = [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]
@@ -1784,7 +1799,7 @@ qs = [<span class="st">&quot;spam&quot;</span>, <span class="st">&quot;bungee&qu
 &gt;&gt;&gt; <span class="kw">print</span>(vocabulary, numbers, an_empty_list)
 [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;dog&quot;</span>] [<span class="dv">17</span>, <span class="dv">123</span>] []</code></pre>
 </section>
-<section class="level2" id="accessing-elements">
+<section id="accessing-elements" class="level2">
 <h2><a href="#accessing-elements"><span class="header-section-number">7.2</span> Accessing elements</a></h2>
 <p>The syntax for accessing the elements of a list is the same as the syntax for accessing the characters of a string — the index operator: <code>[]</code> (not to be confused with an empty list). The expression inside the brackets specifies the index. Remember that the indices start at 0:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; numbers[<span class="dv">0</span>]
@@ -1821,7 +1836,7 @@ Traceback (most recent call last):
 <span class="kw">for</span> h in horsemen:
     <span class="kw">print</span>(h)</code></pre></td></tr></table>
 </section>
-<section class="level2" id="list-length">
+<section id="list-length" class="level2">
 <h2><a href="#list-length"><span class="header-section-number">7.3</span> List length</a></h2>
 <p>The function <code>len</code> returns the length of a list, which is equal to the number of its elements. If you are going to use an integer index to access the list, it is a good idea to use this value as the upper bound of a loop instead of a constant. That way, if the size of the list changes, you won’t have to go through the program changing all the loops; they will work correctly for any size list:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1837,7 +1852,7 @@ Traceback (most recent call last):
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">len</span>([<span class="st">&quot;car makers&quot;</span>, <span class="dv">1</span>, [<span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;Toyota&quot;</span>, <span class="st">&quot;BMW&quot;</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]])
 <span class="dv">4</span></code></pre>
 </section>
-<section class="level2" id="list-membership">
+<section id="list-membership" class="level2">
 <h2><a href="#list-membership"><span class="header-section-number">7.4</span> List membership</a></h2>
 <p><code>in</code> and <code>not in</code> are Boolean operators that test membership in a sequence. We used them previously with strings, but they also work with lists and other sequences:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; horsemen = [<span class="st">&quot;war&quot;</span>, <span class="st">&quot;famine&quot;</span>, <span class="st">&quot;pestilence&quot;</span>, <span class="st">&quot;death&quot;</span>]
@@ -1877,7 +1892,7 @@ counter = <span class="dv">0</span>
            
 <span class="kw">print</span>(<span class="st">&quot;The number of students taking CompSci is&quot;</span>, counter)</code></pre></td></tr></table>
 </section>
-<section class="level2" id="list-operations">
+<section id="list-operations" class="level2">
 <h2><a href="#list-operations"><span class="header-section-number">7.5</span> List operations</a></h2>
 <p>The <code>+</code> operator concatenates lists:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
@@ -1892,7 +1907,7 @@ counter = <span class="dv">0</span>
 [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 <p>The first example repeats <code>[0]</code> four times. The second example repeats the list <code>[1, 2, 3]</code> three times.</p>
 </section>
-<section class="level2" id="list-slices">
+<section id="list-slices" class="level2">
 <h2><a href="#list-slices"><span class="header-section-number">7.6</span> List slices</a></h2>
 <p>The slice operations we saw previously with strings let us work with sublists:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a_list = [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>]
@@ -1905,7 +1920,7 @@ counter = <span class="dv">0</span>
 &gt;&gt;&gt; a_list[:]
 [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 </section>
-<section class="level2" id="lists-are-mutable">
+<section id="lists-are-mutable" class="level2">
 <h2><a href="#lists-are-mutable"><span class="header-section-number">7.7</span> Lists are mutable</a></h2>
 <p>Unlike strings, lists are <strong>mutable</strong>, which means we can change their elements. Using the index operator on the left side of an assignment, we can update one of the elements:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = [<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;quince&quot;</span>]
@@ -1943,7 +1958,7 @@ Traceback (most recent call last):
 &gt;&gt;&gt; a_list
 [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 </section>
-<section class="level2" id="list-deletion">
+<section id="list-deletion" class="level2">
 <h2><a href="#list-deletion"><span class="header-section-number">7.8</span> List deletion</a></h2>
 <p>Using slices to delete list elements can be error-prone. Python provides an alternative that is more readable. The <code>del</code> statement removes an element from a list:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>]
@@ -1958,7 +1973,7 @@ Traceback (most recent call last):
 [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;f&#39;</span>]</code></pre>
 <p>As usual, the sublist selected by slice contains all the elements up to, but not including, the second index.</p>
 </section>
-<section class="level2" id="objects-and-references">
+<section id="objects-and-references" class="level2">
 <h2><a href="#objects-and-references"><span class="header-section-number">7.9</span> Objects and references</a></h2>
 <p>After we execute these assignment statements</p>
 <pre class="sourceCode python"><code class="sourceCode python">a = <span class="st">&quot;banana&quot;</span>
@@ -1987,7 +2002,7 @@ b = <span class="st">&quot;banana&quot;</span></code></pre>
 </figure>
 <p><code>a</code> and <code>b</code> have the same value but do not refer to the same object.</p>
 </section>
-<section class="level2" id="aliasing">
+<section id="aliasing" class="level2">
 <h2><a href="#aliasing"><span class="header-section-number">7.10</span> Aliasing</a></h2>
 <p>Since variables refer to objects, if we assign one variable to another, both variables refer to the same object:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; a = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
@@ -2004,7 +2019,7 @@ b = <span class="st">&quot;banana&quot;</span></code></pre>
 [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 <p>Although this behavior can be useful, it is sometimes unexpected or undesirable. In general, it is safer to avoid aliasing when you are working with mutable objects (i.e. lists at this point in our textbook, but we’ll meet more mutable objects as we cover classes and objects, dictionaries and sets). Of course, for immutable objects (i.e. strings, tuples), there’s no problem — it is just not possible to change something and get a surprise when you access an alias name. That’s why Python is free to alias strings (and any other immutable kinds of data) when it sees an opportunity to economize.</p>
 </section>
-<section class="level2" id="cloning-lists">
+<section id="cloning-lists" class="level2">
 <h2><a href="#cloning-lists"><span class="header-section-number">7.11</span> Cloning lists</a></h2>
 <p>If we want to modify a list and also keep a copy of the original, we need to be able to make a copy of the list itself, not just the reference. This process is sometimes called <strong>cloning</strong>, to avoid the ambiguity of the word copy.</p>
 <p>The easiest way to clone a list is to use the slice operator:</p>
@@ -2021,7 +2036,7 @@ b = <span class="st">&quot;banana&quot;</span></code></pre>
 &gt;&gt;&gt; a
 [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
 </section>
-<section class="level2" id="lists-and-for-loops">
+<section id="lists-and-for-loops" class="level2">
 <h2><a href="#lists-and-for-loops"><span class="header-section-number">7.12</span> Lists and <code>for</code> loops</a></h2>
 <p>The <code>for</code> loop also works with lists, as we’ve already seen. The generalized syntax of a <code>for</code> loop is:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">for</span> VARIABLE in LIST:
@@ -2085,7 +2100,7 @@ b = <span class="st">&quot;banana&quot;</span></code></pre>
 <span class="dv">2</span> pear
 <span class="dv">3</span> lemon</code></pre></td></tr></table>
 </section>
-<section class="level2" id="list-parameters">
+<section id="list-parameters" class="level2">
 <h2><a href="#list-parameters"><span class="header-section-number">7.13</span> List parameters</a></h2>
 <p>Passing a list as an argument actually passes a <em>reference</em> to the list, not a copy or clone of the list. So parameter passing creates an alias for you: the caller has one variable referencing the list, and the called function has an alias, but there is only one underlying list object.</p>
 <p>For example, the function below takes a list as an argument and multiplies each element in the list by 2:</p>
@@ -2119,7 +2134,7 @@ double_stuff(things)
 </aside>
     
 </section>
-<section class="level2" id="list-methods">
+<section id="list-methods" class="level2">
 <h2><a href="#list-methods"><span class="header-section-number">7.14</span> List methods</a></h2>
 <p>The dot operator can also be used to access built-in methods of list objects. We’ll start with the most useful method for adding something onto the end of an existing list:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; mylist = []
@@ -2151,7 +2166,7 @@ double_stuff(things)
 [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">27</span>]</code></pre>
 <p>Experiment and play with the list methods shown here, and read their documentation until you feel confident that you understand how they work.</p>
 </section>
-<section class="level2" id="pure-functions-and-modifiers">
+<section id="pure-functions-and-modifiers" class="level2">
 <h2><a href="#pure-functions-and-modifiers"><span class="header-section-number">7.15</span> Pure functions and modifiers</a></h2>
 <p>Functions which take lists as arguments and change them during execution are called <strong>modifiers</strong> and the changes they make are called <strong>side effects</strong>.</p>
 <p>A <strong>pure function</strong> does not produce side effects. It communicates with the calling program only through parameters, which it does not modify, and a return value. Here is <code>double_stuff</code> written as a pure function:</p>
@@ -2196,7 +2211,7 @@ double_stuff(things)
 
 
 </section>
-<section class="level2" id="functions-that-produce-lists">
+<section id="functions-that-produce-lists" class="level2">
 <h2><a href="#functions-that-produce-lists"><span class="header-section-number">7.16</span> Functions that produce lists</a></h2>
 <p>The pure version of <code>double_stuff</code> above made use of an important <strong>pattern</strong> for your toolbox. Whenever you need to write a function that creates and returns a list, the pattern is usually:</p>
 <pre class="sourceCode python"><code class="sourceCode python">initialize a result variable to be an empty <span class="dt">list</span>
@@ -2220,7 +2235,7 @@ loop
           result.append(i)
    <span class="kw">return</span> result</code></pre></td></tr></table>
 </section>
-<section class="level2" id="strings-and-lists">
+<section id="strings-and-lists" class="level2">
 <h2><a href="#strings-and-lists"><span class="header-section-number">7.17</span> Strings and lists</a></h2>
 <p>Two of the most useful methods on strings involve conversion to and from lists of substrings.<br />The <code>split</code> method (which we’ve already seen) breaks a string into a list of words. By default, any number of whitespace characters is considered a word boundary:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; song = <span class="st">&quot;The rain in Spain...&quot;</span>
@@ -2235,21 +2250,21 @@ loop
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; glue = <span class="st">&quot;;&quot;</span>
 &gt;&gt;&gt; s = glue.join(wds)
 &gt;&gt;&gt; s
-<span class="st">&#39;The;rain;in;Spain...&#39;</span></code></pre>
+<span class="co">&#39;The;rain;in;Spain...&#39;</span></code></pre>
 <p>The list that you glue together (<code>wds</code> in this example) is not modified. Also, as these next examples show, you can use empty glue or multi-character strings as glue:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot; --- &quot;</span>.join(wds)
-<span class="st">&#39;The --- rain --- in --- Spain...&#39;</span>
+<span class="co">&#39;The --- rain --- in --- Spain...&#39;</span>
 &gt;&gt;&gt; <span class="st">&quot;&quot;</span>.join(wds)
-<span class="st">&#39;TheraininSpain...&#39;</span></code></pre>
+<span class="co">&#39;TheraininSpain...&#39;</span></code></pre>
 </section>
-<section class="level2" id="list-and-range">
+<section id="list-and-range" class="level2">
 <h2><a href="#list-and-range"><span class="header-section-number">7.18</span> <code>list</code> and <code>range</code></a></h2>
 <p>Python has a built-in type conversion function called <code>list</code> that tries to turn whatever you give it into a list.</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; xs = <span class="dt">list</span>(<span class="st">&quot;Crunchy Frog&quot;</span>)
 &gt;&gt;&gt; xs
 [<span class="st">&quot;C&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;n&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;g&quot;</span>]
 &gt;&gt;&gt; <span class="st">&quot;&quot;</span>.join(xs)
-<span class="st">&#39;Crunchy Frog&#39;</span></code></pre>
+<span class="co">&#39;Crunchy Frog&#39;</span></code></pre>
 <p>One particular feature of <code>range</code> is that it doesn’t instantly compute all its values: it “puts off” the computation, and does it on demand, or “lazily”. We’ll say that it gives a <strong>promise</strong> to produce the values when they are needed. This is very convenient if your computation short-circuits a search and returns early, as in this case:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -2286,7 +2301,7 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 &gt;&gt;&gt; <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">10</span>))     <span class="co"># Call in the promise, to produce a list.</span>
 [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</code></pre>
 </section>
-<section class="level2" id="nested-lists">
+<section id="nested-lists" class="level2">
 <h2><a href="#nested-lists"><span class="header-section-number">7.19</span> Nested lists</a></h2>
 <p>A nested list is a list that appears as an element in another list. In this list, the element with index 3 is a nested list:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2303,7 +2318,7 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <span class="dv">20</span></code></pre>
 <p>Bracket operators evaluate from left to right, so this expression gets the 3’th element of <code>nested</code> and extracts the 1’th element from it.</p>
 </section>
-<section class="level2" id="matrices">
+<section id="matrices" class="level2">
 <h2><a href="#matrices"><span class="header-section-number">7.20</span> Matrices</a></h2>
 <p>Nested lists are often used to represent matrices. For example, the matrix:</p>
 <figure>
@@ -2319,7 +2334,7 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <span class="dv">6</span></code></pre>
 <p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
 </section>
-<section class="level2" id="glossary-2">
+<section id="glossary-2" class="level2">
 <h2><a href="#glossary-2"><span class="header-section-number">7.21</span> Glossary</a></h2>
 <dl>
 <dt>aliases</dt>
@@ -2381,9 +2396,9 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 </dd>
 </dl>
 </section>
-<section class="level2" id="exercises-2">
+<section id="exercises-2" class="level2">
 <h2><a href="#exercises-2"><span class="header-section-number">7.22</span> Exercises</a></h2>
-<section class="level3" id="basic-questions">
+<section id="basic-questions" class="level3">
 <h3><a href="#basic-questions"><span class="header-section-number">7.22.1</span> Basic Questions</a></h3>
 <ol type="1">
 <li>Write a loop that prints out the even numbers from 1-100 (including 100)</li>
@@ -2394,7 +2409,7 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <li>Re-write question 5 as a modifier function without a return statement. It should usethe list method <code>remove()</code> to remove all intances of <code>word</code> from the list.</li>
 </ol>
 </section>
-<section class="level3" id="advanced-questions">
+<section id="advanced-questions" class="level3">
 <h3><a href="#advanced-questions"><span class="header-section-number">7.22.2</span> Advanced Questions</a></h3>
 <ol start="7" type="1">
 <li><p>Write a function called <code>remove_duplicates</code> that takes a list and returns a new list with only the unique elements from the original. <em>Hint:</em> they don’t have to be in the same order.</p></li>
@@ -2429,7 +2444,7 @@ c = combine(a,b)
    n2 = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
    <span class="kw">print</span>(is_sorted(n2))
    n3 = [<span class="st">&quot;aardvark&quot;</span>, <span class="st">&quot;koala&quot;</span>, <span class="st">&quot;zebra&quot;</span>, <span class="st">&quot;dog&quot;</span>,<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;alligator&quot;</span>, 
-         <span class="st">&quot;elephant&quot;</span>, <span class="st">&quot;albatross&quot;</span>, <span class="st">&quot;coyote&quot;</span>]
+         <span class="co">&quot;elephant&quot;</span>, <span class="st">&quot;albatross&quot;</span>, <span class="st">&quot;coyote&quot;</span>]
    <span class="kw">print</span>(is_sorted(n3))
    <span class="kw">print</span>(is_sorted(<span class="dt">sorted</span>(n3)))</code></pre></td></tr></table></li>
 <li><p>What is the Python interpreter’s response to the following?</p>
@@ -2440,10 +2455,10 @@ c = combine(a,b)
 
 s = <span class="st">&quot;I love spom! Spom is my favorite food. Spom, spom, yum!&quot;</span>
 test(replace(s, <span class="st">&quot;om&quot;</span>, <span class="st">&quot;am&quot;</span>) ==
-    <span class="st">&quot;I love spam! Spam is my favorite food. Spam, spam, yum!&quot;</span>)
+    <span class="co">&quot;I love spam! Spam is my favorite food. Spam, spam, yum!&quot;</span>)
 
 test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&quot;</span>) ==
-    <span class="st">&quot;I lave spam! Spam is my favarite faad. Spam, spam, yum!&quot;</span>)</code></pre>
+    <span class="co">&quot;I lave spam! Spam is my favarite faad. Spam, spam, yum!&quot;</span>)</code></pre>
 <p><em>Hint</em>: use the <code>split</code> and <code>join</code> methods.</p></li>
 <li><p>Suppose you want to swap around the values in two variables. You decide to factor this out into a reusable function, and write this code:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2472,14 +2487,327 @@ test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&
 </section>
 </section>
 </section>
-<section class="level1" id="contributor-list">
-<h1><a href="#contributor-list"><span class="header-section-number">8</span> Contributor List</a></h1>
+<section id="tuples" class="level1">
+<h1><a href="#tuples"><span class="header-section-number">8</span> Tuples</a></h1>
+<section id="tuples-are-used-for-grouping-data" class="level2">
+<h2><a href="#tuples-are-used-for-grouping-data"><span class="header-section-number">8.1</span> Tuples are used for grouping data</a></h2>
+<p>We saw earlier that we could group together pairs of values by surrounding with parentheses. Recall this example:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; year_born = (<span class="st">&quot;Paris Hilton&quot;</span>, <span class="dv">1981</span>)</code></pre>
+<p>This is an example of a <strong>data structure</strong> — a mechanism for grouping and organizing data to make it easier to use.</p>
+<p>The pair is an example of a <strong>tuple</strong>. Generalizing this, a tuple can be used to group any number of items into a single compound value. Syntactically, a tuple is a comma-separated sequence of values. Although it is not necessary, it is conventional to enclose tuples in parentheses:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; julia = (<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;Roberts&quot;</span>, <span class="dv">1967</span>, <span class="st">&quot;Duplicity&quot;</span>, <span class="dv">2009</span>, <span class="st">&quot;Actress&quot;</span>, <span class="st">&quot;Atlanta, Georgia&quot;</span>)</code></pre>
+<p>Tuples are useful for representing what other languages often call <em>records</em> — some related information that belongs together, like your student record. There is no description of what each of these fields means, but we can guess. A tuple lets us “chunk” together related information and use it as a single thing.</p>
+<p>Tuples support the same sequence operations as strings. The index operator selects an element from a tuple.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; julia[<span class="dv">2</span>]
+<span class="dv">1967</span></code></pre>
+<p>But if we try to use item assignment to modify one of the elements of the tuple, we get an error:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; julia[<span class="dv">0</span>] = <span class="st">&quot;X&quot;</span>
+<span class="ot">TypeError</span>: <span class="st">&#39;tuple&#39;</span> <span class="dt">object</span> does not support item assignment</code></pre>
+<p>So like strings, tuples are immutable. Once Python has created a tuple in memory, it cannot be changed.</p>
+<p>Of course, even if we can’t modify the elements of a tuple, we can always make the <code>julia</code> variable reference a new tuple holding different information. To construct the new tuple, it is convenient that we can slice parts of the old tuple and join up the bits to make the new tuple. So if <code>julia</code> has a new recent film, we could change her variable to reference a new tuple that used some information from the old one:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; julia = julia[:<span class="dv">3</span>] + (<span class="st">&quot;Eat Pray Love&quot;</span>, <span class="dv">2010</span>) + julia[<span class="dv">5</span>:]
+&gt;&gt;&gt; julia
+(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;Roberts&quot;</span>, <span class="dv">1967</span>, <span class="st">&quot;Eat Pray Love&quot;</span>, <span class="dv">2010</span>, <span class="st">&quot;Actress&quot;</span>, <span class="st">&quot;Atlanta, Georgia&quot;</span>)</code></pre>
+<p>To create a tuple with a single element (but you’re probably not likely to do that too often), we have to include the final comma, because without the final comma, Python treats the <code>(5)</code> below as an integer in parentheses:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; tup = (<span class="dv">5</span>,)
+&gt;&gt;&gt; <span class="dt">type</span>(tup)
+&lt;<span class="kw">class</span> <span class="st">&#39;tuple&#39;</span>&gt;
+&gt;&gt;&gt; x = (<span class="dv">5</span>)
+&gt;&gt;&gt; <span class="dt">type</span>(x)
+&lt;<span class="kw">class</span> <span class="st">&#39;int&#39;</span>&gt;</code></pre>
+</section>
+<section id="tuple-assignment" class="level2">
+<h2><a href="#tuple-assignment"><span class="header-section-number">8.2</span> Tuple assignment</a></h2>
+<p>Python has a very powerful <strong>tuple assignment</strong> feature that allows a tuple of variables on the left of an assignment to be assigned values from a tuple on the right of the assignment. (We already saw this used for pairs, but it generalizes.)</p>
+<pre class="sourceCode python"><code class="sourceCode python">(name, surname, b_year, movie, m_year, profession, b_place) = julia</code></pre>
+<p>This does the equivalent of seven assignment statements, all on one easy line. One requirement is that the number of variables on the left must match the number of elements in the tuple.</p>
+<p>One way to think of tuple assignment is as tuple packing/unpacking.</p>
+<p>In tuple packing, the values on the left are ‘packed’ together in a tuple:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; b = (<span class="st">&quot;Bob&quot;</span>, <span class="dv">19</span>, <span class="st">&quot;CS&quot;</span>)    <span class="co"># tuple packing</span></code></pre>
+<p>In tuple unpacking, the values in a tuple on the right are ‘unpacked’ into the variables/names on the right:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; b = (<span class="st">&quot;Bob&quot;</span>, <span class="dv">19</span>, <span class="st">&quot;CS&quot;</span>)
+&gt;&gt;&gt; (name, age, studies) = b    <span class="co"># tuple unpacking</span>
+&gt;&gt;&gt; name
+<span class="co">&#39;Bob&#39;</span>
+&gt;&gt;&gt; age
+<span class="dv">19</span>
+&gt;&gt;&gt; studies
+<span class="co">&#39;CS&#39;</span></code></pre>
+<p>Once in a while, it is useful to swap the values of two variables. With conventional assignment statements, we have to use a temporary variable. For example, to swap <code>a</code> and <code>b</code>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">temp = a
+a = b
+b = temp</code></pre></td></tr></table>
+<p>Tuple assignment solves this problem neatly:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">(a, b) = (b, a)</code></pre></td></tr></table>
+<p>The left side is a tuple of variables; the right side is a tuple of values. Each value is assigned to its respective variable. All the expressions on the right side are evaluated before any of the assignments. This feature makes tuple assignment quite versatile.</p>
+<p>Naturally, the number of variables on the left and the number of values on the right have to be the same:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; (a, b, c, d) = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+<span class="ot">ValueError</span>: need more than <span class="dv">3</span> values to unpack</code></pre>
+</section>
+<section id="tuples-as-return-values" class="level2">
+<h2><a href="#tuples-as-return-values"><span class="header-section-number">8.3</span> Tuples as return values</a></h2>
+<p>Functions can always only return a single value, but by making that value a tuple, we can effectively group together as many values as we like, and return them together. This is very useful — we often want to know some batsman’s highest and lowest score, or we want to find the mean and the standard deviation, or we want to know the year, the month, and the day, or if we’re doing some some ecological modelling we may want to know the number of rabbits and the number of wolves on an island at a given time.</p>
+<p>For example, we could write a function that returns both the area and the circumference of a circle of radius r:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> f(r):
+    <span class="co">&quot;&quot;&quot; Return (circumference, area) of a circle of radius r &quot;&quot;&quot;</span>
+    c = <span class="dv">2</span> * math.pi * r
+    a = math.pi * r * r
+    <span class="kw">return</span> (c, a)</code></pre></td></tr></table>
+</section>
+<section id="composability-of-data-structures" class="level2">
+<h2><a href="#composability-of-data-structures"><span class="header-section-number">8.4</span> Composability of Data Structures</a></h2>
+<p>We saw in an earlier chapter that we could make a list of pairs, and we had an example where one of the items in the tuple was itself a list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">students = [
+    (<span class="st">&quot;John&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Physics&quot;</span>]),
+    (<span class="st">&quot;Vusi&quot;</span>, [<span class="st">&quot;Maths&quot;</span>, <span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Stats&quot;</span>]),
+    (<span class="st">&quot;Jess&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Management&quot;</span>]),
+    (<span class="st">&quot;Sarah&quot;</span>, [<span class="st">&quot;InfSys&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;CommLaw&quot;</span>]),
+    (<span class="st">&quot;Zuki&quot;</span>, [<span class="st">&quot;Sociology&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Law&quot;</span>, <span class="st">&quot;Stats&quot;</span>, <span class="st">&quot;Music&quot;</span>])]</code></pre>
+<p>Tuples items can themselves be other tuples. For example, we could improve the information about our movie stars to hold the full date of birth rather than just the year, and we could have a list of some of her movies and dates that they were made, and so on:</p>
+<pre class="sourceCode python"><code class="sourceCode python">julia_more_info = ( (<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;Roberts&quot;</span>), (<span class="dv">8</span>, <span class="st">&quot;October&quot;</span>, <span class="dv">1967</span>),
+    <span class="co">&quot;Actress&quot;</span>, (<span class="st">&quot;Atlanta&quot;</span>, <span class="st">&quot;Georgia&quot;</span>),
+    [ (<span class="st">&quot;Duplicity&quot;</span>, <span class="dv">2009</span>),
+      (<span class="st">&quot;Notting Hill&quot;</span>, <span class="dv">1999</span>),
+      (<span class="st">&quot;Pretty Woman&quot;</span>, <span class="dv">1990</span>),
+      (<span class="st">&quot;Erin Brockovich&quot;</span>, <span class="dv">2000</span>),
+      (<span class="st">&quot;Eat Pray Love&quot;</span>, <span class="dv">2010</span>),
+      (<span class="st">&quot;Mona Lisa Smile&quot;</span>, <span class="dv">2003</span>),
+      (<span class="st">&quot;Oceans Twelve&quot;</span>, <span class="dv">2004</span>) ])</code></pre>
+<p>Notice in this case that the tuple has just five elements — but each of those in turn can be another tuple, a list, a string, or any other kind of Python value. This property is known as being <strong>heterogeneous</strong>, meaning that it can be composed of elements of different types.</p>
+</section>
+<section id="glossary-3" class="level2">
+<h2><a href="#glossary-3"><span class="header-section-number">8.5</span> Glossary</a></h2>
+<p>data structure : An organization of data for the purpose of making it easier to use.</p>
+<p>immutable data value : A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p>mutable data value : A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<p>tuple : An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</p>
+<p>tuple assignment : An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.</p>
+</section>
+<section id="exercises-3" class="level2">
+<h2><a href="#exercises-3"><span class="header-section-number">8.6</span> Exercises</a></h2>
+<ol type="1">
+<li><p>Write a function <code>merge_contacts(contact1, contact1)</code> that takes two touples as parameters. The tuples represent contact records in the form of (firstName, lastName, email, phone). This is the specification for your function:</p>
+<ol type="1">
+<li>The length of both tuples must be 4. If this isn’t the case, return <code>None</code>.</li>
+<li>If the emails of both contacts do not match return <code>None</code></li>
+<li>Return a new contact tuple that fills in any missing (i.e. an empty string) from contact1 with the information from contact2. If there is already data in both contact1 and contact2, leave contact1 alone.</li>
+</ol></li>
+<li><p>Write a function called <code>word_len(text)</code>. This function should use split() to create a list of words and then return a touple with the follwing data: shortest word, longest word, avg word length.</p></li>
+</ol>
+</section>
+</section>
+<section id="dictionaries" class="level1">
+<h1><a href="#dictionaries"><span class="header-section-number">9</span> Dictionaries</a></h1>
+<p>All of the compound data types we have studied in detail so far — strings, lists, and tuples — are sequence types, which use integers as indices to access the values they contain within them.</p>
+<p><strong>Dictionaries</strong> are yet another kind of compound type. They are Python’s built-in <strong>mapping type</strong>. They map <strong>keys</strong>, which can be any immutable type, to values, which can be any type (heterogeneous), just like the elements of a list or tuple. In other languages, they are called <em>associative arrays</em> since they associate a key with a value.</p>
+<p>As an example, we will create a dictionary to translate English words into Spanish. For this dictionary, the keys are strings.</p>
+<p>One way to create a dictionary is to start with the empty dictionary and add <strong>key:value pairs</strong>. The empty dictionary is denoted <code>{}</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2sp = {}
+&gt;&gt;&gt; eng2sp[<span class="st">&quot;one&quot;</span>] = <span class="st">&quot;uno&quot;</span>
+&gt;&gt;&gt; eng2sp[<span class="st">&quot;two&quot;</span>] = <span class="st">&quot;dos&quot;</span></code></pre>
+<p>The first assignment creates a dictionary named <code>eng2sp</code>; the other assignments add new key:value pairs to the dictionary. We can print the current value of the dictionary in the usual way:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="kw">print</span>(eng2sp)
+{<span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>}</code></pre>
+<p>The key:value pairs of the dictionary are separated by commas. Each pair contains a key and a value separated by a colon.</p>
+<aside id="hasing">
+
+<p><strong>Hashing</strong></p>
+<p>The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.</p>
+<p>You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; {<span class="st">&quot;apples&quot;</span>: <span class="dv">430</span>, <span class="st">&quot;bananas&quot;</span>: <span class="dv">312</span>, <span class="st">&quot;oranges&quot;</span>: <span class="dv">525</span>, <span class="st">&quot;pears&quot;</span>: <span class="dv">217</span>}
+{<span class="st">&#39;pears&#39;</span>: <span class="dv">217</span>, <span class="st">&#39;apples&#39;</span>: <span class="dv">430</span>, <span class="st">&#39;oranges&#39;</span>: <span class="dv">525</span>, <span class="st">&#39;bananas&#39;</span>: <span class="dv">312</span>}
+
+&gt;&gt;&gt; [(<span class="st">&#39;apples&#39;</span>, <span class="dv">430</span>), (<span class="st">&#39;bananas&#39;</span>, <span class="dv">312</span>), (<span class="st">&#39;oranges&#39;</span>, <span class="dv">525</span>), (<span class="st">&#39;pears&#39;</span>, <span class="dv">217</span>)]
+[(<span class="st">&#39;apples&#39;</span>, <span class="dv">430</span>), (<span class="st">&#39;bananas&#39;</span>, <span class="dv">312</span>), (<span class="st">&#39;oranges&#39;</span>, <span class="dv">525</span>), (<span class="st">&#39;pears&#39;</span>, <span class="dv">217</span>)]</code></pre>
+<p>The reason is dictionaries are very fast, implemented using a technique called hashing, which allows us to access a value very quickly. By contrast, the list of tuples implementation is slow. If we wanted to find a value associated with a key, we would have to iterate over every tuple, checking the 0th element. What if the key wasn’t even in the list? We would have to get to the end of it to find out.</p>
+</aside>
+
+<p>Another way to create a dictionary is to provide a list of key:value pairs using the same syntax as the previous output:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2sp = {<span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>, <span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;three&quot;</span>: <span class="st">&quot;tres&quot;</span>}</code></pre>
+<p>It doesn’t matter what order we write the pairs. The values in a dictionary are accessed with keys, not with indices, so there is no need to care about ordering.</p>
+<p>Here is how we use a key to look up the corresponding value:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="kw">print</span>(eng2sp[<span class="st">&quot;two&quot;</span>])
+<span class="co">&#39;dos&#39;</span></code></pre>
+<p>The key <code>&quot;two&quot;</code> yields the value <code>&quot;dos&quot;</code>.</p>
+<p>Lists, tuples, and strings have been called <em>sequences</em>, because their items occur in order. The dictionary is the first compound type that we’ve seen that is not a sequence, so we can’t index or slice a dictionary.</p>
+<section id="practice-problems" class="level3">
+<h3><a href="#practice-problems"><span class="header-section-number">9.0.1</span> Practice problems</a></h3>
+<ol type="1">
+<li>Modify the <code>eng2sp</code> dictionary declaration above so that <code>eng2sp</code> contains all of the numbers, 0-5.</li>
+</ol>
+</section>
+<section id="dictionary-operations" class="level2">
+<h2><a href="#dictionary-operations"><span class="header-section-number">9.1</span> Dictionary operations</a></h2>
+<p>The <code>del</code> statement removes a key:value pair from a dictionary. For example, the following dictionary contains the names of various fruits and the number of each fruit in stock:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; inventory = {<span class="st">&quot;apples&quot;</span>: <span class="dv">430</span>, <span class="st">&quot;bananas&quot;</span>: <span class="dv">312</span>, <span class="st">&quot;oranges&quot;</span>: <span class="dv">525</span>, <span class="st">&quot;pears&quot;</span>: <span class="dv">217</span>}
+&gt;&gt;&gt; <span class="kw">print</span>(inventory)
+{<span class="st">&#39;pears&#39;</span>: <span class="dv">217</span>, <span class="st">&#39;apples&#39;</span>: <span class="dv">430</span>, <span class="st">&#39;oranges&#39;</span>: <span class="dv">525</span>, <span class="st">&#39;bananas&#39;</span>: <span class="dv">312</span>}</code></pre>
+<p>If someone buys all of the pears, we can remove the entry from the dictionary:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="kw">del</span> inventory[<span class="st">&quot;pears&quot;</span>]
+&gt;&gt;&gt; <span class="kw">print</span>(inventory)
+{<span class="st">&#39;apples&#39;</span>: <span class="dv">430</span>, <span class="st">&#39;oranges&#39;</span>: <span class="dv">525</span>, <span class="st">&#39;bananas&#39;</span>: <span class="dv">312</span>}</code></pre>
+<p>Or if we’re expecting more pears soon, we might just change the value associated with pears:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; inventory[<span class="st">&quot;pears&quot;</span>] = <span class="dv">0</span>
+&gt;&gt;&gt; <span class="kw">print</span>(inventory)
+{<span class="st">&#39;pears&#39;</span>: <span class="dv">0</span>, <span class="st">&#39;apples&#39;</span>: <span class="dv">430</span>, <span class="st">&#39;oranges&#39;</span>: <span class="dv">525</span>, <span class="st">&#39;bananas&#39;</span>: <span class="dv">312</span>}</code></pre>
+<p>A new shipment of bananas arriving could be handled like this:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; inventory[<span class="st">&quot;bananas&quot;</span>] += <span class="dv">200</span>
+&gt;&gt;&gt; <span class="kw">print</span>(inventory)
+{<span class="st">&#39;pears&#39;</span>: <span class="dv">0</span>, <span class="st">&#39;apples&#39;</span>: <span class="dv">430</span>, <span class="st">&#39;oranges&#39;</span>: <span class="dv">525</span>, <span class="st">&#39;bananas&#39;</span>: <span class="dv">512</span>}</code></pre>
+<p>The <code>len</code> function also works on dictionaries; it returns the number of key:value pairs:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">len</span>(inventory)
+<span class="dv">4</span></code></pre>
+</section>
+<section id="dictionary-methods" class="level2">
+<h2><a href="#dictionary-methods"><span class="header-section-number">9.2</span> Dictionary methods</a></h2>
+<p>Dictionaries have a number of useful built-in methods.</p>
+<p>The <code>keys</code> method returns what Python 3 calls a <strong>view</strong> of its underlying keys.<br />A view object has some similarities to the <code>range</code> object we saw earlier — it is a lazy promise, to deliver its elements when they’re needed by the rest of the program. We can iterate over the view, or turn the view into a list like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> k in eng2sp.keys():   <span class="co"># The order of the k&#39;s is not defined</span>
+   <span class="kw">print</span>(<span class="st">&quot;Got key&quot;</span>, k, <span class="st">&quot;which maps to value&quot;</span>, eng2sp[k])     
+   
+ks = <span class="dt">list</span>(eng2sp.keys())
+<span class="kw">print</span>(ks)</code></pre></td></tr></table>
+<p>This produces this output:</p>
+<pre class="sourceCode python"><code class="sourceCode python">Got key three which maps to value tres
+Got key two which maps to value dos
+Got key one which maps to value uno
+[<span class="st">&#39;three&#39;</span>, <span class="st">&#39;two&#39;</span>, <span class="st">&#39;one&#39;</span>]</code></pre>
+<p>It is so common to iterate over the keys in a dictionary that we can omit the <code>keys</code> method call in the <code>for</code> loop — iterating over a dictionary implicitly iterates over its keys:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> k in eng2sp:     
+   <span class="kw">print</span>(<span class="st">&quot;Got key&quot;</span>, k)     </code></pre></td></tr></table>
+<p>The <code>values</code> method is similar; it returns a view object which can be turned into a list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">list</span>(eng2sp.values())
+[<span class="st">&#39;tres&#39;</span>, <span class="st">&#39;dos&#39;</span>, <span class="st">&#39;uno&#39;</span>]</code></pre>
+<p>The <code>items</code> method also returns a view, which promises a list of tuples — one tuple for each key:value pair:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">list</span>(eng2sp.items())
+[(<span class="st">&#39;three&#39;</span>, <span class="st">&#39;tres&#39;</span>), (<span class="st">&#39;two&#39;</span>, <span class="st">&#39;dos&#39;</span>), (<span class="st">&#39;one&#39;</span>, <span class="st">&#39;uno&#39;</span>)]</code></pre>
+<p>Tuples are often useful for getting both the key and the value at the same time while we are looping:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> (k,v) in eng2sp.items():
+    <span class="kw">print</span>(<span class="st">&quot;Got&quot;</span>,k,<span class="st">&quot;that maps to&quot;</span>,v)</code></pre></td></tr></table>
+<p>This produces:</p>
+<pre class="sourceCode python"><code class="sourceCode python">Got three that maps to tres
+Got two that maps to dos
+Got one that maps to uno  </code></pre>
+<p>The <code>in</code> and <code>not in</code> operators can test if a key is in the dictionary:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;one&quot;</span> in eng2sp
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;six&quot;</span> in eng2sp
+<span class="ot">False</span>
+&gt;&gt;&gt; <span class="st">&quot;tres&quot;</span> in eng2sp    <span class="co"># Note that &#39;in&#39; tests keys, not values.</span>
+<span class="ot">False</span></code></pre>
+<p>This method can be very useful, since looking up a non-existent key in a dictionary causes a runtime error:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2esp[<span class="st">&quot;dog&quot;</span>]
+Traceback (most recent call last):
+  ...
+<span class="ot">KeyError</span>: <span class="st">&#39;dog&#39;</span></code></pre>
+</section>
+<section id="aliasing-and-copying" class="level2">
+<h2><a href="#aliasing-and-copying"><span class="header-section-number">9.3</span> Aliasing and copying</a></h2>
+<p>As in the case of lists, because dictionaries are mutable, we need to be aware of aliasing. Whenever two variables refer to the same object, changes to one affect the other.</p>
+<p>If we want to modify a dictionary and keep a copy of the original, use the <code>copy</code> method. For example, <code>opposites</code> is a dictionary that contains pairs of opposites:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; opposites = {<span class="st">&quot;up&quot;</span>: <span class="st">&quot;down&quot;</span>, <span class="st">&quot;right&quot;</span>: <span class="st">&quot;wrong&quot;</span>, <span class="st">&quot;yes&quot;</span>: <span class="st">&quot;no&quot;</span>}
+&gt;&gt;&gt; alias = opposites
+&gt;&gt;&gt; copy = opposites.copy()  <span class="co"># Shallow copy</span></code></pre>
+<p><code>alias</code> and <code>opposites</code> refer to the same object; <code>copy</code> refers to a fresh copy of the same dictionary. If we modify <code>alias</code>, <code>opposites</code> is also changed:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; alias[<span class="st">&quot;right&quot;</span>] = <span class="st">&quot;left&quot;</span>
+&gt;&gt;&gt; opposites[<span class="st">&quot;right&quot;</span>]
+<span class="co">&#39;left&#39;</span></code></pre>
+<p>If we modify <code>copy</code>, <code>opposites</code> is unchanged:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; copy[<span class="st">&quot;right&quot;</span>] = <span class="st">&quot;privilege&quot;</span>
+&gt;&gt;&gt; opposites[<span class="st">&quot;right&quot;</span>]
+<span class="co">&#39;left&#39;</span></code></pre>
+</section>
+<section id="counting-letters" class="level2">
+<h2><a href="#counting-letters"><span class="header-section-number">9.4</span> Counting letters</a></h2>
+<p>In the exercises in Chapter 8 (Strings) we wrote a function that counted the number of occurrences of a letter in a string. A more general version of this problem is to form a frequency table of the letters in the string, that is, how many times each letter appears.</p>
+<p>Such a frequency table might be useful for compressing a text file. Because different letters appear with different frequencies, we can compress a file by using shorter codes for common letters and longer codes for letters that appear less frequently.</p>
+<p>Dictionaries provide an elegant way to generate a frequency table:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; letter_counts = {}
+&gt;&gt;&gt; <span class="kw">for</span> letter in <span class="st">&quot;Mississippi&quot;</span>:
+...     letter_counts[letter] = letter_counts.get(letter, <span class="dv">0</span>) + <span class="dv">1</span>
+...
+&gt;&gt;&gt; letter_counts
+{<span class="st">&#39;M&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;s&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;p&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;i&#39;</span>: <span class="dv">4</span>}</code></pre>
+<p>We start with an empty dictionary. For each letter in the string, we find the current count (possibly zero) and increment it. At the end, the dictionary contains pairs of letters and their frequencies. Note that we access the letter using the dictionary’s <code>get</code> method (rather than the index notation which would read <code>letter_counts[letter]</code>) because <code>get</code> allows us to pass in the default vaule, as the second parameter, in the event that the key is not yet in our dictionary.</p>
+<p>It might be more appealing to display the frequency table in alphabetical order. We can do that with the <code>items</code> and <code>sort</code> methods:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; letter_items = <span class="dt">list</span>(letter_counts.items())
+&gt;&gt;&gt; letter_items.sort()
+&gt;&gt;&gt; <span class="kw">print</span>(letter_items)
+[(<span class="st">&#39;M&#39;</span>, <span class="dv">1</span>), (<span class="st">&#39;i&#39;</span>, <span class="dv">4</span>), (<span class="st">&#39;p&#39;</span>, <span class="dv">2</span>), (<span class="st">&#39;s&#39;</span>, <span class="dv">4</span>)]</code></pre>
+<p>Notice in the first line we had to call the type conversion function <code>list</code>. That turns the promise we get from <code>items</code> into a list, a step that is needed before we can use the list’s <code>sort</code> method.</p>
+</section>
+<section id="glossary-4" class="level2">
+<h2><a href="#glossary-4"><span class="header-section-number">9.5</span> Glossary</a></h2>
+<p>dictionary : A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.</p>
+<p>immutable data value : A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<p>key : A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.</p>
+<p>key:value pair : One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.</p>
+<p>mapping type : A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.</p>
+<p>memo : Temporary storage of precomputed values to avoid duplicating the same computation.</p>
+<p>mutable data value : A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+</section>
+<section id="exercises-4" class="level2">
+<h2><a href="#exercises-4"><span class="header-section-number">9.6</span> Exercises</a></h2>
+<ol>
+<li><p>Write a program that reads a string and returns a table of the letters of the alphabet in alphabetical order which occur in the string together with the number of times each letter occurs. Case should be ignored. A sample output of the program when the user enters the data “ThiS is String with Upper and lower case Letters”, would look this this:</p>
+<p>a 2 c 1 d 1 e 5 g 1 h 2 i 4 l 2 n 2 o 1 p 2 r 4 s 5 t 5 u 1 w 2</p></li>
+<li><p>Give the Python interpreter’s response to each of the following from a continuous interpreter session:</p></li>
+</ol>
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python} # —————————- &gt;&gt;&gt; d = {“apples”: 15, “bananas”: 35, “grapes”: 12} &gt;&gt;&gt; d[“bananas”]</p>
+<p># —————————- &gt;&gt;&gt; d[“oranges”] = 20 &gt;&gt;&gt; len(d)</p>
+<p># —————————- &gt;&gt;&gt; “grapes” in d</p>
+<p># —————————- &gt;&gt;&gt; d[“pears”]</p>
+<p># —————————- &gt;&gt;&gt; d.get(“pears”, 0)</p>
+<p># —————————- &gt;&gt;&gt; fruits = list(d.keys()) &gt;&gt;&gt; fruits.sort() &gt;&gt;&gt; print(fruits)</p>
+<p># —————————- &gt;&gt;&gt; del d[“apples”] &gt;&gt;&gt; “apples” in d ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<p>Be sure you understand why you get each result. Then apply what you have learned to fill in the body of the function below:</p>
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines} def add_fruit(inventory, fruit, quantity=0): # … return</p>
+<p># Make these tests work… new_inventory = {} add_fruit(new_inventory, “strawberries”, 10) test(“strawberries” in new_inventory) test(new_inventory[“strawberries”] == 10) add_fruit(new_inventory, “strawberries”, 25) test(new_inventory[“strawberries”] == 35) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ol>
+<li><p>Write a program called <code>alice_words.py</code> that creates a text file named <code>alice_words.txt</code> containing an alphabetical listing of all the words, and the number of times each occurs, in the text version of <code>Alice's Adventures in Wonderland</code>.<br /> (You can obtain a free plain text version of the book, along with many others, from http://www.gutenberg.org.) The first 10 lines of your output file should look something like this:</p>
+<pre><code>Word              Count
+=======================
+a                 631
+a-piece           1
+abide             1
+able              1
+about             94
+above             3
+absence           1
+absurd            2</code></pre></li>
+</ol>
+<p>How many times does the word <code>alice</code> occur in the book?</p>
+<ol>
+<li>What is the longest word in Alice in Wonderland? How many characters does it have?</li>
+</ol>
+</section>
+</section>
+<section id="contributor-list" class="level1">
+<h1><a href="#contributor-list"><span class="header-section-number">10</span> Contributor List</a></h1>
 <p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
 <p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>
 <p>If you have a chance to look through the list, you should realize that each person here has spared you and all subsequent readers from the confusion of a technical error or a less-than-transparent explanation, just by sending us a note.</p>
 <p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <code>p.wentworth@ru.ac.za &lt;mailto:p.wentworth@ru.ac.za&gt;</code>__ . Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
-<section class="level2" id="second-edition">
-<h2><a href="#second-edition"><span class="header-section-number">8.1</span> Second Edition</a></h2>
+<section id="second-edition" class="level2">
+<h2><a href="#second-edition"><span class="header-section-number">10.1</span> Second Edition</a></h2>
 <ul>
 <li>An email from Mike MacHenry set me straight on tail recursion. He not only pointed out an error in the presentation, but suggested how to correct it.</li>
 <li>It wasn’t until 5th Grade student Owen Davies came to me in a Saturday morning Python enrichment class and said he wanted to write the card game, Gin Rummy, in Python that I finally knew what I wanted to use as the case study for the object oriented programming chapters.</li>
@@ -2496,8 +2824,8 @@ test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&
 <li>Michael Vogt reported an indentation error in an example in chapter 6, and sent in a suggestion for improving the clarity of the shell vs. script section in chapter 1.</li>
 </ul>
 </section>
-<section class="level2" id="first-edition">
-<h2><a href="#first-edition"><span class="header-section-number">8.2</span> First Edition</a></h2>
+<section id="first-edition" class="level2">
+<h2><a href="#first-edition"><span class="header-section-number">10.2</span> First Edition</a></h2>
 <ul>
 <li>Lloyd Hugh Allen sent in a correction to Section 8.4.</li>
 <li>Yvon Boulianne sent in a correction of a semantic error in Chapter 5.</li>

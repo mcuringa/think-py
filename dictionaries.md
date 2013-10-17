@@ -90,12 +90,10 @@ Lists, tuples, and strings have been called *sequences*, because their items
 occur in order.  The dictionary is the first compound type that we've
 seen that is not a sequence, so we can't index or slice a dictionary. 
 
-### Exercises
+### Practice problems
 
 1. Modify the ``eng2sp`` dictionary declaration above so that
    ``eng2sp`` contains all of the numbers, 0-5.
-
-
 
 Dictionary operations
 ---------------------
@@ -108,8 +106,8 @@ each fruit in stock:
 >>> inventory = {"apples": 430, "bananas": 312, "oranges": 525, "pears": 217}
 >>> print(inventory)
 {'pears': 217, 'apples': 430, 'oranges': 525, 'bananas': 312}
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 If someone buys all of the pears, we can remove the entry from the dictionary:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
@@ -356,7 +354,7 @@ Exercises
    table of the letters of the alphabet in alphabetical order which occur in
    the string together with the number of times each letter occurs. Case should 
    be ignored. A sample output of the program when the user enters the data 
-   "ThiS is String with Upper and lower case Letters", would look this this::
+   "ThiS is String with Upper and lower case Letters", would look this this:
 
        a  2
        c  1
@@ -378,54 +376,41 @@ Exercises
 #. Give the Python interpreter's response to each of the following from a
    continuous interpreter session:
 
-   a.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+  # ----------------------------
   >>> d = {"apples": 15, "bananas": 35, "grapes": 12} 
   >>> d["bananas"] 
 
-   b.
-      .. sourcecode:: python3
-
+  # ----------------------------
   >>> d["oranges"] = 20
   >>> len(d) 
 
-   c.
-      .. sourcecode:: python3
-
+  # ----------------------------
   >>> "grapes" in d
-  
-   d.
-      .. sourcecode:: python3
 
+  # ----------------------------
   >>> d["pears"]
   
-   e.
-      .. sourcecode:: python3
-
+  # ----------------------------
   >>> d.get("pears", 0)
   
-   f.
-      .. sourcecode:: python3
-
+  # ----------------------------
   >>> fruits = list(d.keys())
   >>> fruits.sort()
   >>> print(fruits)
   
-   g.
-      .. sourcecode:: python3
-
+  # ----------------------------
   >>> del d["apples"]
   >>> "apples" in d 
-  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
    Be sure you understand why you get each result. Then apply what you
    have learned to fill in the body of the function below:
 
-       .. sourcecode:: python3
-   :linenos:
-
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
    def add_fruit(inventory, fruit, quantity=0): 
-return
+        # ...
+        return
    
    # Make these tests work...
    new_inventory = {}
@@ -433,15 +418,15 @@ return
    test("strawberries" in new_inventory)
    test(new_inventory["strawberries"] == 10)
    add_fruit(new_inventory, "strawberries", 25)
-   test(new_inventory["strawberries"] == 35)      
+   test(new_inventory["strawberries"] == 35)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Write a program called ``alice_words.py`` that creates a text file named
    ``alice_words.txt`` containing an alphabetical listing of all the words, and the
    number of times each occurs, in the text version of `Alice's Adventures in Wonderland`.  
    (You can obtain a free plain text version of the book, along with many others, from 
    http://www.gutenberg.org.) The first 10 lines of your output file should look
-   something like this::
+   something like this:
 
         Word              Count
         =======================
