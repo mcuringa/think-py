@@ -434,13 +434,84 @@ Now that we have fruitful functions, we can focus our attention on
 reorganizing our code so that it fits more nicely into our mental chunks.  
 This process of rearrangement is called **refactoring** the code.  
  
-Two things want to do in our tip calculator is to find the amount of the tip
-and show the results to the user. In the example below, we separate the various
-functions of the program to make a more complete tip calculator. As you'll
-see, we're starting to build code that is useful. Using functions allows us
-to make changes to one part of a program without affecting other parts
-of the program. For example, we can change the welcome message without
-worrying about breaking our calculations.
+Two things we want to do in our tip calculator is to find the amount 
+of the tip and show the results to the user. In the example below, 
+we separate the various functions of the program to make a more 
+complete tip calculator. As you'll see, we're starting to build code 
+that is useful. Using functions allows us to make changes to one 
+part of a program without affecting other parts of the program. For 
+example, we can change the welcome message without worrying about 
+breaking our calculations.
+
+The trick about refactoring code is to anticipate which things we 
+are likely to want to change each time we call the function: these 
+should become the parameters, or changeable parts, of the functions 
+we write.
+
+[Download and run the source code: tip2.py](examples/tip2.py)
+
+### Case Study: Tip Calculator
+
+<aside id="tip_header" style="top: 110px">
+
+This short Python program uses **comments** to
+put a **header** at the top of the **source file**. These
+comments are messages for programmers who read the
+**source code**.
+
+</aside>
+
+<aside id="tip_welcome" style="top: 173px">
+
+**weclcome** is a very simple **function** --- it does
+not accept any data in the form of **function paramters**
+and it does not return any data using a **return statement**.
+It simply prints out a message to the console.
+
+</aside>
+
+<aside id="tip_calc" style="top: 354px">
+
+The **calc_tip** function has 2 **parameters**:
+`bill` and `pct`. These parameters become
+variables within the **function body**. Line 22 uses
+**arithmetic operators** (multiplication here) to
+calculate a new value and store it in the `tip` **variable**.
+`tip` is rounded to 2 decimal places using the **built-in function**
+`round()`. Finally, the rounded tip amount is returned.
+
+
+</aside>
+
+<aside id="tip_get_input" style="top: 545px">
+
+**get_bill_amt** is a **fruitful function** because
+it has a **return statement**. It uses the
+**built-in function** `input()` to ask for data from the
+user of the program.  --- when it is called
+it returns the bill 
+
+</aside>
+
+<aside id="tip_main" style="top: 1430px">
+The **main** function is the first function called for
+this program. It maintains the executive control of the
+program, calling other functions in sequence and passing
+data between functions.
+
+We encounter Python's special syntax
+for running a program from the **command line**:
+
+``if __name__ == "__main__":``
+
+This **conditional statement** allows the program to execute code if 
+it is being run as a standalone Python program. In our case, we 
+choose to call the ``main`` function which we defined. main() has no 
+special meaning in Python --- we could execute any 
+statements we choose under that block.
+
+</aside>
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 # tip2.py
@@ -463,7 +534,10 @@ def calc_tip(bill, pct):
         Calculate the tip on a bill, given the pct of the tip.
         Return the amount of the tip
     """
-    tip = bill * (pct * .01) # convert pct to a decimal and calculate
+    # convert pct to a decimal and calculate
+    tip = bill * (pct * .01)
+    
+    # round the tip to 2 decimal places
     tip = round(tip, 2) # round the tip to 2 decimal places
     return tip
 
@@ -472,8 +546,10 @@ def get_bill_amt():
         Ask the user to enter the amount of the bill
         and return this amount as a <float>
     """
+    amt = input("How much was your total bill: ")
+    amt = float(amt)
 
-    return float(input("How much was your total bill: "))
+    return amt
 
 def get_tip_pct():
     """
@@ -536,29 +612,7 @@ def main():
 if __name__ == "__main__":
     main()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[Download and run the source code: tip2.py](examples/tip2.py)
 
-The trick about refactoring code is to anticipate which things we are likely to want to change
-each time we call the function: these should become the parameters, or changeable parts,
-of the functions we write.
-
-<aside id="main">
-**The ``main`` function**
-
-In our code example above, we encounter Python's special syntax
-for running a program from the command line:
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python }
-if __name__ == "__main__":
-    main()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This conditional statement allows the program to execute code if it is being run
-as a standalone Python program. In our case, we choose to call the ``main`` function
-which we defined. main() has no special meaning in Python, though, and we could
-execute any statements we choose under that block.
-
-</aside>
 
 Glossary
 -------------------------------

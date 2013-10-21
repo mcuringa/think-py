@@ -216,7 +216,7 @@ code > span.er { color: #c3bf9f; }
       border-top: 1px solid gray;
   }
   
-  section[id*="case-study"] h2
+  section[id*="case-study"] h2, section[id*="case-study"] h3
   {
       text-align: right;
       margin: 2em 0;
@@ -280,7 +280,9 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#flow-of-execution"><span class="toc-section-number">5.3</span> Flow of execution</a></li>
 <li><a href="#functions-that-require-arguments"><span class="toc-section-number">5.4</span> Functions that require arguments</a></li>
 <li><a href="#functions-that-return-values"><span class="toc-section-number">5.5</span> Functions that return values</a></li>
-<li><a href="#tips-revisited"><span class="toc-section-number">5.6</span> Tips Revisited</a></li>
+<li><a href="#tips-revisited"><span class="toc-section-number">5.6</span> Tips Revisited</a><ul>
+<li><a href="#case-study-tip-calculator"><span class="toc-section-number">5.6.1</span> Case Study: Tip Calculator</a></li>
+</ul></li>
 <li><a href="#glossary"><span class="toc-section-number">5.7</span> Glossary</a></li>
 <li><a href="#exercises"><span class="toc-section-number">5.8</span> Exercises</a></li>
 </ul></li>
@@ -750,7 +752,39 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <section id="tips-revisited" class="level2">
 <h2><a href="#tips-revisited"><span class="header-section-number">5.6</span> Tips Revisited</a></h2>
 <p>Now that we have fruitful functions, we can focus our attention on reorganizing our code so that it fits more nicely into our mental chunks.<br />This process of rearrangement is called <strong>refactoring</strong> the code.</p>
-<p>Two things want to do in our tip calculator is to find the amount of the tip and show the results to the user. In the example below, we separate the various functions of the program to make a more complete tip calculator. As you’ll see, we’re starting to build code that is useful. Using functions allows us to make changes to one part of a program without affecting other parts of the program. For example, we can change the welcome message without worrying about breaking our calculations.</p>
+<p>Two things we want to do in our tip calculator is to find the amount of the tip and show the results to the user. In the example below, we separate the various functions of the program to make a more complete tip calculator. As you’ll see, we’re starting to build code that is useful. Using functions allows us to make changes to one part of a program without affecting other parts of the program. For example, we can change the welcome message without worrying about breaking our calculations.</p>
+<p>The trick about refactoring code is to anticipate which things we are likely to want to change each time we call the function: these should become the parameters, or changeable parts, of the functions we write.</p>
+<p><a href="examples/tip2.py">Download and run the source code: tip2.py</a></p>
+<section id="case-study-tip-calculator" class="level3">
+<h3><a href="#case-study-tip-calculator"><span class="header-section-number">5.6.1</span> Case Study: Tip Calculator</a></h3>
+<aside id="tip_header" style="top: 110px">
+
+<p>This short Python program uses <strong>comments</strong> to put a <strong>header</strong> at the top of the <strong>source file</strong>. These comments are messages for programmers who read the <strong>source code</strong>.</p>
+</aside>
+
+<aside id="tip_welcome" style="top: 173px">
+
+<p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not return any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
+</aside>
+
+<aside id="tip_calc" style="top: 354px">
+
+<p>The <strong>calc_tip</strong> function has 2 <strong>parameters</strong>: <code>bill</code> and <code>pct</code>. These parameters become variables within the <strong>function body</strong>. Line 22 uses <strong>arithmetic operators</strong> (multiplication here) to calculate a new value and store it in the <code>tip</code> <strong>variable</strong>. <code>tip</code> is rounded to 2 decimal places using the <strong>built-in function</strong> <code>round()</code>. Finally, the rounded tip amount is returned.</p>
+</aside>
+
+<aside id="tip_get_input" style="top: 545px">
+
+<p><strong>get_bill_amt</strong> is a <strong>fruitful function</strong> because it has a <strong>return statement</strong>. It uses the <strong>built-in function</strong> <code>input()</code> to ask for data from the user of the program. — when it is called it returns the bill</p>
+</aside>
+
+<aside id="tip_main" style="top: 1430px">
+<p>The <strong>main</strong> function is the first function called for this program. It maintains the executive control of the program, calling other functions in sequence and passing data between functions.</p>
+<p>We encounter Python’s special syntax for running a program from the <strong>command line</strong>:</p>
+<p><code>if __name__ == &quot;__main__&quot;:</code></p>
+<p>This <strong>conditional statement</strong> allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python — we could execute any statements we choose under that block.</p>
+</aside>
+
+
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -843,6 +877,11 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 90
 91
 92
+93
+94
+95
+96
+97
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># tip2.py</span>
 <span class="co"># example of an interactive tip calculator</span>
 <span class="co"># by: mxc</span>
@@ -863,7 +902,10 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <span class="co">        Calculate the tip on a bill, given the pct of the tip.</span>
 <span class="co">        Return the amount of the tip</span>
 <span class="co">    &quot;&quot;&quot;</span>
-    tip = bill * (pct * .<span class="dv">01</span>) <span class="co"># convert pct to a decimal and calculate</span>
+    <span class="co"># convert pct to a decimal and calculate</span>
+    tip = bill * (pct * .<span class="dv">01</span>)
+    
+    <span class="co"># round the tip to 2 decimal places</span>
     tip = <span class="dt">round</span>(tip, <span class="dv">2</span>) <span class="co"># round the tip to 2 decimal places</span>
     <span class="kw">return</span> tip
 
@@ -872,8 +914,10 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <span class="co">        Ask the user to enter the amount of the bill</span>
 <span class="co">        and return this amount as a &lt;float&gt;</span>
 <span class="co">    &quot;&quot;&quot;</span>
+    amt = <span class="dt">input</span>(<span class="st">&quot;How much was your total bill: &quot;</span>)
+    amt = <span class="dt">float</span>(amt)
 
-    <span class="kw">return</span> <span class="dt">float</span>(<span class="dt">input</span>(<span class="st">&quot;How much was your total bill: &quot;</span>))
+    <span class="kw">return</span> amt
 
 <span class="kw">def</span> get_tip_pct():
     <span class="co">&quot;&quot;&quot;</span>
@@ -935,16 +979,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre></td></tr></table>
-<p><a href="examples/tip2.py">Download and run the source code: tip2.py</a></p>
-<p>The trick about refactoring code is to anticipate which things we are likely to want to change each time we call the function: these should become the parameters, or changeable parts, of the functions we write.</p>
-<aside id="main">
-<p><strong>The <code>main</code> function</strong></p>
-<p>In our code example above, we encounter Python’s special syntax for running a program from the command line:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<p>This conditional statement allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python, though, and we could execute any statements we choose under that block.</p>
-</aside>
-
+</section>
 </section>
 <section id="glossary" class="level2">
 <h2><a href="#glossary"><span class="header-section-number">5.7</span> Glossary</a></h2>

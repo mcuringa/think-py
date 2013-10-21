@@ -181,7 +181,7 @@ section[id*="case-study"]
     border-top: 1px solid gray;
 }
 
-section[id*="case-study"] h2
+section[id*="case-study"] h2, section[id*="case-study"] h3
 {
     text-align: right;
     margin: 2em 0;
