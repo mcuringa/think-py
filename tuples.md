@@ -204,26 +204,26 @@ Glossary
 --------
 
 data structure
-:  An organization of data for the purpose of making it easier to use.
+  ~ An organization of data for the purpose of making it easier to use.
 
 immutable data value
-:  A data value which cannot be modified.  Assignments to elements or
-   slices (sub-parts) of immutable values cause a runtime error.
+  ~ A data value which cannot be modified.  Assignments to elements or
+    slices (sub-parts) of immutable values cause a runtime error.
 
 mutable data value
-:  A data value which can be modified. The types of all mutable values
-   are compound types.  Lists and dictionaries are mutable; strings
-   and tuples are not.
+  ~ A data value which can be modified. The types of all mutable values
+    are compound types.  Lists and dictionaries are mutable; strings
+    and tuples are not.
 
 tuple
-:  An immutable data value that contains related elements. Tuples are used
-   to group together related data, such as a person's name, their age,
-   and their gender.
+  ~ An immutable data value that contains related elements. Tuples are used
+    to group together related data, such as a person's name, their age,
+    and their gender.
 
 tuple assignment
-:  An assignment to all of the elements in a tuple using a single
-   assignment statement. Tuple assignment occurs *simultaneously* rather than
-   in sequence, making it useful for swapping values.
+  ~ An assignment to all of the elements in a tuple using a single
+    assignment statement. Tuple assignment occurs *simultaneously* rather than
+    in sequence, making it useful for swapping values.
 
 
 Exercises
