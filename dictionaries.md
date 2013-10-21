@@ -316,16 +316,54 @@ needed before we can use the list's ``sort`` method.
 Case Study: Snowden Content Analysis
 -----------------------------------------
 
-<aside style="top: 298px; height: 285px;">
+<aside id="snowden_read_file" style="top: 280px;">
 
-The ``word_map`` function uses a Python ``dict`` to
-map the key words identified in the paramter `find`
-to the number of times they occur in the text.
-The text is passed in as an argument to this
-function as a `list` of `words`. `find` is also a
-`list`.
+**read_file** uses the **buil-in function** `open()` to
+read a plain text file into a **file object**. The function **returns**
+the text as a `string`.
 
 </aside>
+
+
+<aside id="snowden_word_map" style="top: 365px;">
+
+The **word_map function** uses a Python `dict` to
+map the key words identified in the parameter `find`
+to the number of times they occur in the text.
+The text is passed in as an argument to this
+function as a `list` of `words`.
+
+This function uses `list` and `dict`
+**data structures**. Line 23 initializes and empty `dict`
+called wordMap. The `find` parameter is a `list` that let's the
+function know which words to count. The first `for` loop
+on line 25 iterates over the words in `find` and
+adds a new **key** to wordMap with the **value** zero. We use the String
+function `lower()` to force all keys to lowercase. The
+second loop (29) iterates through the words in the text. For each word
+in the list we use the **string function** `strip()` to remove punctation.
+The **string module** was **imported** on line 9, so that we can access its
+list of punctation characters here, on line 30.
+
+The body of the second loop uses the `in` operator to test
+if a word from the text is in our list of words to find. If the word is
+found, we **increment** the value for that word in our `dict`. Finally, 
+the function returns a map of **key-value pairs** where the keys are the
+words that were found. The values are `ints` indicating the number of times
+the word was found in the text (0.._n_). The function **returns** this
+word frequency map.
+
+</aside>
+
+<aside id="snowden_describe" style="top: 794px;">
+
+The **describe** function presents the results to the user
+by printing information to the console. This function is
+not very **abstract** --- it can only be used to analyze the
+Snowden news reports.
+
+</aside>
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 # snow.py
@@ -410,36 +448,36 @@ Glossary
 --------
 
 dictionary
-: A collection of key:value pairs that maps from keys to values. The keys
-  can be any immutable value, and the associated value can be of any type.
+  ~ A collection of key:value pairs that maps from keys to values. The keys
+    can be any immutable value, and the associated value can be of any type.
 
 immutable data value
-: A data value which cannot be modified.  Assignments to elements or
-  slices (sub-parts) of immutable values cause a runtime error.
+  ~ A data value which cannot be modified.  Assignments to elements or
+    slices (sub-parts) of immutable values cause a runtime error.
 
 key
-: A data item that is *mapped to* a value in a dictionary. Keys are used
-  to look up values in a dictionary. Each key must be unique
-  across the dictionary.
+  ~ A data item that is *mapped to* a value in a dictionary. Keys are used
+    to look up values in a dictionary. Each key must be unique
+    across the dictionary.
 
 key:value pair
-: One of the pairs of items in a dictionary. Values are looked up in a
-  dictionary by key.
+  ~ One of the pairs of items in a dictionary. Values are looked up in a
+    dictionary by key.
   
 mapping type
-: A mapping type is a data type comprised of a collection of keys and
-  associated values. Python's only built-in mapping type is the
-  dictionary.  Dictionaries implement the
-  [associative array](http://en.wikipedia.org/wiki/Associative_array)
-  abstract data type.
+  ~ A mapping type is a data type comprised of a collection of keys and
+    associated values. Python's only built-in mapping type is the
+    dictionary.  Dictionaries implement the
+    [associative array](http://en.wikipedia.org/wiki/Associative_array)
+    abstract data type.
 
 memo
-: Temporary storage of precomputed values to avoid duplicating the same computation.
+  ~ Temporary storage of precomputed values to avoid duplicating the same computation.
 
 mutable data value
-: A data value which can be modified. The types of all mutable values 
-  are compound types.  Lists and dictionaries are mutable; strings
-  and tuples are not.
+  ~ A data value which can be modified. The types of all mutable values 
+    are compound types.  Lists and dictionaries are mutable; strings
+    and tuples are not.
 
 Exercises
 ---------

@@ -22,7 +22,6 @@ pre, code, tt, code span, pre span
 
 p code
 {
-    background: #efefef;
     padding: 0 .25em; 
 }
 
@@ -158,19 +157,35 @@ td.lineNumbers {
     text-align: right;
 }
 
-.sourceCode pre
+
+.sourceCode pre, pre.sourceCode
 {
     border-style: none;
+    background-color: #303030;
 }
+
+p code, li code
+{
+    background-color: #ededed;
+    color: black;
+}
+
+
 
 /** code listings/case studies **/
 
 section[id*="case-study"]
 {
-    padding-left: 25%;
+    padding-left: 40%;
     position: relative;
-    font-size: 14px;
-    line-height: 16px;
+    border-top: 1px solid gray;
+}
+
+section[id*="case-study"] h2
+{
+    text-align: right;
+    margin: 2em 0;
+
 }
 
 section[id*="case-study"] aside
@@ -180,13 +195,11 @@ section[id*="case-study"] aside
     border-radius: 0px;
     position: absolute;
     left: 0;
-    width: 25%;
-    border-right: 1px solid gray;
+    width: 39%;
     text-align: justify;
     padding: 0;
     margin: 0;
     font-size: 90%;
-    line-height: 1.1em;
 }
 
 section[id*="case-study"] aside p
@@ -194,11 +207,14 @@ section[id*="case-study"] aside p
     margin: 0;
     padding: 0;
     padding-right: .5em;
+    line-height: 1.1em;
+    margin-bottom: .5em;
 }
 
 section[id*="case-study"] aside code
 {
     background-color: #ededed;
+    color: black;
 }
 
 </style>
