@@ -454,19 +454,19 @@ we write.
 
 <aside id="tip_header" style="top: 110px">
 
-This short Python program uses **comments** to
-put a **header** at the top of the **source file**. These
-comments are messages for programmers who read the
-**source code**.
+Brief header **comments** at the top of the **source file** 
+identify basic information about the program and the file.
+Comments are messages for programmers who read the **source
+code** --- they do not affect the execution of the program.
 
 </aside>
 
 <aside id="tip_welcome" style="top: 173px">
 
-**weclcome** is a very simple **function** --- it does
-not accept any data in the form of **function paramters**
-and it does not return any data using a **return statement**.
-It simply prints out a message to the console.
+**weclcome** is a very simple **function** --- it does not accept
+any data in the form of **function paramters** and it does not
+**return** any data using a **return statement**. It simply prints out a
+message to the console.
 
 </aside>
 
@@ -483,13 +483,43 @@ calculate a new value and store it in the `tip` **variable**.
 
 </aside>
 
-<aside id="tip_get_input" style="top: 545px">
+<aside id="tip_get_pct" style="top: 545px">
 
 **get_bill_amt** is a **fruitful function** because
 it has a **return statement**. It uses the
 **built-in function** `input()` to ask for data from the
 user of the program.  --- when it is called
 it returns the bill 
+
+</aside>
+
+<aside id="tip_get_amt" style="top: 710px">
+
+**get_tip_pct** is similar to **get_bill_amt**. It 
+requests user data by calling the ``input`` function
+and then returns a result. Notice that the
+**multi-line string** inside of 3 quotation marks (""")
+makes it easy to read and write formatted data.
+
+This function uses a series of **if statements** to
+interpret the user's choice from a menu. While we
+could use ``elif`` to change the conditions together, it
+is not needed here. Once a ``return`` statement is reached,
+no further conditions can be tested or executed. If none of 
+the ``if`` conditions are met, this function returns -1
+to indicate that an invalid choice was entered.
+
+</aside>
+
+<aside id="tip_get_amt" style="top: 1125px">
+
+**show_results** defines **parameters** which are used
+to pass in all of the data needed to show the results
+of the tip calculation. Notice that the `print` statements
+use the **+ operator** to <abbr title="join together">concatenate</abbr>
+strings. Because we are joining **string literals** with variables of
+type `int` and `float`, we need to use the `str()` function to convert
+the numeric data to strings.
 
 </aside>
 

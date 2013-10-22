@@ -75,8 +75,6 @@ h2.author
 
 pre
 {
-    border: thin solid gray;
-    background: #ededed;
     padding: .5em;
 }
 
@@ -158,18 +156,18 @@ td.lineNumbers {
 }
 
 
-.sourceCode pre, pre.sourceCode
-{
-    border-style: none;
-    background-color: #303030;
-}
-
 p code, li code
 {
     background-color: #ededed;
     color: black;
 }
 
+.sourceCode pre, pre.sourceCode, li table .sourceCode
+{
+    color: inherit;
+    border-style: none;
+    background-color: #303030;
+}
 
 
 /** code listings/case studies **/
@@ -211,7 +209,7 @@ section[id*="case-study"] aside p
     margin-bottom: .5em;
 }
 
-section[id*="case-study"] aside code
+section[id*="case-study"] aside code, h1 code, h2 code, h3 code, h4 code
 {
     background-color: #ededed;
     color: black;

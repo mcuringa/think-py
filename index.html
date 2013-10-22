@@ -110,8 +110,6 @@ code > span.er { color: #c3bf9f; }
   
   pre
   {
-      border: thin solid gray;
-      background: #ededed;
       padding: .5em;
   }
   
@@ -193,18 +191,18 @@ code > span.er { color: #c3bf9f; }
   }
   
   
-  .sourceCode pre, pre.sourceCode
-  {
-      border-style: none;
-      background-color: #303030;
-  }
-  
   p code, li code
   {
       background-color: #ededed;
       color: black;
   }
   
+  .sourceCode pre, pre.sourceCode, li table .sourceCode
+  {
+      color: inherit;
+      border-style: none;
+      background-color: #303030;
+  }
   
   
   /** code listings/case studies **/
@@ -246,7 +244,7 @@ code > span.er { color: #c3bf9f; }
       margin-bottom: .5em;
   }
   
-  section[id*="case-study"] aside code
+  section[id*="case-study"] aside code, h1 code, h2 code, h3 code, h4 code
   {
       background-color: #ededed;
       color: black;
@@ -759,12 +757,12 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <h3><a href="#case-study-tip-calculator"><span class="header-section-number">5.6.1</span> Case Study: Tip Calculator</a></h3>
 <aside id="tip_header" style="top: 110px">
 
-<p>This short Python program uses <strong>comments</strong> to put a <strong>header</strong> at the top of the <strong>source file</strong>. These comments are messages for programmers who read the <strong>source code</strong>.</p>
+<p>Brief header <strong>comments</strong> at the top of the <strong>source file</strong> identify basic information about the program and the file. Comments are messages for programmers who read the <strong>source code</strong> — they do not affect the execution of the program.</p>
 </aside>
 
 <aside id="tip_welcome" style="top: 173px">
 
-<p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not return any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
+<p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not <strong>return</strong> any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
 </aside>
 
 <aside id="tip_calc" style="top: 354px">
@@ -772,9 +770,20 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <p>The <strong>calc_tip</strong> function has 2 <strong>parameters</strong>: <code>bill</code> and <code>pct</code>. These parameters become variables within the <strong>function body</strong>. Line 22 uses <strong>arithmetic operators</strong> (multiplication here) to calculate a new value and store it in the <code>tip</code> <strong>variable</strong>. <code>tip</code> is rounded to 2 decimal places using the <strong>built-in function</strong> <code>round()</code>. Finally, the rounded tip amount is returned.</p>
 </aside>
 
-<aside id="tip_get_input" style="top: 545px">
+<aside id="tip_get_pct" style="top: 545px">
 
 <p><strong>get_bill_amt</strong> is a <strong>fruitful function</strong> because it has a <strong>return statement</strong>. It uses the <strong>built-in function</strong> <code>input()</code> to ask for data from the user of the program. — when it is called it returns the bill</p>
+</aside>
+
+<aside id="tip_get_amt" style="top: 710px">
+
+<p><strong>get_tip_pct</strong> is similar to <strong>get_bill_amt</strong>. It requests user data by calling the <code>input</code> function and then returns a result. Notice that the <strong>multi-line string</strong> inside of 3 quotation marks (“”“) makes it easy to read and write formatted data.</p>
+<p>This function uses a series of <strong>if statements</strong> to interpret the user’s choice from a menu. While we could use <code>elif</code> to change the conditions together, it is not needed here. Once a <code>return</code> statement is reached, no further conditions can be tested or executed. If none of the <code>if</code> conditions are met, this function returns -1 to indicate that an invalid choice was entered.</p>
+</aside>
+
+<aside id="tip_get_amt" style="top: 1125px">
+
+<p><strong>show_results</strong> defines <strong>parameters</strong> which are used to pass in all of the data needed to show the results of the tip calculation. Notice that the <code>print</code> statements use the <strong>+ operator</strong> to <abbr title="join together">concatenate</abbr> strings. Because we are joining <strong>string literals</strong> with variables of type <code>int</code> and <code>float</code>, we need to use the <code>str()</code> function to convert the numeric data to strings.</p>
 </aside>
 
 <aside id="tip_main" style="top: 1430px">
@@ -1436,7 +1445,7 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>Notice the square brackets in the description of the arguments. These are examples of <strong>meta-notation</strong> — notation that describes Python syntax, but is not part of it. The square brackets in this documentation mean that the argument is <em>optional</em> — the programmer can omit it. So what this first line of help tells us is that <code>range</code> must always have a <code>stop</code> argument, but it may have an optional <code>start</code> argument (which must be followed by a comma if it is present), and it can also have an optional <code>step</code> argument, preceded by a comma if it is present.</p>
 <p>The examples from help show that <code>range</code> can have either 1, 2 or 3 arguments.<br />The list can start at any starting value, and go up or down in increments other than 1.<br />The documentation here also says that the arguments must be integers.</p>
 <p>Other meta-notation you’ll frequently encounter is the use of bold and italics. The bold means that these are tokens — keywords or symbols — typed into your Python code exactly as they are, whereas the italic terms stand for “something of this type”. So the syntax description</p>
-<pre><code>**for** *variable* **in** *list* **:** </code></pre>
+<p><strong>for</strong> <em>variable</em> <strong>in</strong> <em>list</em> <strong>:</strong></p>
 <p>means you can substitute any legal variable and any legal list when you write your Python code.</p>
 <p>This (simplified) description of the <code>print</code> function, shows another example of meta-notation in which the ellipses (<code>...</code>) mean that you can have as many objects as you like (even zero), separated by commas:</p>
 <p><strong>print( [<em><em> </em>object,</em> … **] )</strong></p>
@@ -1691,25 +1700,31 @@ Jack Nicholson</code></pre>
 <section id="nested-loops-for-nested-data" class="level2">
 <h2><a href="#nested-loops-for-nested-data"><span class="header-section-number">6.22</span> Nested Loops for Nested Data</a></h2>
 <p>Now we’ll come up with an even more adventurous list of structured data. In this case, we have a list of students. Each student has a name which is paired up with another list of subjects that they are enrolled for:</p>
-<p>~~~~~~~~~~~~~~~~~~~~{.python .numberLines}<br /> students = [ (“John”, [“CompSci”, “Physics”]), (“Vusi”, [“Maths”, “CompSci”, “Stats”]), (“Jess”, [“CompSci”, “Accounting”, “Economics”, “Management”]), (“Sarah”, [“InfSys”, “Accounting”, “Economics”, “CommLaw”]), (“Zuki”, [“Sociology”, “Economics”, “Law”, “Stats”, “Music”])]</p>
-<p>Here we’ve assigned a list of five elements to the variable <code>students</code>. Let’s print out each student name, and the number of subjects they are enrolled for:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
 5
 6
-</pre></td><td class="sourceCode"><pre><code class="sourceCode python">        <span class="co"># Print all students with a count of their courses.</span>
-        <span class="kw">for</span> (name, subjects) in students:
-            <span class="kw">print</span>(name, <span class="st">&quot;takes&quot;</span>, <span class="dt">len</span>(subjects), <span class="st">&quot;courses&quot;</span>)
-
-        
-Python agreeably responds <span class="kw">with</span> the following output: </code></pre></td></tr></table>
-<pre><code>    John takes 2 courses
-    Vusi takes 3 courses
-    Jess takes 4 courses
-    Sarah takes 4 courses
-    Zuki takes 5 courses</code></pre>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">students = [
+    (<span class="st">&quot;John&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Physics&quot;</span>]),
+    (<span class="st">&quot;Vusi&quot;</span>, [<span class="st">&quot;Maths&quot;</span>, <span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Stats&quot;</span>]),
+    (<span class="st">&quot;Jess&quot;</span>, [<span class="st">&quot;CompSci&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Management&quot;</span>]),
+    (<span class="st">&quot;Sarah&quot;</span>, [<span class="st">&quot;InfSys&quot;</span>, <span class="st">&quot;Accounting&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;CommLaw&quot;</span>]),
+    (<span class="st">&quot;Zuki&quot;</span>, [<span class="st">&quot;Sociology&quot;</span>, <span class="st">&quot;Economics&quot;</span>, <span class="st">&quot;Law&quot;</span>, <span class="st">&quot;Stats&quot;</span>, <span class="st">&quot;Music&quot;</span>])]</code></pre></td></tr></table>
+<p>Here we’ve assigned a list of five elements to the variable <code>students</code>. Let’s print out each student name, and the number of subjects they are enrolled for:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># Print all students with a count of their courses.</span>
+<span class="kw">for</span> (name, subjects) in students:
+    <span class="kw">print</span>(name, <span class="st">&quot;takes&quot;</span>, <span class="dt">len</span>(subjects), <span class="st">&quot;courses&quot;</span>)</code></pre></td></tr></table>
+<p>Python agreeably responds with the following output:</p>
+<pre><code>John takes 2 courses
+Vusi takes 3 courses
+Jess takes 4 courses
+Sarah takes 4 courses
+Zuki takes 5 courses</code></pre>
 <p>Now we’d like to ask how many students are taking CompSci. This needs a counter, and for each student we need a second loop that tests each of the subjects in turn:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -1719,23 +1734,23 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 6
 7
 8
-</pre></td><td class="sourceCode"><pre><code class="sourceCode python">        <span class="co"># Count how many students are taking CompSci</span>
-        counter = <span class="dv">0</span>
-        <span class="kw">for</span> (name, subjects) in students:
-            <span class="kw">for</span> s in subjects:                 <span class="co"># A nested loop!</span>
-                <span class="kw">if</span> s == <span class="st">&quot;CompSci&quot;</span>:
-                   counter += <span class="dv">1</span>
-                   
-        <span class="kw">print</span>(<span class="st">&quot;The number of students taking CompSci is&quot;</span>, counter)</code></pre></td></tr></table>
-<pre><code>    The number of students taking CompSci is 3</code></pre>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># Count how many students are taking CompSci</span>
+counter = <span class="dv">0</span>
+<span class="kw">for</span> (name, subjects) in students:
+    <span class="kw">for</span> s in subjects:           <span class="co"># A nested loop!</span>
+        <span class="kw">if</span> s == <span class="st">&quot;CompSci&quot;</span>:
+           counter += <span class="dv">1</span>
+           
+<span class="kw">print</span>(<span class="st">&quot;The number of students taking CompSci is&quot;</span>, counter)</code></pre></td></tr></table>
+<pre><code>The number of students taking CompSci is 3</code></pre>
 <p>You should set up a list of your own data that interests you — perhaps a list of your CDs, each containing a list of song titles on the CD, or a list of movie titles, each with a list of movie stars who acted in the movie. You could then ask questions like “Which movies starred Angelina Jolie?”</p>
-<p>.. index:: single: Newton’s method</p>
 </section>
 <section id="newtons-method-for-finding-square-roots" class="level2">
 <h2><a href="#newtons-method-for-finding-square-roots"><span class="header-section-number">6.23</span> Newton’s method for finding square roots</a></h2>
 <p>Loops are often used in programs that compute numerical results by starting with an approximate answer and iteratively improving it.</p>
 <p>For example, before we had calculators or computers, people needed to calculate square roots manually. Newton used a particularly good method (there is some evidence that this method was known many years before).<br />Suppose that you want to know the square root of <code>n</code>. If you start with almost any approximation, you can compute a better approximation (closer to the actual answer) with the following formula:</p>
-<p>~~~~~~~~~~~~~~~~~~~~{.python .numberLines}<br /> better = (approx + n/approx)/2</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">better = (approx + n/approx)/<span class="dv">2</span></code></pre></td></tr></table>
 <p>Repeat this calculation a few times using your calculator. Can you see why each iteration brings your estimate a little closer? One of the amazing properties of this particular algorithm is how quickly it converges to an accurate answer — a great advantage for doing it manually.</p>
 <p>By using a loop and repeating this formula until the better approximation gets close enough to the previous one, we can write a function for computing the square root. (In fact, this is how your calculator finds square roots — it may have a slightly different formula and method, but it is also based on repeatedly improving its guesses.)</p>
 <p>This is an example of an <code>indefinite</code> iteration problem: we cannot predict in advance how many times we’ll want to improve our guess — we just want to keep getting closer and closer. Our stopping condition for the loop will be when our old guess and our improved guess are “close enough” to each other.</p>
@@ -1771,12 +1786,10 @@ Python agreeably responds <span class="kw">with</span> the following output: </c
 <span class="kw">print</span>(sqrt(<span class="fl">49.0</span>))
 <span class="kw">print</span>(sqrt(<span class="fl">81.0</span>))</code></pre></td></tr></table>
 <p>The output is:</p>
-<p>~~~~~~~~~~~~~~~~~~~~</p>
-<pre><code>    5.00000000002
-    7.0
-    9.0</code></pre>
+<pre><code>5.00000000002
+7.0
+9.0</code></pre>
 <p>See if you can improve the approximations by changing the stopping condition. Also, step through the algorithm (perhaps by hand, using your calculator) to see how many iterations were needed before it achieved this level of accuracy for <code>sqrt(25)</code>.</p>
-<p>.. index:: algorithm</p>
 </section>
 <section id="algorithms" class="level2">
 <h2><a href="#algorithms"><span class="header-section-number">6.24</span> Algorithms</a></h2>

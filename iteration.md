@@ -606,7 +606,7 @@ symbols — typed into your Python code exactly as they are, whereas
 the italic terms stand for "something of this type". So the syntax 
 description
 
-    **for** *variable* **in** *list* **:** 
+**for** *variable* **in** *list* **:** 
     
 means you can substitute any legal 
 variable and any legal list when you write your Python code.  
@@ -615,7 +615,7 @@ This (simplified) description of the ``print`` function, shows another example
 of meta-notation in which the ellipses (``...``) mean that you can have as many
 objects as you like (even zero), separated by commas:
    
-   **print( [**\ *object,* ... **] )**
+**print( [**\ *object,* ... **] )**
    
 Meta-notation gives us a concise and powerful way to describe the *pattern* of some syntax
 or feature.  
@@ -1073,57 +1073,55 @@ we have a list of students.  Each student has a name which is paired up with ano
 of subjects that they are enrolled for: 
 
 ~~~~~~~~~~~~~~~~~~~~{.python .numberLines}        
-        students = [
-            ("John", ["CompSci", "Physics"]),
-            ("Vusi", ["Maths", "CompSci", "Stats"]),
-            ("Jess", ["CompSci", "Accounting", "Economics", "Management"]),
-            ("Sarah", ["InfSys", "Accounting", "Economics", "CommLaw"]),
-            ("Zuki", ["Sociology", "Economics", "Law", "Stats", "Music"])]
-            
+students = [
+    ("John", ["CompSci", "Physics"]),
+    ("Vusi", ["Maths", "CompSci", "Stats"]),
+    ("Jess", ["CompSci", "Accounting", "Economics", "Management"]),
+    ("Sarah", ["InfSys", "Accounting", "Economics", "CommLaw"]),
+    ("Zuki", ["Sociology", "Economics", "Law", "Stats", "Music"])]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Here we've assigned a list of five elements to the variable ``students``.  Let's print
 out each student name, and the number of subjects they are enrolled for:
  
 ~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
-        # Print all students with a count of their courses.
-        for (name, subjects) in students:
-            print(name, "takes", len(subjects), "courses")
-
+# Print all students with a count of their courses.
+for (name, subjects) in students:
+    print(name, "takes", len(subjects), "courses")
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
 Python agreeably responds with the following output: 
 
-~~~~~~~~~~~~~~~~~~~~
-    
-        John takes 2 courses
-        Vusi takes 3 courses
-        Jess takes 4 courses
-        Sarah takes 4 courses
-        Zuki takes 5 courses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+John takes 2 courses
+Vusi takes 3 courses
+Jess takes 4 courses
+Sarah takes 4 courses
+Zuki takes 5 courses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now we'd like to ask how many students are taking CompSci. This needs a counter,
 and for each student we need a second loop that tests each of the subjects in turn:
 
 ~~~~~~~~~~~~~~~~~~~~{.python .numberLines}        
-        # Count how many students are taking CompSci
-        counter = 0
-        for (name, subjects) in students:
-            for s in subjects:                 # A nested loop!
-                if s == "CompSci":
-                   counter += 1
-                   
-        print("The number of students taking CompSci is", counter)
+# Count how many students are taking CompSci
+counter = 0
+for (name, subjects) in students:
+    for s in subjects:           # A nested loop!
+        if s == "CompSci":
+           counter += 1
+           
+print("The number of students taking CompSci is", counter)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-~~~~~~~~~~~~~~~~~~~~
-
-        The number of students taking CompSci is 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The number of students taking CompSci is 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You should set up a list of your own data that interests you  — 
 perhaps a list of your CDs, each containing a list of song titles on the CD,
 or a list of movie titles, each with a list of movie stars who acted in the movie. 
 You could then ask questions like "Which movies starred Angelina Jolie?"    
-    
-    
-.. index::
-    single: Newton's method
 
 Newton's method for finding square roots
 ----------------------------------------
@@ -1139,8 +1137,9 @@ with almost any approximation, you can compute a better approximation (closer
 to the actual answer) with the following formula:
 
 ~~~~~~~~~~~~~~~~~~~~{.python .numberLines}        
-        better = (approx + n/approx)/2
-    
+better = (approx + n/approx)/2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Repeat this calculation a few times using your calculator.  Can you
 see why each iteration brings your estimate a little closer?  One of the amazing
 properties of this particular algorithm is how quickly it converges to an accurate
@@ -1187,24 +1186,20 @@ print(sqrt(49.0))
 print(sqrt(81.0))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 The output is: 
 
-~~~~~~~~~~~~~~~~~~~~
-        
-        5.00000000002
-        7.0
-        9.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~        
+5.00000000002
+7.0
+9.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See if you can improve the approximations by changing the stopping condition.  Also,
 step through the algorithm (perhaps by hand, using your calculator) to see how many 
 iterations were needed before it achieved this level of accuracy for ``sqrt(25)``. 
 
-    
-.. index:: algorithm 
-
 Algorithms
-----------
+----------------------
 
 Newton's method is an example of an **algorithm**: it is a mechanical process
 for solving a category of problems (in this case, computing square roots).
@@ -1332,7 +1327,6 @@ Exercises
    * A hexagon (six sides)    
    * An octagon (eight sides)
       
-  
 
 This chapter showed us how to sum a list of items, and how to count
 items. The counting example also had an `if` statement that let us only
