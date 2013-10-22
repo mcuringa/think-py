@@ -27,7 +27,7 @@ def word_map(words, find):
 
     #count the words in our list of words
     for w in words:
-        w = w.strip(string.punctuation)
+        w = w.strip(string.punctuation + string.whitespace)
         if w in find:
             wordMap[w] += 1
 

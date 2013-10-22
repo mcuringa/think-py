@@ -312,9 +312,18 @@ Notice in the first line we had to call the type conversion function ``list``.
 That turns the promise we get from ``items`` into a list, a step that is 
 needed before we can use the list's ``sort`` method. 
 
-
-Case Study: Snowden Content Analysis
+Word Frequencies
 -----------------------------------------
+
+Like the letter frequencies above, dictionaries are
+good **data structures** to hold word frequency tables. In
+the example below, we do some basic analysis of newspaper articles
+by using ``dicts`` to count words.
+
+[Download and run the sample code here](snowden-case-study.tar)
+
+### Case Study: Snowden Content Analysis
+
 
 <aside id="snowden_read_file" style="top: 280px;">
 

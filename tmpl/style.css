@@ -34,18 +34,35 @@ aside
     background-color: #F6CCDA;
 }
 
-h1,h2,h3,h4,h5 { font-family: Ubuntu, "Gotham", "Futura", "Century Gothic", sans-serif; }
+h1,h2,h3,h4,h5, .header-section-number
+{ 
+    font-family: "Gil Sans", Futura, Ubuntu, "Century Gothic", sans-serif; 
+}
 
 h1
 {
     font-size: 350%; 
-    margin-top: 2em 0;
-    border-top: 20px solid #E8E5FB;
-    border-bottom: 2px solid black;
+    border-bottom: medium solid black;
     text-transform: uppercase;
-    text-align: center;
-    padding: .25em 0;
+    padding: 0;
+    padding-top: 3em;
 }
+
+h1 .header-section-number:before
+{
+    content: "Part ";
+}
+h1 .header-section-number:after
+{
+    content: ":";
+}
+
+
+h1 a, h2 a, h3 a, h4 a
+{
+    color: black;
+}
+
 
 h2{ font-size: 130%; margin:0; margin-top: 1em; }
 h3{ font-size: 120%; font-weight: bold; }
@@ -61,14 +78,13 @@ h1.title
     background-color: transparent;
     color: black;
     clear: both;
-    font-size: 200%;
-    font-weight: bold;
     color: #ab1c19;
 }
 
 h2.author
 {
-    font-size: 110%;
+    font-size: 100%;
+    line-height: 1;
     padding: 0;
 }
 
@@ -144,7 +160,7 @@ ol li ol li
 
 table.sourceCode, pre.sourceCode
 {
-    line-height: 1.15em;
+    line-height: 125%;
 }
 
 td.lineNumbers {

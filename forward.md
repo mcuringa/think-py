@@ -9,8 +9,7 @@
 based on the [_Learning with Python 3 (RLE)_ by Peter Wentworth](http://openbookproject.net/thinkcs/python/english3e/)
 
 
-Copyright Notice
-====================
+**Copyright Notice**
 
 Copyright (C) Peter Wentworth.
 
