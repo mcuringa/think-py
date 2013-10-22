@@ -318,7 +318,9 @@ Word Frequencies
 Like the letter frequencies above, dictionaries are
 good **data structures** to hold word frequency tables. In
 the example below, we do some basic analysis of newspaper articles
-by using ``dicts`` to count words.
+by using ``dicts`` to count words. In the word frequency table 
+or map, the dictionary **key** is the word and the **value** is
+the number of times that word appears in the text.
 
 [Download and run the sample code here](snowden-case-study.tar)
 
