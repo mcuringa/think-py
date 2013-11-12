@@ -231,4 +231,13 @@ section[id*="case-study"] aside code, h1 code, h2 code, h3 code, h4 code
     color: black;
 }
 
+#neighbor-details table { border-collapse:collapse; }
+
+#neighbor-details table, #neighbor-details th, #neighbor-details td
+{
+    border: 1px solid black;
+    background-color: white;
+    padding: .25em;
+}
+
 </style>

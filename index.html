@@ -266,6 +266,15 @@ code > span.er { color: #c3bf9f; }
       color: black;
   }
   
+  #neighbor-details table { border-collapse:collapse; }
+  
+  #neighbor-details table, #neighbor-details th, #neighbor-details td
+  {
+      border: 1px solid black;
+      background-color: white;
+      padding: .25em;
+  }
+  
   </style>
 </head>
 <body>
@@ -370,6 +379,7 @@ code > span.er { color: #c3bf9f; }
 </ul></li>
 <li><a href="#content-analysis-of-ny-times-school-related-articles"><span class="toc-section-number">9</span> Content Analysis of NY Times school-related articles</a><ul>
 <li><a href="#case-study-dictionaries-tuples-lists-more"><span class="toc-section-number">9.1</span> Case Study: Dictionaries, tuples, lists &amp; more</a></li>
+<li><a href="#neighbor-details"><span class="toc-section-number">9.2</span> Neighbor details</a></li>
 </ul></li>
 <li><a href="#while-loops"><span class="toc-section-number">10</span> While loops</a><ul>
 <li><a href="#the-while-statement"><span class="toc-section-number">10.1</span> The <code>while</code> statement</a></li>
@@ -2916,12 +2926,12 @@ absurd            2</code></pre></li>
 <p>The first step to running this analysis is to prepare the text. <code>read_and_prep</code> opens a file and reads the contents into a string. From there, we call <code>clean</code> which, in turn, calls <code>strip_non_chars</code> for each word in the text. Even before the program opens the text has been manually groomed in a text editor. Our analysis centers around counting words — punctuation and other non-alphanumeric characters throw off our counts. Our approach is:</p>
 <ol type="1">
 <li>convert everything to lowercase</li>
-<li>remove punctation at the start and end of words</li>
-<li>leave apostrohes and hyphenated words intact</li>
+<li>remove punctuation at the start and end of words</li>
+<li>leave apostrophes and hyphenated words intact</li>
 </ol>
 </aside>
 
-<aside id="teachers_while" style="top: 1400px;">
+<aside id="teachers_while" style="top: 1083px;">
 <p><code>strip_non_chars</code> is applied to every word in the text. Python’s built-in <code>strip</code> function removes spaces or other characters from the start or end of strings, but, in this case, we know the characters we want to keep, but not the ones we want to strip—we want to keep the 26 lowercase English letters and the digits 0-9. We remove any other character found at the start or end of the word. We chose to implement this using a <strong>while loop</strong>. Unlike like <strong>for</strong> loops, while loops provide an <em>indefinite loop</em>—we do not know who many iterations are needed. In this case, we continue the loop until we find a valid character.</p>
 This function has 2 while loops. The first drops the first character of the word (using the string slice syntax) until the first character is valid. The second loop does the same, but works from the last character.
 </aside>
@@ -2931,19 +2941,27 @@ Counting word frequencies—the number of times a word occurs in the text—is t
 </aside>
 
 
-<aside id="teachers_freak_sort" style="top: 1730px">
-<p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they do they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
-<p><code>freq_list</code> solves this problem by sorting the dictionary items based on the wrod count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
+<aside id="teachers_freak_sort" style="top: 1715px">
+<p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
+<p><code>freq_list</code> solves this problem by sorting the dictionary items based on the word count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
 <ol type="1">
 <li>swap the tuples from (word, count) using a for loop</li>
 <li>sort them using the <code>sort</code> method which is part of the <strong>list object</strong></li>
-<li>use the optinal <code>reverse=True</code> parameter to <code>sort</code> so that we get the most popular words at the <code>head</code> of our list</li>
-<li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without chaning the <strong>interface</strong> to our function)</li>
+<li>use the optional <code>reverse=True</code> parameter to <code>sort</code> so that we get the most popular words at the <code>head</code> of our list</li>
+<li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without changing the <strong>interface</strong> to our function)</li>
 </ol>
 </aside>
 
-<aside id="teachers_common" style="top: 2378px;">
-Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. A list strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong>—<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
+<aside id="teachers_common" style="top: 2342px;"> 
+Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. The variable <code>commonWords</code> is defined as a list of strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong> —<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
+</aside>
+
+<aside id="teachers_neighbors" style="top: 2600px;">
+<code>neighbors</code> helps us examine co-occurances of words in the text. This function defines three <strong>parameters</strong>: <code>words</code> is the list of tuples to analyze, <code>targetWords</code> is a sub-list of words we will run our neighbor analysis on, and the <strong>int</strong> <code>n</code> indicates how for away from our target word we want to investigate. if <code>n == 1</code>, we will only count co-locations of words contiguous with our target word. For more on <code>neighbors</code> please see the example below the code listing.
+</aside>
+
+<aside id="teachers_compare" style="top: 2800px;">
+<code>compare</code> offers a comparison of two word frequency dictionaries to find which words have the greatest disparity in occurrences. In this function we see a new Python <em>data structure</em>, <strong>set</strong>. “A set is an unordered collection with no duplicate elements” <a href="http://docs.python.org/3.3/tutorial/datastructures.html#sets">*</a>. In this case we use <strong>set</strong> to make a unique set of keys from both dictionaries. We create the set from the <code>keys</code> in dictionary <code>a</code> on line 188 and then add any missing <code>keys</code> from dict <code>b</code> on line 189 by calling sets <code>update</code> method. In our loop (lines 193-197) we add tuples to a new list, in the format (word, difference in counts between a &amp; b). We use the built-in <code>abs</code> function, because, here, we care about the difference, not <em>which</em> dict had the greater count. Once this list of differences is created, we sort it by counts using the <code>list_freqs</code> function we already defined.
 </aside>
 
 
@@ -3515,6 +3533,56 @@ Depending on the analysis, sometimes it is important to consider the use of comm
     print_compare(common_filter(compared)[:<span class="dv">60</span>], f83, f13)
 
 main()</code></pre></td></tr></table>
+</section>
+<section id="neighbor-details" class="level2">
+<h2><a href="#neighbor-details"><span class="header-section-number">9.2</span> Neighbor details</a></h2>
+<p><code>neighbors</code> is more complicated than other code we have looked at because it calls one of our functions in a loop and it uses nested <strong>dictionaries</strong> — a dictionary that has more dictionaries as data. To unpack the function a little bit, consider this example text:</p>
+<p style="color: gray; margin: .5em 2em;">
+While previously well <span style="color: 
+blue">known in <span style="color: red">education</span> circles, she</span> gained a much broader audience after she publicly rejected almost everything she had once believed. In a surprise 2010 best seller, “The Death and Life of the Great American School System,” she openly declared that she had been wrong to <span 
+style="color: blue">champion standardized <span style="color: 
+red">testing</span>, charter schools</span> and vouchers. She says she is trying now to make up for past errors.
+</p>
+
+
+<p>If we run <code>neighbors</code> with <code>targetWords=[&quot;testing&quot;, &quot;education&quot;], n=2</code> we would create a dictionary that looks something like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">education</td>
+<td style="text-align: left;">{“known”: 1, “in”: 1, “circles”: 1, “she”: 1}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">testing</td>
+<td style="text-align: left;">{“champion”: 1, “standardized”: 1, “charter”: 1, “schools”: 1}</td>
+</tr>
+</tbody>
+</table>
+<p>Here are the actual results for this neighbors call against the ‘teachers_2013.txt’; showing the top 3 neighbors for each word.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">testing</td>
+<td style="text-align: left;">{“standardized”: 30, “high-stakes”: 15, “students”: 8}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">education</td>
+<td style="text-align: left;">{“department”: 169, “board”: 54, “higher”: 52}</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="while-loops" class="level1">

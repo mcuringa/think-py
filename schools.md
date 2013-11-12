@@ -16,8 +16,8 @@ punctuation and other non-alphanumeric characters throw off
 our counts. Our approach is:
 
 1. convert everything to lowercase
-2. remove punctation at the start and end of words
-3. leave apostrohes and hyphenated words intact
+2. remove punctuation at the start and end of words
+3. leave apostrophes and hyphenated words intact
 
 </aside>
 
@@ -55,10 +55,10 @@ of every word in the text.
 </aside>
 
 
-<aside id="teachers_freak_sort" style="top: 1730px">
+<aside id="teachers_freak_sort" style="top: 1715px">
 Dictionaries are great for keyed access to items—in
 our case, looking up word counts based on the word—but
-they do they are inherently **unsorted**. This means
+they are inherently **unsorted**. This means
 that we need to take extra steps to see the most common
 or least common words in a text, or to even display
 the words in alphabetical order. Previously we have seen
@@ -68,7 +68,7 @@ sense for some data, but here we are more interested in
 sorting on the values, not the dict keys.
 
 ``freq_list`` solves this problem by sorting the dictionary
-items based on the wrod count. It expects a list of **tuples**
+items based on the word count. It expects a list of **tuples**
 with element-zero holding the word and item-1 holding the count.
 Luckily, this is the tuple list we get when we call ``items()``
 on our word frequency map. Python offers many flexible ways
@@ -77,39 +77,58 @@ builds on programming skills we have already learned:
 
 1. swap the tuples from (word, count) using a for loop
 2. sort them using the ``sort`` method which is part of the **list object**
-3. use the optinal ``reverse=True`` parameter to ``sort`` so that we
+3. use the optional ``reverse=True`` parameter to ``sort`` so that we
    get the most popular words at the ``head`` of our list
 4. swap the items back into a list of (word, count) tuples 
    and return that, pretending nothing ever happened (actually, this is
    a type of abstraction, where we can later change the way we choose to sort the
-   items without chaning the **interface** to our function)
+   items without changing the **interface** to our function)
 
 </aside>
 
-<aside id="teachers_common" style="top: 2342px;">
-Depending on the analysis, sometimes it is important
-to consider the use of common words. This may be useful
-to identify authorial patterns, such as identifying 
-authorship, or characteristics of the author. Often though,
-common words are not germane to the analysis. ``common_filter``
-works on lists of words and creates a new sub-list that
-filters out all of the common words. A list strings containing
-500 common English words is declared as an internal variable
-within the function. Because our analysis is primarily concerned
-with word frequency counts, ``common_filter`` takes a list
-of **tuples**—``items``—as a parameter, rather than a list of strings.
-This allows clients of this function to pass in lists that contain
-words and word counts. The function expects the first item in the tuple
-to be the word.
+<aside id="teachers_common" style="top: 2342px;"> Depending on the 
+analysis, sometimes it is important to consider the use of common 
+words. This may be useful to identify authorial patterns, such as 
+identifying authorship, or characteristics of the author. Often 
+though, common words are not germane to the analysis. 
+``common_filter`` works on lists of words and creates a new sub-list 
+that filters out all of the common words. The variable 
+``commonWords`` is defined as a list of strings containing 500 
+common English words is declared as an internal variable within the 
+function. Because our analysis is primarily concerned with word 
+frequency counts, ``common_filter`` takes a list of **tuples**
+—``items``—as a parameter, rather than a list of strings. This 
+allows clients of this function to pass in lists that contain words 
+and word counts. The function expects the first item in the tuple to 
+be the word.
 </aside>
 
 <aside id="teachers_neighbors" style="top: 2600px;">
-``neighbors`` helps us examine to co-occurances of words in the text. This
+``neighbors`` helps us examine co-occurances of words in the text. This
 function defines three **parameters**: ``words`` is the list
 of tuples to analyze, ``targetWords`` is a sub-list of words we
 will run our neighbor analysis on, and the **int** ``n`` indicates
 how for away from our target word we want to investigate. if ``n == 1``,
-we will only count colcations of words contiguous with our target word.
+we will only count co-locations of words contiguous with our target word. For
+more on ``neighbors`` please see the example below the code listing.
+</aside>
+
+<aside id="teachers_compare" style="top: 2800px;">
+``compare`` offers a comparison of two word frequency
+dictionaries to find which words have the greatest 
+disparity in occurrences. In this function we see
+a new Python _data structure_, **set**. "A set is 
+an unordered collection with no duplicate elements"
+[*](http://docs.python.org/3.3/tutorial/datastructures.html#sets).
+In this case we use **set** to make a unique set of keys from
+both dictionaries. We create the set from the ``keys``
+in dictionary ``a`` on line 188 and then add any missing ``keys``
+from dict ``b`` on line 189 by calling sets ``update`` method.
+In our loop (lines 193-197) we add tuples to a new list, in the format
+(word, difference in counts between a & b). We use the built-in ``abs``
+function, because, here, we care about the difference, not _which_
+dict had the greater count. Once this list of differences is created,
+we sort it by counts using the ``list_freqs`` function we already defined.
 </aside>
 
 
@@ -389,14 +408,42 @@ def print_compare(compared, a, b):
           str(a.get(word,0)).ljust(6) + "  " + 
           str(b.get(word,0)).ljust(6))
 
-def main():
-    targets = ["testing", "union", "mayor"]
-    w83, f83, n83 = analyze("teachers_1983.txt", targets)
-    w13, f13, n33 = analyze("teachers_2013.txt", targets)
-
-    compared = compare(f83, f13)
-    print_compare(common_filter(compared)[:60], f83, f13)
-
-main()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Neighbor details
+-----------------------
+
+``neighbors`` is more complicated than other code we have looked at
+because it calls one of our functions in a loop and it uses nested
+**dictionaries** --- a dictionary that has more dictionaries as data.
+To unpack the function a little bit, consider this example text:
+
+<p style="color: gray; margin: .5em 2em;">While previously well <span style="color: 
+blue">known in <span style="color: red">education</span> circles, 
+she</span> gained a much broader audience after she publicly 
+rejected almost everything she had once believed. In a surprise 2010 
+best seller, "The Death and Life of the Great American School 
+System," she openly declared that she had been wrong to <span 
+style="color: blue">champion standardized <span style="color: 
+red">testing</span>, charter schools</span> and vouchers. She says 
+she is trying now to make up for past errors.</p>
+
+
+If we run ``neighbors`` with ``targetWords=["testing", "education"], n=2``
+we would create a dictionary that looks something like this:
+
+key        value
+---------  --------------------------------------------------------------
+education  {"known": 1, "in": 1, "circles": 1, "she": 1}
+testing    {"champion": 1, "standardized": 1, "charter": 1, "schools": 1}
+
+
+
+Here are the actual results for this neighbors call against the
+'teachers_2013.txt'; showing the top 3 neighbors for each word.
+
+key          value
+-----------  ---------
+testing      {"standardized": 30, "high-stakes": 15, "students": 8}
+education    {"department": 169, "board": 54, "higher": 52}
 
