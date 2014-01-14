@@ -696,6 +696,17 @@ def primes_lessthan(n):
           result.append(i)
    return result
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<aside id="list_comp">
+
+List Comprehensions
+----------------------
+As we start to work with lists more, we start to see some common patterns.
+In particular, we often want to _filter_ a list to create a new list
+of 
+
+
+</aside>
+
 
 Strings and lists
 -----------------
