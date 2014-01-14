@@ -3239,16 +3239,6 @@ Depending on the analysis, sometimes it is important to consider the use of comm
 272
 273
 274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># schools_analysis.py</span>
 <span class="co"># by: mxc</span>
 <span class="co">&quot;&quot;&quot;</span>
@@ -3522,17 +3512,7 @@ Depending on the analysis, sometimes it is important to consider the use of comm
     <span class="kw">for</span> word, dif in compared:
         <span class="kw">print</span>(word.rjust(col) + <span class="st">&quot;  &quot;</span> + 
           <span class="dt">str</span>(a.get(word,<span class="dv">0</span>)).ljust(<span class="dv">6</span>) + <span class="st">&quot;  &quot;</span> + 
-          <span class="dt">str</span>(b.get(word,<span class="dv">0</span>)).ljust(<span class="dv">6</span>))
-
-<span class="kw">def</span> main():
-    targets = [<span class="st">&quot;testing&quot;</span>, <span class="st">&quot;union&quot;</span>, <span class="st">&quot;mayor&quot;</span>]
-    w83, f83, n83 = analyze(<span class="st">&quot;teachers_1983.txt&quot;</span>, targets)
-    w13, f13, n33 = analyze(<span class="st">&quot;teachers_2013.txt&quot;</span>, targets)
-
-    compared = compare(f83, f13)
-    print_compare(common_filter(compared)[:<span class="dv">60</span>], f83, f13)
-
-main()</code></pre></td></tr></table>
+          <span class="dt">str</span>(b.get(word,<span class="dv">0</span>)).ljust(<span class="dv">6</span>))</code></pre></td></tr></table>
 </section>
 <section id="neighbor-details" class="level2">
 <h2><a href="#neighbor-details"><span class="header-section-number">9.2</span> Neighbor details</a></h2>
