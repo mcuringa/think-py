@@ -22,8 +22,6 @@ another level, you will use programming as a means to an end. As we go along,
 that end will become clearer.
 
 
-.. index:: programming language, portable, high-level language,
-           low-level language, compile, interpret, PyScripter
 
 The Python programming language
 -------------------------------
@@ -50,8 +48,7 @@ There are two ways to use it: *immediate mode* and *script
 mode*. In immediate mode, you type Python expressions into the Python Interpreter window, 
 and the interpreter immediately shows the result:
 
-.. image:: illustrations/interpreter_sshot.png
-   :alt: Screen shot of interpreter
+![Screen shot of interpreter](.. image:: illustrations/interpreter_sshot.png)\
 
 The ``>>>`` is called the **Python prompt**. The interpreter uses the prompt to indicate that it is ready for
 instructions. We typed ``2 + 2``, and the interpreter evaluated our expression, and replied ``4``, 
@@ -72,9 +69,7 @@ By convention, files that contain Python programs have names that end with
 
 To execute the program, we can click the **Run** button in PyScripter:
 
-.. image:: illustrations/my_first_program.png
-   :alt: first program screenshot
- 
+![first program screenshot](.. image:: illustrations/my_first_program.png)\ 
 
 Most programs are more interesting than this one.
 
@@ -83,7 +78,6 @@ get immediate feedback. Think of it as scratch paper used to help you work out
 problems. Anything longer than a few lines should be put into a script.
 
 
-.. index:: program, algorithm
 
 What is a program?
 ------------------
@@ -98,20 +92,25 @@ The details look different in different languages, but a few basic instructions
 appear in just about every language:
 
 input
-    Get data from the keyboard, a file, or some other device.
+
+:    Get data from the keyboard, a file, or some other device.
 
 output
-    Display data on the screen or send data to a file or other device.
+
+:    Display data on the screen or send data to a file or other device.
 
 math
-    Perform basic mathematical operations like addition and multiplication.
+
+:    Perform basic mathematical operations like addition and multiplication.
 
 conditional execution
-    Check for certain conditions and execute the appropriate sequence of
+
+:    Check for certain conditions and execute the appropriate sequence of
     statements.
 
 repetition
-    Perform some action repeatedly, usually with some variation.
+
+:    Perform some action repeatedly, usually with some variation.
 
 Believe it or not, that's pretty much all there is to it. Every program you've
 ever used, no matter how complicated, is made up of instructions that look more
@@ -123,8 +122,6 @@ instructions.
 That may be a little vague, but we will come back to this topic later when we
 talk about **algorithms**.
 
-
-.. index:: debugging, bug
 
 What is debugging?
 ------------------
@@ -142,7 +139,6 @@ Three kinds of errors can occur in a program: `syntax errors
 distinguish between them in order to track them down more quickly.
 
 
-.. index:: syntax, syntax error
 
 Syntax errors
 -------------
@@ -162,7 +158,6 @@ will probably spend a lot of time tracking down syntax errors. As you gain
 experience, though, you will make fewer errors and find them faster.
 
 
-.. index:: runtime error, exception, safe language
 
 Runtime errors
 --------------
@@ -176,7 +171,6 @@ Runtime errors are rare in the simple programs you will see in the first few
 chapters, so it might be a while before you encounter one.
 
 
-.. index:: semantics, semantic error
 
 Semantic errors
 ---------------
@@ -192,10 +186,6 @@ semantic errors can be tricky because it requires you to work backward by
 looking at the output of the program and trying to figure out what it is doing.
 
 
-.. index::
-    single: Holmes, Sherlock
-    single: Doyle, Arthur Conan 
-    single: Linux
 
 Experimental debugging
 ----------------------
@@ -231,7 +221,6 @@ Later chapters will make more suggestions about debugging and other programming
 practices.
 
 
-.. index:: formal language, natural language, parse, token
 
 Formal and natural languages
 ----------------------------
@@ -246,8 +235,8 @@ language that is particularly good at denoting relationships among numbers and
 symbols. Chemists use a formal language to represent the chemical structure of
 molecules. And most importantly:
 
-    *Programming languages are formal languages that have been designed to
-    express computations.*
+> *Programming languages are formal languages that have been designed to
+> express computations.*
 
 Formal languages tend to have strict rules about syntax. For example, ``3+3=6``
 is a syntactically correct mathematical statement, but ``3=+6$`` is not.
@@ -286,26 +275,30 @@ understand the general implication of this sentence.
 Although formal and natural languages have many features in common --- tokens,
 structure, syntax, and semantics --- there are many differences:
 
-.. glossary::
+Glossary
+---------
 
-    ambiguity
-        Natural languages are full of ambiguity, which people deal with by
-        using contextual clues and other information. Formal languages are
-        designed to be nearly or completely unambiguous, which means that any
-        statement has exactly one meaning, regardless of context.
+ambiguity
 
-    redundancy
-        In order to make up for ambiguity and reduce misunderstandings, natural
-        languages employ lots of redundancy. As a result, they are often
-        verbose.  Formal languages are less redundant and more concise.
+:    Natural languages are full of ambiguity, which people deal with by
+     using contextual clues and other information. Formal languages are
+     designed to be nearly or completely unambiguous, which means that any
+     statement has exactly one meaning, regardless of context.
 
-    literalness
-        Formal languages mean exactly what they say.  On the other hand, natural languages 
-        are full of idiom and metaphor. If someone says, "The
-        other shoe fell", there is probably no shoe and nothing falling.  
-        You'll need to find the 
-        original joke to understand the idiomatic meaning of the other shoe falling. 
-        *Yahoo! Answers* thinks it knows!  
+redundancy
+
+:   In order to make up for ambiguity and reduce misunderstandings, natural
+    languages employ lots of redundancy. As a result, they are often
+    verbose.  Formal languages are less redundant and more concise.
+
+literalness
+
+:   Formal languages mean exactly what they say.  On the other hand, natural languages 
+    are full of idiom and metaphor. If someone says, "The
+    other shoe fell", there is probably no shoe and nothing falling.  
+    You'll need to find the 
+    original joke to understand the idiomatic meaning of the other shoe falling. 
+    *Yahoo! Answers* thinks it knows!  
 
 People who grow up speaking a natural language---everyone---often have a hard
 time adjusting to formal languages. In some ways, the difference between formal
@@ -345,20 +338,21 @@ Traditionally, the first program written in a new language is called *Hello,
 World!* because all it does is display the words, Hello, World!  In Python, the script
 looks like this: (For scripts, we'll show line numbers to the left of the Python statements.)
 
-    .. sourcecode:: python3
-        :linenos:
-        
-        print("Hello, World!")
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+print("Hello, World!")
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is an example of using the **print function**, which doesn't actually print
 anything on paper. It displays a value on the screen. In this case, the result shown
 is
 
-    .. sourcecode:: python3
-        :linenos:
-        
-        Hello, World!
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+Hello, World!
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The quotation marks in the program mark the beginning and end of the value;
 they don't appear in the result.
 
@@ -368,7 +362,6 @@ possible.
 
 
 
-.. index:: comment
 
 Comments
 --------
@@ -386,17 +379,18 @@ only for the human reader --- it is completely ignored by the interpreter.
 In Python, the `#` token starts a comment.  The rest of the line 
 is ignored.   Here is a new version of *Hello, World!*.
 
-    .. sourcecode:: python3
-        :linenos:
-        
-        #---------------------------------------------------
-        # This demo program shows off how elegant Python is!
-        # Written by Joe Soap, December 2010.
-        # Anyone may freely copy or modify this program.
-        #---------------------------------------------------
-        
-        print("Hello, World!")     # Isn't this easy! 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+#---------------------------------------------------
+# This demo program shows off how elegant Python is!
+# Written by Joe Soap, December 2010.
+# Anyone may freely copy or modify this program.
+#---------------------------------------------------
+
+print("Hello, World!")     # Isn't this easy! 
       
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You'll also notice that we've left a blank line in the program.  Blank lines
 are also ignored by the interpreter, but comments and blank lines can make your
 programs much easier for humans to parse.  Use them liberally! 
@@ -522,12 +516,13 @@ Exercises
    but it can't because the expression is not syntactically legal. Instead, it
    shows the error message:
    
-        .. sourcecode:: python3
 
-              File "<interactive input>", line 1
-                1 2
-                  ^
-            SyntaxError: invalid syntax
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+File "<interactive input>", line 1
+1 2
+^
+SyntaxError: invalid syntax
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    In many cases, Python indicates where the syntax error occurred, but it is
    not always right, and it doesn't give you much information about what is
@@ -543,6 +538,8 @@ Exercises
    at the prompt and the last line of the error message that Python reports
    back to you. 
    
+
+
 #. Type  ``print("hello")``. Python executes this, which has the effect
    of printing the letters h-e-l-l-o. Notice that the quotation marks that you
    used to enclose the string are not part of the output.  Now type ``"hello"``
@@ -564,18 +561,20 @@ Exercises
    
 Now create a Python script with the following contents:
 
-   .. sourcecode:: python3
-      :linenos:
-    
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
        6 + 4 * 9
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What happens when you run this script? Now change the script contents to:
 
-   .. sourcecode:: python3
-       :linenos:
-    
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
        print(6 + 4 * 9)
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 and run it again.
 
 What happened this time?
