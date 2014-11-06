@@ -57,11 +57,13 @@ def parse_code(i,lines):
 
 def convert(f):
     lines = list(open(f + ".rst"))
+    print("got the lines")
     out = parse(lines)
+    print("parsed")
     f = open(f + ".md",'w')
     f.write(out)
     f.flush()
     f.close()
-
-#convert("tuples")
+print("converting...")
+convert("way_of_the_program")
 #convert("dictionaries")
