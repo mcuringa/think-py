@@ -14,7 +14,8 @@ def skip_index(i, lines):
     return i
 
 def parse_image(i, lines):
-    pass
+    print(lines[i])
+    return i, lines
 
 def parse(lines):
 
