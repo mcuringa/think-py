@@ -104,5 +104,5 @@ if __name__ == "__main__":
     main(sys.argv[1])
 
 
-#convert("way_of_the_program")
+convert("casestudy_fileindexer")
 #convert("dictionaries")
