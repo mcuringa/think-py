@@ -216,7 +216,7 @@ Arlington, Virginia\
 
     
 The Rhodes Local Edition (RLE) (Version of August, 2012)
-========================================================
+--------------------------------------------------------
 
 By Peter Wentworth
 
