@@ -1,5 +1,5 @@
 Contributor List
-================
+----------------
 
 To paraphrase the philosophy of the Free Software Foundation, this book is free
 like free speech, but not necessarily free like free pizza. It came about
@@ -31,8 +31,8 @@ is `p.wentworth@ru.ac.za <mailto:p.wentworth@ru.ac.za>`__
 version of the contributor list (unless you ask to be omitted). Thank you!
 
 
-Second Edition
-----------------
+# Second Edition
+
 
 * An email from Mike MacHenry set me straight on tail recursion. He not only
   pointed out an error in the presentation, but suggested how to correct it.
@@ -68,8 +68,7 @@ Second Edition
   section in chapter 1.
 
 
-First Edition
-----------------
+# First Edition
 
 * Lloyd Hugh Allen sent in a correction to Section 8.4.
 * Yvon Boulianne sent in a correction of a semantic error in Chapter 5.

@@ -17,7 +17,7 @@ body, p, ul, ol, li, span, div
 
 pre, code, tt, code span, pre span
 {
-    font-family: "DejaVu Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-family: "Ubuntu Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
 
 p code
@@ -71,9 +71,6 @@ h1:before
 }
 
 
-
-
-
 h2:before {
     counter-increment: subsection;
     content: counter(section) "." counter(subsection) " ";
@@ -106,11 +103,6 @@ h1.title
     clear: both;
     color: #ab1c19;
 }
-
-
-
-
-
 
 h2.author
 {
@@ -154,32 +146,54 @@ blockquote
     padding-left: 1em;
 }
 
-@media screen
-{
-    body
-    {
-        font-size: 14px;
-        width: 900px;
-        margin: 0 auto;
-    }
-
-}
-
 nav#TOC
 {
     background: none repeat scroll 0 0 white;
-    border: 1px solid black;
-    counter-reset: toc;
-    margin: 1.5em;
+    counter-reset: toccount;
 }
 
 nav#TOC li
 {
-    list-style: none;
+    list-style-type: none;
+    font-weight: normal;
 }
 
-#TOC h3 { text-align: center; }
+nav#TOC>ul>li
+{
+    font-weight: bold;
+    padding-top: 1em;
+    margin-bottom: .5em;
+}
 
+
+
+nav#TOC>ul>li:nth-child(3)
+{
+    counter-reset: toccount;
+}
+
+nav#TOC>ul>li:before
+{
+    counter-reset: tocsub;
+    counter-increment: toccount;
+    content: counter(toccount) ". ";
+}
+
+nav#TOC>ul>li:nth-child(-n+2):before
+{
+    content: counter(toccount, lower-roman) ". ";
+}
+
+nav#TOC>ul>li>ul>li:first-child
+{
+    padding-top: .5em;
+}
+
+nav#TOC>ul>li>ul>li:before
+{
+    counter-increment: tocsub;
+    content: counter(toccount) "." counter(tocsub) " ";
+}
 
 ol li ol li
 {
@@ -271,4 +285,17 @@ section[id*="case-study"] aside code, h1 code, h2 code, h3 code, h4 code
     padding: .25em;
 }
 
+@media screen
+{
+    body
+    {
+        font-size: 14px;
+        width: 720px;
+        margin: 0 auto;
+    }
+
+}
+
 </style>
+
+

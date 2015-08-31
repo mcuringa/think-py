@@ -53,7 +53,7 @@ code > span.er { color: #c3bf9f; }
   
   pre, code, tt, code span, pre span
   {
-      font-family: "DejaVu Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+      font-family: "Ubuntu Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   }
   
   p code
@@ -107,9 +107,6 @@ code > span.er { color: #c3bf9f; }
   }
   
   
-  
-  
-  
   h2:before {
       counter-increment: subsection;
       content: counter(section) "." counter(subsection) " ";
@@ -142,11 +139,6 @@ code > span.er { color: #c3bf9f; }
       clear: both;
       color: #ab1c19;
   }
-  
-  
-  
-  
-  
   
   h2.author
   {
@@ -190,32 +182,54 @@ code > span.er { color: #c3bf9f; }
       padding-left: 1em;
   }
   
-  @media screen
-  {
-      body
-      {
-          font-size: 14px;
-          width: 900px;
-          margin: 0 auto;
-      }
-  
-  }
-  
   nav#TOC
   {
       background: none repeat scroll 0 0 white;
-      border: 1px solid black;
-      counter-reset: toc;
-      margin: 1.5em;
+      counter-reset: toccount;
   }
   
   nav#TOC li
   {
-      list-style: none;
+      list-style-type: none;
+      font-weight: normal;
   }
   
-  #TOC h3 { text-align: center; }
+  nav#TOC>ul>li
+  {
+      font-weight: bold;
+      padding-top: 1em;
+      margin-bottom: .5em;
+  }
   
+  
+  
+  nav#TOC>ul>li:nth-child(3)
+  {
+      counter-reset: toccount;
+  }
+  
+  nav#TOC>ul>li:before
+  {
+      counter-reset: tocsub;
+      counter-increment: toccount;
+      content: counter(toccount) ". ";
+  }
+  
+  nav#TOC>ul>li:nth-child(-n+2):before
+  {
+      content: counter(toccount, lower-roman) ". ";
+  }
+  
+  nav#TOC>ul>li>ul>li:first-child
+  {
+      padding-top: .5em;
+  }
+  
+  nav#TOC>ul>li>ul>li:before
+  {
+      counter-increment: tocsub;
+      content: counter(toccount) "." counter(tocsub) " ";
+  }
   
   ol li ol li
   {
@@ -307,6 +321,17 @@ code > span.er { color: #c3bf9f; }
       padding: .25em;
   }
   
+  @media screen
+  {
+      body
+      {
+          font-size: 14px;
+          width: 720px;
+          margin: 0 auto;
+      }
+  
+  }
+  
   </style>
 </head>
 <body>
@@ -320,7 +345,9 @@ code > span.er { color: #c3bf9f; }
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#foreword">Foreword</a></li>
+<li><a href="#foreword">Foreword</a><ul>
+<li><a href="#contributor-list">Contributor List</a></li>
+</ul></li>
 <li><a href="#preface">Preface</a><ul>
 <li><a href="#how-and-why-i-came-to-use-python">How and why I came to use Python</a></li>
 <li><a href="#finding-a-textbook">Finding a textbook</a></li>
@@ -343,17 +370,31 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#glossary-1">Glossary</a></li>
 <li><a href="#exercises">Exercises</a></li>
 </ul></li>
+<li><a href="#variables-expressions-and-statements">Variables, expressions and statements</a><ul>
+<li><a href="#values-and-data-types">Values and data types</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#variable-names-and-keywords">Variable names and keywords</a></li>
+<li><a href="#statements">Statements</a></li>
+<li><a href="#evaluating-expressions">Evaluating expressions</a></li>
+<li><a href="#operators-and-operands">Operators and operands</a></li>
+<li><a href="#type-converter-functions">Type converter functions</a></li>
+<li><a href="#order-of-operations">Order of operations</a></li>
+<li><a href="#operations-on-strings">Operations on strings</a></li>
+<li><a href="#input">Input</a></li>
+<li><a href="#composition">Composition</a></li>
+<li><a href="#the-modulus-operator">The modulus operator</a></li>
+<li><a href="#glossary-2">Glossary</a></li>
+<li><a href="#exercises-1">Exercises</a></li>
+</ul></li>
 <li><a href="#functions">Functions</a><ul>
 <li><a href="#functions-1">Functions</a></li>
 <li><a href="#composition-functions-can-call-other-functions">Composition: Functions can call other functions</a></li>
 <li><a href="#flow-of-execution">Flow of execution</a></li>
 <li><a href="#functions-that-require-arguments">Functions that require arguments</a></li>
 <li><a href="#functions-that-return-values">Functions that return values</a></li>
-<li><a href="#tips-revisited">Tips Revisited</a><ul>
-<li><a href="#case-study-tip-calculator">Case Study: Tip Calculator</a></li>
-</ul></li>
-<li><a href="#glossary-2">Glossary</a></li>
-<li><a href="#exercises-1">Exercises</a></li>
+<li><a href="#tips-revisited">Tips Revisited</a></li>
+<li><a href="#glossary-3">Glossary</a></li>
+<li><a href="#exercises-2">Exercises</a></li>
 </ul></li>
 <li><a href="#iteration">Iteration</a><ul>
 <li><a href="#the-for-loop">The <code>for</code> loop</a></li>
@@ -374,8 +415,8 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#functions-2">Functions</a></li>
 <li><a href="#paired-data">Paired Data</a></li>
 <li><a href="#nested-loops-for-nested-data">Nested Loops for Nested Data</a></li>
-<li><a href="#glossary-3">Glossary</a></li>
-<li><a href="#exercises-2">Exercises</a></li>
+<li><a href="#glossary-4">Glossary</a></li>
+<li><a href="#exercises-3">Exercises</a></li>
 </ul></li>
 <li><a href="#lists">Lists</a><ul>
 <li><a href="#list-values">List values</a></li>
@@ -399,31 +440,25 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#list-and-range"><code>list</code> and <code>range</code></a></li>
 <li><a href="#nested-lists">Nested lists</a></li>
 <li><a href="#matrices">Matrices</a></li>
-<li><a href="#glossary-4">Glossary</a></li>
-<li><a href="#exercises-3">Exercises</a><ul>
-<li><a href="#basic-questions">Basic Questions</a></li>
-<li><a href="#advanced-questions">Advanced Questions</a></li>
-</ul></li>
+<li><a href="#glossary-5">Glossary</a></li>
+<li><a href="#exercises-4">Exercises</a></li>
 </ul></li>
 <li><a href="#tuples">Tuples</a><ul>
 <li><a href="#tuples-are-used-for-grouping-data">Tuples are used for grouping data</a></li>
 <li><a href="#tuple-assignment">Tuple assignment</a></li>
 <li><a href="#tuples-as-return-values">Tuples as return values</a></li>
 <li><a href="#composability-of-data-structures">Composability of Data Structures</a></li>
-<li><a href="#glossary-5">Glossary</a></li>
-<li><a href="#exercises-4">Exercises</a></li>
+<li><a href="#glossary-6">Glossary</a></li>
+<li><a href="#exercises-5">Exercises</a></li>
 </ul></li>
 <li><a href="#dictionaries">Dictionaries</a><ul>
-<li><a href="#practice-problems">Practice problems</a></li>
 <li><a href="#dictionary-operations">Dictionary operations</a></li>
 <li><a href="#dictionary-methods">Dictionary methods</a></li>
 <li><a href="#aliasing-and-copying">Aliasing and copying</a></li>
 <li><a href="#counting-letters">Counting letters</a></li>
-<li><a href="#word-frequencies">Word Frequencies</a><ul>
-<li><a href="#case-study-snowden-content-analysis">Case Study: Snowden Content Analysis</a></li>
-</ul></li>
-<li><a href="#glossary-6">Glossary</a></li>
-<li><a href="#exercises-5">Exercises</a></li>
+<li><a href="#word-frequencies">Word Frequencies</a></li>
+<li><a href="#glossary-7">Glossary</a></li>
+<li><a href="#exercises-6">Exercises</a></li>
 </ul></li>
 <li><a href="#content-analysis-of-ny-times-school-related-articles">Content Analysis of NY Times school-related articles</a><ul>
 <li><a href="#case-study-dictionaries-tuples-lists-more">Case Study: Dictionaries, tuples, lists &amp; more</a></li>
@@ -437,13 +472,11 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#newtons-method-for-finding-square-roots">Newton’s method for finding square roots</a></li>
 <li><a href="#algorithms">Algorithms</a></li>
 </ul></li>
-<li><a href="#contributor-list">Contributor List</a><ul>
-<li><a href="#second-edition">Second Edition</a></li>
-<li><a href="#first-edition">First Edition</a></li>
-</ul></li>
 </ul>
 </nav>
-<p><strong>Adelphi University Mod</strong><br />based on the <a href="http://openbookproject.net/thinkcs/python/english3e/"><em>Learning with Python 3 (RLE)</em> by Peter Wentworth</a></p>
+<p><strong>Adelphi University Mod</strong></p>
+<p>Copyright (C) Matthew X. Curinga.</p>
+<p>This version of <em>Think Python</em> is based on the <a href="http://openbookproject.net/thinkcs/python/english3e/"><em>Learning with Python 3 (RLE)</em> by Peter Wentworth</a></p>
 <p><strong>Copyright Notice</strong></p>
 <p>Copyright (C) Peter Wentworth.</p>
 <p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
@@ -456,6 +489,76 @@ code > span.er { color: #c3bf9f; }
 <p>One of the reasons why I like Python is that it provides a really nice balance between the practical and the conceptual. Since Python is interpreted, beginners can pick up the language and start doing neat things almost immediately without getting lost in the problems of compilation and linking. Furthermore, Python comes with a large library of modules that can be used to do all sorts of tasks ranging from web-programming to graphics. Having such a practical focus is a great way to engage students and it allows them to complete significant projects. However, Python can also serve as an excellent foundation for introducing important computer science concepts. Since Python fully supports procedures and classes, students can be gradually introduced to topics such as procedural abstraction, data structures, and object-oriented programming — all of which are applicable to later courses on Java or C++. Python even borrows a number of features from functional programming languages and can be used to introduce concepts that would be covered in more detail in courses on Scheme and Lisp.</p>
 <p>In reading Jeffrey’s preface, I am struck by his comments that Python allowed him to see a higher level of success and a lower level of frustration and that he was able to move faster with better results. Although these comments refer to his introductory course, I sometimes use Python for these exact same reasons in advanced graduate level computer science courses at the University of Chicago. In these courses, I am constantly faced with the daunting task of covering a lot of difficult course material in a blistering nine week quarter. Although it is certainly possible for me to inflict a lot of pain and suffering by using a language like C++, I have often found this approach to be counterproductive—especially when the course is about a topic unrelated to just programming. I find that using Python allows me to better focus on the actual topic at hand while allowing students to complete substantial class projects.</p>
 <p>Although Python is still a young and evolving language, I believe that it has a bright future in education. This book is an important step in that direction. David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
+<section id="contributor-list" class="level2">
+<h2>Contributor List</h2>
+<p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
+<p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>
+<p>If you have a chance to look through the list, you should realize that each person here has spared you and all subsequent readers from the confusion of a technical error or a less-than-transparent explanation, just by sending us a note.</p>
+<p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <code>p.wentworth@ru.ac.za &lt;mailto:p.wentworth@ru.ac.za&gt;</code>__ . Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
+<section id="second-edition" class="level3">
+<h3>Second Edition</h3>
+<ul>
+<li>An email from Mike MacHenry set me straight on tail recursion. He not only pointed out an error in the presentation, but suggested how to correct it.</li>
+<li>It wasn’t until 5th Grade student Owen Davies came to me in a Saturday morning Python enrichment class and said he wanted to write the card game, Gin Rummy, in Python that I finally knew what I wanted to use as the case study for the object oriented programming chapters.</li>
+<li>A <em>special</em> thanks to pioneering students in Jeff’s Python Programming class at <code>GCTAA &lt;http://www.arlington.k12.va.us/1540108115320583/blank/browse.asp?A=383&amp;BMDRN=2000&amp;BCOB=0&amp;C=59085&gt;</code>__ during the 2009-2010 school year: Safath Ahmed, Howard Batiste, Louis Elkner-Alfaro, and Rachel Hancock. Your continual and thoughtfull feedback led to changes in most of the chapters of the book. You set the standard for the active and engaged learners that will help make the new Governor’s Academy what it is to become. Thanks to you this is truly a <em>student tested</em> text.</li>
+<li>Thanks in a similar vein to the students in Jeff’s Computer Science class at the HB-Woodlawn program during the 2007-2008 school year: James Crowley, Joshua Eddy, Eric Larson, Brian McGrail, and Iliana Vazuka.</li>
+<li>Ammar Nabulsi sent in numerous corrections from Chapters 1 and 2.</li>
+<li>Aldric Giacomoni pointed out an error in our definition of the Fibonacci sequence in Chapter 5.</li>
+<li>Roger Sperberg sent in several spelling corrections and pointed out a twisted piece of logic in Chapter 3.</li>
+<li>Adele Goldberg sat down with Jeff at PyCon 2007 and gave him a list of suggestions and corrections from throughout the book.</li>
+<li>Ben Bruno sent in corrections for chapters 4, 5, 6, and 7.</li>
+<li>Carl LaCombe pointed out that we incorrectly used the term commutative in chapter 6 where symmetric was the correct term.</li>
+<li>Alessandro Montanile sent in corrections for errors in the code examples and text in chapters 3, 12, 15, 17, 18, 19, and 20.</li>
+<li>Emanuele Rusconi found errors in chapters 4, 8, and 15.</li>
+<li>Michael Vogt reported an indentation error in an example in chapter 6, and sent in a suggestion for improving the clarity of the shell vs. script section in chapter 1.</li>
+</ul>
+</section>
+<section id="first-edition" class="level3">
+<h3>First Edition</h3>
+<ul>
+<li>Lloyd Hugh Allen sent in a correction to Section 8.4.</li>
+<li>Yvon Boulianne sent in a correction of a semantic error in Chapter 5.</li>
+<li>Fred Bremmer submitted a correction in Section 2.1.</li>
+<li>Jonah Cohen wrote the Perl scripts to convert the LaTeX source for this book into beautiful HTML.</li>
+<li>Michael Conlon sent in a grammar correction in Chapter 2 and an improvement in style in Chapter 1, and he initiated discussion on the technical aspects of interpreters.</li>
+<li>Benoit Girard sent in a correction to a humorous mistake in Section 5.6.</li>
+<li>Courtney Gleason and Katherine Smith wrote <code>horsebet.py</code>, which was used as a case study in an earlier version of the book. Their program can now be found on the website.</li>
+<li>Lee Harr submitted more corrections than we have room to list here, and indeed he should be listed as one of the principal editors of the text.</li>
+<li>James Kaylin is a student using the text. He has submitted numerous corrections.</li>
+<li>David Kershaw fixed the broken <code>catTwice</code> function in Section 3.10.</li>
+<li>Eddie Lam has sent in numerous corrections to Chapters 1, 2, and 3. He also fixed the Makefile so that it creates an index the first time it is run and helped us set up a versioning scheme.</li>
+<li>Man-Yong Lee sent in a correction to the example code in Section 2.4.</li>
+<li>David Mayo pointed out that the word unconsciously in Chapter 1 needed to be changed to subconsciously .</li>
+<li>Chris McAloon sent in several corrections to Sections 3.9 and 3.10.</li>
+<li>Matthew J. Moelter has been a long-time contributor who sent in numerous corrections and suggestions to the book.</li>
+<li>Simon Dicon Montford reported a missing function definition and several typos in Chapter 3. He also found errors in the <code>increment</code> function in Chapter 13.</li>
+<li>John Ouzts corrected the definition of return value in Chapter 3.</li>
+<li>Kevin Parks sent in valuable comments and suggestions as to how to improve the distribution of the book.</li>
+<li>David Pool sent in a typo in the glossary of Chapter 1, as well as kind words of encouragement.</li>
+<li>Michael Schmitt sent in a correction to the chapter on files and exceptions.</li>
+<li>Robin Shaw pointed out an error in Section 13.1, where the printTime function was used in an example without being defined.</li>
+<li>Paul Sleigh found an error in Chapter 7 and a bug in Jonah Cohen’s Perl script that generates HTML from LaTeX.</li>
+<li>Craig T. Snydal is testing the text in a course at Drew University. He has contributed several valuable suggestions and corrections.</li>
+<li>Ian Thomas and his students are using the text in a programming course. They are the first ones to test the chapters in the latter half of the book, and they have make numerous corrections and suggestions.</li>
+<li>Keith Verheyden sent in a correction in Chapter 3.</li>
+<li>Peter Winstanley let us know about a longstanding error in our Latin in Chapter 3.</li>
+<li>Chris Wrobel made corrections to the code in the chapter on file I/O and exceptions.</li>
+<li>Moshe Zadka has made invaluable contributions to this project. In addition to writing the first draft of the chapter on Dictionaries, he provided continual guidance in the early stages of the book.</li>
+<li>Christoph Zwerschke sent several corrections and pedagogic suggestions, and explained the difference between <em>gleich</em> and <em>selbe</em>.</li>
+<li>James Mayer sent us a whole slew of spelling and typographical errors, including two in the contributor list.</li>
+<li>Hayden McAfee caught a potentially confusing inconsistency between two examples.</li>
+<li>Angel Arnal is part of an international team of translators working on the Spanish version of the text. He has also found several errors in the English version.</li>
+<li>Tauhidul Hoque and Lex Berezhny created the illustrations in Chapter 1 and improved many of the other illustrations.</li>
+<li>Dr. Michele Alzetta caught an error in Chapter 8 and sent some interesting pedagogic comments and suggestions about Fibonacci and Old Maid.</li>
+<li>Andy Mitchell caught a typo in Chapter 1 and a broken example in Chapter 2.</li>
+<li>Kalin Harvey suggested a clarification in Chapter 7 and caught some typos.</li>
+<li>Christopher P. Smith caught several typos and is helping us prepare to update the book for Python 2.2.</li>
+<li>David Hutchins caught a typo in the Foreword.</li>
+<li>Gregor Lingl is teaching Python at a high school in Vienna, Austria. He is working on a German translation of the book, and he caught a couple of bad errors in Chapter 5.</li>
+<li>Julie Peters caught a typo in the Preface.</li>
+</ul>
+</section>
+</section>
 </section>
 <section id="preface" class="level1">
 <h1>Preface</h1>
@@ -476,7 +579,7 @@ code > span.er { color: #c3bf9f; }
 <p><em>How to Think Like a Computer Scientist</em> was not just an excellent book, but it had been released under the GNU public license, which meant it could be used freely and modified to meet the needs of its user. Once I decided to use Python, it occurred to me that I could translate Allen’s original Java version of the book into the new language. While I would not have been able to write a textbook on my own, having Allen’s book to work from made it possible for me to do so, at the same time demonstrating that the cooperative development model used so well in software could also work for educational materials.</p>
 <p>Working on this book for the last two years has been rewarding for both my students and me, and my students played a big part in the process. Since I could make instant changes whenever someone found a spelling error or difficult passage, I encouraged them to look for mistakes in the book by giving them a bonus point each time they made a suggestion that resulted in a change in the text. This had the double benefit of encouraging them to read the text more carefully and of getting the text thoroughly reviewed by its most important critics, students using it to learn computer science.</p>
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
-<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
+<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net" class="uri">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
 <section id="introducing-programming-with-python" class="level2">
 <h2>Introducing programming with Python</h2>
@@ -499,11 +602,11 @@ code > span.er { color: #c3bf9f; }
 </section>
 <section id="building-a-community" class="level2">
 <h2>Building a community</h2>
-<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
+<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio" class="uri">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
 <!--
 h='&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#62;';a='&#64;';n='&#106;&#x65;&#102;&#102;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'jeff@elkner.net'+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#106;&#x65;&#102;&#102;&#64;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#32;&#40;&#106;&#x65;&#102;&#102;&#32;&#x61;&#116;&#32;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#62;&#x29;</noscript></strong>.</p>
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
@@ -517,7 +620,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'
 <p>This predecessor to this book was a great starting point for us, especially because of the liberal permission to change things. Having our own in-house course notes or handouts allows us to adapt and stay fresh, rearrange, see what works, and it gives us agility. We can also ensure that every student in the course gets a copy of the handouts — something that doesn’t always happen if we prescribe costly textbooks.</p>
 Many thanks to all the contributors and the authors for making their hard work available to the Python community and to our students.
 </aside>
-
 <p>A colleague and friend, Peter Warren, once made the remark that learning introductory programming is as much about the environment as it is about the programming language.</p>
 <p>I’m a big fan of IDEs (Integrated Development Environments).<br />I want help to be integrated into my editor, as a first-class citizen, available at the press of a button. I want syntax highlighting. I want immediate syntax checking, and sensible autocompletion. I’d like an editor that can fold function bodies or regions of code away, because it promotes and encourages how we build mental abstractions.</p>
 <p>I’m especially keen on having a single-stepping debugger and breakpoints with code inspection built in. We’re trying to build a conceptual model of program execution in the student’s mind, so I find most helpful for teaching to have the call stack and variables explicitly visible, and to be able to immediately inspect the result of executing a statement.</p>
@@ -855,6 +957,499 @@ NameError: name &#39;cheese&#39; is not defined</code></pre></li>
 <p>Whenever an <em>expression</em> is typed at the Python prompt, it is evaluated and the result is <em>automatically</em> shown on the line below. (Like on your calculator, if you type this expression you’ll get the result 42.)</p>
 <p>A script is different, however. Evaluations of expressions are not automatically displayed, so it is necessary to use the <strong>print</strong> function to make the answer show up.</p>
 <p>It is hardly ever necessary to use the print function in immediate mode at the command prompt.</p>
+<p>.. Copyright (C) Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
+<p>|</p>
+</section>
+</section>
+<section id="variables-expressions-and-statements" class="level1">
+<h1>Variables, expressions and statements</h1>
+<p>.. _values_n_types:</p>
+<section id="values-and-data-types" class="level2">
+<h2>Values and data types</h2>
+<p>A <strong>value</strong> is one of the fundamental things — like a letter or a number — that a program manipulates. The values we have seen so far are <code>4</code> (the result when we added <code>2 + 2</code>), and <code>&quot;Hello, World!&quot;</code>.</p>
+<p>These values are classified into different <strong>classes</strong>, or <strong>data types</strong>: <code>4</code> is an <em>integer</em>, and <code>&quot;Hello, World!&quot;</code> is a <em>string</em>, so-called because it contains a string of letters. You (and the interpreter) can identify strings because they are enclosed in quotation marks.</p>
+<p>If you are not sure what class a value falls into, Python has a function called <strong>type</strong> which can tell you.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">type</span>(<span class="st">&quot;Hello, World!&quot;</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;str&#39;</span>&gt;
+&gt;&gt;&gt; <span class="dt">type</span>(<span class="dv">17</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;int&#39;</span>&gt;
+</code></pre>
+<p>Not surprisingly, strings belong to the class <strong>str</strong> and integers belong to the class <strong>int</strong>. Less obviously, numbers with a decimal point belong to a class called <strong>float</strong>, because these numbers are represented in a format called <em>floating-point</em>. At this stage, you can treat the words <em>class</em> and <em>type</em> interchangeably. We’ll come back to a deeper understanding of what a class is in later chapters.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">type</span>(<span class="fl">3.2</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;float&#39;</span>&gt;
+</code></pre>
+<p>What about values like <code>&quot;17&quot;</code> and <code>&quot;3.2&quot;</code>? They look like numbers, but they are in quotation marks like strings.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">type</span>(<span class="st">&quot;17&quot;</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;str&#39;</span>&gt;
+&gt;&gt;&gt; <span class="dt">type</span>(<span class="st">&quot;3.2&quot;</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;str&#39;</span>&gt;
+    </code></pre>
+<p>They’re strings!</p>
+<p>Strings in Python can be enclosed in either single quotes (<code>'</code>) or double quotes (<code>&quot;</code>), or three of each (<code>'''</code> or <code>&quot;&quot;&quot;</code>)</p>
+<pre><code>.. sourcecode:: pycon
+    
+    &gt;&gt;&gt; type(&#39;This is a string.&#39;)
+    &lt;class &#39;str&#39;&gt;
+    &gt;&gt;&gt; type(&quot;And so is this.&quot;)
+    &lt;class &#39;str&#39;&gt;
+    &gt;&gt;&gt; type(&quot;&quot;&quot;and this.&quot;&quot;&quot;)
+    &lt;class &#39;str&#39;&gt;
+    &gt;&gt;&gt; type(&#39;&#39;&#39;and even this...&#39;&#39;&#39;)
+    &lt;class &#39;str&#39;&gt;</code></pre>
+<p>Double quoted strings can contain single quotes inside them, as in <code>&quot;Bruce's beard&quot;</code>, and single quoted strings can have double quotes inside them, as in <code>'The knights who say &quot;Ni!&quot;'</code>.</p>
+<p>Strings enclosed with three occurrences of either quote symbol are called triple quoted strings. They can contain either single or double quotes:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">print</span>(<span class="st">&#39;&#39;&#39;&quot;Oh no&quot;, she exclaimed, &quot;Ben&#39;s bike is broken!&quot;&#39;&#39;&#39;</span>)
+<span class="co">&quot;Oh no&quot;</span>, she exclaimed, <span class="st">&quot;Ben&#39;s bike is broken!&quot;</span>
+&gt;&gt;&gt;
+</code></pre>
+<p>Triple quoted strings can even span multiple lines:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; message = <span class="st">&quot;&quot;&quot;This message will</span>
+<span class="st">... span several</span>
+<span class="st">... lines.&quot;&quot;&quot;</span>
+&gt;&gt;&gt; <span class="dt">print</span>(message)
+This message will
+span several
+lines.
+&gt;&gt;&gt;
+    
+
+</code></pre>
+<p>Python doesn’t care whether you use single or double quotes or the three-of-a-kind quotes to surround your strings: once it has parsed the text of your program or command, the way it stores the value is identical in all cases, and the surrounding quotes are not part of the value. But when the interpreter wants to display a string, it has to decide which quotes to use to make it look like a string.</p>
+<pre><code>.. sourcecode:: pycon
+
+    &gt;&gt;&gt; &#39;This is a string.&#39;
+    &#39;This is a string.&#39;
+    &gt;&gt;&gt; &quot;&quot;&quot;And so is this.&quot;&quot;&quot;
+    &#39;And so is this.&#39;</code></pre>
+<p>So the Python language designers usually chose to surround their strings by single quotes. What do think would happen if the string already contained single quotes?</p>
+<p>When you type a large integer, you might be tempted to use commas between groups of three digits, as in <code>42,000</code>. This is not a legal integer in Python, but it does mean something else, which is legal:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">42000</span>
+<span class="dv">42000</span>
+&gt;&gt;&gt; <span class="dv">42</span>,<span class="dv">000</span>
+(<span class="dv">42</span>, <span class="dv">0</span>)
+</code></pre>
+<p>Well, that’s not what we expected at all! Because of the comma, Python chose to treat this as a <em>pair</em> of values. We’ll come back to learn about pairs later.<br />But, for the moment, remember not to put commas or spaces in your integers, no matter how big they are. Also revisit what we said in the previous chapter: formal languages are strict, the notation is concise, and even the smallest change might mean something quite different from what you intended.</p>
+</section>
+<section id="variables" class="level2">
+<h2>Variables</h2>
+<p>One of the most powerful features of a programming language is the ability to manipulate <strong>variables</strong>. A variable is a name that refers to a value.</p>
+<p>The <strong>assignment statement</strong> gives a value to a variable:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; message = <span class="st">&quot;What&#39;s up, Doc?&quot;</span>
+&gt;&gt;&gt; n = <span class="dv">17</span>
+&gt;&gt;&gt; pi = <span class="fl">3.14159</span>
+</code></pre>
+<p>This example makes three assignments. The first assigns the string value <code>&quot;What's up, Doc?&quot;</code> to a variable named <code>message</code>. The second gives the integer <code>17</code> to <code>n</code>, and the third assigns the floating-point number <code>3.14159</code> to a variable called <code>pi</code>.</p>
+<p>The <strong>assignment token</strong>, <code>=</code>, should not be confused with <em>equals</em>, which uses the token <code>==</code>. The assignment statement binds a <em>name</em>, on the left-hand side of the operator, to a <em>value</em>, on the right-hand side. This is why you will get an error if you enter:</p>
+<pre><code>.. sourcecode:: pycon
+    
+    &gt;&gt;&gt; 17 = n
+    File &quot;&lt;interactive input&gt;&quot;, line 1
+    SyntaxError: can&#39;t assign to literal
+
+.. tip::
+   When reading or writing code, say to yourself &quot;n is assigned 17&quot;
+   or &quot;n gets the value 17&quot;.  Don&#39;t say &quot;n equals 17&quot;.
+  </code></pre>
+<p>A common way to represent variables on paper is to write the name with an arrow pointing to the variable’s value. This kind of figure is called a <strong>state snapshot</strong> because it shows what state each of the variables is in at a particular instant in time. (Think of it as the variable’s state of mind). This diagram shows the result of executing the assignment statements:</p>
+<p><img src="..%20image::%20illustrations/state.png" alt="State snapshot" /><br />If you ask the interpreter to evaluate a variable, it will produce the value that is currently linked to the variable:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; message
+<span class="co">&#39;What&#39;</span>s up, Doc?<span class="st">&#39;</span>
+<span class="st">&gt;&gt;&gt; n</span>
+<span class="st">17</span>
+<span class="st">&gt;&gt;&gt; pi</span>
+<span class="st">3.14159</span>
+
+</code></pre>
+<p>We use variables in a program to “remember” things, perhaps the current score at the football game. But variables are <em>variable</em>. This means they can change over time, just like the scoreboard at a football game. You can assign a value to a variable, and later assign a different value to the same variable.<br />(<em>This is different from maths. In maths, if you give <code>x</code> the value 3, it cannot change to link to a different value half-way through your calculations!</em>)</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; day = <span class="st">&quot;Thursday&quot;</span>
+&gt;&gt;&gt; day
+<span class="co">&#39;Thursday&#39;</span>
+&gt;&gt;&gt; day = <span class="st">&quot;Friday&quot;</span>
+&gt;&gt;&gt; day
+<span class="co">&#39;Friday&#39;</span>
+&gt;&gt;&gt; day = <span class="dv">21</span>
+&gt;&gt;&gt; day
+<span class="dv">21</span>
+</code></pre>
+<p>You’ll notice we changed the value of <code>day</code> three times, and on the third assignment we even made it refer to a value that was of a different type.</p>
+<p>A great deal of programming is about having the computer remember things, e.g. <em>The number of missed calls on your phone</em>, and then arranging to update or change the variable when you miss another call.</p>
+</section>
+<section id="variable-names-and-keywords" class="level2">
+<h2>Variable names and keywords</h2>
+<p><strong>Variable names</strong> can be arbitrarily long. They can contain both letters and digits, but they have to begin with a letter or an underscore. Although it is legal to use uppercase letters, by convention we don’t. If you do, remember that case matters. <code>Bruce</code> and <code>bruce</code> are different variables.</p>
+<p>The underscore character ( <code>_</code>) can appear in a name. It is often used in names with multiple words, such as <code>my_name</code> or <code>price_of_tea_in_china</code>.</p>
+<p>There are some situations in which names beginning with an underscore have special meaning, so a safe rule for beginners is to start all names with a letter.</p>
+<p>If you give a variable an illegal name, you get a syntax error:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; 76trombones = <span class="st">&quot;big parade&quot;</span>
+<span class="ot">SyntaxError</span>: invalid syntax
+&gt;&gt;&gt; more$ = <span class="dv">1000000</span>
+<span class="ot">SyntaxError</span>: invalid syntax
+&gt;&gt;&gt; <span class="kw">class</span> = <span class="st">&quot;Computer Science 101&quot;</span>
+<span class="ot">SyntaxError</span>: invalid syntax
+</code></pre>
+<p><code>76trombones</code> is illegal because it does not begin with a letter. <code>more$</code> is illegal because it contains an illegal character, the dollar sign. But what’s wrong with <code>class</code>?</p>
+<p>It turns out that <code>class</code> is one of the Python <strong>keywords</strong>. Keywords define the language’s syntax rules and structure, and they cannot be used as variable names.</p>
+<p>Python has thirty-something keywords (and every now and again improvements to Python introduce or eliminate one or two):</p>
+<p>======== ======== ======== ======== ======== ======== and as assert break class continue def del elif else except exec finally for from global if import in is lambda nonlocal not or<br />pass raise return try while with yield True False None ======== ======== ======== ======== ======== ========</p>
+<p>You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</p>
+<p>Programmers generally choose names for their variables that are meaningful to the human readers of the program — they help the programmer document, or remember, what the variable is used for.</p>
+<p>.. caution:: Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like 3.14159. No! The computer doesn’t understand what you intend the variable to mean.</p>
+<p>So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.</p>
+</section>
+<section id="statements" class="level2">
+<h2>Statements</h2>
+<p>A <strong>statement</strong> is an instruction that the Python interpreter can execute. We have only seen the assignment statement so far. Some other kinds of statements that we’ll see shortly are <code>while</code> statements, <code>for</code> statements, <code>if</code> statements,<br />and <code>import</code> statements. (There are other kinds too!)</p>
+<p>When you type a statement on the command line, Python executes it. Statements don’t produce any result.</p>
+</section>
+<section id="evaluating-expressions" class="level2">
+<h2>Evaluating expressions</h2>
+<p>An <strong>expression</strong> is a combination of values, variables, operators, and calls to functions. If you type an expression at the Python prompt, the interpreter <strong>evaluates</strong> it and displays the result:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">1</span> + <span class="dv">1</span>
+<span class="dv">2</span>
+&gt;&gt;&gt; <span class="dt">len</span>(<span class="st">&quot;hello&quot;</span>)
+<span class="dv">5</span>
+    </code></pre>
+<p>In this example <code>len</code> is a built-in Python function that returns the number of characters in a string. We’ve previously seen the <code>print</code> and the <code>type</code> functions, so this is our third example of a function!</p>
+<p>The <em>evaluation of an expression</em> produces a value, which is why expressions can appear on the right hand side of assignment statements. A value all by itself is a simple expression, and so is a variable.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">17</span>
+<span class="dv">17</span>
+&gt;&gt;&gt; y = <span class="fl">3.14</span>
+&gt;&gt;&gt; x = <span class="dt">len</span>(<span class="st">&quot;hello&quot;</span>)
+&gt;&gt;&gt; x
+<span class="dv">5</span>
+&gt;&gt;&gt; y
+<span class="fl">3.14</span>
+
+</code></pre>
+</section>
+<section id="operators-and-operands" class="level2">
+<h2>Operators and operands</h2>
+<p><strong>Operators</strong> are special tokens that represent computations like addition, multiplication and division. The values the operator uses are called <strong>operands</strong>.</p>
+<p>The following are all legal Python expressions whose meaning is more or less clear::</p>
+<pre><code>20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)</code></pre>
+<p>The tokens <code>+</code>, <code>-</code>, and <code>*</code>, and the use of parenthesis for grouping, mean in Python what they mean in mathematics. The asterisk (<code>*</code>) is the token for multiplication, and <code>**</code> is the token for exponentiation.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">2</span> ** <span class="dv">3</span>
+<span class="dv">8</span>
+&gt;&gt;&gt; <span class="dv">3</span> ** <span class="dv">2</span>
+<span class="dv">9</span>
+    </code></pre>
+<p>When a variable name appears in the place of an operand, it is replaced with its value before the operation is performed.</p>
+<p>Addition, subtraction, multiplication, and exponentiation all do what you expect.</p>
+<p>Example: so let us convert 645 minutes into hours:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; minutes = <span class="dv">645</span>
+&gt;&gt;&gt; hours = minutes / <span class="dv">60</span>
+&gt;&gt;&gt; hours
+<span class="fl">10.75</span>
+</code></pre>
+<p>Oops! In Python 3, the division operator <code>/</code> always yields a floating point result. What we might have wanted to know was how many <em>whole</em> hours there are, and how many minutes remain. Python gives us two different flavors of the division operator.<br />The second, called <strong>floor division</strong> uses the token <code>//</code>.<br />Its result is always a whole number — and if it has to adjust the number it always moves it to the left on the number line. So <code>6 // 4</code> yields <code>1</code>, but <code>-6 // 4</code> might surprise you!</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">7</span> / <span class="dv">4</span>
+<span class="fl">1.75</span>
+&gt;&gt;&gt; <span class="dv">7</span> // <span class="dv">4</span>
+<span class="dv">1</span>
+&gt;&gt;&gt; minutes = <span class="dv">645</span>
+&gt;&gt;&gt; hours = minutes // <span class="dv">60</span>
+&gt;&gt;&gt; hours
+<span class="dv">10</span>
+    </code></pre>
+<p>Take care that you choose the correct flavor of the division operator. If you’re working with expressions where you need floating point values, use the division operator that does the division accurately.</p>
+</section>
+<section id="type-converter-functions" class="level2">
+<h2>Type converter functions</h2>
+<p>Here we’ll look at three more Python functions, <code>int</code>, <code>float</code> and <code>str</code>, which will (attempt to) convert their arguments into types <code>int</code>, <code>float</code> and <code>str</code> respectively. We call these <strong>type converter</strong> functions.</p>
+<p>The <code>int</code> function can take a floating point number or a string, and turn it into an int. For floating point numbers, it <em>discards</em> the decimal portion of the number — a process we call <em>truncation towards zero</em> on the number line. Let us see this in action:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">int</span>(<span class="fl">3.14</span>)
+<span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="fl">3.9999</span>)     <span class="co"># This doesn&#39;t round to the closest int! </span>
+<span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="fl">3.0</span>)
+<span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">int</span>(-<span class="fl">3.999</span>)     <span class="co"># Note that the result is closer to zero</span>
+-<span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">int</span>(minutes / <span class="dv">60</span>)
+<span class="dv">10</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="st">&quot;2345&quot;</span>)     <span class="co"># Parse a string to produce an int</span>
+<span class="dv">2345</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="dv">17</span>) <span class="co"># It even works if arg is already an int</span>
+<span class="dv">17</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="st">&quot;23 bottles&quot;</span>) 
+</code></pre>
+<p>This last case doesn’t look like a number — what do we expect?</p>
+<pre class="sourceCode python"><code class="sourceCode python">Traceback (most recent call last):
+File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">ValueError</span>: invalid literal <span class="kw">for</span> <span class="dt">int</span>() <span class="kw">with</span> base <span class="dv">10</span>: <span class="st">&#39;23 bottles&#39;</span>
+
+
+</code></pre>
+<p>The type converter <code>float</code> can turn an integer, a float, or a syntactically legal string into a float:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">float</span>(<span class="dv">17</span>)
+<span class="fl">17.0</span>
+&gt;&gt;&gt; <span class="dt">float</span>(<span class="st">&quot;123.45&quot;</span>)
+<span class="fl">123.45</span>
+</code></pre>
+<p>The type converter <code>str</code> turns its argument into a string:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">str</span>(<span class="dv">17</span>)
+<span class="co">&#39;17&#39;</span>
+&gt;&gt;&gt; <span class="dt">str</span>(<span class="fl">123.45</span>)
+<span class="co">&#39;123.45&#39;</span>
+
+  
+</code></pre>
+</section>
+<section id="order-of-operations" class="level2">
+<h2>Order of operations</h2>
+<p>When more than one operator appears in an expression, the order of evaluation depends on the <strong>rules of precedence</strong>. Python follows the same precedence rules for its mathematical operators that mathematics does. The acronym PEMDAS is a useful way to remember the order of operations:</p>
+<ol>
+<li><strong>P</strong> arentheses have the highest precedence and can be used to force an expression to evaluate in the order you want. Since expressions in parentheses are evaluated first, <code>2 * (3-1)</code> is 4, and <code>(1+1)**(5-2)</code> is</li>
+<li>You can also use parentheses to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even though it doesn’t change the result.</li>
+<li><strong>E</strong> xponentiation has the next highest precedence, so <code>2**1+1</code> is 3 and not 4, and <code>3*1**3</code> is 3 and not 27.</li>
+<li><strong>M</strong> ultiplication and both <strong>D</strong> ivision operators have the same precedence, which is higher than <strong>A</strong> ddition and <strong>S</strong> ubtraction, which also have the same precedence. So <code>2*3-1</code> yields 5 rather than 4, and <code>5-2*2</code> is 1, not 6.</li>
+<li>Operators with the <em>same</em> precedence are evaluated from left-to-right. In algebra we say they are <em>left-associative</em>. So in the expression <code>6-3+2</code>, the subtraction happens first, yielding 3. We then add 2 to get the result 5. If the operations had been evaluated from right to left, the result would have been <code>6-(3+2)</code>, which is 1. (The acronym PEDMAS could mislead you to thinking that division has higher precedence than multiplication, and addition is done ahead of subtraction - don’t be misled.<br /> Subtraction and addition are at the same precedence, and the left-to-right rule applies.)</li>
+</ol>
+<ul>
+<li>Due to some historical quirk, an exception to the left-to-right left-associative rule is the exponentiation operator <code>**</code>, so a useful hint is to always use parentheses to force exactly the order you want when exponentiation is involved:</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">  &gt;&gt;&gt; <span class="dv">2</span> ** <span class="dv">3</span> ** <span class="dv">2</span>     <span class="co"># The right-most ** operator gets done first!</span>
+  <span class="dv">512</span>
+  &gt;&gt;&gt; (<span class="dv">2</span> ** <span class="dv">3</span>) ** <span class="dv">2</span>   <span class="co"># Use parentheses to force the order you want!</span>
+  <span class="dv">64</span>
+</code></pre>
+<p>The immediate mode command prompt of Python is great for exploring and experimenting with expressions like this.</p>
+</section>
+<section id="operations-on-strings" class="level2">
+<h2>Operations on strings</h2>
+<p>In general, you cannot perform mathematical operations on strings, even if the strings look like numbers. The following are illegal (assuming that <code>message</code> has type string):</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; message - <span class="dv">1</span><span class="co"># Error</span>
+&gt;&gt;&gt; <span class="st">&quot;Hello&quot;</span> / <span class="dv">123</span>      <span class="co"># Error</span>
+&gt;&gt;&gt; message * <span class="st">&quot;Hello&quot;</span>  <span class="co"># Error </span>
+&gt;&gt;&gt; <span class="st">&quot;15&quot;</span> + <span class="dv">2</span>   <span class="co"># Error</span>
+</code></pre>
+<p>Interestingly, the <code>+</code> operator does work with strings, but for strings, the <code>+</code> operator represents <strong>concatenation</strong>, not addition.<br />Concatenation means joining the two operands by linking them end-to-end. For example:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">fruit = <span class="st">&quot;banana&quot;</span>
+baked_good = <span class="st">&quot; nut bread&quot;</span>
+<span class="dt">print</span>(fruit + baked_good)
+</code></pre></td></tr></table>
+<p>The output of this program is <code>banana nut bread</code>. The space before the word <code>nut</code> is part of the string, and is necessary to produce the space between the concatenated strings.</p>
+<p>The <code>*</code> operator also works on strings; it performs repetition. For example, <code>'Fun'*3</code> is <code>'FunFunFun'</code>. One of the operands has to be a string; the other has to be an integer.</p>
+<p>On one hand, this interpretation of <code>+</code> and <code>*</code> makes sense by analogy with addition and multiplication. Just as <code>4*3</code> is equivalent to <code>4+4+4</code>, we expect <code>&quot;Fun&quot;*3</code> to be the same as <code>&quot;Fun&quot;+&quot;Fun&quot;+&quot;Fun&quot;</code>, and it is. On the other hand, there is a significant way in which string concatenation and repetition are different from integer addition and multiplication. Can you think of a property that addition and multiplication have that string concatenation and repetition do not?</p>
+<p>.. _input:</p>
+</section>
+<section id="input" class="level2">
+<h2>Input</h2>
+<p>There is a built-in function in Python for getting input from the user:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">n = <span class="dt">input</span>(<span class="st">&quot;Please enter your name: &quot;</span>)
+</code></pre></td></tr></table>
+<p>A sample run of this script in PyScripter would pop up a dialog window like this:</p>
+<p><img src="..%20image::%20illustrations/enter_name_dialog.png" alt="input dialog" /><br /> The user of the program can enter the name and click <code>OK</code>, and when this happens the text that has been entered is returned from the <code>input</code> function, and in this case assigned to the variable <code>n</code>.</p>
+<p>Even if you asked the user to enter their age, you would get back a string like <code>&quot;17&quot;</code>. It would be your job, as the programmer, to convert that string into a int or a float, using the <code>int</code> or <code>float</code> converter functions we saw earlier.</p>
+</section>
+<section id="composition" class="level2">
+<h2>Composition</h2>
+<p>So far, we have looked at the elements of a program — variables, expressions, statements, and function calls — in isolation, without talking about how to combine them.</p>
+<p>One of the most useful features of programming languages is their ability to take small building blocks and <strong>compose</strong> them into larger chunks.</p>
+<p>For example, we know how to get the user to enter some input, we know how to convert the string we get into a float, we know how to write a complex expression, and we know how to print values. Let’s put these together in a small four-step program that asks the user to input a value for the radius of a circle, and then computes the area of the circle from the formula</p>
+<p><img src="..%20image::%20illustrations/circle_area.png" alt="formula for area of a circle" /><br />Firstly, we’ll do the four steps one at a time:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">response = <span class="dt">input</span>(<span class="st">&quot;What is your radius? &quot;</span>)
+r = <span class="dt">float</span>(response)
+area = <span class="fl">3.14159</span> * r**<span class="dv">2</span>
+<span class="dt">print</span>(<span class="st">&quot;The area is &quot;</span>, area)
+   </code></pre></td></tr></table>
+<p>Now let’s compose the first two lines into a single line of code, and compose the second two lines into another line of code.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">       r = <span class="dt">float</span>( <span class="dt">input</span>(<span class="st">&quot;What is your radius? &quot;</span>) )
+       <span class="dt">print</span>(<span class="st">&quot;The area is &quot;</span>, <span class="fl">3.14159</span> * r**<span class="dv">2</span>)
+   </code></pre></td></tr></table>
+<p>If we really wanted to be tricky, we could write it all in one statement:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">       <span class="dt">print</span>(<span class="st">&quot;The area is &quot;</span>, <span class="fl">3.14159</span>*<span class="dt">float</span>(<span class="dt">input</span>(<span class="st">&quot;What is your radius?&quot;</span>))**<span class="dv">2</span>)
+</code></pre></td></tr></table>
+<p>Such compact code may not be most understandable for humans, but it does illustrate how we can compose bigger chunks from our building blocks.</p>
+<p>If you’re ever in doubt about whether to compose code or fragment it into smaller steps, try to make it as simple as you can for the human to follow. My choice would be the first case above, with four separate steps.</p>
+</section>
+<section id="the-modulus-operator" class="level2">
+<h2>The modulus operator</h2>
+<p>The <strong>modulus operator</strong> works on integers (and integer expressions) and gives the remainder when the first number is divided by the second. In Python, the modulus operator is a percent sign (<code>%</code>). The syntax is the same as for other operators. It has the same precedence as the multiplication operator.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; q = <span class="dv">7</span> // <span class="dv">3</span>     <span class="co"># This is integer division operator</span>
+&gt;&gt;&gt; <span class="dt">print</span>(q)
+<span class="dv">2</span>
+&gt;&gt;&gt; r  = <span class="dv">7</span> % <span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">print</span>(r)
+<span class="dv">1</span>
+</code></pre>
+<p>So 7 divided by 3 is 2 with a remainder of 1.</p>
+<p>The modulus operator turns out to be surprisingly useful. For example, you can check whether one number is divisible by another—if <code>x % y</code> is zero, then <code>x</code> is divisible by <code>y</code>.</p>
+<p>Also, you can extract the right-most digit or digits from a number. For example, <code>x % 10</code> yields the right-most digit of <code>x</code> (in base 10). Similarly <code>x % 100</code> yields the last two digits.</p>
+<p>It is also extremely useful for doing conversions, say from seconds, to hours, minutes and seconds. So let’s write a program to ask the user to enter some seconds, and we’ll convert them into hours, minutes, and remaining seconds.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">total_secs = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">&quot;How many seconds, in total?&quot;</span>))
+hours = total_secs // <span class="dv">3600</span>      
+secs_still_remaining = total_secs % <span class="dv">3600</span>
+minutes =  secs_still_remaining // <span class="dv">60</span> 
+secs_finally_remaining = secs_still_remaining  % <span class="dv">60</span>
+
+<span class="dt">print</span>(<span class="st">&quot;Hrs=&quot;</span>, hours, <span class="st">&quot;  mins=&quot;</span>, minutes,  
+ <span class="co">&quot;secs=&quot;</span>, secs_finally_remaining)
+ </code></pre></td></tr></table>
+</section>
+<section id="glossary-2" class="level2">
+<h2>Glossary</h2>
+<p>.. glossary::</p>
+<pre><code>assignment statement
+    A statement that assigns a value to a name (variable). To the left of
+    the assignment operator, ``=``, is a name. To the right of the
+    assignment token is an expression which is evaluated by the Python
+    interpreter and then assigned to the name. The difference between the
+    left and right hand sides of the assignment statement is often
+    confusing to new programmers. In the following assignment:</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"> n = n + <span class="dv">1</span>
+
+``n`` plays a very different role on each side of the ``=``. On the
+right it is a *value* and makes up part of the *expression* which will
+be evaluated by the Python interpreter before assigning it to the name
+on the left.
+
+    assignment token
+``=`` is Python<span class="st">&#39;s assignment token.  Do not confuse it with *equals*, which</span>
+<span class="st">is an operator for comparing values.     </span>
+
+<span class="st">    composition</span>
+<span class="st">The ability to combine simple expressions and statements into compound</span>
+<span class="st">statements and expressions in order to represent complex computations</span>
+<span class="st">concisely.</span>
+
+<span class="st">    concatenate</span>
+<span class="st">To join two strings end-to-end.</span>
+
+<span class="st">    data type</span>
+<span class="st">A set of values. The type of a value determines how it can be used in</span>
+<span class="st">expressions. So far, the types you have seen are integers (``int``), </span>
+<span class="st">floating-point numbers (``float``), and strings (``str``).</span>
+
+<span class="st">    evaluate</span>
+<span class="st">To simplify an expression by performing the operations in order to</span>
+<span class="st">yield a single value.</span>
+
+<span class="st">    expression</span>
+<span class="st">A combination of variables, operators, and values that represents a</span>
+<span class="st">single result value.</span>
+
+<span class="st">    float</span>
+<span class="st">A Python data type which stores *floating-point* numbers.</span>
+<span class="st">Floating-point numbers are stored internally in two parts: a *base* and</span>
+<span class="st">an *exponent*. When printed in the standard format, they look like</span>
+<span class="st">decimal numbers. Beware of rounding errors when you use ``float``\ s,</span>
+<span class="st">and remember that they are only approximate values.</span>
+
+<span class="st">    floor division</span>
+<span class="st">An operator (denoted by the token ``//``) that divides one number by another and </span>
+<span class="st">yields an integer, or, if the result is not already an integer, it yields </span>
+<span class="st">the next smallest integer.   </span>
+
+<span class="st">    int</span>
+<span class="st">A Python data type that holds positive and negative whole numbers.</span>
+
+<span class="st">    keyword</span>
+<span class="st">A reserved word that is used by the compiler to parse program; you</span>
+<span class="st">cannot use keywords like ``if``, ``def``, and ``while`` as variable</span>
+<span class="st">names.</span>
+<span class="st">    </span>
+<span class="st">    modulus operator</span>
+<span class="st">An operator, denoted with a percent sign ( ``%``), that works on</span>
+<span class="st">integers and yields the remainder when one number is divided by</span>
+<span class="st">another.</span>
+
+<span class="st">    operand</span>
+<span class="st">One of the values on which an operator operates.</span>
+
+<span class="st">    operator</span>
+<span class="st">A special symbol that represents a simple computation like addition,</span>
+<span class="st">multiplication, or string concatenation.</span>
+
+<span class="st">    rules of precedence</span>
+<span class="st">The set of rules governing the order in which expressions involving</span>
+<span class="st">multiple operators and operands are evaluated.</span>
+
+<span class="st">    state snapshot</span>
+<span class="st">A graphical representation of a set of variables and the values to</span>
+<span class="st">which they refer, taken at a particular instant during the program&#39;</span>s execution.
+
+    statement
+An instruction that the Python interpreter can execute.  So far we have
+only seen the assignment statement, but we will soon meet the ``import`` 
+statement and the ``for`` statement.
+
+    <span class="dt">str</span>
+A Python data <span class="dt">type</span> that holds a string of characters.
+
+    value
+A number or string (or other things to be named later) that can be
+stored in a variable or computed in an expression.  
+
+    variable
+A name that refers to a value.
+
+    variable name
+A name given to a variable. Variable names in Python consist of a
+sequence of letters (a..z, A..Z, and _) and digits (<span class="dv">0</span>..<span class="dv">9</span>) that begins
+<span class="kw">with</span> a letter.  In best programming practice, variable names should be
+chosen so that they describe their use in the program, making the
+program *<span class="ot">self</span> documenting*.
+
+</code></pre>
+</section>
+<section id="exercises-1" class="level2">
+<h2>Exercises</h2>
+<ol>
+<li>Take the sentence: <em>All work and no play makes Jack a dull boy.</em> Store each word in a separate variable, then print out the sentence on one line using <code>print</code>.</li>
+<li>Add parenthesis to the expression <code>6 * 1 - 2</code> to change its value from 4 to -6.</li>
+<li>Place a comment before a line of code that previously worked, and record what happens when you rerun the program.</li>
+<li>Start the Python interpreter and enter <code>bruce + 4</code> at the prompt. This will give you an error:</li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python">    <span class="ot">NameError</span>: name <span class="st">&#39;bruce&#39;</span> is not defined
+
+   Assign a value to ``bruce`` so that ``bruce + <span class="dv">4</span>`` evaluates to ``<span class="dv">10</span>``.</code></pre>
+<ol>
+<li>The formula for computing the final amount if one is earning compound interest is given on Wikipedia as</li>
+</ol>
+<p><img src="..%20image::%20illustrations/compoundInterest.png" alt="formula for compound interest" /><br /> Write a Python program that assigns the principal amount of $10000 to variable <code>P</code>, assign to <code>n</code> the value 12, and assign to <code>r</code> the interest rate of 8%. Then have the program prompt the user for the number of years <code>t</code> that the money will be compounded for. Calculate and print the final amount after <code>t</code> years.</p>
+<ol>
+<li><p>Evaluate the following numerical expressions in your head, then use the Python interpreter to check your results:</p>
+<ol>
+<li><code>&gt;&gt;&gt; 5 % 2</code></li>
+<li><code>&gt;&gt;&gt; 9 % 5</code></li>
+<li><code>&gt;&gt;&gt; 15 % 12</code></li>
+<li><code>&gt;&gt;&gt; 12 % 15</code></li>
+<li><code>&gt;&gt;&gt; 6 % 6</code></li>
+<li><code>&gt;&gt;&gt; 0 % 7</code></li>
+<li><code>&gt;&gt;&gt; 7 % 0</code></li>
+</ol></li>
+</ol>
+<p>What happened with the last example? Why? If you were able to correctly anticipate the computer’s response in all but the last one, it is time to move on. If not, take time now to make up examples of your own. Explore the modulus operator until you are confident you understand how it works.</p>
+<ol>
+<li><p>You look at the clock and it is exactly 2pm. You set an alarm to go off in 51 hours. At what time does the alarm go off? (Hint: you could count on your fingers, but this is not what we’re after. If you are tempted to count on your fingers, change the 51 to 5100.)</p></li>
+<li><p>Write a Python program to solve the general version of the above problem. Ask the user for the time now (in hours), and ask for the number of hours to wait.<br /> Your program should output what the time will be on the clock when the alarm goes off.</p></li>
+</ol>
 </section>
 </section>
 <section id="functions" class="level1">
@@ -914,7 +1509,6 @@ calculate_tip(<span class="dv">100</span>,<span class="dv">18</span>)</code></pr
 <p>Docstrings are usually formed using triple-quoted strings as they allow us to easily expand the docstring later on should we want to write more than a one-liner.</p>
 Just to differentiate from comments, a string at the start of a function (a docstring) is retrievable by Python tools <em>at runtime</em>. By contrast, comments are completely eliminated when the program is parsed.
 </aside>
-
 <p>This function is named <code>calculate_tip</code>. It has two parameters: one to tell the function the amount of the bill, and the other to tell it the percent tip to calculate. Make sure you know where the body of the function ends — it depends on the indentation, and the blank lines don’t count for this purpose!</p>
 <p>Defining a new function does not make the function run. To do that we need a <strong>function call</strong>. We’ve already seen how to call some built-in functions like <strong>print</strong>, <strong>range</strong>, <strong>round</strong>, and <strong>int</strong>. Function calls contain the name of the function being executed followed by a list of values, called <em>arguments</em>, which are assigned to the parameters in the function definition. So in the last line of the example program above, we call the function, and pass <code>100</code> as the amount of the bill and <code>18</code> as the percentage of the tip. While the function is executing, then, the variable <code>bill</code> refers to the value 100, and the variable <code>pct</code> refers to 18.</p>
 <p>Once we’ve defined a function, we can call it as often as we like, and its statements will be executed each time we call it. And we could use it to get any of our turtles to draw a square. In the next example, we calculate 3 different tip amounts for the same bill.</p>
@@ -955,7 +1549,6 @@ calculate_tip(myBill, <span class="dv">15</span>)
 calculate_tip(myBill, <span class="dv">18</span>)
 calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <aside id="coding-style">
-
 <p><strong>Coding Style</strong></p>
 <p>Now that you are about to write longer, more complex pieces of Python, it is a good time to talk about coding style. Most languages can be written (or more concise, formatted) in different styles; some are more readable than others. Making it easy for others to read your code is always a good idea, and adopting a nice coding style helps tremendously for that.</p>
 <p>For Python, <a href="http://www.python.org/dev/peps/pep-0008/">PEP 8 has emerged as the style guide</a> that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Every Python developer should read it at some point; here are the most important points extracted for you:</p>
@@ -973,7 +1566,6 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <li>Likewise, don’t use non-ASCII characters in identifiers if there is only the slightest chance people speaking a different language will read or maintain the code.</li>
 </ul>
 </aside>
-
 </section>
 <section id="composition-functions-can-call-other-functions" class="level2">
 <h2>Composition: Functions can call other functions</h2>
@@ -1113,44 +1705,30 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <section id="case-study-tip-calculator" class="level3">
 <h3>Case Study: Tip Calculator</h3>
 <aside id="tip_header" style="top: 110px">
-
 <p>Brief header <strong>comments</strong> at the top of the <strong>source file</strong> identify basic information about the program and the file. Comments are messages for programmers who read the <strong>source code</strong> — they do not affect the execution of the program.</p>
 </aside>
-
 <aside id="tip_welcome" style="top: 173px">
-
 <p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not <strong>return</strong> any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
 </aside>
-
 <aside id="tip_calc" style="top: 354px">
-
 <p>The <strong>calc_tip</strong> function has 2 <strong>parameters</strong>: <code>bill</code> and <code>pct</code>. These parameters become variables within the <strong>function body</strong>. Line 22 uses <strong>arithmetic operators</strong> (multiplication here) to calculate a new value and store it in the <code>tip</code> <strong>variable</strong>. <code>tip</code> is rounded to 2 decimal places using the <strong>built-in function</strong> <code>round()</code>. Finally, the rounded tip amount is returned.</p>
 </aside>
-
 <aside id="tip_get_pct" style="top: 545px">
-
 <p><strong>get_bill_amt</strong> is a <strong>fruitful function</strong> because it has a <strong>return statement</strong>. It uses the <strong>built-in function</strong> <code>input()</code> to ask for data from the user of the program. — when it is called it returns the bill</p>
 </aside>
-
 <aside id="tip_get_amt" style="top: 710px">
-
 <p><strong>get_tip_pct</strong> is similar to <strong>get_bill_amt</strong>. It requests user data by calling the <code>input</code> function and then returns a result. Notice that the <strong>multi-line string</strong> inside of 3 quotation marks (“”“) makes it easy to read and write formatted data.</p>
 <p>This function uses a series of <strong>if statements</strong> to interpret the user’s choice from a menu. While we could use <code>elif</code> to change the conditions together, it is not needed here. Once a <code>return</code> statement is reached, no further conditions can be tested or executed. If none of the <code>if</code> conditions are met, this function returns -1 to indicate that an invalid choice was entered.</p>
 </aside>
-
 <aside id="tip_get_amt" style="top: 1125px">
-
 <p><strong>show_results</strong> defines <strong>parameters</strong> which are used to pass in all of the data needed to show the results of the tip calculation. Notice that the <code>print</code> statements use the <strong>+ operator</strong> to <abbr title="join together">concatenate</abbr> strings. Because we are joining <strong>string literals</strong> with variables of type <code>int</code> and <code>float</code>, we need to use the <code>str()</code> function to convert the numeric data to strings.</p>
 </aside>
-
 <aside id="tip_main" style="top: 1430px">
 <p>The <strong>main</strong> function is the first function called for this program. It maintains the executive control of the program, calling other functions in sequence and passing data between functions.</p>
 <p>We encounter Python’s special syntax for running a program from the <strong>command line</strong>:</p>
 <p><code>if __name__ == &quot;__main__&quot;:</code></p>
 <p>This <strong>conditional statement</strong> allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python — we could execute any statements we choose under that block.</p>
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -1347,7 +1925,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
     main()</code></pre></td></tr></table>
 </section>
 </section>
-<section id="glossary-2" class="level2">
+<section id="glossary-3" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>argument</dt>
@@ -1420,7 +1998,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </dd>
 </dl>
 </section>
-<section id="exercises-1" class="level2">
+<section id="exercises-2" class="level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>Write a void (non-fruitful) function to that prints out centered text to the console. Your function should have two parameters, <code>text</code>—the string to center, and <code>maxLen</code>—the width of the document (in spaces).<br />(Hint: you will want to use the built-in <code>len</code> function and might want to use the * operator with spaces.)</p></li>
@@ -1501,7 +2079,6 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <img src="figs/flowchart_for.png" />
 </figure>
 </aside>
-
 </section>
 <section id="assignment" class="level2">
 <h2>Assignment</h2>
@@ -1758,7 +2335,6 @@ test(mysum(<span class="dt">range</span>(<span class="dv">11</span>)) == <span c
 16
 done</code></pre>
 <aside id="loop-pretest">
-
 <p><strong>The pre-test loop — standard loop behaviour</strong></p>
 <p><code>for</code> loops do their tests at the start, before executing any part of the body. This is called a <strong>pre-test</strong> loops, because the test happens before (pre) the body.</p>
 <p><code>break</code> and <code>return</code> are our tools for adapting this standard behaviour by enabling us to test a condition in the body of the loop that allows us to exit the loop.</p>
@@ -1766,7 +2342,6 @@ done</code></pre>
 <img src="figs/pre_test_loop.png" />
 </figure>
 </aside>
-    
 </section>
 <section id="the-continue-statement" class="level2">
 <h2>The <code>continue</code> statement</h2>
@@ -1929,7 +2504,7 @@ counter = <span class="dv">0</span>
 <pre><code>The number of students taking CompSci is 3</code></pre>
 <p>You should set up a list of your own data that interests you — perhaps a list of your CDs, each containing a list of song titles on the CD, or a list of movie titles, each with a list of movie stars who acted in the movie. You could then ask questions like “Which movies starred Angelina Jolie?”</p>
 </section>
-<section id="glossary-3" class="level2">
+<section id="glossary-4" class="level2">
 <h2>Glossary</h2>
 <p>attribute : attribute a color.</p>
 <p>canvas : canvas</p>
@@ -1945,7 +2520,7 @@ counter = <span class="dv">0</span>
 <p>range : range useful when we need to write a for loop that executes a fixed number of times.</p>
 <p>terminating condition : terminating condition In the <code>for</code> loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.</p>
 </section>
-<section id="exercises-2" class="level2">
+<section id="exercises-3" class="level2">
 <h2>Exercises</h2>
 <ol>
 <li><p>Write a program that prints <code>We like Python's turtles!</code> 1000 times.</p></li>
@@ -2009,7 +2584,7 @@ test(is_prime(19911121))</code></pre>
 <figure>
 <img src="figs/tess_more_houses.png" alt="image" /><figcaption>image</figcaption>
 </figure>
-<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
+<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path" class="uri">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
 <li><p>What will <code>num_digits(0)</code> return? Modify it to return <code>1</code> for this case. Why does a call to <code>num_digits(-24)</code> result in an infinite loop? (<em>hint: -1//10 evaluates to -1</em>) Modify <code>num_digits</code> so that it works correctly with any integer value. Add these tests:</p>
 <pre><code>test(num_digits(0) == 1)
 test(num_digits(-12345) == 5)</code></pre></li>
@@ -2381,11 +2956,9 @@ double_stuff(things)
 <p>Since the list object is shared by two frames, we drew it between them.</p>
 <p>If a function modifies the items of a list parameter, the caller sees the change.</p>
 <aside id="visualizer">
-
 <p><strong>Use the Python visualizer!</strong></p>
-<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
+<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
 </aside>
-    
 </section>
 <section id="list-methods" class="level2">
 <h2>List methods</h2>
@@ -2456,13 +3029,10 @@ double_stuff(things)
 &gt;&gt;&gt; things
 [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>]      </code></pre>
 <aside id="pure-functions">
-
 <p><strong>Which style is better?</strong></p>
 <p>Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. Nevertheless, modifiers are convenient at times, and in some cases, functional programs are less efficient.</p>
 <p>In general, we recommend that you write pure functions whenever it is reasonable to do so and resort to modifiers only if there is a compelling advantage. This approach might be called a <em>functional programming style</em>.</p>
 </aside>
-
-
 </section>
 <section id="functions-that-produce-lists" class="level2">
 <h2>Functions that produce lists</h2>
@@ -2488,14 +3058,11 @@ loop
           result.append(i)
    <span class="kw">return</span> result</code></pre></td></tr></table>
 <aside id="list_comp">
-
 </section>
 <section id="list-comprehensions" class="level2">
 <h2>List Comprehensions</h2>
 <p>As we start to work with lists more, we start to see some common patterns. In particular, we often want to <em>filter</em> a list to create a new list of</p>
 </aside>
-
-
 </section>
 <section id="strings-and-lists" class="level2">
 <h2>Strings and lists</h2>
@@ -2552,11 +3119,9 @@ test(f(<span class="dv">110</span>) == <span class="dv">105</span>)
 test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code></pre></td></tr></table>
 <p>In the second test, if range were to eagerly go about building a list with all those elements, you would soon exhaust your computer’s available memory and crash the program. But it is cleverer than that! This computation works just fine, because the <code>range</code> object is just a promise to produce the elements if and when they are needed. Once the condition in the <code>if</code> becomes true, no further elements are generated, and the function returns. (Note: Before Python 3, <code>range</code> was not lazy. If you use an earlier versions of Python, YMMV!)</p>
 <aside id="ymmv">
-
 <p><strong>YMMV: Your Mileage May Vary</strong></p>
 <p>The acronym YMMV stands for <em>your mileage may vary</em>. American car advertisements often quoted fuel consumption figures for cars, e.g. that they would get 28 miles per gallon. But this always had to be accompanied by legal small-print warning the reader that they might not get the same. The term YMMV is now used idiomatically to mean “your results may differ”, e.g. <em>The battery life on this phone is 3 days, but YMMV.</em></p>
 </aside>
-    
 <p>You’ll sometimes find the lazy <code>range</code> wrapped in a call to <code>list</code>. This forces Python to turn the lazy promise into an actual list:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">range</span>(<span class="dv">10</span>)           <span class="co"># Create a lazy promise </span>
 <span class="dt">range</span>(<span class="dv">0</span>, <span class="dv">10</span>)
@@ -2596,69 +3161,69 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <span class="dv">6</span></code></pre>
 <p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
 </section>
-<section id="glossary-4" class="level2">
+<section id="glossary-5" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>aliases</dt>
-<dd><p>Multiple variables that contain references to the same object.</p>
+<dd>Multiple variables that contain references to the same object.
 </dd>
 <dt>clone</dt>
-<dd><p>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.</p>
+<dd>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.
 </dd>
 <dt>delimiter</dt>
-<dd><p>A character or string used to indicate where a string should be split.</p>
+<dd>A character or string used to indicate where a string should be split.
 </dd>
 <dt>element</dt>
-<dd><p>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.</p>
+<dd>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>index</dt>
-<dd><p>An integer value that indicates the position of an item in a list. Indexes start from 0.</p>
+<dd>An integer value that indicates the position of an item in a list. Indexes start from 0.
 </dd>
 <dt>item</dt>
-<dd><p>See <em>element</em>.</p>
+<dd>See <em>element</em>.
 </dd>
 <dt>list</dt>
-<dd><p>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.</p>
+<dd>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.
 </dd>
 <dt>list traversal</dt>
-<dd><p>The sequential accessing of each element in a list.</p>
+<dd>The sequential accessing of each element in a list.
 </dd>
 <dt>modifier</dt>
-<dd><p>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.</p>
+<dd>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 <dt>nested list</dt>
-<dd><p>A list that is an element of another list.</p>
+<dd>A list that is an element of another list.
 </dd>
 <dt>object</dt>
-<dd><p>A thing to which a variable can refer.</p>
+<dd>A thing to which a variable can refer.
 </dd>
 <dt>pattern</dt>
-<dd><p>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.</p>
+<dd>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.
 </dd>
 <dt>promise</dt>
-<dd><p>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.</p>
+<dd>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.
 </dd>
 <dt>pure function</dt>
-<dd><p>A function which has no side effects. Pure functions only make changes to the calling program through their return values.</p>
+<dd>A function which has no side effects. Pure functions only make changes to the calling program through their return values.
 </dd>
 <dt>sequence</dt>
-<dd><p>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.</p>
+<dd>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.
 </dd>
 <dt>side effect</dt>
-<dd><p>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.</p>
+<dd>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.
 </dd>
 <dt>step size</dt>
-<dd><p>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.</p>
+<dd>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.
 </dd>
 </dl>
 </section>
-<section id="exercises-3" class="level2">
+<section id="exercises-4" class="level2">
 <h2>Exercises</h2>
 <section id="basic-questions" class="level3">
 <h3>Basic Questions</h3>
@@ -2744,7 +3309,7 @@ test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&
  swap(a, b)
  <span class="dt">print</span>(<span class="st">&quot;after swap function call: a:&quot;</span>, a, <span class="st">&quot;b:&quot;</span>, b)</code></pre></td></tr></table>
 <p>Run this program and describe the results. Oops! So it didn’t do what you intended!<br />Explain why not.</p>
-<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
+<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
 </ol>
 </section>
 </section>
@@ -2846,27 +3411,27 @@ b = temp</code></pre></td></tr></table>
       (<span class="st">&quot;Oceans Twelve&quot;</span>, <span class="dv">2004</span>) ])</code></pre>
 <p>Notice in this case that the tuple has just five elements — but each of those in turn can be another tuple, a list, a string, or any other kind of Python value. This property is known as being <strong>heterogeneous</strong>, meaning that it can be composed of elements of different types.</p>
 </section>
-<section id="glossary-5" class="level2">
+<section id="glossary-6" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>data structure</dt>
-<dd><p>An organization of data for the purpose of making it easier to use.</p>
+<dd>An organization of data for the purpose of making it easier to use.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 <dt>tuple</dt>
-<dd><p>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</p>
+<dd>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.
 </dd>
 <dt>tuple assignment</dt>
-<dd><p>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.</p>
+<dd>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.
 </dd>
 </dl>
 </section>
-<section id="exercises-4" class="level2">
+<section id="exercises-5" class="level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>Write a function <code>merge_contacts(contact1, contact1)</code> that takes two touples as parameters. The tuples represent contact records in the form of (firstName, lastName, email, phone). This is the specification for your function:</p>
@@ -2893,7 +3458,6 @@ b = temp</code></pre></td></tr></table>
 {<span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>}</code></pre>
 <p>The key:value pairs of the dictionary are separated by commas. Each pair contains a key and a value separated by a colon.</p>
 <aside id="hashing">
-
 <p><strong>Hashing</strong></p>
 <p>The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.</p>
 <p>You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:</p>
@@ -2904,7 +3468,6 @@ b = temp</code></pre></td></tr></table>
 [(<span class="st">&#39;apples&#39;</span>, <span class="dv">430</span>), (<span class="st">&#39;bananas&#39;</span>, <span class="dv">312</span>), (<span class="st">&#39;oranges&#39;</span>, <span class="dv">525</span>), (<span class="st">&#39;pears&#39;</span>, <span class="dv">217</span>)]</code></pre>
 <p>The reason is dictionaries are very fast, implemented using a technique called hashing, which allows us to access a value very quickly. By contrast, the list of tuples implementation is slow. If we wanted to find a value associated with a key, we would have to iterate over every tuple, checking the 0th element. What if the key wasn’t even in the list? We would have to get to the end of it to find out.</p>
 </aside>
-
 <p>Another way to create a dictionary is to provide a list of key:value pairs using the same syntax as the previous output:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2sp = {<span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>, <span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;three&quot;</span>: <span class="st">&quot;tres&quot;</span>}</code></pre>
 <p>It doesn’t matter what order we write the pairs. The values in a dictionary are accessed with keys, not with indices, so there is no need to care about ordering.</p>
@@ -3035,24 +3598,16 @@ Traceback (most recent call last):
 <section id="case-study-snowden-content-analysis" class="level3">
 <h3>Case Study: Snowden Content Analysis</h3>
 <aside id="snowden_read_file" style="top: 280px;">
-
 <p><strong>read_file</strong> uses the <strong>buil-in function</strong> <code>open()</code> to read a plain text file into a <strong>file object</strong>. The function <strong>returns</strong> the text as a <code>string</code>.</p>
 </aside>
-
-
 <aside id="snowden_word_map" style="top: 365px;">
-
 <p>The <strong>word_map function</strong> uses a Python <code>dict</code> to map the key words identified in the parameter <code>find</code> to the number of times they occur in the text. The text is passed in as an argument to this function as a <code>list</code> of <code>words</code>.</p>
 <p>This function uses <code>list</code> and <code>dict</code> <strong>data structures</strong>. Line 23 initializes and empty <code>dict</code> called wordMap. The <code>find</code> parameter is a <code>list</code> that let’s the function know which words to count. The first <code>for</code> loop on line 25 iterates over the words in <code>find</code> and adds a new <strong>key</strong> to wordMap with the <strong>value</strong> zero. We use the String function <code>lower()</code> to force all keys to lowercase. The second loop (29) iterates through the words in the text. For each word in the list we use the <strong>string function</strong> <code>strip()</code> to remove punctation. The <strong>string module</strong> was <strong>imported</strong> on line 9, so that we can access its list of punctation characters here, on line 30.</p>
 <p>The body of the second loop uses the <code>in</code> operator to test if a word from the text is in our list of words to find. If the word is found, we <strong>increment</strong> the value for that word in our <code>dict</code>. Finally, the function returns a map of <strong>key-value pairs</strong> where the keys are the words that were found. The values are <code>ints</code> indicating the number of times the word was found in the text (0..<em>n</em>). The function <strong>returns</strong> this word frequency map.</p>
 </aside>
-
 <aside id="snowden_describe" style="top: 794px;">
-
 <p>The <strong>describe</strong> function presents the results to the user by printing information to the console. This function is not very <strong>abstract</strong> — it can only be used to analyze the Snowden news reports.</p>
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -3205,33 +3760,33 @@ Traceback (most recent call last):
 main()</code></pre></td></tr></table>
 </section>
 </section>
-<section id="glossary-6" class="level2">
+<section id="glossary-7" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>dictionary</dt>
-<dd><p>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.</p>
+<dd>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>key</dt>
-<dd><p>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.</p>
+<dd>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.
 </dd>
 <dt>key:value pair</dt>
-<dd><p>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.</p>
+<dd>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.
 </dd>
 <dt>mapping type</dt>
-<dd><p>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.</p>
+<dd>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.
 </dd>
 <dt>memo</dt>
-<dd><p>Temporary storage of precomputed values to avoid duplicating the same computation.</p>
+<dd>Temporary storage of precomputed values to avoid duplicating the same computation.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 </dl>
 </section>
-<section id="exercises-5" class="level2">
+<section id="exercises-6" class="level2">
 <h2>Exercises</h2>
 <ol>
 <li><p>Write a program that reads a string and returns a table of the letters of the alphabet in alphabetical order which occur in the string together with the number of times each letter occurs. Case should be ignored. A sample output of the program when the user enters the data “ThiS is String with Upper and lower case Letters”, would look this this:</p>
@@ -3266,17 +3821,13 @@ absurd            2</code></pre></li>
 <li>leave apostrophes and hyphenated words intact</li>
 </ol>
 </aside>
-
 <aside id="teachers_while" style="top: 1083px;">
 <p><code>strip_non_chars</code> is applied to every word in the text. Python’s built-in <code>strip</code> function removes spaces or other characters from the start or end of strings, but, in this case, we know the characters we want to keep, but not the ones we want to strip—we want to keep the 26 lowercase English letters and the digits 0-9. We remove any other character found at the start or end of the word. We chose to implement this using a <strong>while loop</strong>. Unlike like <strong>for</strong> loops, while loops provide an <em>indefinite loop</em>—we do not know who many iterations are needed. In this case, we continue the loop until we find a valid character.</p>
 This function has 2 while loops. The first drops the first character of the word (using the string slice syntax) until the first character is valid. The second loop does the same, but works from the last character.
 </aside>
-
 <aside id="teachers_freak" style="top: 1400px">
 Counting word frequencies—the number of times a word occurs in the text—is the main tool offered by this program to analyze text. The algorithm in <code>freq</code> is familiar to us by now: iterate over a list of words in a for loop, use unique words as <strong>dictionary keys</strong> and keep a <strong>running total</strong> of each word as the dictionary <strong>value</strong>. The word frequency map return allows quick and easy access to the frequency of every word in the text.
 </aside>
-
-
 <aside id="teachers_freak_sort" style="top: 1715px">
 <p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
 <p><code>freq_list</code> solves this problem by sorting the dictionary items based on the word count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
@@ -3287,20 +3838,15 @@ Counting word frequencies—the number of times a word occurs in the text—is t
 <li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without changing the <strong>interface</strong> to our function)</li>
 </ol>
 </aside>
-
-<aside id="teachers_common" style="top: 2342px;"> 
+<aside id="teachers_common" style="top: 2342px;">
 Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. The variable <code>commonWords</code> is defined as a list of strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong> —<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
 </aside>
-
 <aside id="teachers_neighbors" style="top: 2600px;">
 <code>neighbors</code> helps us examine co-occurances of words in the text. This function defines three <strong>parameters</strong>: <code>words</code> is the list of tuples to analyze, <code>targetWords</code> is a sub-list of words we will run our neighbor analysis on, and the <strong>int</strong> <code>n</code> indicates how for away from our target word we want to investigate. if <code>n == 1</code>, we will only count co-locations of words contiguous with our target word. For more on <code>neighbors</code> please see the example below the code listing.
 </aside>
-
 <aside id="teachers_compare" style="top: 2800px;">
 <code>compare</code> offers a comparison of two word frequency dictionaries to find which words have the greatest disparity in occurrences. In this function we see a new Python <em>data structure</em>, <strong>set</strong>. “A set is an unordered collection with no duplicate elements” <a href="http://docs.python.org/3.3/tutorial/datastructures.html#sets">*</a>. In this case we use <strong>set</strong> to make a unique set of keys from both dictionaries. We create the set from the <code>keys</code> in dictionary <code>a</code> on line 188 and then add any missing <code>keys</code> from dict <code>b</code> on line 189 by calling sets <code>update</code> method. In our loop (lines 193-197) we add tuples to a new list, in the format (word, difference in counts between a &amp; b). We use the built-in <code>abs</code> function, because, here, we care about the difference, not <em>which</em> dict had the greater count. Once this list of differences is created, we sort it by counts using the <code>list_freqs</code> function we already defined.
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -3858,8 +4404,6 @@ While previously well <span style="color:
 blue">known in <span style="color: red">education</span> circles, she</span> gained a much broader audience after she publicly rejected almost everything she had once believed. In a surprise 2010 best seller, “The Death and Life of the Great American School System,” she openly declared that she had been wrong to <span style="color: blue">champion standardized <span style="color: 
 red">testing</span>, charter schools</span> and vouchers. She says she is trying now to make up for past errors.
 </p>
-
-
 <p>If we run <code>neighbors</code> with <code>targetWords=[&quot;testing&quot;, &quot;education&quot;], n=2</code> we would create a dictionary that looks something like this:</p>
 <table>
 <thead>
@@ -4003,15 +4547,12 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>You’ll notice that if you don’t stop when you reach 1, the sequence gets into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility is that there might be other cycles that we just haven’t found yet.</p>
 <p>Wikipedia has an informative article about the Collatz conjecture. The sequence also goes under other names (Hailstone sequence, Wonderous numbers, etc.), and you’ll find out just how many integers have already been tested by computer, and found to converge!</p>
 <aside id="for-or-while">
-
 <p><strong>Choosing between <code>for</code> and <code>while</code></strong></p>
 <p>Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body.<br />For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run.</p>
 <p>So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best.</p>
 <p>By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this 3n + 1 problem, you’ll need a <code>while</code> loop.</p>
 <p>We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
 </aside>
-
-
 </section>
 <section id="tracing-a-program" class="level2">
 <h2>Tracing a program</h2>
@@ -4129,76 +4670,6 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>One of the characteristics of algorithms is that they do not require any intelligence to carry out. They are mechanical processes in which each step follows from the last according to a simple set of rules. And they’re designed to solve a general class or category of problems, not just a single problem.</p>
 <p>Understanding that hard problems can be solved by step-by-step algorithmic processes (and having technology to execute these algorithms for us) is one of the major breakthroughs that has had enormous benefits. So while the execution of the algorithm may be boring and may require no intelligence, algorithmic or computational thinking — i.e. using algorithms and automation as the basis for approaching problems — is rapidly transforming our society. Some claim that this shift towards algorithmic thinking and processes is going to have even more impact on our society than the invention of the printing press.<br />And the process of designing algorithms is interesting, intellectually challenging, and a central part of what we call programming.</p>
 <p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain <em>how</em> we do it, at least not in the form of a step-by-step mechanical algorithm.</p>
-</section>
-</section>
-<section id="contributor-list" class="level1">
-<h1>Contributor List</h1>
-<p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
-<p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>
-<p>If you have a chance to look through the list, you should realize that each person here has spared you and all subsequent readers from the confusion of a technical error or a less-than-transparent explanation, just by sending us a note.</p>
-<p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <code>p.wentworth@ru.ac.za &lt;mailto:p.wentworth@ru.ac.za&gt;</code>__ . Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
-<section id="second-edition" class="level2">
-<h2>Second Edition</h2>
-<ul>
-<li>An email from Mike MacHenry set me straight on tail recursion. He not only pointed out an error in the presentation, but suggested how to correct it.</li>
-<li>It wasn’t until 5th Grade student Owen Davies came to me in a Saturday morning Python enrichment class and said he wanted to write the card game, Gin Rummy, in Python that I finally knew what I wanted to use as the case study for the object oriented programming chapters.</li>
-<li>A <em>special</em> thanks to pioneering students in Jeff’s Python Programming class at <code>GCTAA &lt;http://www.arlington.k12.va.us/1540108115320583/blank/browse.asp?A=383&amp;BMDRN=2000&amp;BCOB=0&amp;C=59085&gt;</code>__ during the 2009-2010 school year: Safath Ahmed, Howard Batiste, Louis Elkner-Alfaro, and Rachel Hancock. Your continual and thoughtfull feedback led to changes in most of the chapters of the book. You set the standard for the active and engaged learners that will help make the new Governor’s Academy what it is to become. Thanks to you this is truly a <em>student tested</em> text.</li>
-<li>Thanks in a similar vein to the students in Jeff’s Computer Science class at the HB-Woodlawn program during the 2007-2008 school year: James Crowley, Joshua Eddy, Eric Larson, Brian McGrail, and Iliana Vazuka.</li>
-<li>Ammar Nabulsi sent in numerous corrections from Chapters 1 and 2.</li>
-<li>Aldric Giacomoni pointed out an error in our definition of the Fibonacci sequence in Chapter 5.</li>
-<li>Roger Sperberg sent in several spelling corrections and pointed out a twisted piece of logic in Chapter 3.</li>
-<li>Adele Goldberg sat down with Jeff at PyCon 2007 and gave him a list of suggestions and corrections from throughout the book.</li>
-<li>Ben Bruno sent in corrections for chapters 4, 5, 6, and 7.</li>
-<li>Carl LaCombe pointed out that we incorrectly used the term commutative in chapter 6 where symmetric was the correct term.</li>
-<li>Alessandro Montanile sent in corrections for errors in the code examples and text in chapters 3, 12, 15, 17, 18, 19, and 20.</li>
-<li>Emanuele Rusconi found errors in chapters 4, 8, and 15.</li>
-<li>Michael Vogt reported an indentation error in an example in chapter 6, and sent in a suggestion for improving the clarity of the shell vs. script section in chapter 1.</li>
-</ul>
-</section>
-<section id="first-edition" class="level2">
-<h2>First Edition</h2>
-<ul>
-<li>Lloyd Hugh Allen sent in a correction to Section 8.4.</li>
-<li>Yvon Boulianne sent in a correction of a semantic error in Chapter 5.</li>
-<li>Fred Bremmer submitted a correction in Section 2.1.</li>
-<li>Jonah Cohen wrote the Perl scripts to convert the LaTeX source for this book into beautiful HTML.</li>
-<li>Michael Conlon sent in a grammar correction in Chapter 2 and an improvement in style in Chapter 1, and he initiated discussion on the technical aspects of interpreters.</li>
-<li>Benoit Girard sent in a correction to a humorous mistake in Section 5.6.</li>
-<li>Courtney Gleason and Katherine Smith wrote <code>horsebet.py</code>, which was used as a case study in an earlier version of the book. Their program can now be found on the website.</li>
-<li>Lee Harr submitted more corrections than we have room to list here, and indeed he should be listed as one of the principal editors of the text.</li>
-<li>James Kaylin is a student using the text. He has submitted numerous corrections.</li>
-<li>David Kershaw fixed the broken <code>catTwice</code> function in Section 3.10.</li>
-<li>Eddie Lam has sent in numerous corrections to Chapters 1, 2, and 3. He also fixed the Makefile so that it creates an index the first time it is run and helped us set up a versioning scheme.</li>
-<li>Man-Yong Lee sent in a correction to the example code in Section 2.4.</li>
-<li>David Mayo pointed out that the word unconsciously in Chapter 1 needed to be changed to subconsciously .</li>
-<li>Chris McAloon sent in several corrections to Sections 3.9 and 3.10.</li>
-<li>Matthew J. Moelter has been a long-time contributor who sent in numerous corrections and suggestions to the book.</li>
-<li>Simon Dicon Montford reported a missing function definition and several typos in Chapter 3. He also found errors in the <code>increment</code> function in Chapter 13.</li>
-<li>John Ouzts corrected the definition of return value in Chapter 3.</li>
-<li>Kevin Parks sent in valuable comments and suggestions as to how to improve the distribution of the book.</li>
-<li>David Pool sent in a typo in the glossary of Chapter 1, as well as kind words of encouragement.</li>
-<li>Michael Schmitt sent in a correction to the chapter on files and exceptions.</li>
-<li>Robin Shaw pointed out an error in Section 13.1, where the printTime function was used in an example without being defined.</li>
-<li>Paul Sleigh found an error in Chapter 7 and a bug in Jonah Cohen’s Perl script that generates HTML from LaTeX.</li>
-<li>Craig T. Snydal is testing the text in a course at Drew University. He has contributed several valuable suggestions and corrections.</li>
-<li>Ian Thomas and his students are using the text in a programming course. They are the first ones to test the chapters in the latter half of the book, and they have make numerous corrections and suggestions.</li>
-<li>Keith Verheyden sent in a correction in Chapter 3.</li>
-<li>Peter Winstanley let us know about a longstanding error in our Latin in Chapter 3.</li>
-<li>Chris Wrobel made corrections to the code in the chapter on file I/O and exceptions.</li>
-<li>Moshe Zadka has made invaluable contributions to this project. In addition to writing the first draft of the chapter on Dictionaries, he provided continual guidance in the early stages of the book.</li>
-<li>Christoph Zwerschke sent several corrections and pedagogic suggestions, and explained the difference between <em>gleich</em> and <em>selbe</em>.</li>
-<li>James Mayer sent us a whole slew of spelling and typographical errors, including two in the contributor list.</li>
-<li>Hayden McAfee caught a potentially confusing inconsistency between two examples.</li>
-<li>Angel Arnal is part of an international team of translators working on the Spanish version of the text. He has also found several errors in the English version.</li>
-<li>Tauhidul Hoque and Lex Berezhny created the illustrations in Chapter 1 and improved many of the other illustrations.</li>
-<li>Dr. Michele Alzetta caught an error in Chapter 8 and sent some interesting pedagogic comments and suggestions about Fibonacci and Old Maid.</li>
-<li>Andy Mitchell caught a typo in Chapter 1 and a broken example in Chapter 2.</li>
-<li>Kalin Harvey suggested a clarification in Chapter 7 and caught some typos.</li>
-<li>Christopher P. Smith caught several typos and is helping us prepare to update the book for Python 2.2.</li>
-<li>David Hutchins caught a typo in the Foreword.</li>
-<li>Gregor Lingl is teaching Python at a high school in Vienna, Austria. He is working on a German translation of the book, and he caught a couple of bad errors in Chapter 5.</li>
-<li>Julie Peters caught a typo in the Preface.</li>
-</ul>
 </section>
 </section>
 </body>

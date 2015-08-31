@@ -104,5 +104,5 @@ if __name__ == "__main__":
     main(sys.argv[1])
 
 
-convert("casestudy_fileindexer")
+# convert("casestudy_fileindexer")
 #convert("dictionaries")
