@@ -2,5 +2,5 @@
 
 CHAPTERS="forward.md preface.md way_of_the_program.md functions.md iteration.md lists.md tuples.md dictionaries.md schools.md while.md contrib.md";
 
-pandoc -o index.html --highlight-style zenburn -t html5 -s -S --toc --section-divs -N -H ./tmpl/style.css $CHAPTERS;
+pandoc -o index.html --highlight-style zenburn -t html5 -s -S --toc --section-divs -H ./tmpl/style.css $CHAPTERS;
 

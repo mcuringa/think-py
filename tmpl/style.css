@@ -48,13 +48,39 @@ h1
     padding-top: 3em;
 }
 
-h1 .header-section-number:before
-{
-    content: "Part ";
+
+
+#foreword, #the-way-of-the-program {
+    counter-reset: section;
 }
-h1 .header-section-number:after
+
+section.level1 {
+    counter-increment: section;
+    counter-reset: subsection;
+}
+
+
+h1:before
 {
-    content: ":";
+    content: "Part " counter(section) ": ";
+}
+
+#forward h1:before, #preface h1:before
+{
+    content: "Part " counter(section, lower-roman) ": ";
+}
+
+
+
+
+
+h2:before {
+    counter-increment: subsection;
+    content: counter(section) "." counter(subsection) " ";
+}
+
+h1.title:before, h2.author:before {
+    content: "";
 }
 
 
@@ -80,6 +106,11 @@ h1.title
     clear: both;
     color: #ab1c19;
 }
+
+
+
+
+
 
 h2.author
 {
