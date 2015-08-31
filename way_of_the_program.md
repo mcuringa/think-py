@@ -44,40 +44,41 @@ correct. Second, high-level languages are **portable**, meaning that they can
 run on different kinds of computers with few or no modifications.  
 
 The engine that translates and runs Python is called the **Python Interpreter**: 
-There are two ways to use it: *immediate mode* and *script
+There are two ways to use it: *interactive or immediate mode* and *script
 mode*. In immediate mode, you type Python expressions into the Python Interpreter window, 
 and the interpreter immediately shows the result:
 
-![Screen shot of interpreter](.. image:: illustrations/interpreter_sshot.png)\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.bash}
+
+Python 3.4.1 (v3.4.1:c0e311e010fc, May 18 2014, 00:54:21) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 2+2
+4
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``>>>`` is called the **Python prompt**. The interpreter uses the prompt to indicate that it is ready for
 instructions. We typed ``2 + 2``, and the interpreter evaluated our expression, and replied ``4``, 
 and on the next line it gave a new prompt, indicating that it is ready for more input.   
 
 Alternatively, you can write a program in a file and use the interpreter to
-execute the contents of the file. Such a file is called a **script**.   Scripts have the
+execute the contents of the file. Such a file is called a **script**. Scripts have the
 advantage that they can be saved to disk, printed, and so on. 
-   
-In this Rhodes Local Edition of the textbook, we use a program development environment called
-**PyScripter**. (It is available at http://code.google.com/p/pyscripter.)  There are various other
-development environments. If you're using one of the others, you might be
-better off working with the authors' original book rather than this edition.
 
-For example, we created a file named ``firstprogram.py`` using PyScripter.
+For example, we created a file named ``firstprogram.py`` using our text editor.
 By convention, files that contain Python programs have names that end with
 ``.py``
 
-To execute the program, we can click the **Run** button in PyScripter:
+To execute the program, we can run the command ``python firstprogram.py`` from the commnand prompt. Alternatively, our text editor or development environment (e.g. IDLE, PyCharm, or Sublime Text) may have a "run" command to execute the script:
 
-![first program screenshot](.. image:: illustrations/my_first_program.png)\ 
+![firstprogram.py run in Sublime Text](figs/first-program.png)
 
 Most programs are more interesting than this one.
 
 Working directly in the interpreter is convenient for testing short bits of code because you
 get immediate feedback. Think of it as scratch paper used to help you work out
 problems. Anything longer than a few lines should be put into a script.
-
-
 
 What is a program?
 ------------------
@@ -132,13 +133,10 @@ often leads to errors. Programming errors are called
 **debugging**.  Use of the term *bug* to describe small engineering difficulties
 dates back to at least 1889, when Thomas Edison had a bug with his phonograph.
 
-Three kinds of errors can occur in a program: `syntax errors
-<http://en.wikipedia.org/wiki/Syntax_error>`__, `runtime errors
-<http://en.wikipedia.org/wiki/Runtime_error>`__, and `semantic errors
-<http://en.wikipedia.org/wiki/Logic_error>`__.  It is useful to
+Three kinds of errors can occur in a program: [syntax errors](http://en.wikipedia.org/wiki/Syntax_error), 
+[runtime errors](http://en.wikipedia.org/wiki/Runtime_error), 
+and [semantic errors](http://en.wikipedia.org/wiki/Logic_error). It is useful to
 distinguish between them in order to track them down more quickly.
-
-
 
 Syntax errors
 -------------
@@ -157,8 +155,6 @@ to run your program. During the first few weeks of your programming career, you
 will probably spend a lot of time tracking down syntax errors. As you gain
 experience, though, you will make fewer errors and find them faster.
 
-
-
 Runtime errors
 --------------
 
@@ -169,8 +165,6 @@ bad) has happened.
 
 Runtime errors are rare in the simple programs you will see in the first few
 chapters, so it might be a while before you encounter one.
-
-
 
 Semantic errors
 ---------------
@@ -184,8 +178,6 @@ The problem is that the program you wrote is not the program you wanted to
 write. The meaning of the program (its semantics) is wrong.  Identifying
 semantic errors can be tricky because it requires you to work backward by
 looking at the output of the program and trying to figure out what it is doing.
-
-
 
 Experimental debugging
 ----------------------
@@ -220,8 +212,6 @@ BBBB. This later evolved to Linux (*The Linux Users' Guide* Beta Version 1).
 Later chapters will make more suggestions about debugging and other programming
 practices.
 
-
-
 Formal and natural languages
 ----------------------------
 
@@ -240,25 +230,25 @@ molecules. And most importantly:
 
 Formal languages tend to have strict rules about syntax. For example, ``3+3=6``
 is a syntactically correct mathematical statement, but ``3=+6$`` is not.
-H\ :sub:`2`\ O is a syntactically correct chemical name, but :sub:`2`\ Zz is
+H<sub>2</sub>O is a syntactically correct chemical name, but <sub>2</sub>Zz is
 not.
 
 Syntax rules come in two flavors, pertaining to **tokens** and structure.
 Tokens are the basic elements of the language, such as words, numbers, parentheses,
-commas, and so on. In Python, a statement like ``print("Happy New Year for ",2013)`` 
+commas, and so on. In Python, a statement like ``print("Happy New Year for ", 2013)`` 
 has 6 tokens: a function name, an open parenthesis (round bracket), a string, a comma, a number, and a close parenthesis.
 
 It is possible to make errors in the way one constructs tokens.  
 One of the problems with ``3=+6$`` is that ``$`` is not a
 legal token in mathematics (at least as far as we know). Similarly,
-:sub:`2`\ Zz is not a legal token in chemistry notation because there is no element with the abbreviation
+<sub>2</sub>Zz is not a legal token in chemistry notation because there is no element with the abbreviation
 ``Zz``.
 
-The second type of syntax rule pertains to the **structure** of a statement--- that
+The second type of syntax rule pertains to the **structure** of a statement—that
 is, the way the tokens are arranged. The statement ``3=+6$`` is structurally
 illegal because you can't place a plus sign immediately after an equal sign.
-Similarly, molecular formulas have to have subscripts after the element name,
-not before.  And in our Python example, if we omitted the comma, or if we changed the two
+Similarly, molecular formulas have to have subscripts _after_ the element name,
+not before. And in our Python example, if we omitted the comma, or if we changed the two
 parentheses around to say  ``print)"Happy New Year for ",2013(`` our statement would still
 have six legal and valid tokens, but the structure is illegal.
 
@@ -272,8 +262,8 @@ a sentence, you can figure out what it means, or the **semantics** of the senten
 Assuming that you know what a shoe is and what it means to fall, you will
 understand the general implication of this sentence.
 
-Although formal and natural languages have many features in common --- tokens,
-structure, syntax, and semantics --- there are many differences:
+Although formal and natural languages have many features in common—tokens,
+structure, syntax, and semantics—there are many differences:
 
 Glossary
 ---------
@@ -300,26 +290,27 @@ literalness
     original joke to understand the idiomatic meaning of the other shoe falling. 
     *Yahoo! Answers* thinks it knows!  
 
-People who grow up speaking a natural language---everyone---often have a hard
+People who grow up speaking a natural language—everyone—often have a hard
 time adjusting to formal languages. In some ways, the difference between formal
 and natural language is like the difference between poetry and prose, but more
 so:
 
-.. glossary::
+poetry
 
-    poetry
-        Words are used for their sounds as well as for their meaning, and the
-        whole poem together creates an effect or emotional response. Ambiguity
-        is not only common but often deliberate.
+:   Words are used for their sounds as well as for their meaning, and the
+    whole poem together creates an effect or emotional response. Ambiguity
+    is not only common but often deliberate.
 
-    prose
-        The literal meaning of words is more important, and the structure
-        contributes more meaning. Prose is more amenable to analysis than
-        poetry but still often ambiguous.
+prose
+    
+:   The literal meaning of words is more important, and the structure
+    contributes more meaning. Prose is more amenable to analysis than
+    poetry but still often ambiguous.
 
-    program
-        The meaning of a computer program is unambiguous and literal, and can
-        be understood entirely by analysis of the tokens and structure.
+program
+
+:   The meaning of a computer program is unambiguous and literal, and can
+    be understood entirely by analysis of the tokens and structure.
 
 Here are some suggestions for reading programs (and other formal languages).
 First, remember that formal languages are much more dense than natural
@@ -338,7 +329,6 @@ Traditionally, the first program written in a new language is called *Hello,
 World!* because all it does is display the words, Hello, World!  In Python, the script
 looks like this: (For scripts, we'll show line numbers to the left of the Python statements.)
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 print("Hello, World!")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -347,20 +337,16 @@ This is an example of using the **print function**, which doesn't actually print
 anything on paper. It displays a value on the screen. In this case, the result shown
 is
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.bash}
 Hello, World!
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The quotation marks in the program mark the beginning and end of the value;
 they don't appear in the result.
 
 Some people judge the quality of a programming language by the simplicity of
 the Hello, World! program. By this standard, Python does about as well as
 possible.
-
-
 
 
 Comments
@@ -389,8 +375,8 @@ is ignored.   Here is a new version of *Hello, World!*.
 
 print("Hello, World!")     # Isn't this easy! 
       
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 You'll also notice that we've left a blank line in the program.  Blank lines
 are also ignored by the interpreter, but comments and blank lines can make your
 programs much easier for humans to parse.  Use them liberally! 
@@ -399,106 +385,130 @@ programs much easier for humans to parse.  Use them liberally!
 Glossary
 --------
 
-.. glossary::
+algorithm
 
-    algorithm
-        A set of specific steps for solving a category of problems.
+:   A set of specific steps for solving a category of problems.
 
-    bug
-        An error in a program.
+bug
 
-    comment
-        Information in a program that is meant for other programmers (or anyone
-        reading the source code) and has no effect on the execution of the
-        program.    
+:   An error in a program.
 
-    debugging
-        The process of finding and removing any of the three kinds of
-        programming errors.
+comment
 
-    exception
-        Another name for a runtime error.
+:   Information in a program that is meant for other programmers (or anyone
+    reading the source code) and has no effect on the execution of the
+    program.    
 
-    formal language
-        Any one of the languages that people have designed for specific
-        purposes, such as representing mathematical ideas or computer programs;
-        all programming languages are formal languages.
+debugging
 
-    high-level language
-        A programming language like Python that is designed to be easy for
-        humans to read and write.
+:   The process of finding and removing any of the three kinds of
+    programming errors.
 
-    immediate mode
-        A style of using Python where we type expressions at the command prompt, and 
-        the results are shown immediately.  Contrast with **script**, and see the
-        entry under **Python shell**.
+exception
+
+:   Another name for a runtime error.
+
+formal language
+
+:   Any one of the languages that people have designed for specific
+    purposes, such as representing mathematical ideas or computer programs;
+    all programming languages are formal languages.
+
+high-level language
+
+:   A programming language like Python that is designed to be easy for
+    humans to read and write.
+
+immediate mode
+
+:   A style of using Python where we type expressions at the command prompt, and 
+    the results are shown immediately.  Contrast with **script**, and see the
+    entry under **Python shell**.
+
+interpreter
+
+:   The engine that executes your Python scripts or expressions.
     
-    interpreter
-        The engine that executes your Python scripts or expressions.
-        
-    low-level language
-        A programming language that is designed to be easy for a computer to
-        execute; also called machine language or assembly language.
+low-level language
 
-    natural language
-        Any one of the languages that people speak that evolved naturally.
+:   A programming language that is designed to be easy for a computer to
+    execute; also called machine language or assembly language.
 
-    object code
-        The output of the compiler after it translates the program.
+natural language
 
-    parse
-        To examine a program and analyze the syntactic structure.
+:   Any one of the languages that people speak that evolved naturally.
 
-    portability
-        A property of a program that can run on more than one kind of computer.
+object code
 
-    print function
-        A function used in a program or script that causes the Python interpreter to 
-        display a value on its output device.
+:   The output of the compiler after it translates the program.
 
-    problem solving
-        The process of formulating a problem, finding a solution, and
-        expressing the solution.
+parse
 
-    program
-        a sequence of instructions that specifies to a computer actions and
-        computations to be performed.
+:   To examine a program and analyze the syntactic structure.
 
-    Python shell
-        An interactive user interface to the Python interpreter. The user of a
-        Python shell types commands at the prompt (>>>), and presses the return
-        key to send these commands immediately to the interpreter for
-        processing.  The word *shell* comes from Unix.  In the PyScripter 
-        used in this RLE version of the book, the Interpreter Window is where
-        we'd do the immediate mode interaction.  
+portability
 
-    runtime error
-        An error that does not occur until the program has started to execute
-        but that prevents the program from continuing.
+:   A property of a program that can run on more than one kind of computer.
 
-    script
-        A program stored in a file (usually one that will be interpreted).
+print function
 
-    semantic error
-        An error in a program that makes it do something other than what the
-        programmer intended.
+:   A function used in a program or script that causes the Python interpreter to 
+    display a value on its output device.
 
-    semantics
-        The meaning of a program.
+problem solving
 
-    source code
-        A program in a high-level language before being compiled.
+:   The process of formulating a problem, finding a solution, and
+    expressing the solution.
 
-    syntax
-        The structure of a program.
+program
 
-    syntax error
-        An error in a program that makes it impossible to parse --- and
-        therefore impossible to interpret.
+:   a sequence of instructions that specifies to a computer actions and
+    computations to be performed.
 
-    token
-        One of the basic elements of the syntactic structure of a program,
-        analogous to a word in a natural language.
+Python shell
+
+:   An interactive user interface to the Python interpreter. The user of a
+    Python shell types commands at the prompt (>>>), and presses the return
+    key to send these commands immediately to the interpreter for
+    processing.  The word *shell* comes from Unix.  In the PyScripter 
+    used in this RLE version of the book, the Interpreter Window is where
+    we'd do the immediate mode interaction.  
+
+runtime error
+
+:   An error that does not occur until the program has started to execute
+    but that prevents the program from continuing.
+
+script
+
+:   A program stored in a file (usually one that will be interpreted).
+
+semantic error
+
+:   An error in a program that makes it do something other than what the
+    programmer intended.
+
+semantics
+
+:   The meaning of a program.
+
+source code
+
+:   A program in a high-level language before being compiled.
+
+syntax
+
+:   The structure of a program.
+
+syntax error
+
+:   An error in a program that makes it impossible to parse --- and
+    therefore impossible to interpret.
+
+token
+
+:   One of the basic elements of the syntactic structure of a program,
+    analogous to a word in a natural language.
 
 
 Exercises

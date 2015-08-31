@@ -46,14 +46,21 @@ correct. Second, high-level languages are **portable**, meaning that they can
 run on different kinds of computers with few or no modifications.  
 
 The engine that translates and runs Python is called the **Python Interpreter**: 
-There are two ways to use it: *immediate mode* and *script
-mode*. In immediate mode, you type Python expressions into the Python Interpreter window, 
+There are two ways to use it: *interactive or immediate mode* and *script
+mode*. In interactive mode, you type Python expressions into the Python Interpreter window, 
 and the interpreter immediately shows the result:
 
-.. image:: illustrations/interpreter_sshot.png
-   :alt: Screen shot of interpreter
+   .. sourcecode:: python3
 
-The ``>>>`` is called the **Python prompt**. The interpreter uses the prompt to indicate that it is ready for
+        Python 3.4.1 (v3.4.1:c0e311e010fc, May 18 2014, 00:54:21) 
+        [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> 2+2
+        4
+
+
+
+asdfasdfasdsdfadsaffds. The ``>>>`` is called the **Python prompt**. The interpreter uses the prompt to indicate that it is ready for
 instructions. We typed ``2 + 2``, and the interpreter evaluated our expression, and replied ``4``, 
 and on the next line it gave a new prompt, indicating that it is ready for more input.   
 
