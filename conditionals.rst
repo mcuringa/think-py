@@ -1,29 +1,9 @@
-..  Copyright (C)  Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers.
-    Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.3
-    or any later version published by the Free Software Foundation;
-    with Invariant Sections being Foreword, Preface, and Contributor List, no
-    Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is
-    included in the section entitled "GNU Free Documentation License".
-
-|    
-    
 Conditionals
 ============
 
 Programs get really interesting when we can test conditions and change the 
 program behaviour depending on the outcome of the tests.  That's what this
 chapter is about. 
-
-.. index::
-    single: Boolean value
-    single: value; Boolean
-    single: Boolean expression
-    single: expression; Boolean
-    single: logical operator
-    single: operator; logical 
-    single: operator; comparison
-    single: comparison operator
 
 Boolean values and expressions
 ------------------------------
@@ -133,36 +113,36 @@ operators each have two operands, there are only four rows in a truth table that
 describes the semantics of ``and``.
 
 
-  ======= =======  ========
-  a       b        a and b
-  ======= =======  ========
-  False   False    False
-  False   True     False
-  True    False    False
-  True    True     True
-  ======= =======  ========
+======= =======  ========
+a       b        a and b
+======= =======  ========
+False   False    False
+False   True     False
+True    False    False
+True    True     True
+======= =======  ========
 
 In a Truth Table, we sometimes use T and F as shorthand for the two 
 Boolean values: here is the truth table describing ``or``:
 
-  ===  ===  =======
-  a    b    a or b
-  ===  ===  =======
-  F    F    F
-  F    T    T
-  T    F    T
-  T    T    T
-  ===  ===  =======
+===  ===  =======
+a    b    a or b
+===  ===  =======
+F    F    F
+F    T    T
+T    F    T
+T    T    T
+===  ===  =======
 
 The third logical operator, ``not``, only takes a single operand, so its truth table
 only has two rows:
 
-  ===  ======
-  a    not a
-  ===  ======
-  F    T
-  T    F
-  ===  ======
+===  ======
+a    not a
+===  ======
+F    T
+T    F
+===  ======
 
 
 Simplifying Boolean Expressions
@@ -931,3 +911,4 @@ Exercises
         print(a, a*a)                
         print(a*a == 2.0)
         
+-

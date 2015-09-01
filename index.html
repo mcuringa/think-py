@@ -70,6 +70,12 @@ code > span.er { color: #c3bf9f; }
       background-color: #F6CCDA;
   }
   
+  figcaption
+  {
+      font-weight: bold;
+      font-size: 90%;
+  }
+  
   h1,h2,h3,h4,h5, .header-section-number
   { 
       font-family: "Gil Sans", Futura, Ubuntu, "Century Gothic", sans-serif; 
@@ -167,7 +173,7 @@ code > span.er { color: #c3bf9f; }
   a { text-decoration: none; }
   a img { border-style: none; }
   
-  tr.odd { background-color: #d3d3d3; }
+  /*tr.odd { background-color: #d3d3d3; }*/
   
   p
   {
@@ -388,6 +394,16 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#glossary-2">Glossary</a></li>
 <li><a href="#exercises-1">Exercises</a></li>
 </ul></li>
+<li><a href="#hello-little-turtles">Hello, little turtles!</a><ul>
+<li><a href="#our-first-turtle-program">Our first turtle program</a></li>
+<li><a href="#instances-a-herd-of-turtles">Instances — a herd of turtles</a></li>
+<li><a href="#the-for-loop">The <strong>for</strong> loop</a></li>
+<li><a href="#flow-of-execution-of-the-for-loop">Flow of Execution of the for loop</a></li>
+<li><a href="#the-loop-simplifies-our-turtle-program">The loop simplifies our turtle program</a></li>
+<li><a href="#a-few-more-turtle-methods-and-tricks">A few more turtle methods and tricks</a></li>
+<li><a href="#glossary-3">Glossary</a></li>
+<li><a href="#exercises-2">Exercises</a></li>
+</ul></li>
 <li><a href="#functions">Functions</a><ul>
 <li><a href="#functions-1">Functions</a></li>
 <li><a href="#composition-functions-can-call-other-functions">Composition: Functions can call other functions</a></li>
@@ -395,12 +411,28 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#functions-that-require-arguments">Functions that require arguments</a></li>
 <li><a href="#functions-that-return-values">Functions that return values</a></li>
 <li><a href="#tips-revisited">Tips Revisited</a></li>
-<li><a href="#glossary-3">Glossary</a></li>
-<li><a href="#exercises-2">Exercises</a></li>
+<li><a href="#glossary-4">Glossary</a></li>
+<li><a href="#exercises-3">Exercises</a></li>
+</ul></li>
+<li><a href="#conditionals">Conditionals</a><ul>
+<li><a href="#boolean-values-and-expressions">Boolean values and expressions</a></li>
+<li><a href="#logical-operators">Logical operators</a></li>
+<li><a href="#truth-tables">Truth Tables</a></li>
+<li><a href="#simplifying-boolean-expressions">Simplifying Boolean Expressions</a></li>
+<li><a href="#conditional-execution">Conditional execution</a></li>
+<li><a href="#omitting-the-else-clause">Omitting the <code>else</code> clause</a></li>
+<li><a href="#chained-conditionals">Chained conditionals</a></li>
+<li><a href="#nested-conditionals">Nested conditionals</a></li>
+<li><a href="#the-return-statement">The <code>return</code> statement</a></li>
+<li><a href="#logical-opposites">Logical opposites</a></li>
+<li><a href="#type-conversion">Type conversion</a></li>
+<li><a href="#a-turtle-bar-chart">A Turtle Bar Chart</a></li>
+<li><a href="#glossary-5">Glossary</a></li>
+<li><a href="#exercises-4">Exercises</a></li>
 </ul></li>
 <li><a href="#iteration">Iteration</a><ul>
-<li><a href="#the-for-loop">The <code>for</code> loop</a></li>
-<li><a href="#flow-of-execution-of-the-for-loop">Flow of Execution of the for loop</a></li>
+<li><a href="#the-for-loop-1">The <code>for</code> loop</a></li>
+<li><a href="#flow-of-execution-of-the-for-loop-1">Flow of Execution of the for loop</a></li>
 <li><a href="#assignment">Assignment</a></li>
 <li><a href="#updating-variables">Updating variables</a></li>
 <li><a href="#the-for-loop-revisited">The <code>for</code> loop revisited</a></li>
@@ -417,8 +449,8 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#functions-2">Functions</a></li>
 <li><a href="#paired-data">Paired Data</a></li>
 <li><a href="#nested-loops-for-nested-data">Nested Loops for Nested Data</a></li>
-<li><a href="#glossary-4">Glossary</a></li>
-<li><a href="#exercises-3">Exercises</a></li>
+<li><a href="#glossary-6">Glossary</a></li>
+<li><a href="#exercises-5">Exercises</a></li>
 </ul></li>
 <li><a href="#lists">Lists</a><ul>
 <li><a href="#list-values">List values</a></li>
@@ -442,16 +474,16 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#list-and-range"><code>list</code> and <code>range</code></a></li>
 <li><a href="#nested-lists">Nested lists</a></li>
 <li><a href="#matrices">Matrices</a></li>
-<li><a href="#glossary-5">Glossary</a></li>
-<li><a href="#exercises-4">Exercises</a></li>
+<li><a href="#glossary-7">Glossary</a></li>
+<li><a href="#exercises-6">Exercises</a></li>
 </ul></li>
 <li><a href="#tuples">Tuples</a><ul>
 <li><a href="#tuples-are-used-for-grouping-data">Tuples are used for grouping data</a></li>
 <li><a href="#tuple-assignment">Tuple assignment</a></li>
 <li><a href="#tuples-as-return-values">Tuples as return values</a></li>
 <li><a href="#composability-of-data-structures">Composability of Data Structures</a></li>
-<li><a href="#glossary-6">Glossary</a></li>
-<li><a href="#exercises-5">Exercises</a></li>
+<li><a href="#glossary-8">Glossary</a></li>
+<li><a href="#exercises-7">Exercises</a></li>
 </ul></li>
 <li><a href="#dictionaries">Dictionaries</a><ul>
 <li><a href="#dictionary-operations">Dictionary operations</a></li>
@@ -459,8 +491,8 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#aliasing-and-copying">Aliasing and copying</a></li>
 <li><a href="#counting-letters">Counting letters</a></li>
 <li><a href="#word-frequencies">Word Frequencies</a></li>
-<li><a href="#glossary-7">Glossary</a></li>
-<li><a href="#exercises-6">Exercises</a></li>
+<li><a href="#glossary-9">Glossary</a></li>
+<li><a href="#exercises-8">Exercises</a></li>
 </ul></li>
 <li><a href="#content-analysis-of-ny-times-school-related-articles">Content Analysis of NY Times school-related articles</a><ul>
 <li><a href="#case-study-dictionaries-tuples-lists-more">Case Study: Dictionaries, tuples, lists &amp; more</a></li>
@@ -499,7 +531,7 @@ code > span.er { color: #c3bf9f; }
 <p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <script type="text/javascript">
 <!--
 h='&#114;&#x75;&#46;&#x61;&#x63;&#46;&#122;&#x61;';a='&#64;';n='&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;&#32;&#x61;&#116;&#32;&#114;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x63;&#32;&#100;&#x6f;&#116;&#32;&#122;&#x61;</noscript>. Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
 <section id="second-edition" class="level3">
@@ -586,7 +618,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p><em>How to Think Like a Computer Scientist</em> was not just an excellent book, but it had been released under the GNU public license, which meant it could be used freely and modified to meet the needs of its user. Once I decided to use Python, it occurred to me that I could translate Allen’s original Java version of the book into the new language. While I would not have been able to write a textbook on my own, having Allen’s book to work from made it possible for me to do so, at the same time demonstrating that the cooperative development model used so well in software could also work for educational materials.</p>
 <p>Working on this book for the last two years has been rewarding for both my students and me, and my students played a big part in the process. Since I could make instant changes whenever someone found a spelling error or difficult passage, I encouraged them to look for mistakes in the book by giving them a bonus point each time they made a suggestion that resulted in a change in the text. This had the double benefit of encouraging them to read the text more carefully and of getting the text thoroughly reviewed by its most important critics, students using it to learn computer science.</p>
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
-<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
+<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net" class="uri">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
 <section id="introducing-programming-with-python" class="level2">
 <h2>Introducing programming with Python</h2>
@@ -609,11 +641,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 </section>
 <section id="building-a-community" class="level2">
 <h2>Building a community</h2>
-<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
+<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio" class="uri">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
 <!--
 h='&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#62;';a='&#64;';n='&#106;&#x65;&#102;&#102;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'jeff@elkner.net'+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#106;&#x65;&#102;&#102;&#64;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#32;&#40;&#106;&#x65;&#102;&#102;&#32;&#x61;&#116;&#32;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#62;&#x29;</noscript></strong>.</p>
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
@@ -627,7 +659,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'
 <p>This predecessor to this book was a great starting point for us, especially because of the liberal permission to change things. Having our own in-house course notes or handouts allows us to adapt and stay fresh, rearrange, see what works, and it gives us agility. We can also ensure that every student in the course gets a copy of the handouts — something that doesn’t always happen if we prescribe costly textbooks.</p>
 Many thanks to all the contributors and the authors for making their hard work available to the Python community and to our students.
 </aside>
-
 <p>A colleague and friend, Peter Warren, once made the remark that learning introductory programming is as much about the environment as it is about the programming language.</p>
 <p>I’m a big fan of IDEs (Integrated Development Environments).<br />I want help to be integrated into my editor, as a first-class citizen, available at the press of a button. I want syntax highlighting. I want immediate syntax checking, and sensible autocompletion. I’d like an editor that can fold function bodies or regions of code away, because it promotes and encourages how we build mental abstractions.</p>
 <p>I’m especially keen on having a single-stepping debugger and breakpoints with code inspection built in. We’re trying to build a conceptual model of program execution in the student’s mind, so I find most helpful for teaching to have the call stack and variables explicitly visible, and to be able to immediately inspect the result of executing a statement.</p>
@@ -965,8 +996,6 @@ NameError: name &#39;cheese&#39; is not defined</code></pre></li>
 <p>Whenever an <em>expression</em> is typed at the Python prompt, it is evaluated and the result is <em>automatically</em> shown on the line below. (Like on your calculator, if you type this expression you’ll get the result 42.)</p>
 <p>A script is different, however. Evaluations of expressions are not automatically displayed, so it is necessary to use the <strong>print</strong> function to make the answer show up.</p>
 <p>It is hardly ever necessary to use the print function in immediate mode at the command prompt.</p>
-<p>.. Copyright (C) Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
-<p>|</p>
 </section>
 </section>
 <section id="variables-expressions-and-statements" class="level1">
@@ -1089,11 +1118,9 @@ yield    True     False    None</code></pre>
 <p>You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</p>
 <p>Programmers generally choose names for their variables that are meaningful to the human readers of the program—they help the programmer document, or remember, what the variable is used for.</p>
 <aside id="meaningful-names">
-   
 <p>Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like 3.14159. No! The computer doesn’t understand what you intend the variable to mean.</p>
 So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.
 </aside>
-
 </section>
 <section id="statements" class="level2">
 <h2>Statements</h2>
@@ -1387,6 +1414,421 @@ Assign a value to ``bruce`` so that ``bruce + <span class="dv">4</span>`` evalua
 </ol>
 </section>
 </section>
+<section id="hello-little-turtles" class="level1">
+<h1>Hello, little turtles!</h1>
+<p>There are many <em>modules</em> in Python that provide very powerful features that we can use in our own programs. Some of these can send email, or fetch web pages. The one we’ll look at in this chapter allows us to create turtles and get them to draw shapes and patterns.</p>
+<p>The turtles are fun, but the real purpose of the chapter is to teach ourselves a little more Python, and to develop our theme of <em>computational thinking</em>, or <em>thinking like a computer scientist</em>. Most of the Python covered here will be explored in more depth later.</p>
+<section id="our-first-turtle-program" class="level2">
+<h2>Our first turtle program</h2>
+<p>Let’s write a couple of lines of Python program to create a new turtle and start drawing a rectangle. (We’ll call the variable that refers to our first turtle <code>alex</code>, but we can choose another name if we follow the naming rules from the previous chapter).</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">       
+<span class="ch">import</span> turtle     <span class="co"># Allows us to use turtles</span>
+wn = turtle.Screen()      <span class="co"># Creates a playground for turtles</span>
+alex = turtle.Turtle()    <span class="co"># Create a turtle, assign to alex</span>
+
+alex.forward(<span class="dv">50</span>)          <span class="co"># Tell alex to move forward by 50 units</span>
+alex.left(<span class="dv">90</span>)             <span class="co"># Tell alex to turn by 90 degrees</span>
+alex.forward(<span class="dv">30</span>)          <span class="co"># Complete the second side of a rectangle</span>
+
+wn.mainloop()             <span class="co"># Wait for user to close window</span></code></pre></td></tr></table>
+<p>When we run this program, a new window pops up:</p>
+<figure>
+<img src="figs/tess01.png" />
+</figure>
+<p>Here are a couple of things we’ll need to understand about this program.</p>
+<p>The first line tells Python to load a module named <code>turtle</code>.<br />That module brings us two new types that we can use: the <code>Turtle</code> type, and the <code>Screen</code> type. The dot notation <code>turtle.Turtle</code> means <em>“The Turtle type that is defined within the turtle module”</em>. (Remember that Python is case sensitive, so the module name, with a lowercase <code>t</code>, is different from the type <code>Turtle</code>.)</p>
+<p>We then create and open what it calls a screen (we would prefer to call it a window), which we assign to variable <code>wn</code>. Every window contains a <strong>canvas</strong>, which is the area inside the window on which we can draw.</p>
+<p>In line 3 we create a turtle. The variable <code>alex</code> is made to refer to this turtle.</p>
+<p>So these first three lines have set things up, we’re ready to get our turtle to draw on our canvas.</p>
+<p>In lines 5-7, we instruct the <strong>object</strong> <code>alex</code> to move, and to turn. We do this by <strong>invoking</strong>, or activating, <code>alex</code>’s <strong>methods</strong> — these are the instructions that all turtles know how to respond to.</p>
+<p>The last line plays a part too: the <code>wn</code> variable refers to the window shown above. When we invoke its <code>mainloop</code> method, it enters a state where it waits for events (like keypresses, or mouse movement and clicks). The program will terminate when the user closes the window.</p>
+<p>An object can have various methods — things it can do — and it can also have <strong>attributes</strong> — (sometimes called <em>properties</em>). For example, each turtle has a <em>color</em> attribute. The method invocation<br /><code>alex.color(&quot;red&quot;)</code> will make <code>alex</code> red, and drawing will be red too. (Note the word <code>color</code> is spelled the American way!)</p>
+<p>The color of the turtle, the width of its pen, the position of the turtle within the window, which way it is facing, and so on are all part of its current <strong>state</strong>. Similarly, the window object has a background color, and some text in the title bar, and a size and position on the screen. These are all part of the state of the window object.</p>
+<p>Quite a number of methods exist that allow us to modify the turtle and the window objects. We’ll just show a couple. In this program we’ve only commented those lines that are different from the previous example (and we’ve used a different variable name for this turtle):</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="ch">import</span> turtle
+wn = turtle.Screen()
+wn.bgcolor(<span class="st">&quot;lightgreen&quot;</span>)      <span class="co"># Set the window background color</span>
+wn.title(<span class="st">&quot;Hello, Tess!&quot;</span>)      <span class="co"># Set the window title</span>
+
+tess = turtle.Turtle()
+tess.color(<span class="st">&quot;blue&quot;</span>)            <span class="co"># Tell tess to change her color</span>
+tess.pensize(<span class="dv">3</span>)               <span class="co"># Tell tess to set her pen width</span>
+
+tess.forward(<span class="dv">50</span>)
+tess.left(<span class="dv">120</span>)
+tess.forward(<span class="dv">50</span>)
+
+wn.mainloop()</code></pre></td></tr></table>
+<p>When we run this program, this new window pops up, and will remain on the screen until we close it.</p>
+<figure>
+<img src="figs/tess02.png" />
+</figure>
+<p><strong><em>Extend this program</em></strong></p>
+<ol>
+<li>Modify this program so that before it creates the window, it prompts the user to enter the desired background color. It should store the user’s responses in a variable, and modify the color of the window according to the user’s wishes. (Hint: you can find a list of permitted color names at http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm. It includes some quite unusual ones, like “peach puff” and “HotPink”.)<br /></li>
+<li>Do similar changes to allow the user, at runtime, to set <code>tess</code>’ color.</li>
+<li>Do the same for the width of <code>tess</code>‘pen. <em>Hint:</em> your dialog with the user will return a string, but <code>tess</code>’ <code>pensize</code> method expects its argument to be an int. So you’ll need to convert the string to an int before you pass it to <code>pensize</code>.</li>
+</ol>
+</section>
+<section id="instances-a-herd-of-turtles" class="level2">
+<h2>Instances — a herd of turtles</h2>
+<p>Just like we can have many different integers in a program, we can have many turtles. Each of them is called an <strong>instance</strong>. Each instance has its own attributes and methods — so <code>alex</code> might draw with a thin black pen and be at some position, while <code>tess</code> might be going in her own direction with a fat pink pen.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">       
+<span class="ch">import</span> turtle
+wn = turtle.Screen() <span class="co"># Set up the window and its attributes</span>
+wn.bgcolor(<span class="st">&quot;lightgreen&quot;</span>)
+wn.title(<span class="st">&quot;Tess &amp; Alex&quot;</span>)
+
+tess = turtle.Turtle()       <span class="co"># Create tess and set some attributes</span>
+tess.color(<span class="st">&quot;hotpink&quot;</span>)
+tess.pensize(<span class="dv">5</span>)
+
+alex = turtle.Turtle()       <span class="co"># Create alex</span>
+
+tess.forward(<span class="dv">80</span>)             <span class="co"># Make tess draw equilateral triangle</span>
+tess.left(<span class="dv">120</span>)
+tess.forward(<span class="dv">80</span>)
+tess.left(<span class="dv">120</span>)
+tess.forward(<span class="dv">80</span>)
+tess.left(<span class="dv">120</span>)               <span class="co"># Complete the triangle</span>
+
+tess.right(<span class="dv">180</span>)              <span class="co"># Turn tess around</span>
+tess.forward(<span class="dv">80</span>)             <span class="co"># Move her away from the origin</span>
+
+alex.forward(<span class="dv">50</span>)             <span class="co"># Make alex draw a square</span>
+alex.left(<span class="dv">90</span>)
+alex.forward(<span class="dv">50</span>)
+alex.left(<span class="dv">90</span>)
+alex.forward(<span class="dv">50</span>)
+alex.left(<span class="dv">90</span>)
+alex.forward(<span class="dv">50</span>)
+alex.left(<span class="dv">90</span>)
+
+wn.mainloop()</code></pre></td></tr></table>
+<p>Here is what happens when <code>alex</code> completes his rectangle, and <code>tess</code> completes her triangle:</p>
+<figure>
+<img src="figs/tess03.png" />
+</figure>
+<p>Here are some <em>How to think like a computer scientist</em> observations:</p>
+<ul>
+<li>There are 360 degrees in a full circle. If we add up all the turns that a turtle makes, <em>no matter what steps occurred between the turns</em>, we can easily figure out if they add up to some multiple of 360. This should convince us that <code>alex</code> is facing in exactly the same direction as he was when he was first created. (Geometry conventions have 0 degrees facing East, and that is the case here too!)</li>
+<li>We could have left out the last turn for <code>alex</code>, but that would not have been as satisfying. If we’re asked to draw a closed shape like a square or a rectangle, it is a good idea to complete all the turns and to leave the turtle back where it started, facing the same direction as it started in.<br /> This makes reasoning about the program and composing chunks of code into bigger programs easier for us humans!</li>
+<li>We did the same with <code>tess</code>: she drew her triangle, and turned through a full 360 degrees. Then we turned her around and moved her aside. Even the blank line 18 is a hint about how the programmer’s <em>mental chunking</em> is working: in big terms, <code>tess</code>’ movements were chunked as “draw the triangle”<br /> (lines 12-17) and then “move away from the origin” (lines 19 and 20).</li>
+<li>One of the key uses for comments is to record our mental chunking, and big ideas.<br /> They’re not always explicit in the code.<br /></li>
+<li>And, uh-huh, two turtles may not be enough for a herd. But the important idea is that the turtle module gives us a kind of factory that lets us create as many turtles as we need. Each instance has its own state and behaviour.</li>
+</ul>
+</section>
+<section id="the-for-loop" class="level2">
+<h2>The <strong>for</strong> loop</h2>
+<p>When we drew the square, it was quite tedious. We had to explicitly repeat the steps of moving and turning four times. If we were drawing a hexagon, or an octogon, or a polygon with 42 sides, it would have been worse.</p>
+<p>So a basic building block of all programs is to be able to repeat some code, over and over again.</p>
+<p>Python’s <strong>for</strong> loop solves this for us. Let’s say we have some friends, and we’d like to send them each an email inviting them to our party. We don’t quite know how to send email yet, so for the moment we’ll just print a message for each friend:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> f in [<span class="st">&quot;Joe&quot;</span>,<span class="st">&quot;Zoe&quot;</span>,<span class="st">&quot;Brad&quot;</span>,<span class="st">&quot;Angelina&quot;</span>,<span class="st">&quot;Zuki&quot;</span>,<span class="st">&quot;Thandi&quot;</span>,<span class="st">&quot;Paris&quot;</span>]:
+    invite = <span class="st">&quot;Hi &quot;</span> + f + <span class="st">&quot;.  Please come to my party on Saturday!&quot;</span>
+    <span class="dt">print</span>(invite)
+<span class="co"># more code can follow here ...            </span></code></pre></td></tr></table>
+<p>When we run this, the output looks like this:</p>
+<pre><code>Hi Joe.  Please come to my party on Saturday!
+Hi Zoe.  Please come to my party on Saturday!
+Hi Brad.  Please come to my party on Saturday!
+Hi Angelina.  Please come to my party on Saturday!
+Hi Zuki.  Please come to my party on Saturday!
+Hi Thandi.  Please come to my party on Saturday!
+Hi Paris.  Please come to my party on Saturday! </code></pre>
+<ul>
+<li>The variable <code>f</code> in the <code>for</code> statement at line 1 is called the <strong>loop variable</strong>.<br /> We could have chosen any other variable name instead.</li>
+<li>Lines 2 and 3 are the <strong>loop body</strong>. The loop body is always indented. The indentation determines exactly what statements are “in the body of the loop”.</li>
+<li>On each <em>iteration</em> or <em>pass</em> of the loop, first a check is done to see if there are still more items to be processed. If there are none left (this is called the <strong>terminating condition</strong> of the loop), the loop has finished. Program execution continues at the next statement after the loop body, (e.g. in this case the next statement below the comment in line 4).<br /></li>
+<li>If there are items still to be processed, the loop variable is updated to refer to the next item in the list. This means, in this case, that the loop body is executed here 7 times, and each time <code>f</code> will refer to a different friend.</li>
+<li>At the end of each execution of the body of the loop, Python returns to the <code>for</code> statement, to see if there are more items to be handled, and to assign the next one to <code>f</code>.</li>
+</ul>
+</section>
+<section id="flow-of-execution-of-the-for-loop" class="level2">
+<h2>Flow of Execution of the for loop</h2>
+<p>As a program executes, the interpreter always keeps track of which statement is about to be executed. We call this the <strong>control flow</strong>, of the <strong>flow of execution</strong> of the program. When humans execute programs, they often use their finger to point to each statement in turn. So we could think of control flow as “Python’s moving finger”.</p>
+<p>Control flow until now has been strictly top to bottom, one statement at a time. The <code>for</code> loop changes this.</p>
+<figure>
+<img src="figs/flowchart_for.png" />
+</figure>
+<p><strong>Flowchart of a <code>for</code> loop</strong><br /><em>Control flow is often easy to visualize and understand if we draw a flowchart. This shows the exact steps and logic of how the <code>for</code> statement executes.</em></p>
+</section>
+<section id="the-loop-simplifies-our-turtle-program" class="level2">
+<h2>The loop simplifies our turtle program</h2>
+<p>To draw a square we’d like to do the same thing four times — move the turtle, and turn. We previously used 8 lines to have <code>alex</code> draw the four sides of a square.<br />This does exactly the same, but using just three lines:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> i in [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]:
+    alex.forward(<span class="dv">50</span>)
+    alex.left(<span class="dv">90</span>) </code></pre></td></tr></table>
+<p>Some observations:</p>
+<ul>
+<li><p>While “saving some lines of code” might be convenient, it is not the big deal here. What is much more important is that we’ve found a “repeating pattern” of statements, and reorganized our program to repeat the pattern. Finding the chunks and somehow getting our programs arranged around those chunks is a vital<br /> skill in computational thinking.</p></li>
+<li><p>The values [0,1,2,3] were provided to make the loop body execute 4 times. We could have used any four values, but these are the conventional ones to use. In fact, they are so popular that Python gives us special built-in <code>range</code> objects:</p></li>
+</ul>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">4</span>):
+    <span class="co"># Executes the body with i = 0, then 1, then 2, then 3</span>
+<span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">10</span>):
+    <span class="co"># Sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></code></pre></td></tr></table>
+<ul>
+<li>Computer scientists like to count from 0!</li>
+<li><code>range</code> can deliver a sequence of values to the loop variable in the <code>for</code> loop. They start at 0, and in these cases do not include the 4 or the 10.</li>
+<li>Our little trick earlier to make sure that <code>alex</code> did the final turn to complete 360 degrees has paid off: if we had not done that, then we would not have been able to use a loop for the fourth side of the square. It would have become a “special case”, different from the other sides. When possible, we’d much prefer to make our code fit a general pattern, rather than have to create a special case.</li>
+</ul>
+<p>So to repeat something four times, a good Python programmer would do this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">4</span>):
+    alex.forward(<span class="dv">50</span>)
+    alex.left(<span class="dv">90</span>)</code></pre></td></tr></table>
+<p>By now you should be able to see how to change our previous program so that <code>tess</code> can also use a <code>for</code> loop to draw her equilateral triangle.</p>
+<p>But now, what would happen if we made this change?</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> c in [<span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;purple&quot;</span>, <span class="st">&quot;blue&quot;</span>]:
+    alex.color(c)
+    alex.forward(<span class="dv">50</span>)
+    alex.left(<span class="dv">90</span>)</code></pre></td></tr></table>
+<p>A variable can also be assigned a value that is a list. So lists can also be used in more general situations, not only in the <code>for</code> loop. The code above could be rewritten like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># Assign a list to a variable</span>
+clrs = [<span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;purple&quot;</span>, <span class="st">&quot;blue&quot;</span>]   
+<span class="kw">for</span> c in clrs:
+    alex.color(c)
+    alex.forward(<span class="dv">50</span>)
+    alex.left(<span class="dv">90</span>)</code></pre></td></tr></table>
+</section>
+<section id="a-few-more-turtle-methods-and-tricks" class="level2">
+<h2>A few more turtle methods and tricks</h2>
+<p>Turtle methods can use negative angles or distances. So <code>tess.forward(-100)</code> will move <code>tess</code> backwards, and <code>tess.left(-30)</code> turns her to the right. Additionally, because there are 360 degrees in a circle, turning 30 to the left will get <code>tess</code> facing in the same direction as turning 330 to the right! (The on-screen animation will differ, though — you will be able to tell if <code>tess</code> is turning clockwise or counter-clockwise!)</p>
+<p>This suggests that we don’t need both a left and a right turn method — we could be minimalists, and just have one method. There is also a <em>backward</em> method. (If you are very nerdy, you might enjoy saying <code>alex.backward(-100)</code> to move <code>alex</code> forward!)</p>
+<p>Part of <em>thinking like a scientist</em> is to understand more of the structure and rich relationships in our field. So revising a few basic facts about geometry and number lines, and spotting the relationships between left, right, backward, forward, negative and positive distances or angles values is a good start if we’re going to play with turtles.</p>
+<p>A turtle’s pen can be picked up or put down. This allows us to move a turtle to a different place without drawing a line. The methods are</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">alex.penup()
+alex.forward(<span class="dv">100</span>)     <span class="co"># This moves alex, but no line is drawn</span>
+alex.pendown()  </code></pre></td></tr></table>
+<p>Every turtle can have its own shape. The ones available “out of the box” are <code>arrow</code>, <code>blank</code>, <code>circle</code>, <code>classic</code>, <code>square</code>, <code>triangle</code>, <code>turtle</code>.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">alex.shape(<span class="st">&quot;turtle&quot;</span>)   </code></pre></td></tr></table>
+<figure>
+<img src="figs/alex06.png" />
+</figure>
+<p>We can speed up or slow down the turtle’s animation speed. (Animation controls how quickly the turtle turns and moves forward). Speed settings can be set between 1 (slowest) to 10 (fastest). But if we set the speed to 0, it has a special meaning — turn off animation and go as fast as possible.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">alex.speed(<span class="dv">10</span>)</code></pre></td></tr></table>
+<p>and this will remain after the turtle has moved somewhere else. Stamping works, even when the pen is up.</p>
+<p>Let’s do an example that shows off some of these new features:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="ch">import</span> turtle
+wn = turtle.Screen()     
+wn.bgcolor(<span class="st">&quot;lightgreen&quot;</span>)
+tess = turtle.Turtle()    
+tess.shape(<span class="st">&quot;turtle&quot;</span>)
+tess.color(<span class="st">&quot;blue&quot;</span>)
+tess.penup()                <span class="co"># This is new</span>
+size = <span class="dv">20</span>
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">30</span>):
+   tess.stamp()             <span class="co"># Leave an impression on the canvas</span>
+   size = size + <span class="dv">3</span>          <span class="co"># Increase the size on every iteration</span>
+   tess.forward(size)       <span class="co"># Move tess along  </span>
+   tess.right(<span class="dv">24</span>)           <span class="co">#  ...  and turn her</span>
+
+wn.mainloop()  </code></pre></td></tr></table>
+<figure>
+<img src="figs/tess07.png" />
+</figure>
+<p>Be careful now! How many times was the body of the loop executed? How many turtle images do we see on the screen? All except one of the shapes we see on the screen here are footprints created by <code>stamp</code>. But the program still only has <em>one</em> turtle instance — can you figure out which one here is the real <code>tess</code>? (Hint: if you’re not sure, write a new line of code after the <code>for</code> loop to change <code>tess</code>’ color, or to put her pen down and draw a line, or to change her shape, etc.)</p>
+</section>
+<section id="glossary-3" class="level2">
+<h2>Glossary</h2>
+<dl>
+<dt>attribute</dt>
+<dd><p>Some state or value that belongs to a particular object. For example, <code>tess</code> has a color.</p>
+</dd>
+<dt>canvas</dt>
+<dd><p>A surface within a window where drawing takes place.</p>
+</dd>
+<dt>control flow</dt>
+<dd><p>See <em>flow of execution</em> in the next chapter.</p>
+</dd>
+<dt>for loop</dt>
+<dd><p>A statement in Python for convenient repetition of statements in the <em>body</em> of the loop.</p>
+</dd>
+<dt>loop body</dt>
+<dd><p>Any number of statements nested inside a loop. The nesting is indicated by the fact that the statements are indented under the for loop statement.</p>
+</dd>
+<dt>loop variable</dt>
+<dd><p>A variable used as part of a for loop. It is assigned a different value on each iteration of the loop.</p>
+</dd>
+<dt>instance</dt>
+<dd><p>An object of a certain type, or class. <code>tess</code> and <code>alex</code> are different instances of the class <code>Turtle</code>.</p>
+</dd>
+<dt>method</dt>
+<dd><p>A function that is attached to an object. Invoking or activating the method causes the object to respond in some way, e.g. <code>forward</code> is the method when we say <code>tess.forward(100)</code>.</p>
+</dd>
+<dt>invoke</dt>
+<dd><p>An object has methods. We use the verb invoke to mean <em>activate the method</em>. Invoking a method is done by putting parentheses after the method name, with some possible arguments. So <code>tess.forward()</code> is an invocation of the <code>forward</code> method.</p>
+</dd>
+<dt>module</dt>
+<dd><p>A file containing Python definitions and statements intended for use in other Python programs. The contents of a module are made available to the other program by using the <code>import</code> statement.</p>
+</dd>
+<dt>object</dt>
+<dd><p>A “thing” to which a variable can refer. This could be a screen window, or one of the turtles we have created.</p>
+</dd>
+<dt>range</dt>
+<dd><p>A built-in function in Python for generating sequences of integers. It is especially useful when we need to write a for loop that executes a fixed number of times.</p>
+</dd>
+<dt>terminating condition</dt>
+<dd><p>A condition that occurs which causes a loop to stop repeating its body. In the <code>for</code> loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises-2" class="level2">
+<h2>Exercises</h2>
+<ol>
+<li><p>Write a program that prints <code>We like Python's turtles!</code> 1000 times.</p></li>
+<li><p>Give three attributes of your cellphone object. Give three methods of your cellphone.</p></li>
+<li><p>Write a program that uses a for loop to print | <code>One of the months of the year is January</code> | <code>One of the months of the year is February</code> | …</p></li>
+<li><p>Suppose our turtle <code>tess</code> is at heading 0 — facing east. We execute the statement <code>tess.left(3645)</code>. What does <code>tess</code> do, and what is her final heading?</p></li>
+<li>Assume you have the assignment <code>xs = [12, 10, 32, 3, 66, 17, 42, 99, 20]</code>
+<ol type="a">
+<li>Write a loop that prints each of the numbers on a new line.</li>
+<li>Write a loop that prints each number and its square on a new line.</li>
+<li>Write a loop that adds all the numbers from the list into a variable called <code>total</code>. You should set the <code>total</code> variable to have the value 0 before you start adding them up, and print the value in <code>total</code> after the loop has completed.<br /></li>
+<li>Print the product of all the numbers in the list. (product means all multiplied together)</li>
+</ol></li>
+<li>Use <code>for</code> loops to make a turtle draw these regular polygons (regular means all sides the same lengths, all angles the same):
+<ul>
+<li>An equilateral triangle<br /></li>
+<li>A square<br /></li>
+<li>A hexagon (six sides)<br /></li>
+<li>An octagon (eight sides)</li>
+</ul></li>
+<li><p><strong>drunk_pirate_problem:</strong> A drunk pirate makes a random turn and then takes 100 steps forward, makes another random turn, takes another 100 steps, turns another random amount, etc. A social science student records the angle of each turn before the next 100 steps are taken. Her experimental data is <code>[160, -43, 270, -97, -43, 200, -940, 17, -86]</code>.<br /> (Positive angles are counter-clockwise.) Use a turtle to draw the path taken by our drunk friend.</p></li>
+<li><p>Enhance your program above to also tell us what the drunk pirate’s heading is after he has finished stumbling around. (Assume he begins at heading 0).</p></li>
+<li><p>If you were going to draw a regular polygon with 18 sides, what angle would you need to turn the turtle at each corner?</p></li>
+<li><p>At the interactive prompt, anticipate what each of the following lines will do, and then record what happens. Score yourself, giving yourself one point for each one you anticipate correctly:</p></li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> turtle
+&gt;&gt;&gt; wn = turtle.Screen()
+&gt;&gt;&gt; tess = turtle.Turtle()
+&gt;&gt;&gt; tess.right(<span class="dv">90</span>)
+&gt;&gt;&gt; tess.left(<span class="dv">3600</span>)
+&gt;&gt;&gt; tess.right(-<span class="dv">90</span>)
+&gt;&gt;&gt; tess.speed(<span class="dv">10</span>)
+&gt;&gt;&gt; tess.left(<span class="dv">3600</span>)
+&gt;&gt;&gt; tess.speed(<span class="dv">0</span>)
+&gt;&gt;&gt; tess.left(<span class="dv">3645</span>)
+&gt;&gt;&gt; tess.forward(-<span class="dv">100</span>)</code></pre>
+<ol start="11" type="1">
+<li><p>Write a program to draw a shape like this:</p>
+<figure>
+<img src="figs/star.png" />
+</figure>
+<p>Hints:</p>
+<ul>
+<li>Try this on a piece of paper, moving and turning your cellphone as if it was a turtle. Watch how many complete rotations your cellphone makes before you complete the star. Since each full rotation is 360 degrees, you can figure out the total number of degrees that your phone was rotated through. If you divide that by 5, because there are five points to the star, you’ll know how many degrees to turn the turtle at each point.</li>
+<li>You can hide a turtle behind its invisibility cloak if you don’t want it shown. It will still draw its lines if its pen is down. The method is invoked as <code>tess.hideturtle()</code> . To make the turtle visible again, use <code>tess.showturtle()</code> .</li>
+</ul></li>
+<li><p>Write a program to draw a face of a clock that looks something like this:</p>
+<figure>
+<img src="figs/tess_clock1.png" />
+</figure></li>
+<li><p>Create a turtle, and assign it to a variable. When you ask for its type, what do you get?</p></li>
+<li><p>What is the collective noun for turtles? (Hint: they don’t come in <em>herds</em>.)</p></li>
+<li><p>What the collective noun for pythons? Is a python a viper? Is a python venomous?</p></li>
+</ol>
+</section>
+</section>
 <section id="functions" class="level1">
 <h1>Functions</h1>
 <section id="functions-1" class="level2">
@@ -1444,7 +1886,6 @@ calculate_tip(<span class="dv">100</span>,<span class="dv">18</span>)</code></pr
 <p>Docstrings are usually formed using triple-quoted strings as they allow us to easily expand the docstring later on should we want to write more than a one-liner.</p>
 Just to differentiate from comments, a string at the start of a function (a docstring) is retrievable by Python tools <em>at runtime</em>. By contrast, comments are completely eliminated when the program is parsed.
 </aside>
-
 <p>This function is named <code>calculate_tip</code>. It has two parameters: one to tell the function the amount of the bill, and the other to tell it the percent tip to calculate. Make sure you know where the body of the function ends — it depends on the indentation, and the blank lines don’t count for this purpose!</p>
 <p>Defining a new function does not make the function run. To do that we need a <strong>function call</strong>. We’ve already seen how to call some built-in functions like <strong>print</strong>, <strong>range</strong>, <strong>round</strong>, and <strong>int</strong>. Function calls contain the name of the function being executed followed by a list of values, called <em>arguments</em>, which are assigned to the parameters in the function definition. So in the last line of the example program above, we call the function, and pass <code>100</code> as the amount of the bill and <code>18</code> as the percentage of the tip. While the function is executing, then, the variable <code>bill</code> refers to the value 100, and the variable <code>pct</code> refers to 18.</p>
 <p>Once we’ve defined a function, we can call it as often as we like, and its statements will be executed each time we call it. And we could use it to get any of our turtles to draw a square. In the next example, we calculate 3 different tip amounts for the same bill.</p>
@@ -1485,7 +1926,6 @@ calculate_tip(myBill, <span class="dv">15</span>)
 calculate_tip(myBill, <span class="dv">18</span>)
 calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <aside id="coding-style">
-
 <p><strong>Coding Style</strong></p>
 <p>Now that you are about to write longer, more complex pieces of Python, it is a good time to talk about coding style. Most languages can be written (or more concise, formatted) in different styles; some are more readable than others. Making it easy for others to read your code is always a good idea, and adopting a nice coding style helps tremendously for that.</p>
 <p>For Python, <a href="http://www.python.org/dev/peps/pep-0008/">PEP 8 has emerged as the style guide</a> that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Every Python developer should read it at some point; here are the most important points extracted for you:</p>
@@ -1503,7 +1943,6 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <li>Likewise, don’t use non-ASCII characters in identifiers if there is only the slightest chance people speaking a different language will read or maintain the code.</li>
 </ul>
 </aside>
-
 </section>
 <section id="composition-functions-can-call-other-functions" class="level2">
 <h2>Composition: Functions can call other functions</h2>
@@ -1643,44 +2082,30 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <section id="case-study-tip-calculator" class="level3">
 <h3>Case Study: Tip Calculator</h3>
 <aside id="tip_header" style="top: 110px">
-
 <p>Brief header <strong>comments</strong> at the top of the <strong>source file</strong> identify basic information about the program and the file. Comments are messages for programmers who read the <strong>source code</strong> — they do not affect the execution of the program.</p>
 </aside>
-
 <aside id="tip_welcome" style="top: 173px">
-
 <p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not <strong>return</strong> any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
 </aside>
-
 <aside id="tip_calc" style="top: 354px">
-
 <p>The <strong>calc_tip</strong> function has 2 <strong>parameters</strong>: <code>bill</code> and <code>pct</code>. These parameters become variables within the <strong>function body</strong>. Line 22 uses <strong>arithmetic operators</strong> (multiplication here) to calculate a new value and store it in the <code>tip</code> <strong>variable</strong>. <code>tip</code> is rounded to 2 decimal places using the <strong>built-in function</strong> <code>round()</code>. Finally, the rounded tip amount is returned.</p>
 </aside>
-
 <aside id="tip_get_pct" style="top: 545px">
-
 <p><strong>get_bill_amt</strong> is a <strong>fruitful function</strong> because it has a <strong>return statement</strong>. It uses the <strong>built-in function</strong> <code>input()</code> to ask for data from the user of the program. — when it is called it returns the bill</p>
 </aside>
-
 <aside id="tip_get_amt" style="top: 710px">
-
 <p><strong>get_tip_pct</strong> is similar to <strong>get_bill_amt</strong>. It requests user data by calling the <code>input</code> function and then returns a result. Notice that the <strong>multi-line string</strong> inside of 3 quotation marks (“”“) makes it easy to read and write formatted data.</p>
 <p>This function uses a series of <strong>if statements</strong> to interpret the user’s choice from a menu. While we could use <code>elif</code> to change the conditions together, it is not needed here. Once a <code>return</code> statement is reached, no further conditions can be tested or executed. If none of the <code>if</code> conditions are met, this function returns -1 to indicate that an invalid choice was entered.</p>
 </aside>
-
 <aside id="tip_get_amt" style="top: 1125px">
-
 <p><strong>show_results</strong> defines <strong>parameters</strong> which are used to pass in all of the data needed to show the results of the tip calculation. Notice that the <code>print</code> statements use the <strong>+ operator</strong> to <abbr title="join together">concatenate</abbr> strings. Because we are joining <strong>string literals</strong> with variables of type <code>int</code> and <code>float</code>, we need to use the <code>str()</code> function to convert the numeric data to strings.</p>
 </aside>
-
 <aside id="tip_main" style="top: 1430px">
 <p>The <strong>main</strong> function is the first function called for this program. It maintains the executive control of the program, calling other functions in sequence and passing data between functions.</p>
 <p>We encounter Python’s special syntax for running a program from the <strong>command line</strong>:</p>
 <p><code>if __name__ == &quot;__main__&quot;:</code></p>
 <p>This <strong>conditional statement</strong> allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python — we could execute any statements we choose under that block.</p>
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -1877,7 +2302,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
     main()</code></pre></td></tr></table>
 </section>
 </section>
-<section id="glossary-3" class="level2">
+<section id="glossary-4" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>argument</dt>
@@ -1950,7 +2375,7 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </dd>
 </dl>
 </section>
-<section id="exercises-2" class="level2">
+<section id="exercises-3" class="level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>Write a void (non-fruitful) function to that prints out centered text to the console. Your function should have two parameters, <code>text</code>—the string to center, and <code>maxLen</code>—the width of the document (in spaces).<br />(Hint: you will want to use the built-in <code>len</code> function and might want to use the * operator with spaces.)</p></li>
@@ -1989,11 +2414,757 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 </ol>
 </section>
 </section>
+<section id="conditionals" class="level1">
+<h1>Conditionals</h1>
+<p>Programs get really interesting when we can test conditions and change the program behaviour depending on the outcome of the tests. That’s what this chapter is about.</p>
+<section id="boolean-values-and-expressions" class="level2">
+<h2>Boolean values and expressions</h2>
+<p>A <em>Boolean</em> value is either true or false. It is named after the British mathematician, George Boole, who first formulated <em>Boolean algebra</em> — some rules for reasoning about and combining these values. This is the basis of all modern computer logic.</p>
+<p>In Python, the two Boolean values are <code>True</code> and <code>False</code> (the capitalization must be exactly as shown), and the Python type is <strong>bool</strong>.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">type</span>(<span class="ot">True</span>)
+&lt;<span class="kw">class</span> <span class="st">&#39;bool&#39;</span>&gt; 
+&gt;&gt;&gt; <span class="dt">type</span>(true)
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">NameError</span>: name <span class="st">&#39;true&#39;</span> is not defined</code></pre>
+<p>a Boolean value. For example, the operator <code>==</code> tests if two values are equal. It produces (or <em>yields</em>) a Boolean value:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">5</span> == (<span class="dv">3</span> + <span class="dv">2</span>)   <span class="co"># Is five equal 5 to the result of 3 + 2? </span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="dv">5</span> == <span class="dv">6</span>
+<span class="ot">False</span>
+&gt;&gt;&gt; j = <span class="st">&quot;hel&quot;</span>
+&gt;&gt;&gt; j + <span class="st">&quot;lo&quot;</span> == <span class="st">&quot;hello&quot;</span>
+<span class="ot">True</span></code></pre>
+<p>to <code>True</code>; in the second statement, 5 is not equal to 6, so we get <code>False</code>.</p>
+<p>The <code>==</code> operator is one of six common <strong>comparison operators</strong> which all produce a <code>bool</code> result; here are all six:</p>
+<pre class="sourceCode python"><code class="sourceCode python">x == y       <span class="co"># Produce True if ... x is equal to y</span>
+x != y       <span class="co"># ... x is not equal to y</span>
+x &gt; y<span class="co"># ... x is greater than y</span>
+x &lt; y<span class="co"># ... x is less than y</span>
+x &gt;= y       <span class="co"># ... x is greater than or equal to y</span>
+x &lt;= y       <span class="co"># ... x is less than or equal to y</span></code></pre>
+<p>different from the mathematical symbols. A common error is to use a single equal sign (<code>=</code>) instead of a double equal sign (<code>==</code>). Remember that <code>=</code> is an assignment operator and <code>==</code> is a comparison operator. Also, there is no such thing as <code>=&lt;</code> or <code>=&gt;</code>.</p>
+<p>Like any other types we’ve seen so far, Boolean values can be assigned to variables, printed, etc.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; age = <span class="dv">18</span>
+&gt;&gt;&gt; old_enough_to_get_driving_licence = age &gt;= <span class="dv">17</span>
+&gt;&gt;&gt; <span class="dt">print</span>(old_enough_to_get_driving_licence)
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="dt">type</span>(old_enough_to_get_driving_licence)
+&lt;<span class="kw">class</span> <span class="st">&#39;bool&#39;</span>&gt; </code></pre>
+</section>
+<section id="logical-operators" class="level2">
+<h2>Logical operators</h2>
+<p>There are three <strong>logical operators</strong>, <code>and</code>, <code>or</code>, and <code>not</code>, that allow us to build more complex Boolean expressions from simpler Boolean expressions. The semantics (meaning) of these operators is similar to their meaning in English. For example, <code>x &gt; 0 and x &lt; 10</code> produces <code>True</code> only if <code>x</code> is greater than 0 <em>and</em> at the same time, x is less than 10.</p>
+<p><code>n % 2 == 0 or n % 3 == 0</code> is <code>True</code> if <em>either</em> of the conditions is <code>True</code>, that is, if the number <code>n</code> is divisible by 2 <em>or</em> it is divisible by 3. (What do you think happens if <code>n</code> is divisible by both 2 and by 3 at the same time? Will the expression yield <code>True</code> or <code>False</code>? Try it in your Python interpreter.)</p>
+<p>Finally, the <code>not</code> operator negates a Boolean value, so <code>not (x &gt; y)</code> is <code>True</code> if <code>(x &gt; y)</code> is <code>False</code>, that is, if <code>x</code> is less than or equal to <code>y</code>.</p>
+<p>The expression on the left of the <code>or</code> operator is evaluated first: if the result is <code>True</code>, Python does not (and need not) evaluate the expression on the right — this is called <em>short-circuit evaluation</em>. Similarly, for the <code>and</code> operator, if the expression on the left yields <code>False</code>, Python does not evaluate the expression on the right.</p>
+<p>So there are no unnecessary evaluations.</p>
+</section>
+<section id="truth-tables" class="level2">
+<h2>Truth Tables</h2>
+<p>A truth table is a small table that allows us to list all the possible inputs, and to give the results for the logical operators. Because the <code>and</code> and <code>or</code> operators each have two operands, there are only four rows in a truth table that describes the semantics of <code>and</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">a</th>
+<th style="text-align: left;">b</th>
+<th style="text-align: left;">a and b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">True</td>
+</tr>
+</tbody>
+</table>
+<p>In a Truth Table, we sometimes use T and F as shorthand for the two Boolean values: here is the truth table describing <code>or</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">a</th>
+<th style="text-align: left;">b</th>
+<th style="text-align: left;">a or b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+</tr>
+</tbody>
+</table>
+<p>The third logical operator, <code>not</code>, only takes a single operand, so its truth table only has two rows:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">a</th>
+<th style="text-align: left;">not a</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="simplifying-boolean-expressions" class="level2">
+<h2>Simplifying Boolean Expressions</h2>
+<p>A set of rules for simplifying and rearranging expressions is called an <em>algebra</em>. For example, we are all familiar with school algebra rules, such as:</p>
+<pre class="sourceCode python"><code class="sourceCode python">n * <span class="dv">0</span> == <span class="dv">0</span></code></pre>
+<p>which provides rules for working with Boolean values.</p>
+<p>First, the <code>and</code> operator:</p>
+<pre class="sourceCode python"><code class="sourceCode python">x and <span class="ot">False</span> == <span class="ot">False</span>
+<span class="ot">False</span> and x == <span class="ot">False</span>
+y and x == x and y
+x and <span class="ot">True</span> == x
+<span class="ot">True</span> and x == x
+x and x == x</code></pre>
+<p>Here are some corresponding rules for the <code>or</code> operator:</p>
+<pre class="sourceCode python"><code class="sourceCode python">x or <span class="ot">False</span> == x
+<span class="ot">False</span> or x == x
+y or x == x or y
+x or <span class="ot">True</span> == <span class="ot">True</span>
+<span class="ot">True</span> or x == <span class="ot">True</span>
+x or x == x    </code></pre>
+<p>Two <code>not</code> operators cancel each other:</p>
+<pre class="sourceCode python"><code class="sourceCode python">not (not x) == x</code></pre>
+</section>
+<section id="conditional-execution" class="level2">
+<h2>Conditional execution</h2>
+<p>In order to write useful programs, we almost always need the ability to check conditions and change the behavior of the program accordingly. <strong>Conditional statements</strong> give us this ability. The simplest form is the <strong>if</strong> statement:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> x % <span class="dv">2</span> == <span class="dv">0</span>:
+    <span class="dt">print</span>(x, <span class="st">&quot; is even.&quot;</span>)
+    <span class="dt">print</span>(<span class="st">&quot;Did you know that 2 is the only even number that is prime?&quot;</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(x, <span class="st">&quot; is odd.&quot;</span>) 
+    <span class="dt">print</span>(<span class="st">&quot;Did you know that multiplying two odd numbers &quot;</span> + 
+ <span class="co">&quot;always gives an odd result?&quot;</span>)</code></pre></td></tr></table>
+<p>If it is true, then all the indented statements get executed. If not, then all the statements indented under the <code>else</code> clause get executed.</p>
+<figure>
+<img src="figs/flowchart_if_else.png" alt="Flowchart of an if statement with an else clause" /><figcaption>Flowchart of an if statement with an else clause</figcaption>
+</figure>
+<p>The syntax for an <code>if</code> statement looks like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> BOOLEAN EXPRESSION:
+    STATEMENTS_1<span class="co"># Executed if condition evaluates to True</span>
+<span class="kw">else</span>:
+    STATEMENTS_2<span class="co"># Executed if condition evaluates to False</span></code></pre></td></tr></table>
+<p>statements like <code>for</code>, the <code>if</code> statement consists of a header line and a body. The header line begins with the keyword <code>if</code> followed by a <em>Boolean expression</em> and ends with a colon (:).</p>
+<p>The indented statements that follow are called a <strong>block</strong>. The first unindented statement marks the end of the block.</p>
+<p>Each of the statements inside the first block of statements are executed in order if the Boolean expression evaluates to <code>True</code>. The entire first block of statements is skipped if the Boolean expression evaluates to <code>False</code>, and instead all the statements indented under the <code>else</code> clause are executed.</p>
+<p>There is no limit on the number of statements that can appear under the two clauses of an <code>if</code> statement, but there has to be at least one statement in each block. Occasionally, it is useful to have a section with no statements (usually as a place keeper, or scaffolding, for code we haven’t written yet). In that case, we can use the <code>pass</code> statement, which does nothing except act as a placeholder.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> <span class="ot">True</span>:  <span class="co"># This is always True,</span>
+    <span class="kw">pass</span>  <span class="co">#   so this is always executed, but it does nothing</span>
+<span class="kw">else</span>:
+    <span class="kw">pass</span> </code></pre></td></tr></table>
+</section>
+<section id="omitting-the-else-clause" class="level2">
+<h2>Omitting the <code>else</code> clause</h2>
+<figure>
+<img src="figs/flowchart_if_only.png" alt="Flowchart of an if statement with no else clause" /><figcaption>Flowchart of an if statement with no else clause</figcaption>
+</figure>
+<p>Another form of the <code>if</code> statement is one in which the <code>else</code> clause is omitted entirely. In this case, when the condition evaluates to <code>True</code>, the statements are executed, otherwise the flow of execution continues to the statement after the <code>if</code>.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> x &lt; <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">&quot;The negative number &quot;</span>,  x, <span class="st">&quot; is not valid here.&quot;</span>)
+    x = <span class="dv">42</span>
+    <span class="dt">print</span>(<span class="st">&quot;I&#39;ve decided to use the number 42 instead.&quot;</span>)
+    
+<span class="dt">print</span>(<span class="st">&quot;The square root of &quot;</span>, x, <span class="st">&quot;is&quot;</span>, math.sqrt(x)) </code></pre></td></tr></table>
+<p>because we left a blank line, but because of the way the code is indented. Note too that the function call <code>math.sqrt(x)</code> will give an error unless we have an <code>import math</code> statement, usually placed near the top of our script.</p>
+<aside>
+<p><strong>Python terminology</strong></p>
+<p>Python documentation sometimes uses the term <strong>suite</strong> of statements to mean what we have called a <em>block</em> here. They mean the same thing, and since most other languages and computer scientists use the word <em>block</em>, we’ll stick with that.</p>
+Notice too that <code>else</code> is not a statement. The <code>if</code> statement has two <em>clauses</em>, one of which is the (optional) <code>else</code> clause.
+</aside>
+</section>
+<section id="chained-conditionals" class="level2">
+<h2>Chained conditionals</h2>
+<p>Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a <strong>chained conditional</strong>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> x &lt; y:
+    STATEMENTS_A
+<span class="kw">elif</span> x &gt; y:
+    STATEMENTS_B
+<span class="kw">else</span>:
+    STATEMENTS_C</code></pre></td></tr></table>
+<figure>
+<img src="figs/flowchart_chained_conditional.png" />
+</figure>
+<p><code>elif</code> is an abbreviation of <code>else if</code>. Again, exactly one branch will be executed. There is no limit of the number of <code>elif</code> statements but only a single (and optional) final <code>else</code> statement is allowed and it must be the last branch in the statement:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> choice == <span class="st">&quot;a&quot;</span>:
+    function_one()
+<span class="kw">elif</span> choice == <span class="st">&quot;b&quot;</span>:
+    function_two()
+<span class="kw">elif</span> choice == <span class="st">&quot;c&quot;</span>:
+    function_three()
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Invalid choice.&quot;</span>)</code></pre></td></tr></table>
+<p>and so on. If one of them is true, the corresponding branch executes, and the statement ends. Even if more than one condition is true, only the first true branch executes.</p>
+</section>
+<section id="nested-conditionals" class="level2">
+<h2>Nested conditionals</h2>
+<p>One conditional can also be <strong>nested</strong> within another. (It is the same theme of composability, again!) We could have written the previous example as follows:</p>
+<figure>
+<img src="figs/flowchart_nested_conditional.png" alt="Flowchart of this nested conditional" /><figcaption>Flowchart of this nested conditional</figcaption>
+</figure>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> x &lt; y:
+    STATEMENTS_A
+<span class="kw">else</span>:
+    <span class="kw">if</span> x &gt; y:
+STATEMENTS_B
+    <span class="kw">else</span>:
+STATEMENTS_C</code></pre></td></tr></table>
+<p>The second branch contains another <code>if</code> statement, which has two branches of its own. Those two branches could contain conditional statements as well.</p>
+<p>Although the indentation of the statements makes the structure apparent, nested conditionals very quickly become difficult to read. In general, it is a good idea to avoid them when we can.</p>
+<p>Logical operators often provide a way to simplify nested conditional statements. For example, we can rewrite the following code using a single conditional:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> <span class="dv">0</span> &lt; x:    <span class="co"># Assume x is an int here</span>
+    <span class="kw">if</span> x &lt; <span class="dv">10</span>:
+<span class="dt">print</span>(<span class="st">&quot;x is a positive single digit.&quot;</span>)</code></pre></td></tr></table>
+<p>conditionals, so instead of the above which uses two <code>if</code> statements each with a simple condition, we could make a more complex condition using the <code>and</code> operator. Now we only need a single <code>if</code> statement:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> <span class="dv">0</span> &lt; x and x &lt; <span class="dv">10</span>:
+    <span class="dt">print</span>(<span class="st">&quot;x is a positive single digit.&quot;</span>)</code></pre></td></tr></table>
+</section>
+<section id="the-return-statement" class="level2">
+<h2>The <code>return</code> statement</h2>
+<p>The <code>return</code> statement, with or without a value, depending on whether the function is fruitful or void, allows us to terminate the execution of a function before (or when) we reach the end. One reason to use an <em>early return</em> is if we detect an error condition:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> print_square_root(x):
+    <span class="kw">if</span> x &lt;= <span class="dv">0</span>:
+<span class="dt">print</span>(<span class="st">&quot;Positive numbers only, please.&quot;</span>)
+<span class="kw">return</span>
+
+    result = x**<span class="fl">0.5</span>
+    <span class="dt">print</span>(<span class="st">&quot;The square root of&quot;</span>, x, <span class="st">&quot;is&quot;</span>, result)</code></pre></td></tr></table>
+<p>it does is check whether <code>x</code> is less than or equal to 0, in which case it displays an error message and then uses <code>return</code> to exit the function. The flow of execution immediately returns to the caller, and the remaining lines of the function are not executed.</p>
+</section>
+<section id="logical-opposites" class="level2">
+<h2>Logical opposites</h2>
+<p>Each of the six relational operators has a logical opposite: for example, suppose we can get a driving licence when our age is greater or equal to 17, we can <em>not</em> get the driving licence when we are less than 17.</p>
+<p>Notice that the opposite of <code>&gt;=</code> is <code>&lt;</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">operator</th>
+<th style="text-align: left;">logical opposite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">!=</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">!=</td>
+<td style="text-align: left;">==</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">&gt;=</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: left;">&gt;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: left;">&lt;=</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: left;">&lt;</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding these logical opposites allows us to sometimes get rid of <code>not</code> operators. <code>not</code> operators are often quite difficult to read in computer code, and our intentions will usually be clearer if we can eliminate them.</p>
+<p>For example, if we wrote this Python:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> not (age &gt;= <span class="dv">17</span>):
+    <span class="dt">print</span>(<span class="st">&quot;Hey, you&#39;re too young to get a driving licence!&quot;</span>)
+  </code></pre></td></tr></table>
+<p>write instead:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> age &lt; <span class="dv">17</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Hey, you&#39;re too young to get a driving licence!&quot;</span>)</code></pre></td></tr></table>
+<p>helpful when dealing with complicated Boolean expressions are:</p>
+<pre><code>not (x and y)  ==  (not x) or (not y) 
+not (x or y)   ==  (not x) and (not y)</code></pre>
+<p>For example, suppose we can slay the dragon only if our magic lightsabre sword is charged to 90% or higher, and we have 100 or more energy units in our protective shield. We find this fragment of Python code in the game:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> not ((sword_charge &gt;= <span class="fl">0.90</span>) and (shield_energy &gt;= <span class="dv">100</span>)):
+    <span class="dt">print</span>(<span class="st">&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;</span>)</code></pre></td></tr></table>
+<p>rework the condition in a (perhaps) easier to understand way like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> (sword_charge &lt; <span class="fl">0.90</span>) or (shield_energy &lt; <span class="dv">100</span>):
+    <span class="dt">print</span>(<span class="st">&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;</span>)</code></pre></td></tr></table>
+<p><code>else</code> parts of the conditional. So here is a third version, also equivalent:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> (sword_charge &gt;= <span class="fl">0.90</span>) and (shield_energy &gt;= <span class="dv">100</span>):
+    <span class="dt">print</span>(<span class="st">&quot;The dragon crumples in a heap. You rescue the gorgeous princess!&quot;</span>)   
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Your attack has no effect, the dragon fries you to a crisp!&quot;</span>)</code></pre></td></tr></table>
+<p>the initial English statement. Clarity of our code (for other humans), and making it easy to see that the code does what was expected should always be a high priority.</p>
+<p>As our programming skills develop we’ll find we have more than one way to solve any problem. So good programs are <em>designed</em>. We make choices that favour clarity, simplicity, and elegance. The job title <em>software architect</em> says a lot about what we do — we are <em>architects</em> who engineer our products to balance beauty, functionality, simplicity and clarity in our creations.</p>
+<aside>
+<p><strong>Tip:</strong> Once our program works, we should play around a bit trying to polish it up. Write good comments. Think about whether the code would be clearer with different variable names. Could we have done it more elegantly? Should we rather use a function? Can we simplify the conditionals?</p>
+We think of our code as our creation, our work of art! We make it great.
+</aside>
+</section>
+<section id="type-conversion" class="level2">
+<h2>Type conversion</h2>
+<p>We’ve had a first look at this in an earlier chapter. Seeing it again won’t hurt!</p>
+<p>Many Python types come with a built-in function that attempts to convert values of another type into its own type. The <code>int</code> function, for example, takes any value and converts it to an integer, if possible, or complains otherwise:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">int</span>(<span class="st">&quot;32&quot;</span>)
+<span class="dv">32</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="st">&quot;Hello&quot;</span>)
+<span class="ot">ValueError</span>: invalid literal <span class="kw">for</span> <span class="dt">int</span>() <span class="kw">with</span> base <span class="dv">10</span>: <span class="st">&#39;Hello&#39;</span></code></pre>
+<p>that it truncates the fractional part:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">int</span>(-<span class="fl">2.3</span>)
+-<span class="dv">2</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="fl">3.99999</span>)
+<span class="dv">3</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="st">&quot;42&quot;</span>)
+<span class="dv">42</span>
+&gt;&gt;&gt; <span class="dt">int</span>(<span class="fl">1.0</span>)
+<span class="dv">1</span></code></pre>
+<p>numbers:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">float</span>(<span class="dv">32</span>)
+<span class="fl">32.0</span>
+&gt;&gt;&gt; <span class="dt">float</span>(<span class="st">&quot;3.14159&quot;</span>)
+<span class="fl">3.14159</span>
+&gt;&gt;&gt; <span class="dt">float</span>(<span class="dv">1</span>)
+<span class="fl">1.0</span></code></pre>
+<p>floating-point value <code>1.0</code>. They may represent the same number, but they belong to different types. The reason is that they are represented differently inside the computer.</p>
+<p>The <code>str</code> function converts any argument given to it to type <code>string</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">str</span>(<span class="dv">32</span>)
+<span class="co">&#39;32&#39;</span>
+&gt;&gt;&gt; <span class="dt">str</span>(<span class="fl">3.14149</span>)
+<span class="co">&#39;3.14149&#39;</span>
+&gt;&gt;&gt; <span class="dt">str</span>(<span class="ot">True</span>)
+<span class="co">&#39;True&#39;</span>
+&gt;&gt;&gt; <span class="dt">str</span>(true)
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">NameError</span>: name <span class="st">&#39;true&#39;</span> is not defined</code></pre>
+<p>mentioned earlier, <code>True</code> is Boolean value; <code>true</code> is just an ordinary variable name, and is not defined here, so we get an error.</p>
+</section>
+<section id="a-turtle-bar-chart" class="level2">
+<h2>A Turtle Bar Chart</h2>
+<p>The turtle has a lot more power than we’ve seen so far. The full documentation can be found at http://docs.python.org/py3k/library/turtle.html or within PyScripter, use <em>Help</em> and search for the turtle module.</p>
+<p>Here are a couple of new tricks for our turtles:</p>
+<ul>
+<li>We can get a turtle to display text on the canvas at the turtle’s current position. The method to do that is <code>alex.write(&quot;Hello&quot;)</code>.</li>
+<li>We can fill a shape (circle, semicircle, triangle, etc.) with a color. It is a two-step process. First we call the method <code>alex.begin_fill()</code>, then we draw the shape, then we call <code>alex.end_fill()</code>.</li>
+<li>We’ve previously set the color of our turtle — we can now also set its fill color, which need not be the same as the turtle and the pen color. We use <code>alex.color(&quot;blue&quot;,&quot;red&quot;)</code> to set the turtle to draw in blue, and fill in red.</li>
+</ul>
+<p>Ok, so can we get tess to draw a bar chart? Let us start with some data to be charted,</p>
+<p><code>xs = [48, 117, 200, 240, 160, 260, 220]</code></p>
+<p>Corresponding to each data measurement, we’ll draw a simple rectangle of that height, with a fixed width.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> draw_bar(t, height):
+    <span class="co">&quot;&quot;&quot; Get turtle t to draw one bar, of height. &quot;&quot;&quot;</span>
+    t.left(<span class="dv">90</span>)   
+    t.forward(height)     <span class="co"># Draw up the left side</span>
+    t.right(<span class="dv">90</span>)
+    t.forward(<span class="dv">40</span>) <span class="co"># Width of bar, along the top</span>
+    t.right(<span class="dv">90</span>)
+    t.forward(height)     <span class="co"># And down again!</span>
+    t.left(<span class="dv">90</span>)    <span class="co"># Put the turtle facing the way we found it.</span>
+    t.forward(<span class="dv">10</span>) <span class="co"># Leave small gap after each bar</span>
+     
+... 
+<span class="kw">for</span> v in xs:      <span class="co"># Assume xs and tess are ready </span>
+    draw_bar(tess, v)    </code></pre></td></tr></table>
+<figure>
+<img src="figs/tess_bar_1.png" />
+</figure>
+<p>Ok, not fantasically impressive, but it is a nice start! The important thing here was the mental chunking, or how we broke the problem into smaller pieces. Our chunk is to draw one bar, and we wrote a function to do that. Then, for the whole chart, we repeatedly called our function.</p>
+<p>Next, at the top of each bar, we’ll print the value of the data. We’ll do this in the body of <code>draw_bar</code>, by adding <code>t.write('  ' + str(height))</code> as the new third line of the body.</p>
+<p>We’ve put a little space in front of the number, and turned the number into a string. Without this extra space we tend to cramp our text awkwardly against the bar to the left. The result looks a lot better now:</p>
+<figure>
+<img src="figs/tess_bar_2.png" />
+</figure>
+<p>And now we’ll add two lines to fill each bar. Our final program now looks like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> draw_bar(t, height):
+    <span class="co">&quot;&quot;&quot; Get turtle t to draw one bar, of height. &quot;&quot;&quot;</span>
+    t.begin_fill()   <span class="co"># Added this line</span>
+    t.left(<span class="dv">90</span>)
+    t.forward(height)
+    t.write(<span class="st">&quot;  &quot;</span>+ <span class="dt">str</span>(height))   
+    t.right(<span class="dv">90</span>)
+    t.forward(<span class="dv">40</span>)
+    t.right(<span class="dv">90</span>)
+    t.forward(height)
+    t.left(<span class="dv">90</span>)
+    t.end_fill()     <span class="co"># Added this line</span>
+    t.forward(<span class="dv">10</span>) 
+
+wn = turtle.Screen() <span class="co"># Set up the window and its attributes</span>
+wn.bgcolor(<span class="st">&quot;lightgreen&quot;</span>)
+
+tess = turtle.Turtle()       <span class="co"># Create tess and set some attributes</span>
+tess.color(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)
+tess.pensize(<span class="dv">3</span>)
+
+xs = [<span class="dv">48</span>,<span class="dv">117</span>,<span class="dv">200</span>,<span class="dv">240</span>,<span class="dv">160</span>,<span class="dv">260</span>,<span class="dv">220</span>]
+
+<span class="kw">for</span> a in xs:
+    draw_bar(tess, a)
+
+wn.mainloop()</code></pre></td></tr></table>
+<figure>
+<img src="figs/tess_bar_3.png" />
+</figure>
+<p>Mmm. Perhaps the bars should not be joined to each other at the bottom. We’ll need to pick up the pen while making the gap between the bars. We’ll leave that as an exercise for you!</p>
+</section>
+<section id="glossary-5" class="level2">
+<h2>Glossary</h2>
+<dl>
+<dt>block</dt>
+<dd><p>A group of consecutive statements with the same indentation.</p>
+</dd>
+<dt>body</dt>
+<dd><p>The block of statements in a compound statement that follows the header.</p>
+</dd>
+<dt>Boolean algebra</dt>
+<dd><p>Some rules for rearranging and reasoning about Boolean expressions.</p>
+</dd>
+<dt>Boolean expression</dt>
+<dd><p>An expression that is either true or false.</p>
+</dd>
+<dt>Boolean value</dt>
+<dd><p>There are exactly two Boolean values: <code>True</code> and <code>False</code>. Boolean values result when a Boolean expression is evaluated by the Python interepreter. They have type <code>bool</code>.</p>
+</dd>
+<dt>branch</dt>
+<dd><p>One of the possible paths of the flow of execution determined by conditional execution.</p>
+</dd>
+<dt>chained conditional</dt>
+<dd><p>A conditional branch with more than two possible flows of execution. In Python chained conditionals are written with <code>if ... elif ... else</code> statements.</p>
+</dd>
+<dt>comparison operator</dt>
+<dd><p>One of the six operators that compares two values: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&lt;=</code>.</p>
+</dd>
+<dt>condition</dt>
+<dd><p>The Boolean expression in a conditional statement that determines which branch is executed.</p>
+</dd>
+<dt>conditional statement</dt>
+<dd><p>A statement that controls the flow of execution depending on some condition. In Python the keywords <code>if</code>, <code>elif</code>, and <code>else</code> are used for conditional statements.</p>
+</dd>
+<dt>logical operator</dt>
+<dd><p>One of the operators that combines Boolean expressions: <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+</dd>
+<dt>nesting</dt>
+<dd><p>One program structure within another, such as a conditional statement inside a branch of another conditional statement.</p>
+</dd>
+<dt>prompt</dt>
+<dd><p>A visual cue that tells the user that the system is ready to accept input data.</p>
+</dd>
+<dt>truth table</dt>
+<dd><p>A concise table of Boolean values that can describe the semantics of an operator.</p>
+</dd>
+<dt>type conversion</dt>
+<dd><p>An explicit function call that takes a value of one type and computes a corresponding value of another type.</p>
+</dd>
+<dt>wrapping code in a function</dt>
+<dd><p>The process of adding a function header and parameters to a sequence of program statements is often refered to as “wrapping the code in a function”. This process is very useful whenever the program statements in question are going to be used multiple times. It is even more useful when it allows the programmer to express their mental chunking, and how they’ve broken a complex problem into pieces.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises-4" class="level2">
+<h2>Exercises</h2>
+<ol>
+<li><p>Assume the days of the week are numbered 0,1,2,3,4,5,6 from Sunday to Saturday. Write a function which is given the day number, and it returns the day name (a string).</p></li>
+<li><p>You go on a wonderful holiday (perhaps to jail, if you don’t like happy exercises) leaving on day number 3 (a Wednesday). You return home after 137 sleeps. Write a general version of the program which asks for the starting day number, and the length of your stay, and it will tell you the name of day of the week you will return on.</p></li>
+<li><p>Give the logical opposites of these conditions</p>
+<ol>
+<li><code>a &gt; b</code></li>
+<li><code>a &gt;= b</code></li>
+<li><code>a &gt;= 18  and  day == 3</code></li>
+<li><code>a &gt;= 18  and  day != 3</code></li>
+</ol></li>
+<li><p>What do these expressions evaluate to?</p>
+<ol>
+<li><code>3 == 3</code></li>
+<li><code>3 != 3</code></li>
+<li><code>3 &gt;= 4</code></li>
+<li><code>not (3 &lt; 4)</code></li>
+</ol></li>
+<li><p>Complete this truth table:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">q</th>
+<th style="text-align: left;">r</th>
+<th style="text-align: left;">(not (p and q)) or r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">?</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Write a function which is given an exam mark, and it returns a string — the grade for that mark — according to this scheme:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mark</th>
+<th style="text-align: left;">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&gt;= 75</td>
+<td style="text-align: left;">First</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[70-75)</td>
+<td style="text-align: left;">Upper Second</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[60-70)</td>
+<td style="text-align: left;">Second</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[50-60)</td>
+<td style="text-align: left;">Third</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[45-50)</td>
+<td style="text-align: left;">F1 Supp</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[40-45)</td>
+<td style="text-align: left;">F2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt; 40</td>
+<td style="text-align: left;">F3</td>
+</tr>
+</tbody>
+</table>
+<p>The square and round brackets denote closed and open intervals. A closed interval includes the number, and open interval excludes it. So 39.99999 gets grade F3, but 40 gets grade F2.</p>
+<p>Assume ::</p>
+<p><code>xs = [83, 75, 74.9, 70, 69.9, 65, 60, 59.9, 55, 50, 49.9, 45, 44.9, 40, 39.9, 2, 0]</code></p>
+<p>Test your function by printing the mark and the grade for all the elements in this list.</p></li>
+<li><p>Modify the turtle bar chart program so that the pen is up for the small gaps between each bar.</p></li>
+<li><p>Modify the turtle bar chart program so that the bar for any value of 200 or more is filled with red, values between [100 and 200) are filled with yellow, and bars representing values less than 100 are filled with green.</p></li>
+<li><p>In the turtle bar chart program, what do you expect to happen if one or more of the data values in the list is negative? Try it out. Change the program so that when it prints the text value for the negative bars, it puts the text below the bottom of the bar.</p></li>
+<li><p>Write a function <code>find_hypot</code> which, given the length of two sides of a right-angled triangle, returns the length of the hypotenuse. (Hint: <code>x ** 0.5</code> will return the square root.)</p></li>
+<li><p>Write a function <code>is_rightangled</code> which, given the length of three sides of a triangle, will determine whether the triangle is right-angled. Assume that the third argument to the function is always the longest side. It will return <code>True</code> if the triangle is right-angled, or <code>False</code> otherwise.</p>
+<p>Hint: Floating point arithmetic is not always exactly accurate, so it is not safe to test floating point numbers for equality. If a good programmer wants to know whether <code>x</code> is equal or close enough to <code>y</code>, they would probably code it up as:</p></li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span>  <span class="dt">abs</span>(x-y) &lt; <span class="fl">0.000001</span>:    <span class="co"># If x is approximately equal to y</span>
+...  </code></pre>
+<ol start="12" type="1">
+<li>If you’re intrigued by why floating point arithmetic is sometimes inaccurate, on a piece of paper, divide 10 by 3 and write down the decimal result. You’ll find it does not terminate, so you’ll need an infinitely long sheet of paper. The <em>representation</em> of numbers in computer memory or on your calculator has similar problems: memory is finite, and some digits may have to be discarded. So small inaccuracies creep in. Try this script:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="ch">import</span> math     
+a = math.sqrt(<span class="fl">2.0</span>)
+<span class="dt">print</span>(a, a*a)
+<span class="dt">print</span>(a*a == <span class="fl">2.0</span>)</code></pre></td></tr></table>
+</section>
+</section>
 <section id="iteration" class="level1">
 <h1>Iteration</h1>
 <p>Computers are often used to automate repetitive tasks. Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.</p>
 <p>Repeated execution of a set of statements is called <strong>iteration</strong>. Because iteration is so common, Python provides several language features to make it easier. The <code>for</code> loop is the form of iteration you’ll likely be using most often, and we will look at that first. But in this chapter we’ve going to look at the <code>while</code> statement — another way to have your program do iteration, useful in slightly different circumstances.</p>
-<section id="the-for-loop" class="level2">
+<section id="the-for-loop-1" class="level2">
 <h2>The <code>for</code> loop</h2>
 <p>A basic building block of all programs is to be able to repeat some code, over and over again. Python’s <strong>for</strong> loop solves this for us. Let’s say we have some friends, and we’d like to send them each an email inviting them to our party. We don’t quite know how to send email yet, so for the moment we’ll just print a message for each friend:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2020,7 +3191,7 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <li>At the end of each execution of the body of the loop, Python returns to the <code>for</code> statement, to see if there are more items to be handled, and to assign the next one to <code>f</code>.</li>
 </ul>
 </section>
-<section id="flow-of-execution-of-the-for-loop" class="level2">
+<section id="flow-of-execution-of-the-for-loop-1" class="level2">
 <h2>Flow of Execution of the for loop</h2>
 <p>As a program executes, the interpreter always keeps track of which statement is about to be executed. We call this the <strong>control flow</strong>, of the <strong>flow of execution</strong> of the program. When humans execute programs, they often use their finger to point to each statement in turn. So we could think of control flow as “Python’s moving finger”.</p>
 <p>Control flow until now has been strictly top to bottom, one statement at a time. The <code>for</code> loop changes this.</p>
@@ -2031,7 +3202,6 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <img src="figs/flowchart_for.png" />
 </figure>
 </aside>
-
 </section>
 <section id="assignment" class="level2">
 <h2>Assignment</h2>
@@ -2288,7 +3458,6 @@ test(mysum(<span class="dt">range</span>(<span class="dv">11</span>)) == <span c
 16
 done</code></pre>
 <aside id="loop-pretest">
-
 <p><strong>The pre-test loop — standard loop behaviour</strong></p>
 <p><code>for</code> loops do their tests at the start, before executing any part of the body. This is called a <strong>pre-test</strong> loops, because the test happens before (pre) the body.</p>
 <p><code>break</code> and <code>return</code> are our tools for adapting this standard behaviour by enabling us to test a condition in the body of the loop that allows us to exit the loop.</p>
@@ -2296,7 +3465,6 @@ done</code></pre>
 <img src="figs/pre_test_loop.png" />
 </figure>
 </aside>
-    
 </section>
 <section id="the-continue-statement" class="level2">
 <h2>The <code>continue</code> statement</h2>
@@ -2459,7 +3627,7 @@ counter = <span class="dv">0</span>
 <pre><code>The number of students taking CompSci is 3</code></pre>
 <p>You should set up a list of your own data that interests you — perhaps a list of your CDs, each containing a list of song titles on the CD, or a list of movie titles, each with a list of movie stars who acted in the movie. You could then ask questions like “Which movies starred Angelina Jolie?”</p>
 </section>
-<section id="glossary-4" class="level2">
+<section id="glossary-6" class="level2">
 <h2>Glossary</h2>
 <p>attribute : attribute a color.</p>
 <p>canvas : canvas</p>
@@ -2475,7 +3643,7 @@ counter = <span class="dv">0</span>
 <p>range : range useful when we need to write a for loop that executes a fixed number of times.</p>
 <p>terminating condition : terminating condition In the <code>for</code> loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.</p>
 </section>
-<section id="exercises-3" class="level2">
+<section id="exercises-5" class="level2">
 <h2>Exercises</h2>
 <ol>
 <li><p>Write a program that prints <code>We like Python's turtles!</code> 1000 times.</p></li>
@@ -2539,7 +3707,7 @@ test(is_prime(19911121))</code></pre>
 <figure>
 <img src="figs/tess_more_houses.png" alt="image" /><figcaption>image</figcaption>
 </figure>
-<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
+<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path" class="uri">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
 <li><p>What will <code>num_digits(0)</code> return? Modify it to return <code>1</code> for this case. Why does a call to <code>num_digits(-24)</code> result in an infinite loop? (<em>hint: -1//10 evaluates to -1</em>) Modify <code>num_digits</code> so that it works correctly with any integer value. Add these tests:</p>
 <pre><code>test(num_digits(0) == 1)
 test(num_digits(-12345) == 5)</code></pre></li>
@@ -2911,11 +4079,9 @@ double_stuff(things)
 <p>Since the list object is shared by two frames, we drew it between them.</p>
 <p>If a function modifies the items of a list parameter, the caller sees the change.</p>
 <aside id="visualizer">
-
 <p><strong>Use the Python visualizer!</strong></p>
-<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
+<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
 </aside>
-    
 </section>
 <section id="list-methods" class="level2">
 <h2>List methods</h2>
@@ -2986,13 +4152,10 @@ double_stuff(things)
 &gt;&gt;&gt; things
 [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>]      </code></pre>
 <aside id="pure-functions">
-
 <p><strong>Which style is better?</strong></p>
 <p>Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. Nevertheless, modifiers are convenient at times, and in some cases, functional programs are less efficient.</p>
 <p>In general, we recommend that you write pure functions whenever it is reasonable to do so and resort to modifiers only if there is a compelling advantage. This approach might be called a <em>functional programming style</em>.</p>
 </aside>
-
-
 </section>
 <section id="functions-that-produce-lists" class="level2">
 <h2>Functions that produce lists</h2>
@@ -3018,14 +4181,11 @@ loop
           result.append(i)
    <span class="kw">return</span> result</code></pre></td></tr></table>
 <aside id="list_comp">
-
 </section>
 <section id="list-comprehensions" class="level2">
 <h2>List Comprehensions</h2>
 <p>As we start to work with lists more, we start to see some common patterns. In particular, we often want to <em>filter</em> a list to create a new list of</p>
 </aside>
-
-
 </section>
 <section id="strings-and-lists" class="level2">
 <h2>Strings and lists</h2>
@@ -3082,11 +4242,9 @@ test(f(<span class="dv">110</span>) == <span class="dv">105</span>)
 test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code></pre></td></tr></table>
 <p>In the second test, if range were to eagerly go about building a list with all those elements, you would soon exhaust your computer’s available memory and crash the program. But it is cleverer than that! This computation works just fine, because the <code>range</code> object is just a promise to produce the elements if and when they are needed. Once the condition in the <code>if</code> becomes true, no further elements are generated, and the function returns. (Note: Before Python 3, <code>range</code> was not lazy. If you use an earlier versions of Python, YMMV!)</p>
 <aside id="ymmv">
-
 <p><strong>YMMV: Your Mileage May Vary</strong></p>
 <p>The acronym YMMV stands for <em>your mileage may vary</em>. American car advertisements often quoted fuel consumption figures for cars, e.g. that they would get 28 miles per gallon. But this always had to be accompanied by legal small-print warning the reader that they might not get the same. The term YMMV is now used idiomatically to mean “your results may differ”, e.g. <em>The battery life on this phone is 3 days, but YMMV.</em></p>
 </aside>
-    
 <p>You’ll sometimes find the lazy <code>range</code> wrapped in a call to <code>list</code>. This forces Python to turn the lazy promise into an actual list:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">range</span>(<span class="dv">10</span>)           <span class="co"># Create a lazy promise </span>
 <span class="dt">range</span>(<span class="dv">0</span>, <span class="dv">10</span>)
@@ -3126,69 +4284,69 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <span class="dv">6</span></code></pre>
 <p>The first index selects the row, and the second index selects the column. Although this way of representing matrices is common, it is not the only possibility. A small variation is to use a list of columns instead of a list of rows. Later we will see a more radical alternative using a dictionary.</p>
 </section>
-<section id="glossary-5" class="level2">
+<section id="glossary-7" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>aliases</dt>
-<dd><p>Multiple variables that contain references to the same object.</p>
+<dd>Multiple variables that contain references to the same object.
 </dd>
 <dt>clone</dt>
-<dd><p>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.</p>
+<dd>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.
 </dd>
 <dt>delimiter</dt>
-<dd><p>A character or string used to indicate where a string should be split.</p>
+<dd>A character or string used to indicate where a string should be split.
 </dd>
 <dt>element</dt>
-<dd><p>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.</p>
+<dd>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>index</dt>
-<dd><p>An integer value that indicates the position of an item in a list. Indexes start from 0.</p>
+<dd>An integer value that indicates the position of an item in a list. Indexes start from 0.
 </dd>
 <dt>item</dt>
-<dd><p>See <em>element</em>.</p>
+<dd>See <em>element</em>.
 </dd>
 <dt>list</dt>
-<dd><p>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.</p>
+<dd>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.
 </dd>
 <dt>list traversal</dt>
-<dd><p>The sequential accessing of each element in a list.</p>
+<dd>The sequential accessing of each element in a list.
 </dd>
 <dt>modifier</dt>
-<dd><p>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.</p>
+<dd>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 <dt>nested list</dt>
-<dd><p>A list that is an element of another list.</p>
+<dd>A list that is an element of another list.
 </dd>
 <dt>object</dt>
-<dd><p>A thing to which a variable can refer.</p>
+<dd>A thing to which a variable can refer.
 </dd>
 <dt>pattern</dt>
-<dd><p>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.</p>
+<dd>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.
 </dd>
 <dt>promise</dt>
-<dd><p>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.</p>
+<dd>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.
 </dd>
 <dt>pure function</dt>
-<dd><p>A function which has no side effects. Pure functions only make changes to the calling program through their return values.</p>
+<dd>A function which has no side effects. Pure functions only make changes to the calling program through their return values.
 </dd>
 <dt>sequence</dt>
-<dd><p>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.</p>
+<dd>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.
 </dd>
 <dt>side effect</dt>
-<dd><p>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.</p>
+<dd>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.
 </dd>
 <dt>step size</dt>
-<dd><p>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.</p>
+<dd>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.
 </dd>
 </dl>
 </section>
-<section id="exercises-4" class="level2">
+<section id="exercises-6" class="level2">
 <h2>Exercises</h2>
 <section id="basic-questions" class="level3">
 <h3>Basic Questions</h3>
@@ -3274,7 +4432,7 @@ test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&
  swap(a, b)
  <span class="dt">print</span>(<span class="st">&quot;after swap function call: a:&quot;</span>, a, <span class="st">&quot;b:&quot;</span>, b)</code></pre></td></tr></table>
 <p>Run this program and describe the results. Oops! So it didn’t do what you intended!<br />Explain why not.</p>
-<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
+<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
 </ol>
 </section>
 </section>
@@ -3376,27 +4534,27 @@ b = temp</code></pre></td></tr></table>
       (<span class="st">&quot;Oceans Twelve&quot;</span>, <span class="dv">2004</span>) ])</code></pre>
 <p>Notice in this case that the tuple has just five elements — but each of those in turn can be another tuple, a list, a string, or any other kind of Python value. This property is known as being <strong>heterogeneous</strong>, meaning that it can be composed of elements of different types.</p>
 </section>
-<section id="glossary-6" class="level2">
+<section id="glossary-8" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>data structure</dt>
-<dd><p>An organization of data for the purpose of making it easier to use.</p>
+<dd>An organization of data for the purpose of making it easier to use.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 <dt>tuple</dt>
-<dd><p>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</p>
+<dd>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.
 </dd>
 <dt>tuple assignment</dt>
-<dd><p>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.</p>
+<dd>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.
 </dd>
 </dl>
 </section>
-<section id="exercises-5" class="level2">
+<section id="exercises-7" class="level2">
 <h2>Exercises</h2>
 <ol type="1">
 <li><p>Write a function <code>merge_contacts(contact1, contact1)</code> that takes two touples as parameters. The tuples represent contact records in the form of (firstName, lastName, email, phone). This is the specification for your function:</p>
@@ -3423,7 +4581,6 @@ b = temp</code></pre></td></tr></table>
 {<span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>}</code></pre>
 <p>The key:value pairs of the dictionary are separated by commas. Each pair contains a key and a value separated by a colon.</p>
 <aside id="hashing">
-
 <p><strong>Hashing</strong></p>
 <p>The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.</p>
 <p>You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:</p>
@@ -3434,7 +4591,6 @@ b = temp</code></pre></td></tr></table>
 [(<span class="st">&#39;apples&#39;</span>, <span class="dv">430</span>), (<span class="st">&#39;bananas&#39;</span>, <span class="dv">312</span>), (<span class="st">&#39;oranges&#39;</span>, <span class="dv">525</span>), (<span class="st">&#39;pears&#39;</span>, <span class="dv">217</span>)]</code></pre>
 <p>The reason is dictionaries are very fast, implemented using a technique called hashing, which allows us to access a value very quickly. By contrast, the list of tuples implementation is slow. If we wanted to find a value associated with a key, we would have to iterate over every tuple, checking the 0th element. What if the key wasn’t even in the list? We would have to get to the end of it to find out.</p>
 </aside>
-
 <p>Another way to create a dictionary is to provide a list of key:value pairs using the same syntax as the previous output:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2sp = {<span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>, <span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;three&quot;</span>: <span class="st">&quot;tres&quot;</span>}</code></pre>
 <p>It doesn’t matter what order we write the pairs. The values in a dictionary are accessed with keys, not with indices, so there is no need to care about ordering.</p>
@@ -3565,24 +4721,16 @@ Traceback (most recent call last):
 <section id="case-study-snowden-content-analysis" class="level3">
 <h3>Case Study: Snowden Content Analysis</h3>
 <aside id="snowden_read_file" style="top: 280px;">
-
 <p><strong>read_file</strong> uses the <strong>buil-in function</strong> <code>open()</code> to read a plain text file into a <strong>file object</strong>. The function <strong>returns</strong> the text as a <code>string</code>.</p>
 </aside>
-
-
 <aside id="snowden_word_map" style="top: 365px;">
-
 <p>The <strong>word_map function</strong> uses a Python <code>dict</code> to map the key words identified in the parameter <code>find</code> to the number of times they occur in the text. The text is passed in as an argument to this function as a <code>list</code> of <code>words</code>.</p>
 <p>This function uses <code>list</code> and <code>dict</code> <strong>data structures</strong>. Line 23 initializes and empty <code>dict</code> called wordMap. The <code>find</code> parameter is a <code>list</code> that let’s the function know which words to count. The first <code>for</code> loop on line 25 iterates over the words in <code>find</code> and adds a new <strong>key</strong> to wordMap with the <strong>value</strong> zero. We use the String function <code>lower()</code> to force all keys to lowercase. The second loop (29) iterates through the words in the text. For each word in the list we use the <strong>string function</strong> <code>strip()</code> to remove punctation. The <strong>string module</strong> was <strong>imported</strong> on line 9, so that we can access its list of punctation characters here, on line 30.</p>
 <p>The body of the second loop uses the <code>in</code> operator to test if a word from the text is in our list of words to find. If the word is found, we <strong>increment</strong> the value for that word in our <code>dict</code>. Finally, the function returns a map of <strong>key-value pairs</strong> where the keys are the words that were found. The values are <code>ints</code> indicating the number of times the word was found in the text (0..<em>n</em>). The function <strong>returns</strong> this word frequency map.</p>
 </aside>
-
 <aside id="snowden_describe" style="top: 794px;">
-
 <p>The <strong>describe</strong> function presents the results to the user by printing information to the console. This function is not very <strong>abstract</strong> — it can only be used to analyze the Snowden news reports.</p>
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -3735,33 +4883,33 @@ Traceback (most recent call last):
 main()</code></pre></td></tr></table>
 </section>
 </section>
-<section id="glossary-7" class="level2">
+<section id="glossary-9" class="level2">
 <h2>Glossary</h2>
 <dl>
 <dt>dictionary</dt>
-<dd><p>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.</p>
+<dd>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.
 </dd>
 <dt>immutable data value</dt>
-<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
 </dd>
 <dt>key</dt>
-<dd><p>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.</p>
+<dd>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.
 </dd>
 <dt>key:value pair</dt>
-<dd><p>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.</p>
+<dd>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.
 </dd>
 <dt>mapping type</dt>
-<dd><p>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.</p>
+<dd>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.
 </dd>
 <dt>memo</dt>
-<dd><p>Temporary storage of precomputed values to avoid duplicating the same computation.</p>
+<dd>Temporary storage of precomputed values to avoid duplicating the same computation.
 </dd>
 <dt>mutable data value</dt>
-<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
 </dd>
 </dl>
 </section>
-<section id="exercises-6" class="level2">
+<section id="exercises-8" class="level2">
 <h2>Exercises</h2>
 <ol>
 <li><p>Write a program that reads a string and returns a table of the letters of the alphabet in alphabetical order which occur in the string together with the number of times each letter occurs. Case should be ignored. A sample output of the program when the user enters the data “ThiS is String with Upper and lower case Letters”, would look this this:</p>
@@ -3796,17 +4944,13 @@ absurd            2</code></pre></li>
 <li>leave apostrophes and hyphenated words intact</li>
 </ol>
 </aside>
-
 <aside id="teachers_while" style="top: 1083px;">
 <p><code>strip_non_chars</code> is applied to every word in the text. Python’s built-in <code>strip</code> function removes spaces or other characters from the start or end of strings, but, in this case, we know the characters we want to keep, but not the ones we want to strip—we want to keep the 26 lowercase English letters and the digits 0-9. We remove any other character found at the start or end of the word. We chose to implement this using a <strong>while loop</strong>. Unlike like <strong>for</strong> loops, while loops provide an <em>indefinite loop</em>—we do not know who many iterations are needed. In this case, we continue the loop until we find a valid character.</p>
 This function has 2 while loops. The first drops the first character of the word (using the string slice syntax) until the first character is valid. The second loop does the same, but works from the last character.
 </aside>
-
 <aside id="teachers_freak" style="top: 1400px">
 Counting word frequencies—the number of times a word occurs in the text—is the main tool offered by this program to analyze text. The algorithm in <code>freq</code> is familiar to us by now: iterate over a list of words in a for loop, use unique words as <strong>dictionary keys</strong> and keep a <strong>running total</strong> of each word as the dictionary <strong>value</strong>. The word frequency map return allows quick and easy access to the frequency of every word in the text.
 </aside>
-
-
 <aside id="teachers_freak_sort" style="top: 1715px">
 <p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
 <p><code>freq_list</code> solves this problem by sorting the dictionary items based on the word count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
@@ -3817,20 +4961,15 @@ Counting word frequencies—the number of times a word occurs in the text—is t
 <li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without changing the <strong>interface</strong> to our function)</li>
 </ol>
 </aside>
-
-<aside id="teachers_common" style="top: 2342px;"> 
+<aside id="teachers_common" style="top: 2342px;">
 Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. The variable <code>commonWords</code> is defined as a list of strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong> —<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
 </aside>
-
 <aside id="teachers_neighbors" style="top: 2600px;">
 <code>neighbors</code> helps us examine co-occurances of words in the text. This function defines three <strong>parameters</strong>: <code>words</code> is the list of tuples to analyze, <code>targetWords</code> is a sub-list of words we will run our neighbor analysis on, and the <strong>int</strong> <code>n</code> indicates how for away from our target word we want to investigate. if <code>n == 1</code>, we will only count co-locations of words contiguous with our target word. For more on <code>neighbors</code> please see the example below the code listing.
 </aside>
-
 <aside id="teachers_compare" style="top: 2800px;">
 <code>compare</code> offers a comparison of two word frequency dictionaries to find which words have the greatest disparity in occurrences. In this function we see a new Python <em>data structure</em>, <strong>set</strong>. “A set is an unordered collection with no duplicate elements” <a href="http://docs.python.org/3.3/tutorial/datastructures.html#sets">*</a>. In this case we use <strong>set</strong> to make a unique set of keys from both dictionaries. We create the set from the <code>keys</code> in dictionary <code>a</code> on line 188 and then add any missing <code>keys</code> from dict <code>b</code> on line 189 by calling sets <code>update</code> method. In our loop (lines 193-197) we add tuples to a new list, in the format (word, difference in counts between a &amp; b). We use the built-in <code>abs</code> function, because, here, we care about the difference, not <em>which</em> dict had the greater count. Once this list of differences is created, we sort it by counts using the <code>list_freqs</code> function we already defined.
 </aside>
-
-
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -4388,8 +5527,6 @@ While previously well <span style="color:
 blue">known in <span style="color: red">education</span> circles, she</span> gained a much broader audience after she publicly rejected almost everything she had once believed. In a surprise 2010 best seller, “The Death and Life of the Great American School System,” she openly declared that she had been wrong to <span style="color: blue">champion standardized <span style="color: 
 red">testing</span>, charter schools</span> and vouchers. She says she is trying now to make up for past errors.
 </p>
-
-
 <p>If we run <code>neighbors</code> with <code>targetWords=[&quot;testing&quot;, &quot;education&quot;], n=2</code> we would create a dictionary that looks something like this:</p>
 <table>
 <thead>
@@ -4533,15 +5670,12 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>You’ll notice that if you don’t stop when you reach 1, the sequence gets into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility is that there might be other cycles that we just haven’t found yet.</p>
 <p>Wikipedia has an informative article about the Collatz conjecture. The sequence also goes under other names (Hailstone sequence, Wonderous numbers, etc.), and you’ll find out just how many integers have already been tested by computer, and found to converge!</p>
 <aside id="for-or-while">
-
 <p><strong>Choosing between <code>for</code> and <code>while</code></strong></p>
 <p>Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body.<br />For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run.</p>
 <p>So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best.</p>
 <p>By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this 3n + 1 problem, you’ll need a <code>while</code> loop.</p>
 <p>We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
 </aside>
-
-
 </section>
 <section id="tracing-a-program" class="level2">
 <h2>Tracing a program</h2>

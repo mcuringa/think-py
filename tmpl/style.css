@@ -34,6 +34,12 @@ aside
     background-color: #F6CCDA;
 }
 
+figcaption
+{
+    font-weight: bold;
+    font-size: 90%;
+}
+
 h1,h2,h3,h4,h5, .header-section-number
 { 
     font-family: "Gil Sans", Futura, Ubuntu, "Century Gothic", sans-serif; 
@@ -131,7 +137,7 @@ dd p {padding: 0; margin: 0; }
 a { text-decoration: none; }
 a img { border-style: none; }
 
-tr.odd { background-color: #d3d3d3; }
+/*tr.odd { background-color: #d3d3d3; }*/
 
 p
 {

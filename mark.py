@@ -15,30 +15,25 @@ def skip_index(lines):
     return
 
 def parse_image(lines):
-    tmpl = "![{}]({})"
-    img = lines.pop(0)
-    img.replace(".. image:: illustrations", "figs")
-    print("--> " + img)
-    if ":alt" in lines[0]:
-        alt = lines.pop(0).replace(":alt: ", "")
-    else:
-        alt = ""
+    tmpl = "![](figs/{})"
+    line = lines.pop(0)
+    img = line.split("/")[-1].strip()
 
-    return tmpl.format(alt,img)
+    return tmpl.format(img)
 
 def parse(lines, out=""):
     if len(lines) == 0:
         return out
 
     line = lines[0]
-    if ".. sourcecode:: python3" or ".. sourcecode:: python" in line:
+    if ".. sourcecode:: python3" in line:
         lines.pop(0)
         code = parse_code(lines)
         out += code
     elif ".. index::" in line:
         skip_index(lines)
     elif ".. image::" in line:
-        code = parse_image(i,lines)
+        code = parse_image(lines)
         out += code
     else:
         out += lines.pop(0)
@@ -47,21 +42,28 @@ def parse(lines, out=""):
 
 def parse_code(lines):
     tmpl = """
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~{{.python{}}}
-{}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{{.python{}}}{}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
-    line = lines.pop(0)
-    print(line)
     numbers = ""
-    if ":linenos:" in line:
+    if ":linenos:" in lines[0]:
         numbers = " .numberLines"
+        lines.pop(0)
+
+    if len(lines) == 0:
+        print("ran out of lines before loop")
+        print(line)
+        return ""
 
     code = ""
     line = lines.pop(0)
 
-    while line.startswith(" "):
+    while line.startswith(" ") or len(line.strip()) == 0:
         code += line
+        if len(lines) == 0:
+            print("ran out of lines in loop")
+            print(code)
+            return ""
+
         line = lines.pop(0)
     
     code = code.replace(" " * 8, "")
@@ -80,10 +82,11 @@ def convert(f):
 def main(rst):
     if rst.endswith(".rst"):
         rst = rst[:-4]
-    print(rst)
-    print("Converting {}.rst to {}.md".format(rst,rst))
-    print("The following images were found while converting:")
+    # print(rst)
+    # print("Converting {}.rst to {}.md".format(rst,rst))
+    # print("The following images were found while converting:")
     convert(rst)
+
 
 
 if __name__ == "__main__":

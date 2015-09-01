@@ -1,13 +1,6 @@
 Hello, little turtles!
 ======================
 
-.. index::  
-    single: module
-    single: function
-    single: function definition
-    single: definition; function
-    single: turtle module
-
 There are many *modules* in Python that provide very powerful features that we
 can use in our own programs.  Some of these can send email, or fetch web pages.
 The one we'll look at in this chapter allows us to create turtles and get them
@@ -18,9 +11,6 @@ a little more Python, and to develop our theme of *computational thinking*,
 or *thinking like a computer scientist*.  Most of the Python covered here 
 will be explored in more depth later.
 
-
-.. index:: object, invoke, method, attribute, state, canvas
-
 Our first turtle program
 ------------------------
 
@@ -29,23 +19,24 @@ turtle and start drawing a rectangle. (We'll call the variable that
 refers to our first turtle ``alex``, but we can choose another 
 name if we follow the naming rules from the previous chapter).
 
-    .. sourcecode:: python3
-       :linenos:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
        
-        import turtle             # Allows us to use turtles
-        wn = turtle.Screen()      # Creates a playground for turtles
-        alex = turtle.Turtle()    # Create a turtle, assign to alex
+import turtle     # Allows us to use turtles
+wn = turtle.Screen()      # Creates a playground for turtles
+alex = turtle.Turtle()    # Create a turtle, assign to alex
 
-        alex.forward(50)          # Tell alex to move forward by 50 units
-        alex.left(90)             # Tell alex to turn by 90 degrees
-        alex.forward(30)          # Complete the second side of a rectangle
+alex.forward(50)          # Tell alex to move forward by 50 units
+alex.left(90)             # Tell alex to turn by 90 degrees
+alex.forward(30)          # Complete the second side of a rectangle
 
-        wn.mainloop()             # Wait for user to close window
-    
+wn.mainloop()             # Wait for user to close window
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 When we run this program, a new window pops up:
 
-    .. image:: illustrations/tess01.png  
-    
+![](figs/tess01.png)  
+
 Here are a couple of things we'll need to understand about this program. 
   
 The first line tells Python to load a module named ``turtle``.  
@@ -58,7 +49,6 @@ module name, with a lowercase `t`, is different from the type ``Turtle``.)
 We then create and open what it calls a screen (we would prefer to call it 
 a window), which we assign to variable ``wn``. Every window contains 
 a **canvas**, which is the area inside the window on which we can draw. 
-
 
 In line 3 we create a turtle. The variable ``alex`` is made to refer to this turtle.   
 
@@ -90,47 +80,44 @@ window objects.  We'll just show a couple. In this program we've only commented 
 lines that are different from the previous example (and we've used a different
 variable name for this turtle):
     
-    .. sourcecode:: python3
-       :linenos:
 
-        import turtle
-        wn = turtle.Screen()
-        wn.bgcolor("lightgreen")      # Set the window background color
-        wn.title("Hello, Tess!")      # Set the window title
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+import turtle
+wn = turtle.Screen()
+wn.bgcolor("lightgreen")      # Set the window background color
+wn.title("Hello, Tess!")      # Set the window title
 
-        tess = turtle.Turtle()
-        tess.color("blue")            # Tell tess to change her color
-        tess.pensize(3)               # Tell tess to set her pen width
+tess = turtle.Turtle()
+tess.color("blue")            # Tell tess to change her color
+tess.pensize(3)               # Tell tess to set her pen width
 
-        tess.forward(50)
-        tess.left(120)
-        tess.forward(50)
+tess.forward(50)
+tess.left(120)
+tess.forward(50)
 
-        wn.mainloop()
-
+wn.mainloop()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
 When we run this program, this new window pops up, and will remain on the 
 screen until we close it.
 
-    .. image:: illustrations/tess02.png 
-
+![](figs/tess02.png)
   
-.. admonition:: Extend this program ...
+**_Extend this program_**
     
-    #. Modify this program so that before it creates the window, it prompts
-       the user to enter the desired background color. It should store the user's 
-       responses in a variable, and modify the color of the window 
-       according to the user's wishes.
-       (Hint: you can find a list of permitted color names at 
-       http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm.  It includes some quite unusual
-       ones, like "peach puff"  and "HotPink".)    
-    #. Do similar changes to allow the user, at runtime, to set ``tess``' color.
-    #. Do the same for the width of ``tess``' pen.  *Hint:* your dialog with the 
-       user will return a string, but ``tess``' ``pensize`` method 
-       expects its argument to be an int.  So you'll need to convert 
-       the string to an int before you pass it to ``pensize``.   
+#. Modify this program so that before it creates the window, it prompts
+   the user to enter the desired background color. It should store the user's 
+   responses in a variable, and modify the color of the window 
+   according to the user's wishes.
+   (Hint: you can find a list of permitted color names at 
+   http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm.  It includes some quite unusual
+   ones, like "peach puff"  and "HotPink".)    
+#. Do similar changes to allow the user, at runtime, to set ``tess``' color.
+#. Do the same for the width of ``tess``' pen.  *Hint:* your dialog with the 
+   user will return a string, but ``tess``' ``pensize`` method 
+   expects its argument to be an int.  So you'll need to convert 
+   the string to an int before you pass it to ``pensize``.   
  
-.. index:: instance
   
 Instances --- a herd of turtles
 -------------------------------
@@ -140,45 +127,46 @@ Each of them is called an **instance**.  Each instance has its own attributes an
 methods --- so ``alex`` might draw with a thin black pen and be at some position,
 while ``tess`` might be going in her own direction with a fat pink pen. 
 
-    .. sourcecode:: python3
-       :linenos:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
        
-        import turtle
-        wn = turtle.Screen()         # Set up the window and its attributes
-        wn.bgcolor("lightgreen")
-        wn.title("Tess & Alex")
+import turtle
+wn = turtle.Screen() # Set up the window and its attributes
+wn.bgcolor("lightgreen")
+wn.title("Tess & Alex")
 
-        tess = turtle.Turtle()       # Create tess and set some attributes
-        tess.color("hotpink")
-        tess.pensize(5)
+tess = turtle.Turtle()       # Create tess and set some attributes
+tess.color("hotpink")
+tess.pensize(5)
 
-        alex = turtle.Turtle()       # Create alex
+alex = turtle.Turtle()       # Create alex
 
-        tess.forward(80)             # Make tess draw equilateral triangle
-        tess.left(120)
-        tess.forward(80)
-        tess.left(120)
-        tess.forward(80)
-        tess.left(120)               # Complete the triangle
+tess.forward(80)             # Make tess draw equilateral triangle
+tess.left(120)
+tess.forward(80)
+tess.left(120)
+tess.forward(80)
+tess.left(120)               # Complete the triangle
 
-        tess.right(180)              # Turn tess around
-        tess.forward(80)             # Move her away from the origin
+tess.right(180)              # Turn tess around
+tess.forward(80)             # Move her away from the origin
 
-        alex.forward(50)             # Make alex draw a square
-        alex.left(90)
-        alex.forward(50)
-        alex.left(90)
-        alex.forward(50)
-        alex.left(90)
-        alex.forward(50)
-        alex.left(90)
+alex.forward(50)             # Make alex draw a square
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+alex.left(90)
 
-        wn.mainloop()
+wn.mainloop()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is what happens when ``alex`` completes his rectangle, and ``tess`` completes her triangle:
 
-    .. image:: illustrations/tess03.png  
-  
+![](figs/tess03.png)  
+
 Here are some *How to think like a computer scientist* observations:
 
 * There are 360 degrees in a full circle.  If we add up all the turns that a turtle makes,
@@ -203,9 +191,7 @@ Here are some *How to think like a computer scientist* observations:
 * And, uh-huh, two turtles may not be enough for a herd. But the important idea is that the
   turtle module gives us a kind of factory that lets us create as many turtles as we 
   need. Each instance has its own state and behaviour.  
-
   
-.. index:: for loop
   
 The **for** loop
 ----------------
@@ -221,26 +207,25 @@ Python's **for** loop solves this for us.   Let's say we have some friends, and
 we'd like to send them each an email inviting them to our party.  We don't
 quite know how to send email yet, so for the moment we'll just print a message for each friend:
 
-    .. sourcecode:: python3
-        :linenos:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for f in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
+    invite = "Hi " + f + ".  Please come to my party on Saturday!"
+    print(invite)
+# more code can follow here ...            
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        for f in ["Joe","Zoe","Brad","Angelina","Zuki","Thandi","Paris"]:
-            invite = "Hi " + f + ".  Please come to my party on Saturday!"
-            print(invite)
-        # more code can follow here ...            
-      
 
 When we run this, the output looks like this:
 
-    .. sourcecode:: pycon
-
-        Hi Joe.  Please come to my party on Saturday!
-        Hi Zoe.  Please come to my party on Saturday!
-        Hi Brad.  Please come to my party on Saturday!
-        Hi Angelina.  Please come to my party on Saturday!
-        Hi Zuki.  Please come to my party on Saturday!
-        Hi Thandi.  Please come to my party on Saturday!
-        Hi Paris.  Please come to my party on Saturday! 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hi Joe.  Please come to my party on Saturday!
+Hi Zoe.  Please come to my party on Saturday!
+Hi Brad.  Please come to my party on Saturday!
+Hi Angelina.  Please come to my party on Saturday!
+Hi Zuki.  Please come to my party on Saturday!
+Hi Thandi.  Please come to my party on Saturday!
+Hi Paris.  Please come to my party on Saturday! 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * The variable ``f`` in the ``for`` statement at line 1 is called the **loop variable**.  
   We could have chosen any other variable name instead.
@@ -258,7 +243,6 @@ When we run this, the output looks like this:
   to the ``for`` statement, to see if there are more items to be handled, and to assign the
   next one to ``f``.
 
-.. index:: control flow, flow of execution
   
 Flow of Execution of the for loop
 ---------------------------------
@@ -271,15 +255,11 @@ to each statement in turn.  So we could think of control flow as "Python's movin
 Control flow until now has been strictly
 top to bottom, one statement at a time.  The ``for`` loop changes this. 
 
-.. admonition:: Flowchart of a **for** loop
+![](figs/flowchart_for.png)
 
-   Control flow is often easy to visualize and understand if we draw a flowchart.
-   This shows the exact steps and logic of how the ``for`` statement executes.
-   
-   .. image:: illustrations/flowchart_for.png 
-      :height: 420
-
-.. index:: range function, chunking
+**Flowchart of a ``for`` loop**\
+_Control flow is often easy to visualize and understand if we draw a flowchart.
+This shows the exact steps and logic of how the ``for`` statement executes._
 
 The loop simplifies our turtle program
 --------------------------------------
@@ -288,13 +268,13 @@ To draw a square we'd like to do the same thing four times --- move the turtle, 
 We previously used 8 lines to have ``alex`` draw the four sides of a square.  
 This does exactly the same, but using just three lines:
 
-    .. sourcecode:: python3
-        :linenos:
 
-        for i in [0,1,2,3]:
-            alex.forward(50)
-            alex.left(90) 
-  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for i in [0,1,2,3]:
+    alex.forward(50)
+    alex.left(90) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Some observations:
 
 * While "saving some lines of code" might be convenient, it is not the big deal here.
@@ -308,14 +288,13 @@ Some observations:
   have used any four values, but these are the conventional ones to use.  In fact, they are
   so popular that Python gives us special built-in ``range`` objects:
 
-    .. sourcecode:: python3
-        :linenos:
 
-        for i in range(4):
-            # Executes the body with i = 0, then 1, then 2, then 3
-        for x in range(10):
-            # Sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for i in range(4):
+    # Executes the body with i = 0, then 1, then 2, then 3
+for x in range(10):
+    # Sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
 * Computer scientists like to count from 0!
 * ``range`` can deliver a sequence of values to the loop variable in the ``for`` loop.
@@ -329,38 +308,38 @@ Some observations:
   
 So to repeat something four times, a good Python programmer would do this:
 
-    .. sourcecode:: python3
-        :linenos:
 
-        for i in range(4):
-            alex.forward(50)
-            alex.left(90)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for i in range(4):
+    alex.forward(50)
+    alex.left(90)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By now you should be able to see how to change our previous program so that
 ``tess`` can also use a ``for`` loop to draw her equilateral triangle.
 
 But now, what would happen if we made this change?
     
-   .. sourcecode:: python3
-        :linenos:
 
-        for c in ["yellow", "red", "purple", "blue"]:
-            alex.color(c)
-            alex.forward(50)
-            alex.left(90)
- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+for c in ["yellow", "red", "purple", "blue"]:
+    alex.color(c)
+    alex.forward(50)
+    alex.left(90)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 A variable can also be assigned a value that is a list.  So lists can also be used in
 more general situations, not only in the ``for`` loop.  The code above could be rewritten like this:
- 
-   .. sourcecode:: python3
-        :linenos:
 
-        # Assign a list to a variable
-        clrs = ["yellow", "red", "purple", "blue"]   
-        for c in clrs:
-            alex.color(c)
-            alex.forward(50)
-            alex.left(90)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+# Assign a list to a variable
+clrs = ["yellow", "red", "purple", "blue"]   
+for c in clrs:
+    alex.color(c)
+    alex.forward(50)
+    alex.left(90)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
  
 A few more turtle methods and tricks
 ------------------------------------
@@ -385,61 +364,58 @@ if we're going to play with turtles.
 A turtle's pen can be picked up or put down.  This allows us to move a turtle
 to a different place without drawing a line.   The methods are 
 
-  .. sourcecode:: python3
-        :linenos:
 
-        alex.penup()
-        alex.forward(100)     # This moves alex, but no line is drawn
-        alex.pendown()   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
+alex.penup()
+alex.forward(100)     # This moves alex, but no line is drawn
+alex.pendown()  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
    
 Every turtle can have its own shape.  The ones available "out of the box"
 are ``arrow``, ``blank``, ``circle``, ``classic``, ``square``, ``triangle``, ``turtle``.
 
-  .. sourcecode:: python3
-        :linenos:
-           
-        alex.shape("turtle")           
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines} 
+alex.shape("turtle")   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  .. image:: illustrations/alex06.png
+![](figs/alex06.png)
 
 We can speed up or slow down the turtle's animation speed. (Animation controls how
 quickly the turtle turns and moves forward).  Speed settings can be set
 between 1 (slowest) to 10 (fastest).  But if we set the speed to 0, it has 
 a special meaning --- turn off animation and go as fast as possible. 
 
-  .. sourcecode:: python3
-        :linenos:
-       
-        alex.speed(10)
-      
-A turtle can "stamp" its footprint onto the canvas, 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}      
+alex.speed(10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 and this will remain after the turtle has moved somewhere else. 
 Stamping works, even when the pen is up. 
     
 Let's do an example that shows off some of these new features:
 
-    .. sourcecode:: python3
-        :linenos:
-       
-        import turtle
-        wn = turtle.Screen()             
-        wn.bgcolor("lightgreen")
-        tess = turtle.Turtle()            
-        tess.shape("turtle")
-        tess.color("blue")
 
-        tess.penup()                # This is new
-        size = 20
-        for i in range(30):
-           tess.stamp()             # Leave an impression on the canvas
-           size = size + 3          # Increase the size on every iteration
-           tess.forward(size)       # Move tess along  
-           tess.right(24)           #  ...  and turn her
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}    
+import turtle
+wn = turtle.Screen()     
+wn.bgcolor("lightgreen")
+tess = turtle.Turtle()    
+tess.shape("turtle")
+tess.color("blue")
+tess.penup()                # This is new
+size = 20
+for i in range(30):
+   tess.stamp()             # Leave an impression on the canvas
+   size = size + 3          # Increase the size on every iteration
+   tess.forward(size)       # Move tess along  
+   tess.right(24)           #  ...  and turn her
 
-        wn.mainloop()  
-   
-    .. image:: illustrations/tess07.png   
+wn.mainloop()  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+![](figs/tess07.png)
 
 Be careful now!   How many times was the body of the loop executed?   How many turtle 
 images do we see on the screen?  All except one of the shapes we see on the screen here
@@ -450,63 +426,57 @@ or to put her pen down and draw a line, or to change her shape, etc.)
    
 Glossary
 --------
+attribute
 
-.. glossary::
+:   Some state or value that belongs to a particular object.  For example, ``tess`` has a color.
 
+canvas
 
-    attribute
-        Some state or value that belongs to a particular object.  For example, ``tess`` has
-        a color. 
-        
-    canvas
-        A surface within a window where drawing takes place.
-        
-    control flow
-        See *flow of execution* in the next chapter.
-        
-    for loop
-        A statement in Python for convenient repetition of statements in the *body* of the loop.
-        
-    loop body
-        Any number of statements nested inside a loop. The nesting is indicated
-        by the fact that the statements are indented under the for loop statement.
+:   A surface within a window where drawing takes place.
     
-    loop variable
-        A variable used as part of a for loop. It is assigned a different value on
-        each iteration of the loop.
-    
-    instance
-        An object of a certain type, or class.  ``tess`` and ``alex`` are different instances of
-        the class ``Turtle``.  
-    
-    method
-        A function that is attached to an object.  Invoking or activating the method
-        causes the object to respond in some way, e.g. ``forward`` is the method
-        when we say ``tess.forward(100)``.
+control flow
 
-    invoke
-        An object has methods.  We use the verb invoke to mean *activate the
-        method*.  Invoking a method is done by putting parentheses after the method
-        name, with some possible arguments.  So  ``tess.forward()`` is an invocation
-        of the ``forward`` method.  
-         
-    module
-        A file containing Python definitions and statements intended for use in other 
-        Python programs. The contents of a module are made available to the other 
-        program by using the ``import`` statement.
-        
-    object
-        A "thing" to which a variable can refer.  This could be a screen window,
-        or one of the turtles we have created.        
+:   See *flow of execution* in the next chapter.
     
-    range
-        A built-in function in Python for generating sequences of integers.  It is especially
-        useful when we need to write a for loop that executes a fixed number of times.
- 
-    terminating condition
-        A condition that occurs which causes a loop to stop repeating its body.
-        In the ``for`` loops we saw in this chapter, the terminating condition 
-        has been when there are no more elements to assign to the loop variable.
+for loop
+
+:   A statement in Python for convenient repetition of statements in the *body* of the loop.
+    
+loop body
+
+:   Any number of statements nested inside a loop. The nesting is indicated by the fact that the statements are indented under the for loop statement.
+
+loop variable
+
+:   A variable used as part of a for loop. It is assigned a different value on each iteration of the loop.
+
+instance
+
+:   An object of a certain type, or class.  ``tess`` and ``alex`` are different instances of the class ``Turtle``.
+
+method
+
+:   A function that is attached to an object.  Invoking or activating the method causes the object to respond in some way, e.g. ``forward`` is the method when we say ``tess.forward(100)``.
+
+invoke
+
+:   An object has methods.  We use the verb invoke to mean *activate the method*.  Invoking a method is done by putting parentheses after the method name, with some possible arguments.  So  ``tess.forward()`` is an invocation of the ``forward`` method.
+     
+module
+
+:   A file containing Python definitions and statements intended for use in other Python programs. The contents of a module are made available to the other program by using the ``import`` statement.
+    
+object
+
+:   A "thing" to which a variable can refer.  This could be a screen window, or one of the turtles we have created.
+
+range
+
+:   A built-in function in Python for generating sequences of integers.  It is especially useful when we need to write a for loop that executes a fixed number of times.
+
+terminating condition
+
+:   A condition that occurs which causes a loop to stop repeating its body. In the ``for`` loops we saw in this chapter, the terminating condition has been when there are no more elements to assign to the loop variable.
     
 
 
@@ -525,32 +495,28 @@ Exercises
    ``tess.left(3645)``.  What does ``tess`` do, and what is her final heading?
      
 #. Assume you have the assignment ``xs = [12, 10, 32, 3, 66, 17, 42, 99, 20]``
-    
-   a. Write a loop that prints each of the numbers on a new line.
-   b. Write a loop that prints each number and its square on a new line.
-   c. Write a loop that adds all the numbers from the list into a variable called `total`.
-      You should set the `total` variable to have the value 0 before you start adding them up,
-      and print the value in ``total`` after the loop has completed.  
-   d. Print the product of all the numbers in the list. 
-      (product means all multiplied together)   
+    a. Write a loop that prints each of the numbers on a new line.
+    b. Write a loop that prints each number and its square on a new line.
+    c. Write a loop that adds all the numbers from the list into a variable called `total`.
+    You should set the `total` variable to have the value 0 before you start adding them up,
+    and print the value in ``total`` after the loop has completed.  
+    d. Print the product of all the numbers in the list. 
+    (product means all multiplied together)   
       
 #. Use ``for`` loops to make a turtle draw these regular polygons 
    (regular means all sides the same lengths, all angles the same):  
-  
-   * An equilateral triangle    
-   * A square    
-   * A hexagon (six sides)    
-   * An octagon (eight sides)
+    * An equilateral triangle    
+    * A square    
+    * A hexagon (six sides)    
+    * An octagon (eight sides)
       
-#. .. _drunk_pirate_problem:
-
+#. **drunk_pirate_problem:**
    A drunk pirate makes a random turn and then takes 100 steps forward, makes another random turn, 
    takes another 100 steps, turns another random amount, etc.  A social science student records the angle of each turn
    before the next 100 steps are taken. Her experimental data is ``[160, -43, 270, -97, -43, 200, -940, 17, -86]``.  
    (Positive angles are counter-clockwise.)  Use a turtle to draw the path taken by our drunk friend.   
    
-#. Enhance your program above to also tell us what the drunk pirate's heading is after he has finished stumbling
-   around.  (Assume he begins at heading 0).   
+#. Enhance your program above to also tell us what the drunk pirate's heading is after he has finished stumbling around. (Assume he begins at heading 0).
  
 #. If you were going to draw a regular polygon with 18 sides, what angle would you need to 
    turn the turtle at each corner?
@@ -559,39 +525,39 @@ Exercises
    then record what happens. Score yourself, giving yourself one point for each one you 
    anticipate correctly:
    
-        .. sourcecode:: python3 
 
-            >>> import turtle
-            >>> wn = turtle.Screen()
-            >>> tess = turtle.Turtle()
-            >>> tess.right(90)
-            >>> tess.left(3600)
-            >>> tess.right(-90)
-            >>> tess.speed(10)
-            >>> tess.left(3600)
-            >>> tess.speed(0)
-            >>> tess.left(3645)
-            >>> tess.forward(-100)
-   
-#. Write a program to draw a shape like this:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+>>> import turtle
+>>> wn = turtle.Screen()
+>>> tess = turtle.Turtle()
+>>> tess.right(90)
+>>> tess.left(3600)
+>>> tess.right(-90)
+>>> tess.speed(10)
+>>> tess.left(3600)
+>>> tess.speed(0)
+>>> tess.left(3645)
+>>> tess.forward(-100)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        .. image:: illustrations/star.png
-   
-   Hints: 
-   
-   * Try this on a piece of paper, moving and turning your cellphone as if it was a 
-     turtle.  Watch how many complete rotations your cellphone makes before you complete the 
-     star.  Since each full rotation is 360 degrees, you can figure out the total 
-     number of degrees that your phone was rotated through.  If you divide that by 5, because
-     there are five points to the star, you'll know how many degrees to turn the turtle at each point.
-   * You can hide a turtle behind its invisibility cloak if you don't want it shown.  It will still
-     draw its lines if its pen is down.  The method is invoked as ``tess.hideturtle()`` .  To make the
-     turtle visible again, use ``tess.showturtle()`` .
+11. Write a program to draw a shape like this:
+
+    ![](figs/star.png)   
+
+    Hints: 
+
+    * Try this on a piece of paper, moving and turning your cellphone as if it was a 
+    turtle.  Watch how many complete rotations your cellphone makes before you complete the 
+    star.  Since each full rotation is 360 degrees, you can figure out the total 
+    number of degrees that your phone was rotated through.  If you divide that by 5, because
+    there are five points to the star, you'll know how many degrees to turn the turtle at each point.
+    * You can hide a turtle behind its invisibility cloak if you don't want it shown.  It will still
+    draw its lines if its pen is down.  The method is invoked as ``tess.hideturtle()`` .  To make the
+    turtle visible again, use ``tess.showturtle()`` .
      
 #. Write a program to draw a face of a clock that looks something like this:
     
-        .. image:: illustrations/tess_clock1.png
-      
+    ![](figs/tess_clock1.png)      
    
 #. Create a turtle, and assign it to a variable.  When you ask for its type, what do you get?
 
