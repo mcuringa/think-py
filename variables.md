@@ -1,20 +1,5 @@
-..  Copyright (C)  Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers.
-    Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.3
-    or any later version published by the Free Software Foundation;
-    with Invariant Sections being Foreword, Preface, and Contributor List, no
-    Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is
-    included in the section entitled "GNU Free Documentation License".
-
-|
-    
 Variables, expressions and statements
 =====================================
-
-
-
-
-.. _values_n_types:
 
 Values and data types
 ---------------------
@@ -38,8 +23,6 @@ called **type** which can tell you.
 <class 'str'>
 >>> type(17)
 <class 'int'>
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Not surprisingly, strings belong to the class **str** and integers belong to the
 class **int**. Less obviously, numbers with a decimal point belong to a class
@@ -52,8 +35,6 @@ is in later chapters.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> type(3.2)
 <class 'float'>
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What about values like ``"17"`` and ``"3.2"``? They look like numbers, but they
 are in quotation marks like strings.
@@ -64,25 +45,24 @@ are in quotation marks like strings.
 <class 'str'>
 >>> type("3.2")
 <class 'str'>
-    
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 They're strings!
 
 Strings in Python can be enclosed in either single quotes (``'``) or double quotes
 (``"``), or three of each (``'''`` or ``"""``)
 
-    .. sourcecode:: pycon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
         
-        >>> type('This is a string.')
-        <class 'str'>
-        >>> type("And so is this.")
-        <class 'str'>
-        >>> type("""and this.""")
-        <class 'str'>
-        >>> type('''and even this...''')
-        <class 'str'>
-    
+>>> type('This is a string.')
+<class 'str'>
+>>> type("And so is this.")
+<class 'str'>
+>>> type("""and this.""")
+<class 'str'>
+>>> type('''and even this...''')
+<class 'str'>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Double quoted strings can contain single quotes inside them, as in
 ``"Bruce's beard"``, and single quoted strings can have double quotes
 inside them, as in ``'The knights who say "Ni!"'``. 
@@ -96,8 +76,6 @@ contain either single or double quotes:
 >>> print('''"Oh no", she exclaimed, "Ben's bike is broken!"''')
 "Oh no", she exclaimed, "Ben's bike is broken!"
 >>>
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Triple quoted strings can even span multiple lines:
 
@@ -111,10 +89,6 @@ This message will
 span several
 lines.
 >>>
-    
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Python doesn't care whether you use single or double quotes or 
 the three-of-a-kind quotes to surround your strings: 
@@ -123,12 +97,13 @@ value is identical in all cases, and the surrounding quotes are not part of
 the value. But when the interpreter wants to display a string, it has to 
 decide which quotes to use to make it look like a string. 
 
-    .. sourcecode:: pycon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 
-        >>> 'This is a string.'
-        'This is a string.'
-        >>> """And so is this."""
-        'And so is this.'
+>>> 'This is a string.'
+'This is a string.'
+>>> """And so is this."""
+'And so is this.'
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 So the Python language designers usually chose to surround their strings 
 by single quotes.  What do think would happen if the string already 
@@ -144,8 +119,6 @@ Python, but it does mean something else, which is legal:
 42000
 >>> 42,000
 (42, 0)
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Well, that's not what we expected at all! Because of the comma, Python chose to 
 treat this as a *pair* of values.  We'll come back to learn about pairs later.   
@@ -169,9 +142,8 @@ The **assignment statement** gives a value to a variable:
 >>> message = "What's up, Doc?"
 >>> n = 17
 >>> pi = 3.14159
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 This example makes three assignments. The first assigns the string value ``"What's
 up, Doc?"`` to a variable named ``message``. The second gives the integer
 ``17`` to ``n``, and the third assigns the floating-point number ``3.14159`` to
@@ -182,16 +154,14 @@ the token ``==``.  The assignment statement binds a *name*, on the
 left-hand side of the operator, to a *value*, on the right-hand side.
 This is why you will get an error if you enter:
 
-    .. sourcecode:: pycon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
         
-        >>> 17 = n
-        File "<interactive input>", line 1
-        SyntaxError: can't assign to literal
-
-    .. tip::
-       When reading or writing code, say to yourself "n is assigned 17"
-       or "n gets the value 17".  Don't say "n equals 17".
-      
+>>> 17 = n
+File "<interactive input>", line 1
+SyntaxError: can't assign to literal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_**Tip:** When reading or writing code, say to yourself "n is assigned 17"
+or "n gets the value 17".  Don't say "n equals 17"._
 
 A common way to represent variables on paper is to write the name with an arrow
 pointing to the variable's value. This kind of figure is called a **state
@@ -199,9 +169,8 @@ snapshot** because it shows what state each of the variables is in at a particul
 instant in time.  (Think of it as the variable's state of mind). 
 This diagram shows the result of executing the assignment statements:
 
-![       State snapshot
-](    .. image:: illustrations/state.png
-)\
+![State snapshot](figs/state.png)
+
 If you ask the interpreter to evaluate a variable, it will produce the value that is currently 
 linked to the variable:
 
@@ -213,16 +182,12 @@ linked to the variable:
 17
 >>> pi
 3.14159
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We use variables in a program to "remember" things, perhaps the current score at the football game.
 But variables are *variable*. This means they can change over time, just like the scoreboard at a football game. 
 You can assign a value to a variable, and later assign a different value to the same variable.  
 (*This is different from maths. In maths, if you give `x` the value 3, it
 cannot change to link to a different value half-way through your calculations!*)
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> day = "Thursday"
@@ -234,16 +199,12 @@ cannot change to link to a different value half-way through your calculations!*)
 >>> day = 21
 >>> day
 21
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You'll notice we changed the value of ``day`` three times, and on the third assignment we even 
 made it refer to a value that was of a different type.   
 
 A great deal of programming is about having the computer remember things, e.g. *The number of missed calls on your phone*, 
 and then arranging to update or change the variable when you miss another call. 
-
-
 
 Variable names and keywords
 ---------------------------
@@ -253,7 +214,7 @@ digits, but they have to begin with a letter or an underscore. Although it is le
 uppercase letters, by convention we don't. If you do, remember that case
 matters. ``Bruce`` and ``bruce`` are different variables.
 
-The underscore character ( ``_``) can appear in a name. It is often used in
+The underscore character (``_``) can appear in a name. It is often used in
 names with multiple words, such as ``my_name`` or ``price_of_tea_in_china``.
 
 There are some situations in which names beginning with an underscore have
@@ -269,9 +230,8 @@ SyntaxError: invalid syntax
 SyntaxError: invalid syntax
 >>> class = "Computer Science 101"
 SyntaxError: invalid syntax
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ``76trombones`` is illegal because it does not begin with a letter.  ``more$``
 is illegal because it contains an illegal character, the dollar sign. But
 what's wrong with ``class``?
@@ -279,26 +239,24 @@ what's wrong with ``class``?
 It turns out that ``class`` is one of the Python **keywords**. Keywords define
 the language's syntax rules and structure, and they cannot be used as variable names.
 
-Python has thirty-something keywords (and every now and again improvements to Python
+[Python has thirty-something keywords](https://docs.python.org/3.5/reference/lexical_analysis.html#keywords) (and every now and again improvements to Python
 introduce or eliminate one or two):
 
-======== ======== ======== ======== ======== ========
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 and      as       assert   break    class    continue
 def      del      elif     else     except   exec
 finally  for      from     global   if       import
 in       is       lambda   nonlocal not      or       
 pass     raise    return   try      while    with
 yield    True     False    None
-======== ======== ======== ======== ======== ========
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You might want to keep this list handy. If the interpreter complains about one
 of your variable names and you don't know why, see if it is on this list.
 
 Programmers generally choose names for their variables that are meaningful to 
-the human readers of the program ---
-they help the programmer document, or remember, what the variable is used for.
+the human readers of the program—they help the programmer document, or remember, what the variable is used for.
 
-.. caution::
+<aside id="meaningful-names">
    Beginners sometimes confuse "meaningful to the human readers" with "meaningful to the computer".
    So they'll wrongly think that because they've called some variable ``average`` or ``pi``, it will
    somehow magically calculate an average, or magically know that the variable ``pi`` should have a 
@@ -309,7 +267,7 @@ they help the programmer document, or remember, what the variable is used for.
    but because we're trying to reinforce the message that you --- the programmer --- must
    write the program code to calculate the average, and you must write an assignment 
    statement to give the variable ``pi`` the value you want it to have.
-
+</aside>
 
 Statements
 ----------
@@ -320,9 +278,7 @@ we'll see shortly are ``while`` statements, ``for`` statements, ``if`` statement
 and ``import`` statements.  (There are other kinds too!)
 
 When you type a statement on the command line, Python executes it.  Statements
-don't produce any result. 
-
-
+don't produce any result.
 
 Evaluating expressions
 ----------------------
@@ -337,8 +293,6 @@ displays the result:
 2
 >>> len("hello")
 5
-    
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In this example ``len`` is a built-in Python function that returns the number of characters in a string. 
 We've previously seen the ``print`` and the ``type`` functions, so this is our third example of a function! 
@@ -357,9 +311,6 @@ itself is a simple expression, and so is a variable.
 5
 >>> y
 3.14
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Operators and operands
@@ -369,7 +320,7 @@ Operators and operands
 multiplication and division. The values the operator uses are called **operands**.
 
 The following are all legal Python expressions whose meaning is more or less
-clear::
+clear:
     
     20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)
 
@@ -377,14 +328,11 @@ The tokens ``+``, ``-``, and ``*``, and the use of parenthesis for grouping,
 mean in Python what they mean in mathematics. The asterisk (``*``) is the
 token for multiplication, and ``**`` is the token for exponentiation.
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> 2 ** 3
 8
 >>> 3 ** 2
 9
-    
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 When a variable name appears in the place of an operand, it is replaced with
 its value before the operation is performed.
@@ -400,8 +348,6 @@ Example: so let us convert 645 minutes into hours:
 >>> hours = minutes / 60
 >>> hours
 10.75
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Oops! In Python 3, the division operator ``/`` always yields a floating point result. 
 What we might have wanted to know was how many *whole* hours there are, and how many minutes remain.
@@ -409,7 +355,6 @@ Python gives us two different flavors of the division operator.
 The second, called **floor division** uses the token `//`.  
 Its result is always a whole number --- and if it has to adjust the number it always
 moves it to the left on the number line.  So `6 // 4` yields `1`, but `-6 // 4` might surprise you!  
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> 7 / 4
@@ -420,14 +365,10 @@ moves it to the left on the number line.  So `6 // 4` yields `1`, but `-6 // 4` 
 >>> hours = minutes // 60
 >>> hours
 10
-    
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Take care that you choose the correct flavor of the division operator.  If you're
 working with expressions where you need floating point values, use the division operator
 that does the division accurately.
-
-
 
 Type converter functions
 ------------------------
@@ -458,8 +399,6 @@ the number line.  Let us see this in action:
 >>> int(17) # It even works if arg is already an int
 17
 >>> int("23 bottles") 
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This last case doesn't look like a number --- what do we expect?
         
@@ -468,9 +407,6 @@ This last case doesn't look like a number --- what do we expect?
 Traceback (most recent call last):
 File "<interactive input>", line 1, in <module>
 ValueError: invalid literal for int() with base 10: '23 bottles'
-
-
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The type converter ``float`` can turn an integer, a float, or a syntactically legal
@@ -483,7 +419,6 @@ string into a float:
 >>> float("123.45")
 123.45
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The type converter ``str`` turns its argument into a string:
 
@@ -493,9 +428,6 @@ The type converter ``str`` turns its argument into a string:
 '17'
 >>> str(123.45)
 '123.45'
-
-  
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -537,7 +469,6 @@ is a useful way to remember the order of operations:
   >>> (2 ** 3) ** 2   # Use parentheses to force the order you want!
   64
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The immediate mode command prompt of Python is great for exploring and experimenting
 with expressions like this.       
@@ -557,7 +488,6 @@ has type string):
 >>> message * "Hello"  # Error 
 >>> "15" + 2   # Error
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Interestingly, the ``+`` operator does work with strings, but for strings, 
 the ``+`` operator represents **concatenation**, not addition.  
@@ -568,7 +498,6 @@ Concatenation means joining the two operands by linking them end-to-end. For exa
 fruit = "banana"
 baked_good = " nut bread"
 print(fruit + baked_good)
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The output of this program is ``banana nut bread``. The space before the word
@@ -587,10 +516,6 @@ repetition are different from integer addition and multiplication. Can you
 think of a property that addition and multiplication have that string
 concatenation and repetition do not?
 
-
-
-.. _input:
-
 Input
 -----
 
@@ -599,16 +524,14 @@ There is a built-in function in Python for getting input from the user:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 n = input("Please enter your name: ")
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A sample run of this script in PyScripter would pop up a dialog window like this:
+A sample run of this script run in the terminal prompts the user to type their name, like this:
 
-![       input dialog
-](    .. image:: illustrations/enter_name_dialog.png
-)\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Please enter your name: 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The user of the program can enter the name and click `OK`, and when this happens
+The user of the program can type the name and hit `enter`. When this happens
 the text that has been entered is returned from the ``input`` function, and in this
 case assigned to the variable ``n``.
 
@@ -632,38 +555,30 @@ we know how to print values. Let's put these together in a small four-step progr
 asks the user to input a value for the radius of a circle, and then 
 computes the area of the circle from the formula  
 
-![       formula for area of a circle
-](    .. image:: illustrations/circle_area.png
-)\
-Firstly, we'll do the four steps one at a time: 
+![](figs/circle_area.png)
 
+Firstly, we'll do the four steps one at a time: 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
 response = input("What is your radius? ")
 r = float(response)
 area = 3.14159 * r**2
 print("The area is ", area)
-   
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Now let's compose the first two lines into a single line of code, and compose the
 second two lines into another line of code.
-    
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
-       r = float( input("What is your radius? ") )
-       print("The area is ", 3.14159 * r**2)
-   
-
+r = float( input("What is your radius? ") )
+print("The area is ", 3.14159 * r**2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If we really wanted to be tricky, we could write it all in one statement:
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python .numberLines}
-       print("The area is ", 3.14159*float(input("What is your radius?"))**2)
-
-
+print("The area is ", 3.14159*float(input("What is your radius?"))**2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Such compact code may not be most understandable for humans, but it does
 illustrate how we can compose bigger chunks from our building blocks.
 
@@ -688,8 +603,6 @@ operators. It has the same precedence as the multiplication operator.
 >>> r  = 7 % 3
 >>> print(r)
 1
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 So 7 divided by 3 is 2 with a remainder of 1.
 
@@ -715,121 +628,103 @@ secs_finally_remaining = secs_still_remaining  % 60
 
 print("Hrs=", hours, "  mins=", minutes,  
  "secs=", secs_finally_remaining)
- 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Glossary
 --------
 
-.. glossary::
+assignment statement
 
-    assignment statement
-        A statement that assigns a value to a name (variable). To the left of
-        the assignment operator, ``=``, is a name. To the right of the
-        assignment token is an expression which is evaluated by the Python
-        interpreter and then assigned to the name. The difference between the
-        left and right hand sides of the assignment statement is often
-        confusing to new programmers. In the following assignment:
+:   A statement that assigns a value to a name (variable). To the left of
+    the assignment operator, ``=``, is a name. To the right of the
+    assignment token is an expression which is evaluated by the Python
+    interpreter and then assigned to the name. The difference between the
+    left and right hand sides of the assignment statement is often
+    confusing to new programmers. In the following assignment:\
+    ``n = n + 1``\
+    ``n`` plays a very different role on each side of the ``=``. On the right it is a *value* and makes up part of the *expression* which will be evaluated by the Python interpreter before assigning it to the name on the left.
 
+assignment token
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
- n = n + 1
+:   ``=`` is Python's assignment token.  Do not confuse it with *equals*, which is an operator for comparing values.
 
-``n`` plays a very different role on each side of the ``=``. On the
-right it is a *value* and makes up part of the *expression* which will
-be evaluated by the Python interpreter before assigning it to the name
-on the left.
+composition
 
-    assignment token
-``=`` is Python's assignment token.  Do not confuse it with *equals*, which
-is an operator for comparing values.     
+:   The ability to combine simple expressions and statements into compound statements and expressions in order to represent complex computations concisely.
 
-    composition
-The ability to combine simple expressions and statements into compound
-statements and expressions in order to represent complex computations
-concisely.
+concatenate
 
-    concatenate
-To join two strings end-to-end.
+:   To join two strings end-to-end.
 
-    data type
-A set of values. The type of a value determines how it can be used in
-expressions. So far, the types you have seen are integers (``int``), 
-floating-point numbers (``float``), and strings (``str``).
+data type
 
-    evaluate
-To simplify an expression by performing the operations in order to
-yield a single value.
+:   A set of values. The type of a value determines how it can be used in expressions. So far, the types you have seen are integers (``int``), floating-point numbers (``float``), and strings (``str``).
 
-    expression
-A combination of variables, operators, and values that represents a
-single result value.
+evaluate
 
-    float
-A Python data type which stores *floating-point* numbers.
-Floating-point numbers are stored internally in two parts: a *base* and
-an *exponent*. When printed in the standard format, they look like
-decimal numbers. Beware of rounding errors when you use ``float``\ s,
-and remember that they are only approximate values.
+:   To simplify an expression by performing the operations in order to yield a single value.
 
-    floor division
-An operator (denoted by the token ``//``) that divides one number by another and 
-yields an integer, or, if the result is not already an integer, it yields 
-the next smallest integer.   
+expression
 
-    int
-A Python data type that holds positive and negative whole numbers.
+:   A combination of variables, operators, and values that represents a single result value.
 
-    keyword
-A reserved word that is used by the compiler to parse program; you
-cannot use keywords like ``if``, ``def``, and ``while`` as variable
-names.
+float
+
+:   A Python data type which stores *floating-point* numbers. Floating-point numbers are stored internally in two parts: a *base* and an *exponent*. When printed in the standard format, they look like decimal numbers. Beware of rounding errors when you use ``float``\ s, and remember that they are only approximate values.
+
+floor division
+
+:   An operator (denoted by the token ``//``) that divides one number by another and yields an integer, or, if the result is not already an integer, it yields the next smallest integer.
+
+int
+
+:   A Python data type that holds positive and negative whole numbers.
+
+keyword
+
+:   A reserved word that is used by the compiler to parse program; you cannot use keywords like ``if``, ``def``, and ``while`` as variable names.
     
-    modulus operator
-An operator, denoted with a percent sign ( ``%``), that works on
-integers and yields the remainder when one number is divided by
-another.
+modulus operator
 
-    operand
-One of the values on which an operator operates.
+:   An operator, denoted with a percent sign ( ``%``), that works on integers and yields the remainder when one number is divided by another.
 
-    operator
-A special symbol that represents a simple computation like addition,
-multiplication, or string concatenation.
+operand
 
-    rules of precedence
-The set of rules governing the order in which expressions involving
-multiple operators and operands are evaluated.
+:   One of the values on which an operator operates.
 
-    state snapshot
-A graphical representation of a set of variables and the values to
-which they refer, taken at a particular instant during the program's execution.
+operator
 
-    statement
-An instruction that the Python interpreter can execute.  So far we have
-only seen the assignment statement, but we will soon meet the ``import`` 
-statement and the ``for`` statement.
+:   A special symbol that represents a simple computation like addition, multiplication, or string concatenation.
 
-    str
-A Python data type that holds a string of characters.
+rules of precedence
 
-    value
-A number or string (or other things to be named later) that can be
-stored in a variable or computed in an expression.  
+:   The set of rules governing the order in which expressions involving multiple operators and operands are evaluated.
 
-    variable
-A name that refers to a value.
+state snapshot
 
-    variable name
-A name given to a variable. Variable names in Python consist of a
-sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins
-with a letter.  In best programming practice, variable names should be
-chosen so that they describe their use in the program, making the
-program *self documenting*.
+:   A graphical representation of a set of variables and the values to which they refer, taken at a particular instant during the program's execution.
 
+statement
 
+:   An instruction that the Python interpreter can execute.  So far we have only seen the assignment statement, but we will soon meet the ``import`` statement and the ``for`` statement.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+str
+
+:   A Python data type that holds a string of characters.
+
+value
+
+:   A number or string (or other things to be named later) that can be stored in a variable or computed in an expression.
+
+variable
+
+:   A name that refers to a value.
+
+variable name
+
+:   A name given to a variable. Variable names in Python consist of a sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins with a letter.  In best programming practice, variable names should be chosen so that they describe their use in the program, making the program *self documenting*.
+
 Exercises
 ---------
 
@@ -846,17 +741,15 @@ Exercises
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-    NameError: name 'bruce' is not defined
+NameError: name 'bruce' is not defined
 
-   Assign a value to ``bruce`` so that ``bruce + 4`` evaluates to ``10``.
+Assign a value to ``bruce`` so that ``bruce + 4`` evaluates to ``10``.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. The formula for computing the final amount if one is earning
    compound interest is given on Wikipedia as
 
-![          formula for compound interest
-](       .. image:: illustrations/compoundInterest.png
-)\
+   ![](figs/compoundInterest.png)\
    Write a Python program that assigns the principal amount of $10000 to variable `P`, 
    assign to `n` the value 12, and assign to `r` the interest rate of 8%.
    Then have the program prompt the user for the number of years `t` that the money will

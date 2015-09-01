@@ -65,18 +65,19 @@ h1:before
     content: "Part " counter(section) ": ";
 }
 
-#forward h1:before, #preface h1:before
+/*section h1:nth-child(-n+):before
 {
-    content: "Part " counter(section, lower-roman) ": ";
+    content: counter(section, lower-roman) ". ";
 }
-
+*/
 
 h2:before {
     counter-increment: subsection;
     content: counter(section) "." counter(subsection) " ";
 }
 
-h1.title:before, h2.author:before {
+
+h1.title:before, h2.author:before, nav#TOC h2:before, #forward h2:before, #preface h2:before {
     content: "";
 }
 

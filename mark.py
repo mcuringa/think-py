@@ -7,80 +7,66 @@ Convert an rst chapter in Think Python to Mardkown.
 import sys
 import traceback
 
-def skip_index(i, lines):
-    i += 1
-    line = lines[i]
+def skip_index(lines):
+    line = lines.pop(0)
     while line.startswith(" "):
-        i += 1
-        line = lines[i]
+        line = lines.pop(0)
 
-    return i
+    return
 
-def parse_image(i, lines):
-    tmpl = "![{}]({})\\"
-    img = lines[i]
+def parse_image(lines):
+    tmpl = "![{}]({})"
+    img = lines.pop(0)
     img.replace(".. image:: illustrations", "figs")
-    i += 1
     print("--> " + img)
-    if ":alt" in lines[i]:
-        alt = lines[i].replace(":alt: ", "")
-        i += 1
+    if ":alt" in lines[0]:
+        alt = lines.pop(0).replace(":alt: ", "")
     else:
         alt = ""
 
-    return i, tmpl.format(alt,img)
+    return tmpl.format(alt,img)
 
-def parse(lines):
+def parse(lines, out=""):
+    if len(lines) == 0:
+        return out
 
-    out = ""
-    n = len(lines)
-    i = 0
-    try:
-        while i in range(n):
-            line = lines[i]
-            if ".. sourcecode:: python3" in line:
-                i,code = parse_code(i,lines)
-                out += code
-            elif ".. index::" in line:
-                i = skip_index(i, lines)
-            elif ".. image::" in line:
-                i, code = parse_image(i,lines)
-                out += code
-            else:
-                out += line
-                i += 1
-    except Exception as ex:
-        print("parsing failed on line", i)
-        raise ex
-        # a,b,c = sys.exc_info()
-        # traceback.print_exception(a,b,c)
+    line = lines[0]
+    if ".. sourcecode:: python3" or ".. sourcecode:: python" in line:
+        lines.pop(0)
+        code = parse_code(lines)
+        out += code
+    elif ".. index::" in line:
+        skip_index(lines)
+    elif ".. image::" in line:
+        code = parse_image(i,lines)
+        out += code
+    else:
+        out += lines.pop(0)
     
-    return out
+    return parse(lines, out)
 
-def parse_code(i,lines):
+def parse_code(lines):
     tmpl = """
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{{.python{}}}
 {}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
-    i += 1
+    line = lines.pop(0)
+    print(line)
     numbers = ""
-    if ":linenos:" in lines[i]:
+    if ":linenos:" in line:
         numbers = " .numberLines"
-        i += 1
 
     code = ""
-    i += 1
-    line = lines[i]
+    line = lines.pop(0)
 
-    while line[0] == " " or len(line.strip()) == 0:
-        code += lines[i]
-        i += 1
-        line = lines[i]
-
+    while line.startswith(" "):
+        code += line
+        line = lines.pop(0)
+    
     code = code.replace(" " * 8, "")
 
-    return i, tmpl.format(numbers, code)
+    return tmpl.format(numbers, code)
 
 def convert(f):
     lines = list(open(f + ".rst"))
@@ -103,6 +89,3 @@ def main(rst):
 if __name__ == "__main__":
     main(sys.argv[1])
 
-
-# convert("casestudy_fileindexer")
-#convert("dictionaries")
