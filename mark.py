@@ -55,16 +55,12 @@ def parse_code(lines):
         return ""
 
     code = ""
-    line = lines.pop(0)
+    line = lines[0]
 
     while line.startswith(" ") or len(line.strip()) == 0:
         code += line
-        if len(lines) == 0:
-            print("ran out of lines in loop")
-            print(code)
-            return ""
-
-        line = lines.pop(0)
+        lines.pop(0)
+        line = lines[0]
     
     code = code.replace(" " * 8, "")
 

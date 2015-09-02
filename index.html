@@ -506,6 +506,27 @@ code > span.er { color: #c3bf9f; }
 <li><a href="#newtons-method-for-finding-square-roots">Newton’s method for finding square roots</a></li>
 <li><a href="#algorithms">Algorithms</a></li>
 </ul></li>
+<li><a href="#strings">Strings</a><ul>
+<li><a href="#a-compound-data-type">A compound data type</a></li>
+<li><a href="#working-with-strings-as-single-things">Working with strings as single things</a></li>
+<li><a href="#working-with-the-parts-of-a-string">Working with the parts of a string</a></li>
+<li><a href="#length">Length</a></li>
+<li><a href="#traversal-and-the-for-loop">Traversal and the <code>for</code> loop</a></li>
+<li><a href="#slices">Slices</a></li>
+<li><a href="#string-comparison">String comparison</a></li>
+<li><a href="#strings-are-immutable">Strings are immutable</a></li>
+<li><a href="#the-in-and-not-in-operators">The <code>in</code> and <code>not in</code> operators</a></li>
+<li><a href="#a-find-function">A <code>find</code> function</a></li>
+<li><a href="#looping-and-counting">Looping and counting</a></li>
+<li><a href="#optional-parameters">Optional parameters</a></li>
+<li><a href="#the-built-in-find-method">The built-in <code>find</code> method</a></li>
+<li><a href="#the-split-method">The <code>split</code> method</a></li>
+<li><a href="#cleaning-up-your-strings">Cleaning up your strings</a></li>
+<li><a href="#the-string-format-method">The string format method</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#glossary-10">Glossary</a></li>
+<li><a href="#exercises-9">Exercises</a></li>
+</ul></li>
 </ul>
 </nav>
 <p><strong>Adelphi University Mod</strong></p>
@@ -531,7 +552,7 @@ code > span.er { color: #c3bf9f; }
 <p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <script type="text/javascript">
 <!--
 h='&#114;&#x75;&#46;&#x61;&#x63;&#46;&#122;&#x61;';a='&#64;';n='&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;&#32;&#x61;&#116;&#32;&#114;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x63;&#32;&#100;&#x6f;&#116;&#32;&#122;&#x61;</noscript>. Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
 <section id="second-edition" class="level3">
@@ -618,7 +639,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <p><em>How to Think Like a Computer Scientist</em> was not just an excellent book, but it had been released under the GNU public license, which meant it could be used freely and modified to meet the needs of its user. Once I decided to use Python, it occurred to me that I could translate Allen’s original Java version of the book into the new language. While I would not have been able to write a textbook on my own, having Allen’s book to work from made it possible for me to do so, at the same time demonstrating that the cooperative development model used so well in software could also work for educational materials.</p>
 <p>Working on this book for the last two years has been rewarding for both my students and me, and my students played a big part in the process. Since I could make instant changes whenever someone found a spelling error or difficult passage, I encouraged them to look for mistakes in the book by giving them a bonus point each time they made a suggestion that resulted in a change in the text. This had the double benefit of encouraging them to read the text more carefully and of getting the text thoroughly reviewed by its most important critics, students using it to learn computer science.</p>
 <p>For the second half of the book on object-oriented programming, I knew that someone with more real programming experience than I had would be needed to do it right. The book sat in an unfinished state for the better part of a year until the open source community once again provided the needed means for its completion.</p>
-<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net" class="uri">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
+<p>I received an email from Chris Meyers expressing interest in the book. Chris is a professional programmer who started teaching a programming course last year using Python at Lane Community College in Eugene, Oregon. The prospect of teaching the course had led Chris to the book, and he started helping out with it immediately. By the end of the school year he had created a companion project on our Website at <a href="http://openbookproject.net">http://openbookproject.net</a> (<em>Python for Fun</em>)[http://openbookproject.net/py4fun&gt;] and was working with some of my most advanced students as a master teacher, guiding them beyond where I could take them.</p>
 </section>
 <section id="introducing-programming-with-python" class="level2">
 <h2>Introducing programming with Python</h2>
@@ -641,11 +662,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 </section>
 <section id="building-a-community" class="level2">
 <h2>Building a community</h2>
-<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio" class="uri">http://openbookproject.net/pybiblio</a>.</p>
+<p>I have received email from all over the globe from people using this book to learn or to teach programming. A user community has begun to emerge, and many people have been contributing to the project by sending in materials for the companion Website at <a href="http://openbookproject.net/pybiblio">http://openbookproject.net/pybiblio</a>.</p>
 <p><strong>With the continued growth of Python, I expect the growth in the user community to continue and accelerate. The emergence of this user community and the possibility it suggests for similar collaboration among educators have been the most exciting parts of working on this project for me. By working together, we can increase the quality of materials available for our use and save valuable time. I invite you to join our community and look forward to hearing from you. Please write to me at <script type="text/javascript">
 <!--
 h='&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#62;';a='&#64;';n='&#106;&#x65;&#102;&#102;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'jeff@elkner.net'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'jeff@elkner.net'+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#106;&#x65;&#102;&#102;&#64;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#46;&#110;&#x65;&#116;&#32;&#40;&#106;&#x65;&#102;&#102;&#32;&#x61;&#116;&#32;&#x65;&#108;&#x6b;&#110;&#x65;&#114;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#62;&#x29;</noscript></strong>.</p>
 <p>Jeffrey Elkner<br />Governor’s Career and Technical Academy in Arlington<br />Arlington, Virginia<br /></p>
@@ -659,6 +680,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'jeff
 <p>This predecessor to this book was a great starting point for us, especially because of the liberal permission to change things. Having our own in-house course notes or handouts allows us to adapt and stay fresh, rearrange, see what works, and it gives us agility. We can also ensure that every student in the course gets a copy of the handouts — something that doesn’t always happen if we prescribe costly textbooks.</p>
 Many thanks to all the contributors and the authors for making their hard work available to the Python community and to our students.
 </aside>
+
 <p>A colleague and friend, Peter Warren, once made the remark that learning introductory programming is as much about the environment as it is about the programming language.</p>
 <p>I’m a big fan of IDEs (Integrated Development Environments).<br />I want help to be integrated into my editor, as a first-class citizen, available at the press of a button. I want syntax highlighting. I want immediate syntax checking, and sensible autocompletion. I’d like an editor that can fold function bodies or regions of code away, because it promotes and encourages how we build mental abstractions.</p>
 <p>I’m especially keen on having a single-stepping debugger and breakpoints with code inspection built in. We’re trying to build a conceptual model of program execution in the student’s mind, so I find most helpful for teaching to have the call stack and variables explicitly visible, and to be able to immediately inspect the result of executing a statement.</p>
@@ -1118,9 +1140,11 @@ yield    True     False    None</code></pre>
 <p>You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</p>
 <p>Programmers generally choose names for their variables that are meaningful to the human readers of the program—they help the programmer document, or remember, what the variable is used for.</p>
 <aside id="meaningful-names">
+   
 <p>Beginners sometimes confuse “meaningful to the human readers” with “meaningful to the computer”. So they’ll wrongly think that because they’ve called some variable <code>average</code> or <code>pi</code>, it will somehow magically calculate an average, or magically know that the variable <code>pi</code> should have a value like 3.14159. No! The computer doesn’t understand what you intend the variable to mean.</p>
 So you’ll find some instructors who deliberately don’t choose meaningful names when they teach beginners — not because we don’t think it is a good habit, but because we’re trying to reinforce the message that you — the programmer — must write the program code to calculate the average, and you must write an assignment statement to give the variable <code>pi</code> the value you want it to have.
 </aside>
+
 </section>
 <section id="statements" class="level2">
 <h2>Statements</h2>
@@ -1886,6 +1910,7 @@ calculate_tip(<span class="dv">100</span>,<span class="dv">18</span>)</code></pr
 <p>Docstrings are usually formed using triple-quoted strings as they allow us to easily expand the docstring later on should we want to write more than a one-liner.</p>
 Just to differentiate from comments, a string at the start of a function (a docstring) is retrievable by Python tools <em>at runtime</em>. By contrast, comments are completely eliminated when the program is parsed.
 </aside>
+
 <p>This function is named <code>calculate_tip</code>. It has two parameters: one to tell the function the amount of the bill, and the other to tell it the percent tip to calculate. Make sure you know where the body of the function ends — it depends on the indentation, and the blank lines don’t count for this purpose!</p>
 <p>Defining a new function does not make the function run. To do that we need a <strong>function call</strong>. We’ve already seen how to call some built-in functions like <strong>print</strong>, <strong>range</strong>, <strong>round</strong>, and <strong>int</strong>. Function calls contain the name of the function being executed followed by a list of values, called <em>arguments</em>, which are assigned to the parameters in the function definition. So in the last line of the example program above, we call the function, and pass <code>100</code> as the amount of the bill and <code>18</code> as the percentage of the tip. While the function is executing, then, the variable <code>bill</code> refers to the value 100, and the variable <code>pct</code> refers to 18.</p>
 <p>Once we’ve defined a function, we can call it as often as we like, and its statements will be executed each time we call it. And we could use it to get any of our turtles to draw a square. In the next example, we calculate 3 different tip amounts for the same bill.</p>
@@ -1926,6 +1951,7 @@ calculate_tip(myBill, <span class="dv">15</span>)
 calculate_tip(myBill, <span class="dv">18</span>)
 calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <aside id="coding-style">
+
 <p><strong>Coding Style</strong></p>
 <p>Now that you are about to write longer, more complex pieces of Python, it is a good time to talk about coding style. Most languages can be written (or more concise, formatted) in different styles; some are more readable than others. Making it easy for others to read your code is always a good idea, and adopting a nice coding style helps tremendously for that.</p>
 <p>For Python, <a href="http://www.python.org/dev/peps/pep-0008/">PEP 8 has emerged as the style guide</a> that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Every Python developer should read it at some point; here are the most important points extracted for you:</p>
@@ -1943,6 +1969,7 @@ calculate_tip(myBill, <span class="dv">20</span>)</code></pre></td></tr></table>
 <li>Likewise, don’t use non-ASCII characters in identifiers if there is only the slightest chance people speaking a different language will read or maintain the code.</li>
 </ul>
 </aside>
+
 </section>
 <section id="composition-functions-can-call-other-functions" class="level2">
 <h2>Composition: Functions can call other functions</h2>
@@ -2082,30 +2109,44 @@ fnl = final_amt(toInvest, <span class="fl">0.08</span>, <span class="dv">12</spa
 <section id="case-study-tip-calculator" class="level3">
 <h3>Case Study: Tip Calculator</h3>
 <aside id="tip_header" style="top: 110px">
+
 <p>Brief header <strong>comments</strong> at the top of the <strong>source file</strong> identify basic information about the program and the file. Comments are messages for programmers who read the <strong>source code</strong> — they do not affect the execution of the program.</p>
 </aside>
+
 <aside id="tip_welcome" style="top: 173px">
+
 <p><strong>weclcome</strong> is a very simple <strong>function</strong> — it does not accept any data in the form of <strong>function paramters</strong> and it does not <strong>return</strong> any data using a <strong>return statement</strong>. It simply prints out a message to the console.</p>
 </aside>
+
 <aside id="tip_calc" style="top: 354px">
+
 <p>The <strong>calc_tip</strong> function has 2 <strong>parameters</strong>: <code>bill</code> and <code>pct</code>. These parameters become variables within the <strong>function body</strong>. Line 22 uses <strong>arithmetic operators</strong> (multiplication here) to calculate a new value and store it in the <code>tip</code> <strong>variable</strong>. <code>tip</code> is rounded to 2 decimal places using the <strong>built-in function</strong> <code>round()</code>. Finally, the rounded tip amount is returned.</p>
 </aside>
+
 <aside id="tip_get_pct" style="top: 545px">
+
 <p><strong>get_bill_amt</strong> is a <strong>fruitful function</strong> because it has a <strong>return statement</strong>. It uses the <strong>built-in function</strong> <code>input()</code> to ask for data from the user of the program. — when it is called it returns the bill</p>
 </aside>
+
 <aside id="tip_get_amt" style="top: 710px">
+
 <p><strong>get_tip_pct</strong> is similar to <strong>get_bill_amt</strong>. It requests user data by calling the <code>input</code> function and then returns a result. Notice that the <strong>multi-line string</strong> inside of 3 quotation marks (“”“) makes it easy to read and write formatted data.</p>
 <p>This function uses a series of <strong>if statements</strong> to interpret the user’s choice from a menu. While we could use <code>elif</code> to change the conditions together, it is not needed here. Once a <code>return</code> statement is reached, no further conditions can be tested or executed. If none of the <code>if</code> conditions are met, this function returns -1 to indicate that an invalid choice was entered.</p>
 </aside>
+
 <aside id="tip_get_amt" style="top: 1125px">
+
 <p><strong>show_results</strong> defines <strong>parameters</strong> which are used to pass in all of the data needed to show the results of the tip calculation. Notice that the <code>print</code> statements use the <strong>+ operator</strong> to <abbr title="join together">concatenate</abbr> strings. Because we are joining <strong>string literals</strong> with variables of type <code>int</code> and <code>float</code>, we need to use the <code>str()</code> function to convert the numeric data to strings.</p>
 </aside>
+
 <aside id="tip_main" style="top: 1430px">
 <p>The <strong>main</strong> function is the first function called for this program. It maintains the executive control of the program, calling other functions in sequence and passing data between functions.</p>
 <p>We encounter Python’s special syntax for running a program from the <strong>command line</strong>:</p>
 <p><code>if __name__ == &quot;__main__&quot;:</code></p>
 <p>This <strong>conditional statement</strong> allows the program to execute code if it is being run as a standalone Python program. In our case, we choose to call the <code>main</code> function which we defined. main() has no special meaning in Python — we could execute any statements we choose under that block.</p>
 </aside>
+
+
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2635,6 +2676,8 @@ x or x == x    </code></pre>
 <p>Python documentation sometimes uses the term <strong>suite</strong> of statements to mean what we have called a <em>block</em> here. They mean the same thing, and since most other languages and computer scientists use the word <em>block</em>, we’ll stick with that.</p>
 Notice too that <code>else</code> is not a statement. The <code>if</code> statement has two <em>clauses</em>, one of which is the (optional) <code>else</code> clause.
 </aside>
+        
+
 </section>
 <section id="chained-conditionals" class="level2">
 <h2>Chained conditionals</h2>
@@ -2814,6 +2857,7 @@ not (x or y)   ==  (not x) and (not y)</code></pre>
 <p><strong>Tip:</strong> Once our program works, we should play around a bit trying to polish it up. Write good comments. Think about whether the code would be clearer with different variable names. Could we have done it more elegantly? Should we rather use a function? Can we simplify the conditionals?</p>
 We think of our code as our creation, our work of art! We make it great.
 </aside>
+
 </section>
 <section id="type-conversion" class="level2">
 <h2>Type conversion</h2>
@@ -3202,6 +3246,7 @@ Hi Paris.  Please come to my party on Saturday! </code></pre>
 <img src="figs/flowchart_for.png" />
 </figure>
 </aside>
+
 </section>
 <section id="assignment" class="level2">
 <h2>Assignment</h2>
@@ -3458,6 +3503,7 @@ test(mysum(<span class="dt">range</span>(<span class="dv">11</span>)) == <span c
 16
 done</code></pre>
 <aside id="loop-pretest">
+
 <p><strong>The pre-test loop — standard loop behaviour</strong></p>
 <p><code>for</code> loops do their tests at the start, before executing any part of the body. This is called a <strong>pre-test</strong> loops, because the test happens before (pre) the body.</p>
 <p><code>break</code> and <code>return</code> are our tools for adapting this standard behaviour by enabling us to test a condition in the body of the loop that allows us to exit the loop.</p>
@@ -3465,6 +3511,7 @@ done</code></pre>
 <img src="figs/pre_test_loop.png" />
 </figure>
 </aside>
+    
 </section>
 <section id="the-continue-statement" class="level2">
 <h2>The <code>continue</code> statement</h2>
@@ -3707,7 +3754,7 @@ test(is_prime(19911121))</code></pre>
 <figure>
 <img src="figs/tess_more_houses.png" alt="image" /><figcaption>image</figcaption>
 </figure>
-<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path" class="uri">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
+<p>Now read Wikipedia’s article(<a href="http://en.wikipedia.org/wiki/Eulerian_path">http://en.wikipedia.org/wiki/Eulerian_path</a>) about Eulerian paths. Learn how to tell immediately by inspection whether it is possible to find a solution or not. If the path is possible, you’ll also know where to put your pen to start drawing, and where you should end up!</p></li>
 <li><p>What will <code>num_digits(0)</code> return? Modify it to return <code>1</code> for this case. Why does a call to <code>num_digits(-24)</code> result in an infinite loop? (<em>hint: -1//10 evaluates to -1</em>) Modify <code>num_digits</code> so that it works correctly with any integer value. Add these tests:</p>
 <pre><code>test(num_digits(0) == 1)
 test(num_digits(-12345) == 5)</code></pre></li>
@@ -4079,9 +4126,11 @@ double_stuff(things)
 <p>Since the list object is shared by two frames, we drew it between them.</p>
 <p>If a function modifies the items of a list parameter, the caller sees the change.</p>
 <aside id="visualizer">
+
 <p><strong>Use the Python visualizer!</strong></p>
-<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
+<p>We’ve already mentioned the Python visualizer at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a>. It is a very useful tool for building a good understanding of references, aliases, assignments, and passing arguments to functions. Pay special attention to cases where you clone a list or have two separate lists, and cases where there is only one underlying list, but more than one variable is aliased to reference the list.</p>
 </aside>
+    
 </section>
 <section id="list-methods" class="level2">
 <h2>List methods</h2>
@@ -4152,10 +4201,13 @@ double_stuff(things)
 &gt;&gt;&gt; things
 [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>]      </code></pre>
 <aside id="pure-functions">
+
 <p><strong>Which style is better?</strong></p>
 <p>Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. Nevertheless, modifiers are convenient at times, and in some cases, functional programs are less efficient.</p>
 <p>In general, we recommend that you write pure functions whenever it is reasonable to do so and resort to modifiers only if there is a compelling advantage. This approach might be called a <em>functional programming style</em>.</p>
 </aside>
+
+
 </section>
 <section id="functions-that-produce-lists" class="level2">
 <h2>Functions that produce lists</h2>
@@ -4181,11 +4233,14 @@ loop
           result.append(i)
    <span class="kw">return</span> result</code></pre></td></tr></table>
 <aside id="list_comp">
+
 </section>
 <section id="list-comprehensions" class="level2">
 <h2>List Comprehensions</h2>
 <p>As we start to work with lists more, we start to see some common patterns. In particular, we often want to <em>filter</em> a list to create a new list of</p>
 </aside>
+
+
 </section>
 <section id="strings-and-lists" class="level2">
 <h2>Strings and lists</h2>
@@ -4242,9 +4297,11 @@ test(f(<span class="dv">110</span>) == <span class="dv">105</span>)
 test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code></pre></td></tr></table>
 <p>In the second test, if range were to eagerly go about building a list with all those elements, you would soon exhaust your computer’s available memory and crash the program. But it is cleverer than that! This computation works just fine, because the <code>range</code> object is just a promise to produce the elements if and when they are needed. Once the condition in the <code>if</code> becomes true, no further elements are generated, and the function returns. (Note: Before Python 3, <code>range</code> was not lazy. If you use an earlier versions of Python, YMMV!)</p>
 <aside id="ymmv">
+
 <p><strong>YMMV: Your Mileage May Vary</strong></p>
 <p>The acronym YMMV stands for <em>your mileage may vary</em>. American car advertisements often quoted fuel consumption figures for cars, e.g. that they would get 28 miles per gallon. But this always had to be accompanied by legal small-print warning the reader that they might not get the same. The term YMMV is now used idiomatically to mean “your results may differ”, e.g. <em>The battery life on this phone is 3 days, but YMMV.</em></p>
 </aside>
+    
 <p>You’ll sometimes find the lazy <code>range</code> wrapped in a call to <code>list</code>. This forces Python to turn the lazy promise into an actual list:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">range</span>(<span class="dv">10</span>)           <span class="co"># Create a lazy promise </span>
 <span class="dt">range</span>(<span class="dv">0</span>, <span class="dv">10</span>)
@@ -4288,61 +4345,61 @@ test(f(<span class="dv">1000000000</span>) == <span class="dv">105</span>)</code
 <h2>Glossary</h2>
 <dl>
 <dt>aliases</dt>
-<dd>Multiple variables that contain references to the same object.
+<dd><p>Multiple variables that contain references to the same object.</p>
 </dd>
 <dt>clone</dt>
-<dd>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.
+<dd><p>To create a new object that has the same value as an existing object. Copying a reference to an object creates an alias but doesn’t clone the object.</p>
 </dd>
 <dt>delimiter</dt>
-<dd>A character or string used to indicate where a string should be split.
+<dd><p>A character or string used to indicate where a string should be split.</p>
 </dd>
 <dt>element</dt>
-<dd>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.
+<dd><p>One of the values in a list (or other sequence). The bracket operator selects elements of a list. Also called <em>item</em>.</p>
 </dd>
 <dt>immutable data value</dt>
-<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
+<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
 </dd>
 <dt>index</dt>
-<dd>An integer value that indicates the position of an item in a list. Indexes start from 0.
+<dd><p>An integer value that indicates the position of an item in a list. Indexes start from 0.</p>
 </dd>
 <dt>item</dt>
-<dd>See <em>element</em>.
+<dd><p>See <em>element</em>.</p>
 </dd>
 <dt>list</dt>
-<dd>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.
+<dd><p>A collection of values, each in a fixed position within the list. Like other types <code>str</code>, <code>int</code>, <code>float</code>, etc. there is also a <code>list</code> type-converter function that tries to turn whatever argument you give it into a list.</p>
 </dd>
 <dt>list traversal</dt>
-<dd>The sequential accessing of each element in a list.
+<dd><p>The sequential accessing of each element in a list.</p>
 </dd>
 <dt>modifier</dt>
-<dd>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.
+<dd><p>A function which changes its arguments inside the function body. Only mutable types can be changed by modifiers.</p>
 </dd>
 <dt>mutable data value</dt>
-<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
+<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
 </dd>
 <dt>nested list</dt>
-<dd>A list that is an element of another list.
+<dd><p>A list that is an element of another list.</p>
 </dd>
 <dt>object</dt>
-<dd>A thing to which a variable can refer.
+<dd><p>A thing to which a variable can refer.</p>
 </dd>
 <dt>pattern</dt>
-<dd>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.
+<dd><p>A sequence of statements, or a style of coding something that has general applicability in a number of different situations. Part of becoming a mature Computer Scientist is to learn and establish the patterns and algorithms that form your toolkit. Patterns often correspond to your “mental chunking”.</p>
 </dd>
 <dt>promise</dt>
-<dd>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.
+<dd><p>An object that promises to do some work or deliver some values if they’re eventually needed, but it lazily puts off doing the work immediately. Calling <code>range</code> produces a promise.</p>
 </dd>
 <dt>pure function</dt>
-<dd>A function which has no side effects. Pure functions only make changes to the calling program through their return values.
+<dd><p>A function which has no side effects. Pure functions only make changes to the calling program through their return values.</p>
 </dd>
 <dt>sequence</dt>
-<dd>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.
+<dd><p>Any of the data types that consist of an ordered collection of elements, with each element identified by an index.</p>
 </dd>
 <dt>side effect</dt>
-<dd>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.
+<dd><p>A change in the state of a program made by calling a function. Side effects can only be produced by modifiers.</p>
 </dd>
 <dt>step size</dt>
-<dd>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.
+<dd><p>The interval between successive elements of a linear sequence. The third (and optional argument) to the <code>range</code> function is called the step size. If not specified, it defaults to 1.</p>
 </dd>
 </dl>
 </section>
@@ -4432,7 +4489,7 @@ test(replace(s, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;a&
  swap(a, b)
  <span class="dt">print</span>(<span class="st">&quot;after swap function call: a:&quot;</span>, a, <span class="st">&quot;b:&quot;</span>, b)</code></pre></td></tr></table>
 <p>Run this program and describe the results. Oops! So it didn’t do what you intended!<br />Explain why not.</p>
-<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz" class="uri">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
+<p>Using a Python visualizer like the one at <a href="http://netserv.ict.ru.ac.za/python3_viz">http://netserv.ict.ru.ac.za/python3_viz</a> may help you build a good conceptual model of what is going on.<br />What will be the values of <code>a</code> and <code>b</code> after the call to <code>swap</code>?</p></li>
 </ol>
 </section>
 </section>
@@ -4538,19 +4595,19 @@ b = temp</code></pre></td></tr></table>
 <h2>Glossary</h2>
 <dl>
 <dt>data structure</dt>
-<dd>An organization of data for the purpose of making it easier to use.
+<dd><p>An organization of data for the purpose of making it easier to use.</p>
 </dd>
 <dt>immutable data value</dt>
-<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
+<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
 </dd>
 <dt>mutable data value</dt>
-<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
+<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
 </dd>
 <dt>tuple</dt>
-<dd>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.
+<dd><p>An immutable data value that contains related elements. Tuples are used to group together related data, such as a person’s name, their age, and their gender.</p>
 </dd>
 <dt>tuple assignment</dt>
-<dd>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.
+<dd><p>An assignment to all of the elements in a tuple using a single assignment statement. Tuple assignment occurs <em>simultaneously</em> rather than in sequence, making it useful for swapping values.</p>
 </dd>
 </dl>
 </section>
@@ -4581,6 +4638,7 @@ b = temp</code></pre></td></tr></table>
 {<span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>}</code></pre>
 <p>The key:value pairs of the dictionary are separated by commas. Each pair contains a key and a value separated by a colon.</p>
 <aside id="hashing">
+
 <p><strong>Hashing</strong></p>
 <p>The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.</p>
 <p>You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:</p>
@@ -4591,6 +4649,7 @@ b = temp</code></pre></td></tr></table>
 [(<span class="st">&#39;apples&#39;</span>, <span class="dv">430</span>), (<span class="st">&#39;bananas&#39;</span>, <span class="dv">312</span>), (<span class="st">&#39;oranges&#39;</span>, <span class="dv">525</span>), (<span class="st">&#39;pears&#39;</span>, <span class="dv">217</span>)]</code></pre>
 <p>The reason is dictionaries are very fast, implemented using a technique called hashing, which allows us to access a value very quickly. By contrast, the list of tuples implementation is slow. If we wanted to find a value associated with a key, we would have to iterate over every tuple, checking the 0th element. What if the key wasn’t even in the list? We would have to get to the end of it to find out.</p>
 </aside>
+
 <p>Another way to create a dictionary is to provide a list of key:value pairs using the same syntax as the previous output:</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; eng2sp = {<span class="st">&quot;one&quot;</span>: <span class="st">&quot;uno&quot;</span>, <span class="st">&quot;two&quot;</span>: <span class="st">&quot;dos&quot;</span>, <span class="st">&quot;three&quot;</span>: <span class="st">&quot;tres&quot;</span>}</code></pre>
 <p>It doesn’t matter what order we write the pairs. The values in a dictionary are accessed with keys, not with indices, so there is no need to care about ordering.</p>
@@ -4721,16 +4780,24 @@ Traceback (most recent call last):
 <section id="case-study-snowden-content-analysis" class="level3">
 <h3>Case Study: Snowden Content Analysis</h3>
 <aside id="snowden_read_file" style="top: 280px;">
+
 <p><strong>read_file</strong> uses the <strong>buil-in function</strong> <code>open()</code> to read a plain text file into a <strong>file object</strong>. The function <strong>returns</strong> the text as a <code>string</code>.</p>
 </aside>
+
+
 <aside id="snowden_word_map" style="top: 365px;">
+
 <p>The <strong>word_map function</strong> uses a Python <code>dict</code> to map the key words identified in the parameter <code>find</code> to the number of times they occur in the text. The text is passed in as an argument to this function as a <code>list</code> of <code>words</code>.</p>
 <p>This function uses <code>list</code> and <code>dict</code> <strong>data structures</strong>. Line 23 initializes and empty <code>dict</code> called wordMap. The <code>find</code> parameter is a <code>list</code> that let’s the function know which words to count. The first <code>for</code> loop on line 25 iterates over the words in <code>find</code> and adds a new <strong>key</strong> to wordMap with the <strong>value</strong> zero. We use the String function <code>lower()</code> to force all keys to lowercase. The second loop (29) iterates through the words in the text. For each word in the list we use the <strong>string function</strong> <code>strip()</code> to remove punctation. The <strong>string module</strong> was <strong>imported</strong> on line 9, so that we can access its list of punctation characters here, on line 30.</p>
 <p>The body of the second loop uses the <code>in</code> operator to test if a word from the text is in our list of words to find. If the word is found, we <strong>increment</strong> the value for that word in our <code>dict</code>. Finally, the function returns a map of <strong>key-value pairs</strong> where the keys are the words that were found. The values are <code>ints</code> indicating the number of times the word was found in the text (0..<em>n</em>). The function <strong>returns</strong> this word frequency map.</p>
 </aside>
+
 <aside id="snowden_describe" style="top: 794px;">
+
 <p>The <strong>describe</strong> function presents the results to the user by printing information to the console. This function is not very <strong>abstract</strong> — it can only be used to analyze the Snowden news reports.</p>
 </aside>
+
+
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -4887,25 +4954,25 @@ main()</code></pre></td></tr></table>
 <h2>Glossary</h2>
 <dl>
 <dt>dictionary</dt>
-<dd>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.
+<dd><p>A collection of key:value pairs that maps from keys to values. The keys can be any immutable value, and the associated value can be of any type.</p>
 </dd>
 <dt>immutable data value</dt>
-<dd>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.
+<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
 </dd>
 <dt>key</dt>
-<dd>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.
+<dd><p>A data item that is <em>mapped to</em> a value in a dictionary. Keys are used to look up values in a dictionary. Each key must be unique across the dictionary.</p>
 </dd>
 <dt>key:value pair</dt>
-<dd>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.
+<dd><p>One of the pairs of items in a dictionary. Values are looked up in a dictionary by key.</p>
 </dd>
 <dt>mapping type</dt>
-<dd>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.
+<dd><p>A mapping type is a data type comprised of a collection of keys and associated values. Python’s only built-in mapping type is the dictionary. Dictionaries implement the <a href="http://en.wikipedia.org/wiki/Associative_array">associative array</a> abstract data type.</p>
 </dd>
 <dt>memo</dt>
-<dd>Temporary storage of precomputed values to avoid duplicating the same computation.
+<dd><p>Temporary storage of precomputed values to avoid duplicating the same computation.</p>
 </dd>
 <dt>mutable data value</dt>
-<dd>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.
+<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
 </dd>
 </dl>
 </section>
@@ -4944,13 +5011,17 @@ absurd            2</code></pre></li>
 <li>leave apostrophes and hyphenated words intact</li>
 </ol>
 </aside>
+
 <aside id="teachers_while" style="top: 1083px;">
 <p><code>strip_non_chars</code> is applied to every word in the text. Python’s built-in <code>strip</code> function removes spaces or other characters from the start or end of strings, but, in this case, we know the characters we want to keep, but not the ones we want to strip—we want to keep the 26 lowercase English letters and the digits 0-9. We remove any other character found at the start or end of the word. We chose to implement this using a <strong>while loop</strong>. Unlike like <strong>for</strong> loops, while loops provide an <em>indefinite loop</em>—we do not know who many iterations are needed. In this case, we continue the loop until we find a valid character.</p>
 This function has 2 while loops. The first drops the first character of the word (using the string slice syntax) until the first character is valid. The second loop does the same, but works from the last character.
 </aside>
+
 <aside id="teachers_freak" style="top: 1400px">
 Counting word frequencies—the number of times a word occurs in the text—is the main tool offered by this program to analyze text. The algorithm in <code>freq</code> is familiar to us by now: iterate over a list of words in a for loop, use unique words as <strong>dictionary keys</strong> and keep a <strong>running total</strong> of each word as the dictionary <strong>value</strong>. The word frequency map return allows quick and easy access to the frequency of every word in the text.
 </aside>
+
+
 <aside id="teachers_freak_sort" style="top: 1715px">
 <p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
 <p><code>freq_list</code> solves this problem by sorting the dictionary items based on the word count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
@@ -4961,15 +5032,20 @@ Counting word frequencies—the number of times a word occurs in the text—is t
 <li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without changing the <strong>interface</strong> to our function)</li>
 </ol>
 </aside>
-<aside id="teachers_common" style="top: 2342px;">
+
+<aside id="teachers_common" style="top: 2342px;"> 
 Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. The variable <code>commonWords</code> is defined as a list of strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong> —<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
 </aside>
+
 <aside id="teachers_neighbors" style="top: 2600px;">
 <code>neighbors</code> helps us examine co-occurances of words in the text. This function defines three <strong>parameters</strong>: <code>words</code> is the list of tuples to analyze, <code>targetWords</code> is a sub-list of words we will run our neighbor analysis on, and the <strong>int</strong> <code>n</code> indicates how for away from our target word we want to investigate. if <code>n == 1</code>, we will only count co-locations of words contiguous with our target word. For more on <code>neighbors</code> please see the example below the code listing.
 </aside>
+
 <aside id="teachers_compare" style="top: 2800px;">
 <code>compare</code> offers a comparison of two word frequency dictionaries to find which words have the greatest disparity in occurrences. In this function we see a new Python <em>data structure</em>, <strong>set</strong>. “A set is an unordered collection with no duplicate elements” <a href="http://docs.python.org/3.3/tutorial/datastructures.html#sets">*</a>. In this case we use <strong>set</strong> to make a unique set of keys from both dictionaries. We create the set from the <code>keys</code> in dictionary <code>a</code> on line 188 and then add any missing <code>keys</code> from dict <code>b</code> on line 189 by calling sets <code>update</code> method. In our loop (lines 193-197) we add tuples to a new list, in the format (word, difference in counts between a &amp; b). We use the built-in <code>abs</code> function, because, here, we care about the difference, not <em>which</em> dict had the greater count. Once this list of differences is created, we sort it by counts using the <code>list_freqs</code> function we already defined.
 </aside>
+
+
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -5527,6 +5603,8 @@ While previously well <span style="color:
 blue">known in <span style="color: red">education</span> circles, she</span> gained a much broader audience after she publicly rejected almost everything she had once believed. In a surprise 2010 best seller, “The Death and Life of the Great American School System,” she openly declared that she had been wrong to <span style="color: blue">champion standardized <span style="color: 
 red">testing</span>, charter schools</span> and vouchers. She says she is trying now to make up for past errors.
 </p>
+
+
 <p>If we run <code>neighbors</code> with <code>targetWords=[&quot;testing&quot;, &quot;education&quot;], n=2</code> we would create a dictionary that looks something like this:</p>
 <table>
 <thead>
@@ -5670,12 +5748,15 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>You’ll notice that if you don’t stop when you reach 1, the sequence gets into its own cyclic loop: 1, 4, 2, 1, 4, 2, 1, 4 … So one possibility is that there might be other cycles that we just haven’t found yet.</p>
 <p>Wikipedia has an informative article about the Collatz conjecture. The sequence also goes under other names (Hailstone sequence, Wonderous numbers, etc.), and you’ll find out just how many integers have already been tested by computer, and found to converge!</p>
 <aside id="for-or-while">
+
 <p><strong>Choosing between <code>for</code> and <code>while</code></strong></p>
 <p>Use a <code>for</code> loop if you know, before you start looping, the maximum number of times that you’ll need to execute the body.<br />For example, if you’re traversing a list of elements, you know that the maximum number of loop iterations you can possibly need is “all the elements in the list”. Or if you need to print the 12 times table, we know right away how many times the loop will need to run.</p>
 <p>So any problem like “iterate this weather model for 1000 cycles”, or “search this list of words”, “find all prime numbers up to 10000” suggest that a <code>for</code> loop is best.</p>
 <p>By contrast, if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (or if) this will happen, as we did in this 3n + 1 problem, you’ll need a <code>while</code> loop.</p>
 <p>We call the first case <strong>definite iteration</strong> — we know ahead of time some definite bounds for what is needed. The latter case is called <strong>indefinite iteration</strong> — we’re not sure how many iterations we’ll need — we cannot even establish an upper bound!</p>
 </aside>
+
+
 </section>
 <section id="tracing-a-program" class="level2">
 <h2>Tracing a program</h2>
@@ -5793,6 +5874,852 @@ test(sum_to(<span class="dv">1000</span>) == <span class="dv">500500</span>)    
 <p>One of the characteristics of algorithms is that they do not require any intelligence to carry out. They are mechanical processes in which each step follows from the last according to a simple set of rules. And they’re designed to solve a general class or category of problems, not just a single problem.</p>
 <p>Understanding that hard problems can be solved by step-by-step algorithmic processes (and having technology to execute these algorithms for us) is one of the major breakthroughs that has had enormous benefits. So while the execution of the algorithm may be boring and may require no intelligence, algorithmic or computational thinking — i.e. using algorithms and automation as the basis for approaching problems — is rapidly transforming our society. Some claim that this shift towards algorithmic thinking and processes is going to have even more impact on our society than the invention of the printing press.<br />And the process of designing algorithms is interesting, intellectually challenging, and a central part of what we call programming.</p>
 <p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain <em>how</em> we do it, at least not in the form of a step-by-step mechanical algorithm.</p>
+</section>
+</section>
+<section id="strings" class="level1">
+<h1>Strings</h1>
+<section id="a-compound-data-type" class="level2">
+<h2>A compound data type</h2>
+<p>So far we have seen built-in types like <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code> and we’ve seen lists and pairs. Strings, lists, and pairs are qualitatively different from the others because they are made up of smaller pieces. In the case of strings, they’re made up of smaller strings each containing one <strong>character</strong>.</p>
+<p>Types that comprise smaller pieces are called <strong>compound data types</strong>. Depending on what we are doing, we may want to treat a compound data type as a single thing, or we may want to access its parts. This ambiguity is useful.</p>
+</section>
+<section id="working-with-strings-as-single-things" class="level2">
+<h2>Working with strings as single things</h2>
+<p>We previously saw that each turtle instance has its own attributes and a number of methods that can be applied to the instance. For example, we could set the turtle’s color, and we wrote <code>tess.turn(90)</code>.</p>
+<p>Just like a turtle, a string is also an object. So each string instance has its own attributes and methods.</p>
+<p>For example:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; ss = <span class="st">&quot;Hello, World!&quot;</span>
+&gt;&gt;&gt; tt = ss.upper()
+&gt;&gt;&gt; tt
+<span class="co">&#39;HELLO, WORLD!&#39;</span>    </code></pre>
+<p><code>upper</code> is a method that can be invoked on any string object to create a new string, in which all the characters are in uppercase. (The original string <code>ss</code> remains unchanged.)</p>
+<p>There are also methods such as <code>lower</code>, <code>capitalize</code>, and <code>swapcase</code> that do other interesting stuff.</p>
+<p>To learn what methods are available, you can consult the Help documentation, look for string methods, and read the documentation. Or, if you’re a bit lazier, simply type the following into an IPython shell:</p>
+<pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">1</span>]: ss = <span class="st">&quot;Hello, World!&quot;</span>
+
+In [<span class="dv">2</span>]: ss.
+ss.capitalize    ss.format_map    ss.isprintable   ss.partition     ss.splitlines
+ss.casefold      ss.index         ss.isspace       ss.replace       ss.startswith
+ss.center        ss.isalnum       ss.istitle       ss.rfind         ss.strip
+ss.count         ss.isalpha       ss.isupper       ss.rindex        ss.swapcase
+ss.encode        ss.isdecimal     ss.join          ss.rjust         ss.title
+ss.endswith      ss.isdigit       ss.ljust         ss.rpartition    ss.translate
+ss.expandtabs    ss.isidentifier  ss.lower         ss.rsplit        ss.upper
+ss.find          ss.islower       ss.lstrip        ss.rstrip        ss.zfill
+ss.<span class="dt">format</span>        ss.isnumeric     ss.maketrans     ss.split         
+
+In [<span class="dv">2</span>]: ss.</code></pre>
+<p>When you type the period to select one of the methods of <code>ss</code> and then hit <code>&lt;tab&gt;</code>, IPython will list all the methods (there are around 70 of them — thank goodness we’ll only use a few of those!) that could be used on your string.</p>
+</section>
+<section id="working-with-the-parts-of-a-string" class="level2">
+<h2>Working with the parts of a string</h2>
+<p>The <strong>indexing operator</strong> (Python uses square brackets to enclose the index) selects a single character substring from a string:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = <span class="st">&quot;banana&quot;</span>
+&gt;&gt;&gt; m = fruit[<span class="dv">1</span>]
+&gt;&gt;&gt; <span class="dt">print</span>(m)</code></pre>
+<p>The expression <code>fruit[1]</code> selects character number 1 from <code>fruit</code>, and creates a new string containing just this one character. The variable <code>m</code> refers to the result. When we display <code>m</code>, we could get a surprise:</p>
+<pre><code>a</code></pre>
+<p>Computer scientists always start counting from zero! The letter at subscript position zero of <code>&quot;banana&quot;</code> is <code>b</code>. So at position <code>[1]</code> we have the letter <code>a</code>.</p>
+<p>If we want to access the zero-eth letter of a string, we just place 0, or any expression that evaluates to 0, inbetween the brackets:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; m = fruit[<span class="dv">0</span>]
+&gt;&gt;&gt; <span class="dt">print</span>(m)
+b</code></pre>
+<p>The expression in brackets is called an <strong>index</strong>. An index specifies a member of an ordered collection, in this case the collection of characters in the string. The index <em>indicates</em> which one you want, hence the name. It can be any integer expression.</p>
+<p>We can use <code>enumerate</code> to visualize the indices:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = <span class="st">&quot;banana&quot;</span>
+&gt;&gt;&gt; <span class="dt">list</span>(<span class="dt">enumerate</span>(fruit))
+[(<span class="dv">0</span>, <span class="st">&#39;b&#39;</span>), (<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>), (<span class="dv">2</span>, <span class="st">&#39;n&#39;</span>), (<span class="dv">3</span>, <span class="st">&#39;a&#39;</span>), (<span class="dv">4</span>, <span class="st">&#39;n&#39;</span>), (<span class="dv">5</span>, <span class="st">&#39;a&#39;</span>)]</code></pre>
+<p>Do not worry about <code>enumerate</code> at this point, we will see more of it in the chapter on lists.</p>
+<p>Note that indexing returns a <em>string</em> — Python has no special type for a single character. It is just a string of length 1.</p>
+<p>We’ve also seen lists previously. The same indexing notation works to extract elements from a list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; prime_nums = [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">31</span>]
+&gt;&gt;&gt; prime_nums[<span class="dv">4</span>]
+<span class="dv">11</span>
+&gt;&gt;&gt; friends = [<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Brad&quot;</span>, <span class="st">&quot;Angelina&quot;</span>, <span class="st">&quot;Zuki&quot;</span>, <span class="st">&quot;Thandi&quot;</span>, <span class="st">&quot;Paris&quot;</span>]
+&gt;&gt;&gt; friends[<span class="dv">3</span>]
+<span class="co">&#39;Angelina&#39;</span></code></pre>
+</section>
+<section id="length" class="level2">
+<h2>Length</h2>
+<p>The <code>len</code> function, when applied to a string, returns the number of characters in a string:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = <span class="st">&quot;banana&quot;</span>
+&gt;&gt;&gt; <span class="dt">len</span>(fruit)
+<span class="dv">6</span></code></pre>
+<p>To get the last letter of a string, you might be tempted to try something like this:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">sz = <span class="dt">len</span>(fruit)
+last = fruit[sz]       <span class="co"># ERROR!</span></code></pre></td></tr></table>
+<p>That won’t work. It causes the runtime error <code>IndexError: string index out of range</code>. The reason is that there is no character at index position 6 in <code>&quot;banana&quot;</code>. Because we start counting at zero, the six indexes are numbered 0 to 5. To get the last character, we have to subtract 1 from the length of <code>fruit</code>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">sz = <span class="dt">len</span>(fruit)
+last = fruit[sz<span class="dv">-1</span>]</code></pre></td></tr></table>
+<p>Alternatively, we can use <strong>negative indices</strong>, which count backward from the end of the string. The expression <code>fruit[-1]</code> yields the last letter, <code>fruit[-2]</code> yields the second to last, and so on.</p>
+<p>As you might have guessed, indexing with a negative index also works like this for lists.</p>
+<p>We won’t use negative indexes in the rest of these notes — not many computer languages use this idiom, and you’ll probably be better off avoiding it. But there is plenty of Python code out on the Internet that will use this trick, so it is best to know that it exists.</p>
+</section>
+<section id="traversal-and-the-for-loop" class="level2">
+<h2>Traversal and the <code>for</code> loop</h2>
+<p>A lot of computations involve processing a string one character at a time. Often they start at the beginning, select each character in turn, do something to it, and continue until the end. This pattern of processing is called a <strong>traversal</strong>. One way to encode a traversal is with a <code>while</code> statement:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">ix = <span class="dv">0</span>
+<span class="kw">while</span> ix &lt; <span class="dt">len</span>(fruit):
+    letter = fruit[ix]
+    <span class="dt">print</span>(letter)
+    ix += <span class="dv">1</span></code></pre></td></tr></table>
+<p>This loop traverses the string and displays each letter on a line by itself. The loop condition is <code>ix &lt; len(fruit)</code>, so when <code>ix</code> is equal to the length of the string, the condition is false, and the body of the loop is not executed. The last character accessed is the one with the index <code>len(fruit)-1</code>, which is the last character in the string.</p>
+<p>But we’ve previously seen how the <code>for</code> loop can easily iterate over the elements in a list and it can do so for strings as well:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">for</span> c in fruit:
+    <span class="dt">print</span>(c)</code></pre></td></tr></table>
+<p>Each time through the loop, the next character in the string is assigned to the variable <code>c</code>. The loop continues until no characters are left. Here we can see the expressive power the <code>for</code> loop gives us compared to the while loop when traversing a string.</p>
+<p>The following example shows how to use concatenation and a <code>for</code> loop to generate an abecedarian series. Abecedarian refers to a series or list in which the elements appear in alphabetical order. For example, in Robert McCloskey’s book <em>Make Way for Ducklings</em>, the names of the ducklings are Jack, Kack, Lack, Mack, Nack, Ouack, Pack, and Quack. This loop outputs these names in order:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">prefixes = <span class="st">&quot;JKLMNOPQ&quot;</span>
+suffix = <span class="st">&quot;ack&quot;</span>
+   
+<span class="kw">for</span> p in prefixes:
+    <span class="dt">print</span>(p + suffix)</code></pre></td></tr></table>
+<p>The output of this program is:</p>
+<pre><code>Jack
+Kack
+Lack
+Mack
+Nack
+Oack
+Pack
+Qack</code></pre>
+<p>Of course, that’s not quite right because Ouack and Quack are misspelled. You’ll fix this as an exercise below.</p>
+</section>
+<section id="slices" class="level2">
+<h2>Slices</h2>
+<p>A <em>substring</em> of a string is obtained by taking a <strong>slice</strong>. Similarly, we can slice a list to refer to some sublist of the items in the list:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; s = <span class="st">&quot;Pirates of the Caribbean&quot;</span>
+&gt;&gt;&gt; <span class="dt">print</span>(s[<span class="dv">0</span>:<span class="dv">7</span>])
+Pirates
+&gt;&gt;&gt; <span class="dt">print</span>(s[<span class="dv">11</span>:<span class="dv">14</span>])
+the
+&gt;&gt;&gt; <span class="dt">print</span>(s[<span class="dv">15</span>:<span class="dv">24</span>])
+Caribbean
+&gt;&gt;&gt; friends = [<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Zoe&quot;</span>, <span class="st">&quot;Brad&quot;</span>, <span class="st">&quot;Angelina&quot;</span>, <span class="st">&quot;Zuki&quot;</span>, <span class="st">&quot;Thandi&quot;</span>, <span class="st">&quot;Paris&quot;</span>]
+&gt;&gt;&gt; <span class="dt">print</span>(friends[<span class="dv">2</span>:<span class="dv">4</span>])
+[<span class="st">&#39;Brad&#39;</span>, <span class="st">&#39;Angelina&#39;</span>]</code></pre>
+<p>The operator <code>[n:m]</code> returns the part of the string from the n’th character to the m’th character, including the first but excluding the last. This behavior makes sense if you imagine the indices pointing <em>between</em> the characters, as in the following diagram:</p>
+<figure>
+<img src="figs/banana.png" title="&#39;banana&#39; string" />
+</figure>
+<p>If you imagine this as a piece of paper, the slice operator <code>[n:m]</code> copies out the part of the paper between the <code>n</code> and <code>m</code> positions. Provided <code>m</code> and <code>n</code> are both within the bounds of the string, your result will be of length (m-n).</p>
+<p>Three tricks are added to this: if you omit the first index (before the colon), the slice starts at the beginning of the string (or list). If you omit the second index, the slice extends to the end of the string (or list). Similarly, if you provide value for <code>n</code> that is bigger than the length of the string (or list), the slice will take all the values up to the end. (It won’t give an “out of range” error like the normal indexing operation does.) Thus:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; fruit = <span class="st">&quot;banana&quot;</span>
+&gt;&gt;&gt; fruit[:<span class="dv">3</span>]
+<span class="co">&#39;ban&#39;</span>
+&gt;&gt;&gt; fruit[<span class="dv">3</span>:]
+<span class="co">&#39;ana&#39;</span>
+&gt;&gt;&gt; fruit[<span class="dv">3</span>:<span class="dv">999</span>]
+<span class="co">&#39;ana&#39;</span></code></pre>
+<p>What do you think <code>s[:]</code> means? What about <code>friends[4:]</code>?</p>
+</section>
+<section id="string-comparison" class="level2">
+<h2>String comparison</h2>
+<p>The comparison operators work on strings. To see if two strings are equal:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> word == <span class="st">&quot;banana&quot;</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Yes, we have no bananas!&quot;</span>)</code></pre></td></tr></table>
+<p>Other comparison operations are useful for putting words in <code>lexicographical</code> order:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">if</span> word &lt; <span class="st">&quot;banana&quot;</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Your word, &quot;</span> + word + <span class="st">&quot;, comes before banana.&quot;</span>)
+<span class="kw">elif</span> word &gt; <span class="st">&quot;banana&quot;</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Your word, &quot;</span> + word + <span class="st">&quot;, comes after banana.&quot;</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">&quot;Yes, we have no bananas!&quot;</span>)</code></pre></td></tr></table>
+<p>This is similar to the alphabetical order you would use with a dictionary, except that all the uppercase letters come before all the lowercase letters. As a result:</p>
+<pre><code>Your word, Zebra, comes before banana.</code></pre>
+<p>A common way to address this problem is to convert strings to a standard format, such as all lowercase, before performing the comparison. A more difficult problem is making the program realize that zebras are not fruit.</p>
+</section>
+<section id="strings-are-immutable" class="level2">
+<h2>Strings are immutable</h2>
+<p>It is tempting to use the <code>[]</code> operator on the left side of an assignment, with the intention of changing a character in a string. For example:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">greeting = <span class="st">&quot;Hello, world!&quot;</span>
+greeting[<span class="dv">0</span>] = <span class="st">&#39;J&#39;</span>    <span class="co"># ERROR!</span>
+<span class="dt">print</span>(greeting)</code></pre></td></tr></table>
+<p>Instead of producing the output <code>Jello, world!</code>, this code produces the runtime error <code>TypeError: 'str' object does not support item assignment</code>.</p>
+<p>Strings are <strong>immutable</strong>, which means you can’t change an existing string. The best you can do is create a new string that is a variation on the original:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">greeting = <span class="st">&quot;Hello, world!&quot;</span>
+new_greeting = <span class="st">&quot;J&quot;</span> + greeting[<span class="dv">1</span>:]
+<span class="dt">print</span>(new_greeting)</code></pre></td></tr></table>
+<p>The solution here is to concatenate a new first letter onto a slice of <code>greeting</code>. This operation has no effect on the original string.</p>
+</section>
+<section id="the-in-and-not-in-operators" class="level2">
+<h2>The <code>in</code> and <code>not in</code> operators</h2>
+<p>The <code>in</code> operator tests for membership. When both of the arguments to <code>in</code> are strings, <code>in</code> checks whether the left argument is a substring of the right argument.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;p&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;i&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">False</span>
+&gt;&gt;&gt; <span class="st">&quot;ap&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;pa&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">False</span></code></pre>
+<p>Note that a string is a substring of itself, and the empty string is a substring of any other string. (Also note that computer scientists like to think about these edge cases quite carefully!)</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;a&quot;</span> in <span class="st">&quot;a&quot;</span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;apple&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;&quot;</span> in <span class="st">&quot;a&quot;</span>
+<span class="ot">True</span>
+&gt;&gt;&gt; <span class="st">&quot;&quot;</span> in <span class="st">&quot;apple&quot;</span>
+<span class="ot">True</span></code></pre>
+<p>The <code>not in</code> operator returns the logical opposite results of <code>in</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;x&quot;</span> not in <span class="st">&quot;apple&quot;</span>
+<span class="ot">True</span></code></pre>
+<p>Combining the <code>in</code> operator with string concatenation using <code>+</code>, we can write a function that removes all the vowels from a string:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> remove_vowels(s):
+    vowels = <span class="st">&quot;aeiouAEIOU&quot;</span>
+    s_sans_vowels = <span class="st">&quot;&quot;</span>
+    <span class="kw">for</span> x in s:
+<span class="kw">if</span> x not in vowels:
+    s_sans_vowels += x
+    <span class="kw">return</span> s_sans_vowels 
+   
+test(remove_vowels(<span class="st">&quot;compsci&quot;</span>) == <span class="st">&quot;cmpsc&quot;</span>)
+test(remove_vowels(<span class="st">&quot;aAbEefIijOopUus&quot;</span>) == <span class="st">&quot;bfjps&quot;</span>)</code></pre></td></tr></table>
+<p><em>computation pattern</em></p>
+</section>
+<section id="a-find-function" class="level2">
+<h2>A <code>find</code> function</h2>
+<p>What does the following function do?</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> find(strng, ch):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">      Find and return the index of ch in strng.  </span>
+<span class="co">      Return -1 if ch does not occur in strng.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    ix = <span class="dv">0</span>
+    <span class="kw">while</span> ix &lt; <span class="dt">len</span>(strng):
+<span class="kw">if</span> strng[ix] == ch:
+    <span class="kw">return</span> ix
+ix += <span class="dv">1</span>
+    <span class="kw">return</span> -<span class="dv">1</span>
+    
+test(find(<span class="st">&quot;Compsci&quot;</span>, <span class="st">&quot;p&quot;</span>) == <span class="dv">3</span>)
+test(find(<span class="st">&quot;Compsci&quot;</span>, <span class="st">&quot;C&quot;</span>) == <span class="dv">0</span>)
+test(find(<span class="st">&quot;Compsci&quot;</span>, <span class="st">&quot;i&quot;</span>) == <span class="dv">6</span>)
+test(find(<span class="st">&quot;Compsci&quot;</span>, <span class="st">&quot;x&quot;</span>) == -<span class="dv">1</span>)</code></pre></td></tr></table>
+<p>In a sense, <code>find</code> is the opposite of the indexing operator. Instead of taking an index and extracting the corresponding character, it takes a character and finds the index where that character appears. If the character is not found, the function returns <code>-1</code>.</p>
+<p>This is another example where we see a <code>return</code> statement inside a loop. If <code>strng[ix] == ch</code>, the function returns immediately, breaking out of the loop prematurely.</p>
+<p>If the character doesn’t appear in the string, then the program exits the loop normally and returns <code>-1</code>.</p>
+<p>This pattern of computation is sometimes called a <strong>eureka traversal</strong> or <strong>short-circuit evaluation</strong>, because as soon as we find what we are looking for, we can cry “Eureka!”, take the short-circuit, and stop looking.</p>
+</section>
+<section id="looping-and-counting" class="level2">
+<h2>Looping and counting</h2>
+<p>The following program counts the number of times the letter <code>a</code> appears in a string, and is another example of the counter pattern introduced in :ref:<code>counting</code>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> count_a(text): 
+    count = <span class="dv">0</span>
+    <span class="kw">for</span> c in text:
+<span class="kw">if</span> c == <span class="st">&quot;a&quot;</span>:
+    count += <span class="dv">1</span>
+    <span class="kw">return</span>(count)
+
+test(count_a(<span class="st">&quot;banana&quot;</span>) == <span class="dv">3</span>)    </code></pre></td></tr></table>
+</section>
+<section id="optional-parameters" class="level2">
+<h2>Optional parameters</h2>
+<p>To find the locations of the second or third occurrence of a character in a string, we can modify the <code>find</code> function, adding a third parameter for the starting position in the search string:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> find2(strng, ch, start):
+    ix = start 
+    <span class="kw">while</span> ix &lt; <span class="dt">len</span>(strng):
+<span class="kw">if</span> strng[ix] == ch:
+    <span class="kw">return</span> ix
+ix += <span class="dv">1</span>
+    <span class="kw">return</span> -<span class="dv">1</span>
+    
+test(find2(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>) == <span class="dv">3</span>)</code></pre></td></tr></table>
+<p>The call <code>find2(&quot;banana&quot;, &quot;a&quot;, 2)</code> now returns <code>3</code>, the index of the first occurrence of “a” in “banana” starting the search at index 2. What does <code>find2(&quot;banana&quot;, &quot;n&quot;, 3)</code> return? If you said, 4, there is a good chance you understand how <code>find2</code> works.</p>
+<p>Better still, we can combine <code>find</code> and <code>find2</code> using an <strong>optional parameter</strong>:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> find(strng, ch, start=<span class="dv">0</span>):
+    ix = start 
+    <span class="kw">while</span> ix &lt; <span class="dt">len</span>(strng):
+<span class="kw">if</span> strng[ix] == ch:
+    <span class="kw">return</span> ix
+ix += <span class="dv">1</span>
+    <span class="kw">return</span> -<span class="dv">1</span></code></pre></td></tr></table>
+<p>When a function has an optional parameter, the caller <code>may</code> provide a matching argument. If the third argument is provided to <code>find</code>, it gets assigned to <code>start</code>. But if the caller leaves the argument out, then start is given a default value indicated by the assignment <code>start=0</code> in the function definition.</p>
+<p>So the call <code>find(&quot;banana&quot;, &quot;a&quot;, 2)</code> to this version of <code>find</code> behaves just like <code>find2</code>, while in the call <code>find(&quot;banana&quot;, &quot;a&quot;)</code>, <code>start</code> will be set to the <strong>default value</strong> of <code>0</code>.</p>
+<p>Adding another optional parameter to <code>find</code> makes it search from a starting position, up to but not including the end position:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="kw">def</span> find(strng, ch, start=<span class="dv">0</span>, end=<span class="ot">None</span>):
+    ix = start 
+    <span class="kw">if</span> end is <span class="ot">None</span>:
+       end = <span class="dt">len</span>(strng)
+    <span class="kw">while</span> ix &lt; end:
+<span class="kw">if</span> strng[ix] == ch:
+    <span class="kw">return</span> ix
+ix += <span class="dv">1</span> 
+    <span class="kw">return</span> -<span class="dv">1</span></code></pre></td></tr></table>
+<p>The optional value for <code>end</code> is interesting: we give it a default value <code>None</code> if the caller does not supply any argument. In the body of the function we test what <code>end</code> is, and if the caller did not supply any argument, we reassign <code>end</code> to be the length of the string. If the caller has supplied an argument for <code>end</code>, however, the caller’s value will be used in the loop.</p>
+<p>The semantics of <code>start</code> and <code>end</code> in this function are precisely the same as they are in the <code>range</code> function.</p>
+<p>Here are some test cases that should pass:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">ss = <span class="st">&quot;Python strings have some interesting methods.&quot;</span>
+test(find(ss, <span class="st">&quot;s&quot;</span>) == <span class="dv">7</span>)
+test(find(ss, <span class="st">&quot;s&quot;</span>, <span class="dv">7</span>) == <span class="dv">7</span>)
+test(find(ss, <span class="st">&quot;s&quot;</span>, <span class="dv">8</span>) == <span class="dv">13</span>)
+test(find(ss, <span class="st">&quot;s&quot;</span>, <span class="dv">8</span>, <span class="dv">13</span>) == -<span class="dv">1</span>)
+test(find(ss, <span class="st">&quot;.&quot;</span>) == <span class="dt">len</span>(ss)-<span class="dv">1</span>)</code></pre></td></tr></table>
+</section>
+<section id="the-built-in-find-method" class="level2">
+<h2>The built-in <code>find</code> method</h2>
+<p>Now that we’ve done all this work to write a powerful <code>find</code> function, we can reveal that strings already have their own built-in <code>find</code> method. It can do everything that our code can do, and more!</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(ss.find(<span class="st">&quot;s&quot;</span>) == <span class="dv">7</span>)
+test(ss.find(<span class="st">&quot;s&quot;</span>, <span class="dv">7</span>) == <span class="dv">7</span>)
+test(ss.find(<span class="st">&quot;s&quot;</span>, <span class="dv">8</span>) == <span class="dv">13</span>)
+test(ss.find(<span class="st">&quot;s&quot;</span>, <span class="dv">8</span>, <span class="dv">13</span>) == -<span class="dv">1</span>)
+test(ss.find(<span class="st">&quot;.&quot;</span>) == <span class="dt">len</span>(ss)-<span class="dv">1</span>)     </code></pre></td></tr></table>
+<p>The built-in <code>find</code> method is more general than our version. It can find substrings, not just single characters:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;banana&quot;</span>.find(<span class="st">&quot;nan&quot;</span>)
+<span class="dv">2</span>
+&gt;&gt;&gt; <span class="st">&quot;banana&quot;</span>.find(<span class="st">&quot;na&quot;</span>, <span class="dv">3</span>)
+<span class="dv">4</span></code></pre>
+<p>Usually we’d prefer to use the methods that Python provides rather than reinvent our own equivalents. But many of the built-in functions and methods make good teaching exercises, and the underlying techniques you learn are your building blocks to becoming a proficient programmer.</p>
+</section>
+<section id="the-split-method" class="level2">
+<h2>The <code>split</code> method</h2>
+<p>One of the most useful methods on strings is the <code>split</code> method: it splits a single multi-word string into a list of individual words, removing all the whitespace between them. (Whitespace means any tabs, newlines, or spaces.) This allows us to read input as a single string, and split it into words.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; ss = <span class="st">&quot;Well I never did said Alice&quot;</span> 
+&gt;&gt;&gt; wds = ss.split()
+&gt;&gt;&gt; wds
+[<span class="st">&#39;Well&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;never&#39;</span>, <span class="st">&#39;did&#39;</span>, <span class="st">&#39;said&#39;</span>, <span class="st">&#39;Alice&#39;</span>]</code></pre>
+</section>
+<section id="cleaning-up-your-strings" class="level2">
+<h2>Cleaning up your strings</h2>
+<p>We’ll often work with strings that contain punctuation, or tab and newline characters, especially, as we’ll see in a future chapter, when we read our text from files or from the Internet. But if we’re writing a program, say, to count word frequencies or check the spelling of each word, we’d prefer to strip off these unwanted characters.</p>
+<p>We’ll show just one example of how to strip punctuation from a string. Remember that strings are immutable, so we cannot change the string with the punctuation — we need to traverse the original string and create a new string, omitting any punctuation:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">punctuation = <span class="st">&quot;!</span><span class="ch">\&quot;</span><span class="st">#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[</span><span class="ch">\\</span><span class="st">]^_`{|}~&quot;</span>
+
+<span class="kw">def</span> remove_punctuation(s):
+    s_sans_punct = <span class="st">&quot;&quot;</span>
+    <span class="kw">for</span> letter in s:
+<span class="kw">if</span> letter not in punctuation:
+    s_sans_punct += letter
+    <span class="kw">return</span> s_sans_punct</code></pre></td></tr></table>
+<p>Setting up that first assignment is messy and error-prone.<br />Fortunately, the Python <code>string</code> module already does it for us. So we will make a slight improvement to this program — we’ll import the <code>string</code> module and use its definition:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="ch">import</span> string
+
+<span class="kw">def</span> remove_punctuation(s):
+    s_without_punct = <span class="st">&quot;&quot;</span>
+    <span class="kw">for</span> letter in s:
+        <span class="kw">if</span> letter not in string.punctuation:
+            s_without_punct += letter
+    <span class="kw">return</span> s_without_punct
+     
+test(remove_punctuation(<span class="st">&#39;&quot;Well, I never did!&quot;, said Alice.&#39;</span>) ==
+    <span class="co">&quot;Well I never did said Alice&quot;</span>)
+test(remove_punctuation(<span class="st">&quot;Are you very, very, sure?&quot;</span>) ==
+     <span class="co">&quot;Are you very very sure&quot;</span>)</code></pre></td></tr></table>
+<p>Composing together this function and the <code>split</code> method from the previous section makes a useful combination — we’ll clean out the punctuation, and <code>split</code> will clean out the newlines and tabs while turning the string into a list of words:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">my_story = <span class="st">&quot;&quot;&quot;</span>
+<span class="st">Pythons are constrictors, which means that they will &#39;squeeze&#39; the life </span>
+<span class="st">out of their prey. They coil themselves around their prey and with </span>
+<span class="st">each breath the creature takes the snake will squeeze a little tighter </span>
+<span class="st">until they stop breathing completely. Once the heart stops the prey </span>
+<span class="st">is swallowed whole. The entire animal is digested in the snake&#39;s </span>
+<span class="st">stomach except for fur or feathers. What do you think happens to the fur, </span>
+<span class="st">feathers, beaks, and eggshells? The &#39;extra stuff&#39; gets passed out as --- </span>
+<span class="st">you guessed it --- snake POOP! &quot;&quot;&quot;</span>
+
+wds = remove_punctuation(my_story).split()
+<span class="dt">print</span>(wds)</code></pre></td></tr></table>
+<p>The output:</p>
+<pre><code>[&#39;Pythons&#39;, &#39;are&#39;, &#39;constrictors&#39;, ... , &#39;it&#39;, &#39;snake&#39;, &#39;POOP&#39;]                            </code></pre>
+<p>There are other useful string methods, but this book isn’t intended to be a reference manual. On the other hand, the <em>Python Library Reference</em> is. Along with a wealth of other documentation, it is available at the <a href="http://www.python.org">Python website</a>.</p>
+</section>
+<section id="the-string-format-method" class="level2">
+<h2>The string format method</h2>
+<p>The easiest and most powerful way to format a string in Python 3 is to use the <code>format</code> method. To see how this works, let’s start with a few examples:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">s1 = <span class="st">&quot;His name is </span><span class="ot">{0}</span><span class="st">!&quot;</span>.<span class="dt">format</span>(<span class="st">&quot;Arthur&quot;</span>)
+<span class="dt">print</span>(s1)
+
+name = <span class="st">&quot;Alice&quot;</span>
+age = <span class="dv">10</span>
+s2 = <span class="st">&quot;I am </span><span class="ot">{1}</span><span class="st"> and I am </span><span class="ot">{0}</span><span class="st"> years old.&quot;</span>.<span class="dt">format</span>(age, name)
+<span class="dt">print</span>(s2)
+
+n1 = <span class="dv">4</span>
+n2 = <span class="dv">5</span>
+s3 = <span class="st">&quot;2**10 = </span><span class="ot">{0}</span><span class="st"> and </span><span class="ot">{1}</span><span class="st"> * </span><span class="ot">{2}</span><span class="st"> = </span><span class="ot">{3:f}</span><span class="st">&quot;</span>.<span class="dt">format</span>(<span class="dv">2</span>**<span class="dv">10</span>, n1, n2, n1 * n2)
+<span class="dt">print</span>(s3)</code></pre></td></tr></table>
+<p>Running the script produces:</p>
+<pre><code>His name is Arthur!
+I am Alice and I am 10 years old.
+2**10 = 1024 and 4 * 5 = 20.000000</code></pre>
+<p>The template string contains <em>place holders</em>, <code>... {0} ... {1} ... {2} ...</code> etc.<br />The <code>format</code> method substitutes its arguments into the place holders. The numbers in the place holders are indexes that determine which argument gets substituted — make sure you understand line 6 above!</p>
+<p>But there’s more! Each of the replacement fields can also contain a <strong>format specification</strong> — it is always introduced by the <code>:</code> symbol (Line 11 above uses one.)<br />This modifies how the substitutions are made into the template, and can control things like:</p>
+<ul>
+<li>whether the field is aligned to the left <code>&lt;</code>, center <code>^</code>, or right <code>&gt;</code></li>
+<li>the width allocated to the field within the result string (a number like <code>10</code>)</li>
+<li>the type of conversion (we’ll initially only force conversion to float, <code>f</code>, as we did in line 11 of the code above, or perhaps we’ll ask integer numbers to be converted to hexadecimal using <code>x</code>)</li>
+<li>if the type conversion is a float, you can also specify how many decimal places are wanted (typically, <code>.2f</code> is useful for working with currencies to two decimal places.)</li>
+</ul>
+<p>Let’s do a few simple and common examples that should be enough for most needs. If you need to do anything more esoteric, use <em>help</em> and read all the powerful, gory details.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">n1 = <span class="st">&quot;Paris&quot;</span>
+n2 = <span class="st">&quot;Whitney&quot;</span>
+n3 = <span class="st">&quot;Hilton&quot;</span>
+
+<span class="dt">print</span>(<span class="st">&quot;Pi to three decimal places is </span><span class="ot">{0:.3f}</span><span class="st">&quot;</span>.<span class="dt">format</span>(<span class="fl">3.1415926</span>))
+<span class="dt">print</span>(<span class="st">&quot;123456789 123456789 123456789 123456789 123456789 123456789&quot;</span>)
+<span class="dt">print</span>(<span class="st">&quot;|||</span><span class="ot">{0:&lt;15}</span><span class="st">|||</span><span class="ot">{1:^15}</span><span class="st">|||</span><span class="ot">{2:&gt;15}</span><span class="st">|||Born in </span><span class="ot">{3}</span><span class="st">|||&quot;</span> 
+.<span class="dt">format</span>(n1,n2,n3,<span class="dv">1981</span>))
+<span class="dt">print</span>(<span class="st">&quot;The decimal value </span><span class="ot">{0}</span><span class="st"> converts to hex value </span><span class="ot">{0:x}</span><span class="st">&quot;</span>
+.<span class="dt">format</span>(<span class="dv">123456</span>))</code></pre></td></tr></table>
+<p>This script produces the output:</p>
+<pre><code>Pi to three decimal places is 3.142
+123456789 123456789 123456789 123456789 123456789 123456789
+|||Paris          |||    Whitney    |||         Hilton|||Born in 1981|||
+The decimal value 123456 converts to hex value 1e240</code></pre>
+<p>You can have multiple placeholders indexing the same argument, or perhaps even have extra arguments that are not referenced at all:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">letter = <span class="st">&quot;&quot;&quot;</span>
+<span class="st">Dear </span><span class="ot">{0}</span><span class="st"> </span><span class="ot">{2}</span><span class="st">.</span>
+<span class="ot">{0}</span><span class="st">, I have an interesting money-making proposition for you!</span>
+<span class="st">If you deposit $10 million into my bank account, I can </span>
+<span class="st">double your money ...</span>
+<span class="st">&quot;&quot;&quot;</span>
+
+<span class="dt">print</span>(letter.<span class="dt">format</span>(<span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Whitney&quot;</span>, <span class="st">&quot;Hilton&quot;</span>))
+<span class="dt">print</span>(letter.<span class="dt">format</span>(<span class="st">&quot;Bill&quot;</span>, <span class="st">&quot;Henry&quot;</span>, <span class="st">&quot;Gates&quot;</span>))
+    </code></pre></td></tr></table>
+<p>This produces the following:</p>
+<pre><code>Dear Paris Hilton.
+Paris, I have an interesting money-making proposition for you!
+If you deposit $10 million into my bank account, I can
+double your money ...
+
+
+Dear Bill Gates.
+Bill, I have an interesting money-making proposition for you!
+If you deposit $10 million into my bank account I can
+double your money ...</code></pre>
+<p>As you might expect, you’ll get an index error if your placeholders refer to arguments that you do not provide:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&quot;hello </span><span class="ot">{3}</span><span class="st">&quot;</span>.<span class="dt">format</span>(<span class="st">&quot;Dave&quot;</span>)
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">IndexError</span>: <span class="dt">tuple</span> index out of <span class="dt">range</span>
+    </code></pre>
+<p>The following example illustrates the real utility of string formatting. First, we’ll try to print a table without using string formatting:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="dt">print</span>(<span class="st">&quot;i</span><span class="ch">\t</span><span class="st">i**2</span><span class="ch">\t</span><span class="st">i**3</span><span class="ch">\t</span><span class="st">i**5</span><span class="ch">\t</span><span class="st">i**10</span><span class="ch">\t</span><span class="st">i**20&quot;</span>)
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):
+    <span class="dt">print</span>(i, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, i**<span class="dv">2</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, i**<span class="dv">3</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, i**<span class="dv">5</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, 
+    i**<span class="dv">10</span>, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, i**<span class="dv">20</span>)</code></pre></td></tr></table>
+<p>This program prints out a table of various powers of the numbers from 1 to 10. (This assumes that the tab width is 8. You might see something even worse than this if you tab width is set to 4.) In its current form it relies on the tab character ( <code>\t</code>) to align the columns of values, but this breaks down when the values in the table get larger than the tab width:</p>
+<pre><code> i       i**2    i**3    i**5    i**10           i**20
+ 1       1       1       1       1               1
+ 2       4       8       32      1024            1048576
+ 3       9       27      243     59049           3486784401
+ 4       16      64      1024    1048576         1099511627776
+ 5       25      125     3125    9765625         95367431640625
+ 6       36      216     7776    60466176        3656158440062976
+ 7       49      343     16807   282475249       79792266297612001
+ 8       64      512     32768   1073741824      1152921504606846976
+ 9       81      729     59049   3486784401      12157665459056928801
+10      100     1000    100000  10000000000     100000000000000000000</code></pre>
+<p>One possible solution would be to change the tab width, but the first column already has more space than it needs. The best solution would be to set the width of each column independently. As you may have guessed by now, string formatting provides a much nicer solution. We can also right-justify each field:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">layout = <span class="st">&quot;</span><span class="ot">{0:&gt;4}{1:&gt;6}{2:&gt;6}{3:&gt;8}{4:&gt;13}{5:&gt;24}</span><span class="st">&quot;</span>
+
+<span class="dt">print</span>(layout.<span class="dt">format</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;i**2&quot;</span>, <span class="st">&quot;i**3&quot;</span>, <span class="st">&quot;i**5&quot;</span>, <span class="st">&quot;i**10&quot;</span>, <span class="st">&quot;i**20&quot;</span>))
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):
+    <span class="dt">print</span>(layout.<span class="dt">format</span>(i, i**<span class="dv">2</span>, i**<span class="dv">3</span>, i**<span class="dv">5</span>, i**<span class="dv">10</span>, i**<span class="dv">20</span>))</code></pre></td></tr></table>
+<p>Running this version produces the following (much more satisfying) output:</p>
+<pre><code> i  i**2  i**3    i**5        i**10                   i**20
+ 1     1     1       1            1                       1
+ 2     4     8      32         1024                 1048576
+ 3     9    27     243        59049              3486784401
+ 4    16    64    1024      1048576           1099511627776
+ 5    25   125    3125      9765625          95367431640625
+ 6    36   216    7776     60466176        3656158440062976
+ 7    49   343   16807    282475249       79792266297612001
+ 8    64   512   32768   1073741824     1152921504606846976
+ 9    81   729   59049   3486784401    12157665459056928801
+10   100  1000  100000  10000000000   100000000000000000000</code></pre>
+</section>
+<section id="summary" class="level2">
+<h2>Summary</h2>
+<p>This chapter introduced a lot of new ideas. The following summary may prove helpful in remembering what you learned.</p>
+<dl>
+<dt>indexing (<code>[]</code>)</dt>
+<dd><p>Access a single character in a string using its position (starting from 0). Example: <code>&quot;This&quot;[2]</code> evaluates to <code>&quot;i&quot;</code>.</p>
+</dd>
+<dt>length function (<code>len</code>)</dt>
+<dd><p>Returns the number of characters in a string. Example: <code>len(&quot;happy&quot;)</code> evaluates to <code>5</code>.</p>
+</dd>
+<dt>for loop traversal (<code>for</code>)</dt>
+<dd><em>Traversing</em> a string means accessing each character in the string, one at a time. For example, the following for loop:
+</dd>
+</dl>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">for</span> ch in <span class="st">&quot;Example&quot;</span>:
+    ...</code></pre>
+<p>executes the body of the loop 7 times with different values of <code>ch</code> each time.</p>
+<dl>
+<dt>slicing (<code>[:]</code>)</dt>
+<dd><p>A <em>slice</em> is a substring of a string. Example: <code>'bananas and  cream'[3:6]</code> evaluates to <code>ana</code> (so does <code>'bananas and  cream'[1:4]</code>).</p>
+</dd>
+<dt>string comparison (<code>&gt;, &lt;, &gt;=, &lt;=, ==, !=</code>)</dt>
+<dd><p>The six common comparison operators work with strings, evaluating according to <code>lexicographical</code> order. Examples: <code>&quot;apple&quot; &lt; &quot;banana&quot;</code> evaluates to <code>True</code>. <code>&quot;Zeta&quot; &lt; &quot;Appricot&quot;</code> evaluates to <code>False</code>. <code>&quot;Zebra&quot; &lt;= &quot;aardvark&quot;</code> evaluates to <code>True</code> because all upper case letters precede lower case letters.</p>
+</dd>
+<dt>in and not in operator (<code>in</code>, <code>not in</code>)</dt>
+<dd><p>The <code>in</code> operator tests for membership. In the case of strings, it tests whether one string is contained inside another string. Examples: <code>&quot;heck&quot; in &quot;I'll be checking for you.&quot;</code> evaluates to <code>True</code>. <code>&quot;cheese&quot; in &quot;I'll be checking for  you.&quot;</code> evaluates to <code>False</code>.</p>
+</dd>
+</dl>
+</section>
+<section id="glossary-10" class="level2">
+<h2>Glossary</h2>
+<dl>
+<dt>compound data type</dt>
+<dd><p>A data type in which the values are made up of components, or elements, that are themselves values.</p>
+</dd>
+<dt>default value</dt>
+<dd><p>The value given to an optional parameter if no argument for it is provided in the function call.</p>
+</dd>
+<dt>docstring</dt>
+<dd><p>A string constant on the first line of a function or module definition (and as we will see later, in class and method definitions as well). Docstrings provide a convenient way to associate documentation with code. Docstrings are also used by programming tools to provide interactive help.</p>
+</dd>
+<dt>dot notation</dt>
+<dd><p>Use of the <strong>dot operator</strong>, <code>.</code>, to access methods and attributes of an object.</p>
+</dd>
+<dt>immutable data value</dt>
+<dd><p>A data value which cannot be modified. Assignments to elements or slices (sub-parts) of immutable values cause a runtime error.</p>
+</dd>
+<dt>index</dt>
+<dd><p>A variable or value used to select a member of an ordered collection, such as a character from a string, or an element from a list.</p>
+</dd>
+<dt>mutable data value</dt>
+<dd><p>A data value which can be modified. The types of all mutable values are compound types. Lists and dictionaries are mutable; strings and tuples are not.</p>
+</dd>
+<dt>optional parameter</dt>
+<dd><p>A parameter written in a function header with an assignment to a default value which it will receive if no corresponding argument is given for it in the function call.</p>
+</dd>
+<dt>short-circuit evaluation</dt>
+<dd><p>A style of programming that shortcuts extra work as soon as the outcome is know with certainty. In this chapter our <code>find</code> function returned as soon as it found what it was looking for; it didn’t traverse all the rest of the items in the string.</p>
+</dd>
+<dt>slice</dt>
+<dd><p>A part of a string (substring) specified by a range of indices. More generally, a subsequence of any sequence type in Python can be created using the slice operator (<code>sequence[start:stop]</code>).</p>
+</dd>
+<dt>traverse</dt>
+<dd><p>To iterate through the elements of a collection, performing a similar operation on each.</p>
+</dd>
+<dt>whitespace</dt>
+<dd><p>Any of the characters that move the cursor without printing visible characters. The constant <code>string.whitespace</code> contains all the white-space characters.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises-9" class="level2">
+<h2>Exercises</h2>
+<p>We suggest you create a single file containing the test scaffolding from our previous chapters, and put all functions that require tests into that file.</p>
+<ol type="1">
+<li><p>What is the result of each of the following: <sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><sub><del>{.python}<br />&gt;&gt;&gt; “Python”[1] &gt;&gt;&gt; “Strings are sequences of characters.”[5] &gt;&gt;&gt; len(“wonderful”) &gt;&gt;&gt; “Mystery”[:4] &gt;&gt;&gt; “p” in “Pineapple” &gt;&gt;&gt; “apple” in “Pineapple” &gt;&gt;&gt; “pear” not in “Pineapple” &gt;&gt;&gt; “apple” &gt; “pineapple” &gt;&gt;&gt; “pineapple” &lt; “Peach”</del></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></sub><sub>~</sub><sub><sub><sub><sub>~</sub></sub></sub></sub></sub>~~</p></li>
+<li><p>Modify the code below so that <code>Ouack</code> and <code>Quack</code> are spelled correctly.</p></li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">   prefixes = <span class="st">&quot;JKLMNOPQ&quot;</span>
+   suffix = <span class="st">&quot;ack&quot;</span>
+   
+   <span class="kw">for</span> letter in prefixes:
+       <span class="dt">print</span>(letter + suffix)</code></pre></td></tr></table>
+<ol start="3" type="1">
+<li>Encapsulate the code below in a function named <code>count_letters</code>, and generalize it so that it accepts the string and the letter as arguments. Make the function return the number of characters, rather than print the answer. The caller should do the printing.</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">fruit = <span class="st">&quot;banana&quot;</span>
+count = <span class="dv">0</span>
+<span class="kw">for</span> char in fruit:
+   <span class="kw">if</span> char == <span class="st">&quot;a&quot;</span>:
+count += <span class="dv">1</span>
+<span class="dt">print</span>(count)</code></pre></td></tr></table>
+<ol start="4" type="1">
+<li><p>Now rewrite the <code>count_letters</code> function so that instead of traversing the string, it repeatedly calls the <code>find</code> method, with the optional third parameter to locate new occurrences of the letter being counted.</p></li>
+<li><p>Assign to a variable in your program a triple-quoted string that contains your favourite paragraph of text — perhaps a poem, a speech, instructions to bake a cake, some inspirational verses, etc.</p></li>
+</ol>
+<p>Write a function which removes all punctuation from the string, breaks the string into a list of words, and counts the number of words in your text that contain the letter “e”. Your program should print an analysis of the text like this:</p>
+<pre><code>Your text contains 243 words, of which 109 (44.8%) contain an &quot;e&quot;.      </code></pre>
+<ol start="6" type="1">
+<li>Print a neat looking multiplication table like this:</li>
+</ol>
+<pre><code>        1   2   3   4   5   6   7   8   9  10  11  12
+  :--------------------------------------------------
+ 1:     1   2   3   4   5   6   7   8   9  10  11  12
+ 2:     2   4   6   8  10  12  14  16  18  20  22  24
+ 3:     3   6   9  12  15  18  21  24  27  30  33  36
+ 4:     4   8  12  16  20  24  28  32  36  40  44  48
+ 5:     5  10  15  20  25  30  35  40  45  50  55  60
+ 6:     6  12  18  24  30  36  42  48  54  60  66  72
+ 7:     7  14  21  28  35  42  49  56  63  70  77  84
+ 8:     8  16  24  32  40  48  56  64  72  80  88  96
+ 9:     9  18  27  36  45  54  63  72  81  90  99 108
+10:    10  20  30  40  50  60  70  80  90 100 110 120
+11:    11  22  33  44  55  66  77  88  99 110 121 132
+12:    12  24  36  48  60  72  84  96 108 120 132 144</code></pre>
+<ol start="7" type="1">
+<li>Write a function that reverses its string argument, and satisfies these tests:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(reverse(<span class="st">&quot;happy&quot;</span>) == <span class="st">&quot;yppah&quot;</span>)
+test(reverse(<span class="st">&quot;Python&quot;</span>) == <span class="st">&quot;nohtyP&quot;</span>)
+test(reverse(<span class="st">&quot;&quot;</span>) == <span class="st">&quot;&quot;</span>)
+test(reverse(<span class="st">&quot;a&quot;</span>) == <span class="st">&quot;a&quot;</span>)</code></pre></td></tr></table>
+<ol start="8" type="1">
+<li>Write a function that mirrors its argument:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(mirror(<span class="st">&quot;good&quot;</span>) == <span class="st">&quot;gooddoog&quot;</span>)
+test(mirror(<span class="st">&quot;Python&quot;</span>) == <span class="st">&quot;PythonnohtyP&quot;</span>)
+test(mirror(<span class="st">&quot;&quot;</span>) == <span class="st">&quot;&quot;</span>)
+test(mirror(<span class="st">&quot;a&quot;</span>) == <span class="st">&quot;aa&quot;</span>)</code></pre></td></tr></table>
+<ol start="9" type="1">
+<li>Write a function that removes all occurrences of a given letter from a string:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(remove_letter(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;apple&quot;</span>) == <span class="st">&quot;pple&quot;</span>)
+test(remove_letter(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="st">&quot;bnn&quot;</span>)
+test(remove_letter(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="st">&quot;banana&quot;</span>)
+test(remove_letter(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;Mississippi&quot;</span>) == <span class="st">&quot;Msssspp&quot;</span>)
+test(remove_letter(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;&quot;</span>) = <span class="st">&quot;&quot;</span>)
+test(remove_letter(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) = <span class="st">&quot;c&quot;</span>)</code></pre></td></tr></table>
+<ol start="10" type="1">
+<li>Write a function that recognizes palindromes. (Hint: use your <code>reverse</code> function to make this easy!):</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(is_palindrome(<span class="st">&quot;abba&quot;</span>))
+test(not is_palindrome(<span class="st">&quot;abab&quot;</span>))
+test(is_palindrome(<span class="st">&quot;tenet&quot;</span>))
+test(not is_palindrome(<span class="st">&quot;banana&quot;</span>))
+test(is_palindrome(<span class="st">&quot;straw warts&quot;</span>))
+test(is_palindrome(<span class="st">&quot;a&quot;</span>))
+<span class="co"># test(is_palindrome(&quot;&quot;))    # Is an empty string a palindrome?</span></code></pre></td></tr></table>
+<ol start="11" type="1">
+<li>Write a function that counts how many times a substring occurs in a string:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(count(<span class="st">&quot;is&quot;</span>, <span class="st">&quot;Mississippi&quot;</span>) == <span class="dv">2</span>)
+test(count(<span class="st">&quot;an&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="dv">2</span>)
+test(count(<span class="st">&quot;ana&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="dv">2</span>)
+test(count(<span class="st">&quot;nana&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="dv">1</span>)
+test(count(<span class="st">&quot;nanan&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="dv">0</span>)
+test(count(<span class="st">&quot;aaa&quot;</span>, <span class="st">&quot;aaaaaa&quot;</span>) == <span class="dv">4</span>)</code></pre></td></tr></table>
+<ol start="12" type="1">
+<li>Write a function that removes the first occurrence of a string from another string:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(remove(<span class="st">&quot;an&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="st">&quot;bana&quot;</span>)
+test(remove(<span class="st">&quot;cyc&quot;</span>, <span class="st">&quot;bicycle&quot;</span>) == <span class="st">&quot;bile&quot;</span>)
+test(remove(<span class="st">&quot;iss&quot;</span>, <span class="st">&quot;Mississippi&quot;</span>) == <span class="st">&quot;Missippi&quot;</span>)
+test(remove(<span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bicycle&quot;</span>) == <span class="st">&quot;bicycle&quot;</span>)</code></pre></td></tr></table>
+<ol start="13" type="1">
+<li>Write a function that removes all occurrences of a string from another string:</li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">test(remove_all(<span class="st">&quot;an&quot;</span>, <span class="st">&quot;banana&quot;</span>) == <span class="st">&quot;ba&quot;</span>)
+test(remove_all(<span class="st">&quot;cyc&quot;</span>, <span class="st">&quot;bicycle&quot;</span>) == <span class="st">&quot;bile&quot;</span>)
+test(remove_all(<span class="st">&quot;iss&quot;</span>, <span class="st">&quot;Mississippi&quot;</span>) == <span class="st">&quot;Mippi&quot;</span>)
+test(remove_all(<span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bicycle&quot;</span>) == <span class="st">&quot;bicycle&quot;</span>)</code></pre></td></tr></table>
 </section>
 </section>
 </body>
