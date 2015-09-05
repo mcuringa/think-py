@@ -13,7 +13,7 @@
         font-size: 10pt;
         width: 100%;
     }
-    .page-break {clear: both; page-break-before: always; }
+    section.level1, .page-break {clear: both; page-break-before: always; }
 }
 
 </style>
