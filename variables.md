@@ -27,8 +27,8 @@ called **type** which can tell you.
 Not surprisingly, strings belong to the class **str** and integers belong to the
 class **int**. Less obviously, numbers with a decimal point belong to a class
 called **float**, because these numbers are represented in a format called
-*floating-point*.  At this stage, you can treat the words *class* and *type*
-interchangeably.  We'll come back to a deeper understanding of what a class 
+*floating-point*. At this stage, you can treat the words *class* and *type*
+interchangeably. We'll come back to a deeper understanding of what a class 
 is in later chapters. 
 
 
@@ -68,7 +68,7 @@ Double quoted strings can contain single quotes inside them, as in
 inside them, as in ``'The knights who say "Ni!"'``. 
 
 Strings enclosed with three occurrences of either quote symbol are
-called triple quoted strings.  They can 
+called triple quoted strings. They can 
 contain either single or double quotes: 
 
 
@@ -106,7 +106,7 @@ decide which quotes to use to make it look like a string.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 So the Python language designers usually chose to surround their strings 
-by single quotes.  What do think would happen if the string already 
+by single quotes. What do think would happen if the string already 
 contained single quotes?
 
 When you type a large integer, you might be tempted to use commas between
@@ -121,7 +121,7 @@ Python, but it does mean something else, which is legal:
 (42, 0)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Well, that's not what we expected at all! Because of the comma, Python chose to 
-treat this as a *pair* of values.  We'll come back to learn about pairs later.   
+treat this as a *pair* of values. We'll come back to learn about pairs later. 
 But, for the moment, remember not to put commas or spaces in your integers, no matter
 how big they are. Also revisit what we said in the previous chapter: formal languages are 
 strict, the notation is concise, and even the smallest change might
@@ -150,7 +150,7 @@ up, Doc?"`` to a variable named ``message``. The second gives the integer
 a variable called ``pi``.
 
 The **assignment token**, ``=``, should not be confused with *equals*, which uses
-the token ``==``.  The assignment statement binds a *name*, on the
+the token ``==``. The assignment statement binds a *name*, on the
 left-hand side of the operator, to a *value*, on the right-hand side.
 This is why you will get an error if you enter:
 
@@ -161,12 +161,12 @@ File "<interactive input>", line 1
 SyntaxError: can't assign to literal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 _**Tip:** When reading or writing code, say to yourself "n is assigned 17"
-or "n gets the value 17".  Don't say "n equals 17"._
+or "n gets the value 17". Don't say "n equals 17"._
 
 A common way to represent variables on paper is to write the name with an arrow
 pointing to the variable's value. This kind of figure is called a **state
 snapshot** because it shows what state each of the variables is in at a particular
-instant in time.  (Think of it as the variable's state of mind). 
+instant in time. (Think of it as the variable's state of mind). 
 This diagram shows the result of executing the assignment statements:
 
 ![State snapshot](figs/state.png)
@@ -185,7 +185,7 @@ linked to the variable:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We use variables in a program to "remember" things, perhaps the current score at the football game.
 But variables are *variable*. This means they can change over time, just like the scoreboard at a football game. 
-You can assign a value to a variable, and later assign a different value to the same variable.  
+You can assign a value to a variable, and later assign a different value to the same variable. 
 (*This is different from maths. In maths, if you give `x` the value 3, it
 cannot change to link to a different value half-way through your calculations!*)
 
@@ -201,7 +201,7 @@ cannot change to link to a different value half-way through your calculations!*)
 21
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You'll notice we changed the value of ``day`` three times, and on the third assignment we even 
-made it refer to a value that was of a different type.   
+made it refer to a value that was of a different type. 
 
 A great deal of programming is about having the computer remember things, e.g. *The number of missed calls on your phone*, 
 and then arranging to update or change the variable when you miss another call. 
@@ -232,7 +232,7 @@ SyntaxError: invalid syntax
 SyntaxError: invalid syntax
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``76trombones`` is illegal because it does not begin with a letter.  ``more$``
+``76trombones`` is illegal because it does not begin with a letter. ``more$``
 is illegal because it contains an illegal character, the dollar sign. But
 what's wrong with ``class``?
 
@@ -260,7 +260,7 @@ the human readers of the program—they help the programmer document, or remembe
    Beginners sometimes confuse "meaningful to the human readers" with "meaningful to the computer".
    So they'll wrongly think that because they've called some variable ``average`` or ``pi``, it will
    somehow magically calculate an average, or magically know that the variable ``pi`` should have a 
-   value like 3.14159.  No! The computer doesn't understand what you intend the variable to mean.
+   value like 3.14159. No! The computer doesn't understand what you intend the variable to mean.
     
    So you'll find some instructors who deliberately don't choose meaningful 
    names when they teach beginners --- not because we don't think it is a good habit,
@@ -273,11 +273,12 @@ Statements
 ----------
 
 A **statement** is an instruction that the Python interpreter can execute. We
-have only seen the assignment statement so far.  Some other kinds of statements that 
-we'll see shortly are ``while`` statements, ``for`` statements, ``if`` statements,  
-and ``import`` statements.  (There are other kinds too!)
+have only seen the assignment statement so far. Some other kinds of
+statements that  we'll see shortly are ``while`` statements, ``for``
+statements, ``if`` statements,  and ``import`` statements. (There are other
+kinds too!)
 
-When you type a statement on the command line, Python executes it.  Statements
+When you type a statement on the command line, Python executes it. Statements
 don't produce any result.
 
 Evaluating expressions
@@ -351,10 +352,10 @@ Example: so let us convert 645 minutes into hours:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Oops! In Python 3, the division operator ``/`` always yields a floating point result. 
 What we might have wanted to know was how many *whole* hours there are, and how many minutes remain.
-Python gives us two different flavors of the division operator.  
-The second, called **floor division** uses the token `//`.  
+Python gives us two different flavors of the division operator. 
+The second, called **floor division** uses the token `//`. 
 Its result is always a whole number --- and if it has to adjust the number it always
-moves it to the left on the number line.  So `6 // 4` yields `1`, but `-6 // 4` might surprise you!  
+moves it to the left on the number line. So `6 // 4` yields `1`, but `-6 // 4` might surprise you!  
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 >>> 7 / 4
@@ -366,7 +367,7 @@ moves it to the left on the number line.  So `6 // 4` yields `1`, but `-6 // 4` 
 >>> hours
 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Take care that you choose the correct flavor of the division operator.  If you're
+Take care that you choose the correct flavor of the division operator. If you're
 working with expressions where you need floating point values, use the division operator
 that does the division accurately.
 
@@ -374,13 +375,13 @@ Type converter functions
 ------------------------
     
 Here we'll look at three more Python functions, ``int``, ``float`` and ``str``, which will (attempt to)
-convert their arguments into types ``int``, ``float`` and ``str`` respectively.  We call these
-**type converter** functions.  
+convert their arguments into types ``int``, ``float`` and ``str`` respectively. We call these
+**type converter** functions. 
 
 The ``int`` function can take a floating point number or a string, and turn
 it into an int. For floating point numbers, it *discards* the decimal portion 
 of the number --- a process we call *truncation towards zero* on
-the number line.  Let us see this in action:
+the number line. Let us see this in action:
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
@@ -450,12 +451,12 @@ is a useful way to remember the order of operations:
    higher than **A**\ ddition and **S**\ ubtraction, which also have the same
    precedence. So ``2*3-1`` yields 5 rather than 4, and ``5-2*2`` is 1, not 6.
 #. Operators with the *same* precedence are evaluated from left-to-right. In algebra
-   we say they are *left-associative*.  So in
+   we say they are *left-associative*. So in
    the expression ``6-3+2``, the subtraction happens first, yielding 3. We then add
    2 to get the result 5. If the operations had been evaluated from
-   right to left, the result would have been ``6-(3+2)``, which is 1.  (The acronym
+   right to left, the result would have been ``6-(3+2)``, which is 1. (The acronym
    PEDMAS could mislead you to thinking that division has higher precedence than multiplication, 
-   and addition is done ahead of subtraction - don't be misled.  
+   and addition is done ahead of subtraction - don't be misled. 
    Subtraction and addition are at the same precedence, and the left-to-right rule applies.)
    
    - Due to some historical quirk, an exception to the left-to-right left-associative rule 
@@ -471,7 +472,7 @@ is a useful way to remember the order of operations:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The immediate mode command prompt of Python is great for exploring and experimenting
-with expressions like this.       
+with expressions like this.      
 
 
 Operations on strings
@@ -490,7 +491,7 @@ has type string):
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Interestingly, the ``+`` operator does work with strings, but for strings, 
-the ``+`` operator represents **concatenation**, not addition.  
+the ``+`` operator represents **concatenation**, not addition. 
 Concatenation means joining the two operands by linking them end-to-end. For example:
 
 
@@ -583,8 +584,8 @@ Such compact code may not be most understandable for humans, but it does
 illustrate how we can compose bigger chunks from our building blocks.
 
 If you're ever in doubt about whether to compose code or fragment it into smaller steps,
-try to make it as simple as you can for the human to follow.  My choice would
-be the first case above, with four separate steps.  
+try to make it as simple as you can for the human to follow. My choice would
+be the first case above, with four separate steps. 
 
 
 The modulus operator
@@ -610,7 +611,7 @@ The modulus operator turns out to be surprisingly useful. For example, you can
 check whether one number is divisible by another---if ``x % y`` is zero, then
 ``x`` is divisible by ``y``.
 
-Also, you can extract the right-most digit or digits from a number.  For
+Also, you can extract the right-most digit or digits from a number. For
 example, ``x % 10`` yields the right-most digit of ``x`` (in base 10).
 Similarly ``x % 100`` yields the last two digits.
 
@@ -647,7 +648,7 @@ assignment statement
 
 assignment token
 
-:   ``=`` is Python's assignment token.  Do not confuse it with *equals*, which is an operator for comparing values.
+:   ``=`` is Python's assignment token. Do not confuse it with *equals*, which is an operator for comparing values.
 
 composition
 
@@ -707,7 +708,7 @@ state snapshot
 
 statement
 
-:   An instruction that the Python interpreter can execute.  So far we have only seen the assignment statement, but we will soon meet the ``import`` statement and the ``for`` statement.
+:   An instruction that the Python interpreter can execute. So far we have only seen the assignment statement, but we will soon meet the ``import`` statement and the ``for`` statement.
 
 str
 
@@ -723,22 +724,21 @@ variable
 
 variable name
 
-:   A name given to a variable. Variable names in Python consist of a sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins with a letter.  In best programming practice, variable names should be chosen so that they describe their use in the program, making the program *self documenting*.
+:   A name given to a variable. Variable names in Python consist of a sequence of letters (a..z, A..Z, and _) and digits (0..9) that begins with a letter. In best programming practice, variable names should be chosen so that they describe their use in the program, making the program *self documenting*.
 
 Exercises
 ---------
 
 
-#. Take the sentence: *All work and no play makes Jack a dull boy.*
+1. Take the sentence: *All work and no play makes Jack a dull boy.*
    Store each word in a separate variable, then print out the sentence on
    one line using ``print``.
-#. Add parenthesis to the expression ``6 * 1 - 2`` to change its value
+2. Add parenthesis to the expression ``6 * 1 - 2`` to change its value
    from 4 to -6.
-#. Place a comment before a line of code that previously worked, and
+3. Place a comment before a line of code that previously worked, and
    record what happens when you rerun the program.
-#. Start the Python interpreter and enter ``bruce + 4`` at the prompt.
+4. Start the Python interpreter and enter ``bruce + 4`` at the prompt.
    This will give you an error:
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
 NameError: name 'bruce' is not defined
@@ -746,36 +746,36 @@ NameError: name 'bruce' is not defined
 Assign a value to ``bruce`` so that ``bruce + 4`` evaluates to ``10``.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. The formula for computing the final amount if one is earning
-   compound interest is given on Wikipedia as
 
+5. The formula for computing the final amount if one is earning
+   compound interest is given on Wikipedia as
    ![](figs/compoundInterest.png)\
    Write a Python program that assigns the principal amount of $10000 to variable `P`, 
    assign to `n` the value 12, and assign to `r` the interest rate of 8%.
    Then have the program prompt the user for the number of years `t` that the money will
-   be compounded for.  Calculate and print the final amount after `t` years.      
+   be compounded for. Calculate and print the final amount after `t` years.     
  
-#. Evaluate the following numerical expressions in your head, then use
+6. Evaluate the following numerical expressions in your head, then use
    the Python interpreter to check your results:
 
-    #. ``>>> 5 % 2``
-    #. ``>>> 9 % 5``
-    #. ``>>> 15 % 12``
-    #. ``>>> 12 % 15``
-    #. ``>>> 6 % 6``
-    #. ``>>> 0 % 7``
-    #. ``>>> 7 % 0``
+    1. ``>>> 5 % 2``
+    2. ``>>> 9 % 5``
+    3. ``>>> 15 % 12``
+    4. ``>>> 12 % 15``
+    5. ``>>> 6 % 6``
+    6. ``>>> 0 % 7``
+    7. ``>>> 7 % 0``
 
    What happened with the last example? Why? If you were able to correctly
    anticipate the computer's response in all but the last one, it is time to
    move on. If not, take time now to make up examples of your own. Explore the
    modulus operator until you are confident you understand how it works.
    
-#. You look at the clock and it is exactly 2pm.  You set an alarm to go off
-   in 51 hours.  At what time does the alarm go off?  (Hint: you could count on
-   your fingers, but this is not what we're after.  If you are tempted
+7. You look at the clock and it is exactly 2pm. You set an alarm to go off
+   in 51 hours. At what time does the alarm go off?  (Hint: you could count on
+   your fingers, but this is not what we're after. If you are tempted
    to count on your fingers, change the 51 to 5100.)
    
-#. Write a Python program to solve the general version of the above problem.
-   Ask the user for the time now (in hours), and ask for the number of hours to wait.  
+8. Write a Python program to solve the general version of the above problem.
+   Ask the user for the time now (in hours), and ask for the number of hours to wait. 
    Your program should output what the time will be on the clock when the alarm goes off.

@@ -1076,7 +1076,7 @@ lines.
 <span class="dv">42000</span>
 &gt;&gt;&gt; <span class="dv">42</span>,<span class="dv">000</span>
 (<span class="dv">42</span>, <span class="dv">0</span>)</code></pre>
-<p>Well, that’s not what we expected at all! Because of the comma, Python chose to treat this as a <em>pair</em> of values. We’ll come back to learn about pairs later.<br />But, for the moment, remember not to put commas or spaces in your integers, no matter how big they are. Also revisit what we said in the previous chapter: formal languages are strict, the notation is concise, and even the smallest change might mean something quite different from what you intended.</p>
+<p>Well, that’s not what we expected at all! Because of the comma, Python chose to treat this as a <em>pair</em> of values. We’ll come back to learn about pairs later. But, for the moment, remember not to put commas or spaces in your integers, no matter how big they are. Also revisit what we said in the previous chapter: formal languages are strict, the notation is concise, and even the smallest change might mean something quite different from what you intended.</p>
 </section>
 <section id="variables" class="level2">
 <h2>Variables</h2>
@@ -1103,7 +1103,7 @@ File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span c
 <span class="st">17</span>
 <span class="st">&gt;&gt;&gt; pi</span>
 <span class="st">3.14159</span></code></pre>
-<p>We use variables in a program to “remember” things, perhaps the current score at the football game. But variables are <em>variable</em>. This means they can change over time, just like the scoreboard at a football game. You can assign a value to a variable, and later assign a different value to the same variable.<br />(<em>This is different from maths. In maths, if you give <code>x</code> the value 3, it cannot change to link to a different value half-way through your calculations!</em>)</p>
+<p>We use variables in a program to “remember” things, perhaps the current score at the football game. But variables are <em>variable</em>. This means they can change over time, just like the scoreboard at a football game. You can assign a value to a variable, and later assign a different value to the same variable. (<em>This is different from maths. In maths, if you give <code>x</code> the value 3, it cannot change to link to a different value half-way through your calculations!</em>)</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; day = <span class="st">&quot;Thursday&quot;</span>
 &gt;&gt;&gt; day
 <span class="co">&#39;Thursday&#39;</span>
@@ -1148,7 +1148,7 @@ So you’ll find some instructors who deliberately don’t choose meaningful nam
 </section>
 <section id="statements" class="level2">
 <h2>Statements</h2>
-<p>A <strong>statement</strong> is an instruction that the Python interpreter can execute. We have only seen the assignment statement so far. Some other kinds of statements that we’ll see shortly are <code>while</code> statements, <code>for</code> statements, <code>if</code> statements,<br />and <code>import</code> statements. (There are other kinds too!)</p>
+<p>A <strong>statement</strong> is an instruction that the Python interpreter can execute. We have only seen the assignment statement so far. Some other kinds of statements that we’ll see shortly are <code>while</code> statements, <code>for</code> statements, <code>if</code> statements, and <code>import</code> statements. (There are other kinds too!)</p>
 <p>When you type a statement on the command line, Python executes it. Statements don’t produce any result.</p>
 </section>
 <section id="evaluating-expressions" class="level2">
@@ -1186,7 +1186,7 @@ So you’ll find some instructors who deliberately don’t choose meaningful nam
 &gt;&gt;&gt; hours = minutes / <span class="dv">60</span>
 &gt;&gt;&gt; hours
 <span class="fl">10.75</span></code></pre>
-<p>Oops! In Python 3, the division operator <code>/</code> always yields a floating point result. What we might have wanted to know was how many <em>whole</em> hours there are, and how many minutes remain. Python gives us two different flavors of the division operator.<br />The second, called <strong>floor division</strong> uses the token <code>//</code>.<br />Its result is always a whole number — and if it has to adjust the number it always moves it to the left on the number line. So <code>6 // 4</code> yields <code>1</code>, but <code>-6 // 4</code> might surprise you!</p>
+<p>Oops! In Python 3, the division operator <code>/</code> always yields a floating point result. What we might have wanted to know was how many <em>whole</em> hours there are, and how many minutes remain. Python gives us two different flavors of the division operator. The second, called <strong>floor division</strong> uses the token <code>//</code>. Its result is always a whole number — and if it has to adjust the number it always moves it to the left on the number line. So <code>6 // 4</code> yields <code>1</code>, but <code>-6 // 4</code> might surprise you!</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">7</span> / <span class="dv">4</span>
 <span class="fl">1.75</span>
 &gt;&gt;&gt; <span class="dv">7</span> // <span class="dv">4</span>
@@ -1239,7 +1239,7 @@ File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span c
 <li>You can also use parentheses to make an expression easier to read, as in <code>(minute * 100) / 60</code>, even though it doesn’t change the result.</li>
 <li><strong>E</strong> xponentiation has the next highest precedence, so <code>2**1+1</code> is 3 and not 4, and <code>3*1**3</code> is 3 and not 27.</li>
 <li><strong>M</strong> ultiplication and both <strong>D</strong> ivision operators have the same precedence, which is higher than <strong>A</strong> ddition and <strong>S</strong> ubtraction, which also have the same precedence. So <code>2*3-1</code> yields 5 rather than 4, and <code>5-2*2</code> is 1, not 6.</li>
-<li>Operators with the <em>same</em> precedence are evaluated from left-to-right. In algebra we say they are <em>left-associative</em>. So in the expression <code>6-3+2</code>, the subtraction happens first, yielding 3. We then add 2 to get the result 5. If the operations had been evaluated from right to left, the result would have been <code>6-(3+2)</code>, which is 1. (The acronym PEDMAS could mislead you to thinking that division has higher precedence than multiplication, and addition is done ahead of subtraction - don’t be misled.<br /> Subtraction and addition are at the same precedence, and the left-to-right rule applies.)</li>
+<li>Operators with the <em>same</em> precedence are evaluated from left-to-right. In algebra we say they are <em>left-associative</em>. So in the expression <code>6-3+2</code>, the subtraction happens first, yielding 3. We then add 2 to get the result 5. If the operations had been evaluated from right to left, the result would have been <code>6-(3+2)</code>, which is 1. (The acronym PEDMAS could mislead you to thinking that division has higher precedence than multiplication, and addition is done ahead of subtraction - don’t be misled. Subtraction and addition are at the same precedence, and the left-to-right rule applies.)</li>
 </ol>
 <ul>
 <li>Due to some historical quirk, an exception to the left-to-right left-associative rule is the exponentiation operator <code>**</code>, so a useful hint is to always use parentheses to force exactly the order you want when exponentiation is involved:</li>
@@ -1257,7 +1257,7 @@ File <span class="st">&quot;&lt;interactive input&gt;&quot;</span>, line <span c
 &gt;&gt;&gt; <span class="st">&quot;Hello&quot;</span> / <span class="dv">123</span>      <span class="co"># Error</span>
 &gt;&gt;&gt; message * <span class="st">&quot;Hello&quot;</span>  <span class="co"># Error </span>
 &gt;&gt;&gt; <span class="st">&quot;15&quot;</span> + <span class="dv">2</span>   <span class="co"># Error</span></code></pre>
-<p>Interestingly, the <code>+</code> operator does work with strings, but for strings, the <code>+</code> operator represents <strong>concatenation</strong>, not addition.<br />Concatenation means joining the two operands by linking them end-to-end. For example:</p>
+<p>Interestingly, the <code>+</code> operator does work with strings, but for strings, the <code>+</code> operator represents <strong>concatenation</strong>, not addition. Concatenation means joining the two operands by linking them end-to-end. For example:</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -1406,7 +1406,7 @@ secs_finally_remaining = secs_still_remaining  % <span class="dv">60</span>
 </section>
 <section id="exercises-1" class="level2">
 <h2>Exercises</h2>
-<ol>
+<ol type="1">
 <li>Take the sentence: <em>All work and no play makes Jack a dull boy.</em> Store each word in a separate variable, then print out the sentence on one line using <code>print</code>.</li>
 <li>Add parenthesis to the expression <code>6 * 1 - 2</code> to change its value from 4 to -6.</li>
 <li>Place a comment before a line of code that previously worked, and record what happens when you rerun the program.</li>
@@ -1415,13 +1415,10 @@ secs_finally_remaining = secs_still_remaining  % <span class="dv">60</span>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ot">NameError</span>: name <span class="st">&#39;bruce&#39;</span> is not defined
 
 Assign a value to ``bruce`` so that ``bruce + <span class="dv">4</span>`` evaluates to ``<span class="dv">10</span>``.</code></pre>
-<ol>
-<li>The formula for computing the final amount if one is earning compound interest is given on Wikipedia as</li>
-</ol>
-<p><img src="figs/compoundInterest.png" /><br /> Write a Python program that assigns the principal amount of $10000 to variable <code>P</code>, assign to <code>n</code> the value 12, and assign to <code>r</code> the interest rate of 8%. Then have the program prompt the user for the number of years <code>t</code> that the money will be compounded for. Calculate and print the final amount after <code>t</code> years.</p>
-<ol>
+<ol start="5" type="1">
+<li><p>The formula for computing the final amount if one is earning compound interest is given on Wikipedia as <img src="figs/compoundInterest.png" /><br /> Write a Python program that assigns the principal amount of $10000 to variable <code>P</code>, assign to <code>n</code> the value 12, and assign to <code>r</code> the interest rate of 8%. Then have the program prompt the user for the number of years <code>t</code> that the money will be compounded for. Calculate and print the final amount after <code>t</code> years.</p></li>
 <li><p>Evaluate the following numerical expressions in your head, then use the Python interpreter to check your results:</p>
-<ol>
+<ol type="1">
 <li><code>&gt;&gt;&gt; 5 % 2</code></li>
 <li><code>&gt;&gt;&gt; 9 % 5</code></li>
 <li><code>&gt;&gt;&gt; 15 % 12</code></li>
@@ -1432,9 +1429,9 @@ Assign a value to ``bruce`` so that ``bruce + <span class="dv">4</span>`` evalua
 </ol></li>
 </ol>
 <p>What happened with the last example? Why? If you were able to correctly anticipate the computer’s response in all but the last one, it is time to move on. If not, take time now to make up examples of your own. Explore the modulus operator until you are confident you understand how it works.</p>
-<ol>
+<ol start="7" type="1">
 <li><p>You look at the clock and it is exactly 2pm. You set an alarm to go off in 51 hours. At what time does the alarm go off? (Hint: you could count on your fingers, but this is not what we’re after. If you are tempted to count on your fingers, change the 51 to 5100.)</p></li>
-<li><p>Write a Python program to solve the general version of the above problem. Ask the user for the time now (in hours), and ask for the number of hours to wait.<br /> Your program should output what the time will be on the clock when the alarm goes off.</p></li>
+<li><p>Write a Python program to solve the general version of the above problem. Ask the user for the time now (in hours), and ask for the number of hours to wait. Your program should output what the time will be on the clock when the alarm goes off.</p></li>
 </ol>
 </section>
 </section>
