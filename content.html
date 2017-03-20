@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Matthew X. Curinga">
+  <meta name="author" content="Peter Wentworth">
+  <meta name="author" content="Jeffrey Elkner">
+  <meta name="author" content="Allen B. Downey">
+  <meta name="author" content="and Chris Meyers">
+  <title>How to Think Like a Computer Scientist</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+  </style>
+  <!-- this css file gets inlined by the build script to make standalone html5 output
+  that is why it has a style tag... -->
+  
+  <style type="text/css">
+  body
+  {
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+  }
+  
+  body, p, ul, ol, li, span, div
+  {
+       font-family: "FreeSans", "Helvetica", sans-serif; 
+  }
+  
+  pre, code, tt, code span, pre span
+  {
+      font-family: "Ubuntu Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  }
+  
+  p code
+  {
+      padding: 0 .25em; 
+  }
+  
+  aside
+  {
+      border: medium solid gray;
+      border-radius: 8px;
+      padding: .5em;
+      margin: 3em .5em;
+      background-color: #F6CCDA;
+  }
+  
+  figcaption
+  {
+      font-weight: bold;
+      font-size: 90%;
+  }
+  
+  h1,h2,h3,h4,h5, .header-section-number
+  { 
+      font-family: "Gil Sans", Futura, Ubuntu, "Century Gothic", sans-serif; 
+  }
+  
+  h1
+  {
+      font-size: 350%; 
+      border-bottom: medium solid black;
+      text-transform: uppercase;
+      padding: 0;
+      padding-top: 3em;
+  }
+  
+  
+  
+  #foreword, #the-way-of-the-program {
+      counter-reset: section;
+  }
+  
+  section.level1 {
+      counter-increment: section;
+      counter-reset: subsection;
+  }
+  
+  
+  h1:before
+  {
+      content: "Part " counter(section) ": ";
+  }
+  
+  /*section h1:nth-child(-n+):before
+  {
+      content: counter(section, lower-roman) ". ";
+  }
+  */
+  
+  h2:before {
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) " ";
+  }
+  
+  
+  h1.title:before, h2.author:before, nav#TOC h2:before, #forward h2:before, #preface h2:before {
+      content: "";
+  }
+  
+  
+  h1 a, h2 a, h3 a, h4 a
+  {
+      color: black;
+  }
+  
+  
+  h2{ font-size: 130%; margin:0; margin-top: 1em; }
+  h3{ font-size: 120%; font-weight: bold; }
+  h4{ font-size: 110%; font-weight: bold; }
+  h5 { padding: 0; margin: 0; font-size: 100%; font-style: italic; }
+  
+  h1.title 
+  {
+      margin:0;
+      padding:0;
+      padding-top: 80px;
+      border-style: none;
+      background-color: transparent;
+      color: black;
+      clear: both;
+      color: #ab1c19;
+  }
+  
+  h2.author
+  {
+      font-size: 100%;
+      line-height: 1;
+      padding: 0;
+  }
+  
+  
+  pre
+  {
+      padding: .5em;
+  }
+  
+  dl { margin-left: 2em; }
+  dt
+  { 
+      font-weight: bold; 
+      font-size: 115%; 
+      margin-top: .5em;
+  }
+  dd p {padding: 0; margin: 0; }
+  
+  
+  a { text-decoration: none; }
+  a img { border-style: none; }
+  
+  /*tr.odd { background-color: #d3d3d3; }*/
+  
+  p
+  {
+      margin: .5em 0;
+      line-height: 1.5em;
+  }
+  
+  blockquote
+  {
+      line-height: 120%;
+      font-size: 90%;
+      border-left: 3px solid gray;
+      padding-left: 1em;
+  }
+  
+  nav#TOC
+  {
+      background: none repeat scroll 0 0 white;
+      counter-reset: toccount;
+  }
+  
+  nav#TOC li
+  {
+      list-style-type: none;
+      font-weight: normal;
+  }
+  
+  nav#TOC>ul>li
+  {
+      font-weight: bold;
+      padding-top: 1em;
+      margin-bottom: .5em;
+  }
+  
+  
+  
+  nav#TOC>ul>li:nth-child(3)
+  {
+      counter-reset: toccount;
+  }
+  
+  nav#TOC>ul>li:before
+  {
+      counter-reset: tocsub;
+      counter-increment: toccount;
+      content: counter(toccount) ". ";
+  }
+  
+  nav#TOC>ul>li:nth-child(-n+2):before
+  {
+      content: counter(toccount, lower-roman) ". ";
+  }
+  
+  nav#TOC>ul>li>ul>li:first-child
+  {
+      padding-top: .5em;
+  }
+  
+  nav#TOC>ul>li>ul>li:before
+  {
+      counter-increment: tocsub;
+      content: counter(toccount) "." counter(tocsub) " ";
+  }
+  
+  ol li ol li
+  {
+      list-style-type: lower-alpha;
+  }
+  
+  
+  /** code highlighting stuff **/
+  
+  table.sourceCode, pre.sourceCode
+  {
+      line-height: 125%;
+  }
+  
+  td.lineNumbers {
+      border-right: 0px none;
+      padding-right: 0px;
+      margin-right: 0px;
+      width: 2em;
+      text-align: right;
+  }
+  
+  
+  p code, li code
+  {
+      background-color: #ededed;
+      color: black;
+  }
+  
+  .sourceCode pre, pre.sourceCode, li table .sourceCode
+  {
+      color: inherit;
+      border-style: none;
+      background-color: #303030;
+  }
+  
+  
+  /** code listings/case studies **/
+  
+  section[id*="case-study"]
+  {
+      padding-left: 40%;
+      position: relative;
+      border-top: 1px solid gray;
+  }
+  
+  section[id*="case-study"] h2, section[id*="case-study"] h3
+  {
+      text-align: right;
+      margin: 2em 0;
+  
+  }
+  
+  section[id*="case-study"] aside
+  {
+      background: white;
+      border-style: none;
+      border-radius: 0px;
+      position: absolute;
+      left: 0;
+      width: 39%;
+      text-align: justify;
+      padding: 0;
+      margin: 0;
+      font-size: 90%;
+  }
+  
+  section[id*="case-study"] aside p
+  {
+      margin: 0;
+      padding: 0;
+      padding-right: .5em;
+      line-height: 1.1em;
+      margin-bottom: .5em;
+  }
+  
+  section[id*="case-study"] aside code, h1 code, h2 code, h3 code, h4 code
+  {
+      background-color: #ededed;
+      color: black;
+  }
+  
+  #neighbor-details table { border-collapse:collapse; }
+  
+  #neighbor-details table, #neighbor-details th, #neighbor-details td
+  {
+      border: 1px solid black;
+      background-color: white;
+      padding: .25em;
+  }
+  
+  @media screen
+  {
+      body
+      {
+          font-size: 14px;
+          width: 720px;
+          margin: 0 auto;
+      }
+  
+  }
+  
+  </style>
+</head>
+<body>
+<header>
+<h1 class="title">How to Think Like a Computer Scientist</h1>
+<h2 class="author">Matthew X. Curinga</h2>
+<h2 class="author">Peter Wentworth</h2>
+<h2 class="author">Jeffrey Elkner</h2>
+<h2 class="author">Allen B. Downey</h2>
+<h2 class="author">and Chris Meyers</h2>
+</header>
+<nav id="TOC">
+<h2>Contents</h2>
+<ul>
+<li><a href="#foreword">Foreword</a><ul>
+<li><a href="#contributor-list">Contributor List</a></li>
+</ul></li>
+<li><a href="#content-analysis-of-ny-times-school-related-articles">Content Analysis of NY Times school-related articles</a><ul>
+<li><a href="#case-study-dictionaries-tuples-lists-more">Case Study: Dictionaries, tuples, lists &amp; more</a></li>
+<li><a href="#neighbor-details">Neighbor details</a></li>
+</ul></li>
+</ul>
+</nav>
+<p><strong>Adelphi University Mod</strong></p>
+<p>Copyright (C) Matthew X. Curinga.</p>
+<p>This version of <em>Think Python</em> is based on the <a href="http://openbookproject.net/thinkcs/python/english3e/"><em>Learning with Python 3 (RLE)</em> by Peter Wentworth</a></p>
+<p><strong>Copyright Notice</strong></p>
+<p>Copyright (C) Peter Wentworth.</p>
+<p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with Invariant Sections being Foreword, Preface, and Contributor List, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled “GNU Free Documentation License”.</p>
+<section id="foreword" class="level1">
+<h1>Foreword</h1>
+<p>By David Beazley</p>
+<p>As an educator, researcher, and book author, I am delighted to see the completion of this book. Python is a fun and extremely easy-to-use programming language that has steadily gained in popularity over the last few years. Developed over ten years ago by Guido van Rossum, Python’s simple syntax and overall feel is largely derived from ABC, a teaching language that was developed in the 1980’s. However, Python was also created to solve real problems and it borrows a wide variety of features from programming languages such as C++, Java, Modula-3, and Scheme. Because of this, one of Python’s most remarkable features is its broad appeal to professional software developers, scientists, researchers, artists, and educators.</p>
+<p>Despite Python’s appeal to many different communities, you may still wonder why Python? or why teach programming with Python? Answering these questions is no simple task—especially when popular opinion is on the side of more masochistic alternatives such as C++ and Java. However, I think the most direct answer is that programming in Python is simply a lot of fun and more productive.</p>
+<p>When I teach computer science courses, I want to cover important concepts in addition to making the material interesting and engaging to students. Unfortunately, there is a tendency for introductory programming courses to focus far too much attention on mathematical abstraction and for students to become frustrated with annoying problems related to low-level details of syntax, compilation, and the enforcement of seemingly arcane rules. Although such abstraction and formalism is important to professional software engineers and students who plan to continue their study of computer science, taking such an approach in an introductory course mostly succeeds in making computer science boring. When I teach a course, I don’t want to have a room of uninspired students. I would much rather see them trying to solve interesting problems by exploring different ideas, taking unconventional approaches, breaking the rules, and learning from their mistakes. In doing so, I don’t want to waste half of the semester trying to sort out obscure syntax problems, unintelligible compiler error messages, or the several hundred ways that a program might generate a general protection fault.</p>
+<p>One of the reasons why I like Python is that it provides a really nice balance between the practical and the conceptual. Since Python is interpreted, beginners can pick up the language and start doing neat things almost immediately without getting lost in the problems of compilation and linking. Furthermore, Python comes with a large library of modules that can be used to do all sorts of tasks ranging from web-programming to graphics. Having such a practical focus is a great way to engage students and it allows them to complete significant projects. However, Python can also serve as an excellent foundation for introducing important computer science concepts. Since Python fully supports procedures and classes, students can be gradually introduced to topics such as procedural abstraction, data structures, and object-oriented programming — all of which are applicable to later courses on Java or C++. Python even borrows a number of features from functional programming languages and can be used to introduce concepts that would be covered in more detail in courses on Scheme and Lisp.</p>
+<p>In reading Jeffrey’s preface, I am struck by his comments that Python allowed him to see a higher level of success and a lower level of frustration and that he was able to move faster with better results. Although these comments refer to his introductory course, I sometimes use Python for these exact same reasons in advanced graduate level computer science courses at the University of Chicago. In these courses, I am constantly faced with the daunting task of covering a lot of difficult course material in a blistering nine week quarter. Although it is certainly possible for me to inflict a lot of pain and suffering by using a language like C++, I have often found this approach to be counterproductive—especially when the course is about a topic unrelated to just programming. I find that using Python allows me to better focus on the actual topic at hand while allowing students to complete substantial class projects.</p>
+<p>Although Python is still a young and evolving language, I believe that it has a bright future in education. This book is an important step in that direction. David Beazley University of Chicago Author of the <em>Python Essential Reference</em></p>
+<section id="contributor-list" class="level2">
+<h2>Contributor List</h2>
+<p>To paraphrase the philosophy of the Free Software Foundation, this book is free like free speech, but not necessarily free like free pizza. It came about because of a collaboration that would not have been possible without the GNU Free Documentation License. So we would like to thank the Free Software Foundation for developing this license and, of course, making it available to us.</p>
+<p>We would also like to thank the more than 100 sharp-eyed and thoughtful readers who have sent us suggestions and corrections over the past few years. In the spirit of free software, we decided to express our gratitude in the form of a contributor list. Unfortunately, this list is not complete, but we are doing our best to keep it up to date. It was also getting too large to include everyone who sends in a typo or two. You have our gratitude, and you have the personal satisfaction of making a book you found useful better for you and everyone else who uses it. New additions to the list for the 2nd edition will be those who have made on-going contributions.</p>
+<p>If you have a chance to look through the list, you should realize that each person here has spared you and all subsequent readers from the confusion of a technical error or a less-than-transparent explanation, just by sending us a note.</p>
+<p>Impossible as it may seem after so many corrections, there may still be errors in this book. If you should stumble across one, we hope you will take a minute to contact us. The email address (for the Python 3 version of the book) is <script type="text/javascript">
+<!--
+h='&#114;&#x75;&#46;&#x61;&#x63;&#46;&#122;&#x61;';a='&#64;';n='&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#112;&#46;&#x77;&#x65;&#110;&#116;&#x77;&#x6f;&#114;&#116;&#104;&#32;&#x61;&#116;&#32;&#114;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x63;&#32;&#100;&#x6f;&#116;&#32;&#122;&#x61;</noscript>. Substantial changes made due to your suggestions will add you to the next version of the contributor list (unless you ask to be omitted). Thank you!</p>
+<section id="second-edition" class="level3">
+<h3>Second Edition</h3>
+<ul>
+<li>An email from Mike MacHenry set me straight on tail recursion. He not only pointed out an error in the presentation, but suggested how to correct it.</li>
+<li>It wasn’t until 5th Grade student Owen Davies came to me in a Saturday morning Python enrichment class and said he wanted to write the card game, Gin Rummy, in Python that I finally knew what I wanted to use as the case study for the object oriented programming chapters.</li>
+<li>A <em>special</em> thanks to pioneering students in Jeff’s Python Programming class at <a href="http://www.arlington.k12.va.us/1540108115320583/blank/browse.asp?A=383&amp;BMDRN=2000&amp;BCOB=0&amp;C=59085&gt;">GCTAA</a> during the 2009-2010 school year: Safath Ahmed, Howard Batiste, Louis Elkner-Alfaro, and Rachel Hancock. Your continual and thoughtfull feedback led to changes in most of the chapters of the book. You set the standard for the active and engaged learners that will help make the new Governor’s Academy what it is to become. Thanks to you this is truly a <em>student tested</em> text.</li>
+<li>Thanks in a similar vein to the students in Jeff’s Computer Science class at the HB-Woodlawn program during the 2007-2008 school year: James Crowley, Joshua Eddy, Eric Larson, Brian McGrail, and Iliana Vazuka.</li>
+<li>Ammar Nabulsi sent in numerous corrections from Chapters 1 and 2.</li>
+<li>Aldric Giacomoni pointed out an error in our definition of the Fibonacci sequence in Chapter 5.</li>
+<li>Roger Sperberg sent in several spelling corrections and pointed out a twisted piece of logic in Chapter 3.</li>
+<li>Adele Goldberg sat down with Jeff at PyCon 2007 and gave him a list of suggestions and corrections from throughout the book.</li>
+<li>Ben Bruno sent in corrections for chapters 4, 5, 6, and 7.</li>
+<li>Carl LaCombe pointed out that we incorrectly used the term commutative in chapter 6 where symmetric was the correct term.</li>
+<li>Alessandro Montanile sent in corrections for errors in the code examples and text in chapters 3, 12, 15, 17, 18, 19, and 20.</li>
+<li>Emanuele Rusconi found errors in chapters 4, 8, and 15.</li>
+<li>Michael Vogt reported an indentation error in an example in chapter 6, and sent in a suggestion for improving the clarity of the shell vs. script section in chapter 1.</li>
+</ul>
+</section>
+<section id="first-edition" class="level3">
+<h3>First Edition</h3>
+<ul>
+<li>Lloyd Hugh Allen sent in a correction to Section 8.4.</li>
+<li>Yvon Boulianne sent in a correction of a semantic error in Chapter 5.</li>
+<li>Fred Bremmer submitted a correction in Section 2.1.</li>
+<li>Jonah Cohen wrote the Perl scripts to convert the LaTeX source for this book into beautiful HTML.</li>
+<li>Michael Conlon sent in a grammar correction in Chapter 2 and an improvement in style in Chapter 1, and he initiated discussion on the technical aspects of interpreters.</li>
+<li>Benoit Girard sent in a correction to a humorous mistake in Section 5.6.</li>
+<li>Courtney Gleason and Katherine Smith wrote <code>horsebet.py</code>, which was used as a case study in an earlier version of the book. Their program can now be found on the website.</li>
+<li>Lee Harr submitted more corrections than we have room to list here, and indeed he should be listed as one of the principal editors of the text.</li>
+<li>James Kaylin is a student using the text. He has submitted numerous corrections.</li>
+<li>David Kershaw fixed the broken <code>catTwice</code> function in Section 3.10.</li>
+<li>Eddie Lam has sent in numerous corrections to Chapters 1, 2, and 3. He also fixed the Makefile so that it creates an index the first time it is run and helped us set up a versioning scheme.</li>
+<li>Man-Yong Lee sent in a correction to the example code in Section 2.4.</li>
+<li>David Mayo pointed out that the word unconsciously in Chapter 1 needed to be changed to subconsciously .</li>
+<li>Chris McAloon sent in several corrections to Sections 3.9 and 3.10.</li>
+<li>Matthew J. Moelter has been a long-time contributor who sent in numerous corrections and suggestions to the book.</li>
+<li>Simon Dicon Montford reported a missing function definition and several typos in Chapter 3. He also found errors in the <code>increment</code> function in Chapter 13.</li>
+<li>John Ouzts corrected the definition of return value in Chapter 3.</li>
+<li>Kevin Parks sent in valuable comments and suggestions as to how to improve the distribution of the book.</li>
+<li>David Pool sent in a typo in the glossary of Chapter 1, as well as kind words of encouragement.</li>
+<li>Michael Schmitt sent in a correction to the chapter on files and exceptions.</li>
+<li>Robin Shaw pointed out an error in Section 13.1, where the printTime function was used in an example without being defined.</li>
+<li>Paul Sleigh found an error in Chapter 7 and a bug in Jonah Cohen’s Perl script that generates HTML from LaTeX.</li>
+<li>Craig T. Snydal is testing the text in a course at Drew University. He has contributed several valuable suggestions and corrections.</li>
+<li>Ian Thomas and his students are using the text in a programming course. They are the first ones to test the chapters in the latter half of the book, and they have make numerous corrections and suggestions.</li>
+<li>Keith Verheyden sent in a correction in Chapter 3.</li>
+<li>Peter Winstanley let us know about a longstanding error in our Latin in Chapter 3.</li>
+<li>Chris Wrobel made corrections to the code in the chapter on file I/O and exceptions.</li>
+<li>Moshe Zadka has made invaluable contributions to this project. In addition to writing the first draft of the chapter on Dictionaries, he provided continual guidance in the early stages of the book.</li>
+<li>Christoph Zwerschke sent several corrections and pedagogic suggestions, and explained the difference between <em>gleich</em> and <em>selbe</em>.</li>
+<li>James Mayer sent us a whole slew of spelling and typographical errors, including two in the contributor list.</li>
+<li>Hayden McAfee caught a potentially confusing inconsistency between two examples.</li>
+<li>Angel Arnal is part of an international team of translators working on the Spanish version of the text. He has also found several errors in the English version.</li>
+<li>Tauhidul Hoque and Lex Berezhny created the illustrations in Chapter 1 and improved many of the other illustrations.</li>
+<li>Dr. Michele Alzetta caught an error in Chapter 8 and sent some interesting pedagogic comments and suggestions about Fibonacci and Old Maid.</li>
+<li>Andy Mitchell caught a typo in Chapter 1 and a broken example in Chapter 2.</li>
+<li>Kalin Harvey suggested a clarification in Chapter 7 and caught some typos.</li>
+<li>Christopher P. Smith caught several typos and is helping us prepare to update the book for Python 2.2.</li>
+<li>David Hutchins caught a typo in the Foreword.</li>
+<li>Gregor Lingl is teaching Python at a high school in Vienna, Austria. He is working on a German translation of the book, and he caught a couple of bad errors in Chapter 5.</li>
+<li>Julie Peters caught a typo in the Preface.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="content-analysis-of-ny-times-school-related-articles" class="level1">
+<h1>Content Analysis of NY Times school-related articles</h1>
+<section id="case-study-dictionaries-tuples-lists-more" class="level2">
+<h2>Case Study: Dictionaries, tuples, lists &amp; more</h2>
+<aside id="teachers_clean" style="top: 420px;">
+<p>The first step to running this analysis is to prepare the text. <code>read_and_prep</code> opens a file and reads the contents into a string. From there, we call <code>clean</code> which, in turn, calls <code>strip_non_chars</code> for each word in the text. Even before the program opens the text has been manually groomed in a text editor. Our analysis centers around counting words — punctuation and other non-alphanumeric characters throw off our counts. Our approach is:</p>
+<ol type="1">
+<li>convert everything to lowercase</li>
+<li>remove punctuation at the start and end of words</li>
+<li>leave apostrophes and hyphenated words intact</li>
+</ol>
+</aside>
+
+<aside id="teachers_while" style="top: 1083px;">
+<p><code>strip_non_chars</code> is applied to every word in the text. Python’s built-in <code>strip</code> function removes spaces or other characters from the start or end of strings, but, in this case, we know the characters we want to keep, but not the ones we want to strip—we want to keep the 26 lowercase English letters and the digits 0-9. We remove any other character found at the start or end of the word. We chose to implement this using a <strong>while loop</strong>. Unlike like <strong>for</strong> loops, while loops provide an <em>indefinite loop</em>—we do not know who many iterations are needed. In this case, we continue the loop until we find a valid character.</p>
+This function has 2 while loops. The first drops the first character of the word (using the string slice syntax) until the first character is valid. The second loop does the same, but works from the last character.
+</aside>
+
+<aside id="teachers_freak" style="top: 1400px">
+Counting word frequencies—the number of times a word occurs in the text—is the main tool offered by this program to analyze text. The algorithm in <code>freq</code> is familiar to us by now: iterate over a list of words in a for loop, use unique words as <strong>dictionary keys</strong> and keep a <strong>running total</strong> of each word as the dictionary <strong>value</strong>. The word frequency map return allows quick and easy access to the frequency of every word in the text.
+</aside>
+
+
+<aside id="teachers_freak_sort" style="top: 1715px">
+<p>Dictionaries are great for keyed access to items—in our case, looking up word counts based on the word—but they are inherently <strong>unsorted</strong>. This means that we need to take extra steps to see the most common or least common words in a text, or to even display the words in alphabetical order. Previously we have seen how to display the contents of a dictionary by doing a <strong>for loop</strong> over the <code>sorted(map.keys())</code>. This makes sense for some data, but here we are more interested in sorting on the values, not the dict keys.</p>
+<p><code>freq_list</code> solves this problem by sorting the dictionary items based on the word count. It expects a list of <strong>tuples</strong> with element-zero holding the word and item-1 holding the count. Luckily, this is the tuple list we get when we call <code>items()</code> on our word frequency map. Python offers many flexible ways of doing custom sorts on data. We choose a method here that builds on programming skills we have already learned:</p>
+<ol type="1">
+<li>swap the tuples from (word, count) using a for loop</li>
+<li>sort them using the <code>sort</code> method which is part of the <strong>list object</strong></li>
+<li>use the optional <code>reverse=True</code> parameter to <code>sort</code> so that we get the most popular words at the <code>head</code> of our list</li>
+<li>swap the items back into a list of (word, count) tuples and return that, pretending nothing ever happened (actually, this is a type of abstraction, where we can later change the way we choose to sort the items without changing the <strong>interface</strong> to our function)</li>
+</ol>
+</aside>
+
+<aside id="teachers_common" style="top: 2342px;"> 
+Depending on the analysis, sometimes it is important to consider the use of common words. This may be useful to identify authorial patterns, such as identifying authorship, or characteristics of the author. Often though, common words are not germane to the analysis. <code>common_filter</code> works on lists of words and creates a new sub-list that filters out all of the common words. The variable <code>commonWords</code> is defined as a list of strings containing 500 common English words is declared as an internal variable within the function. Because our analysis is primarily concerned with word frequency counts, <code>common_filter</code> takes a list of <strong>tuples</strong> —<code>items</code>—as a parameter, rather than a list of strings. This allows clients of this function to pass in lists that contain words and word counts. The function expects the first item in the tuple to be the word.
+</aside>
+
+<aside id="teachers_neighbors" style="top: 2600px;">
+<code>neighbors</code> helps us examine co-occurances of words in the text. This function defines three <strong>parameters</strong>: <code>words</code> is the list of tuples to analyze, <code>targetWords</code> is a sub-list of words we will run our neighbor analysis on, and the <strong>int</strong> <code>n</code> indicates how for away from our target word we want to investigate. if <code>n == 1</code>, we will only count co-locations of words contiguous with our target word. For more on <code>neighbors</code> please see the example below the code listing.
+</aside>
+
+<aside id="teachers_compare" style="top: 2800px;">
+<code>compare</code> offers a comparison of two word frequency dictionaries to find which words have the greatest disparity in occurrences. In this function we see a new Python <em>data structure</em>, <strong>set</strong>. “A set is an unordered collection with no duplicate elements” <a href="http://docs.python.org/3.3/tutorial/datastructures.html#sets">*</a>. In this case we use <strong>set</strong> to make a unique set of keys from both dictionaries. We create the set from the <code>keys</code> in dictionary <code>a</code> on line 188 and then add any missing <code>keys</code> from dict <code>b</code> on line 189 by calling sets <code>update</code> method. In our loop (lines 193-197) we add tuples to a new list, in the format (word, difference in counts between a &amp; b). We use the built-in <code>abs</code> function, because, here, we care about the difference, not <em>which</em> dict had the greater count. Once this list of differences is created, we sort it by counts using the <code>list_freqs</code> function we already defined.
+</aside>
+
+
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python"><span class="co"># schools_analysis.py</span>
+<span class="co"># by: mxc</span>
+<span class="co">&quot;&quot;&quot;</span>
+<span class="co">This example code shows how to use</span>
+<span class="co">some basic content analysis techniques</span>
+<span class="co">such as finding word frequencies</span>
+<span class="co">and counting neighboring words to </span>
+<span class="co">provide a basic analysis of differences </span>
+<span class="co">in New York Times articles from 1983</span>
+<span class="co">and 2013.</span>
+
+<span class="co">Key Concepts: functions, dictionaries, </span>
+<span class="co">              lists, tuples, string operations</span>
+<span class="co">New Concepts: while loop</span>
+
+<span class="co">&quot;&quot;&quot;</span>
+
+<span class="kw">def</span> read_and_prep(fileName):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Open a file, read the content,</span>
+<span class="co">        and prepare it for analysis.</span>
+<span class="co">        Return a list of words from the</span>
+<span class="co">        file.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    f = <span class="dt">open</span>(fileName,<span class="st">&quot;r&quot;</span>)
+    text = f.read()
+    words = clean(text)
+    f.close()
+    <span class="kw">return</span> words
+
+
+<span class="kw">def</span> clean(text):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Prepare our text for analysis by</span>
+<span class="co">        removing non-alphanumeric</span>
+<span class="co">        characters like punctuations and</span>
+<span class="co">        formatting marks line em and en</span>
+<span class="co">        dashes. This function assumes</span>
+<span class="co">        ascii not UTF-8 or other</span>
+<span class="co">        encodings.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    text = text.lower()
+    <span class="co"># replace -- with a space</span>
+    text = text.replace(<span class="st">&quot;--&quot;</span>, <span class="st">&quot; &quot;</span>)
+    words = text.split()
+    cleanWords = []
+
+    <span class="kw">for</span> word in words:
+        word = strip_non_chars(word)
+        <span class="kw">if</span> <span class="dt">len</span>(word) &gt; <span class="dv">0</span>:
+            cleanWords.append(word)
+
+    <span class="kw">return</span> cleanWords
+
+<span class="kw">def</span> strip_non_chars(word):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Use index notation to make sure that the first</span>
+<span class="co">        and last character of the word is one of our</span>
+<span class="co">        valid characters</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    valid = <span class="st">&quot;abcdefghijklmnopqrstuvwxyz1234567890&quot;</span>
+
+    <span class="kw">while</span> <span class="dt">len</span>(word) &gt; <span class="dv">0</span> and word[<span class="dv">0</span>] not in valid:
+        word = word[<span class="dv">1</span>:]
+
+    <span class="kw">while</span> <span class="dt">len</span>(word) &gt; <span class="dv">0</span> and word[<span class="dt">len</span>(word) - <span class="dv">1</span>] not in valid:
+        word = word[<span class="dv">0</span>: <span class="dt">len</span>(word) - <span class="dv">1</span>]
+
+    <span class="kw">return</span> word
+
+
+<span class="kw">def</span> freq(words):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Take words--a list of words--and</span>
+<span class="co">        break it down into a word</span>
+<span class="co">        frequency map where each unique</span>
+<span class="co">        word in the text is a key and</span>
+<span class="co">        with the number of occurrences</span>
+<span class="co">        as the value. Return the map.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    freqMap = {}
+
+    <span class="kw">for</span> word in words:
+        <span class="kw">if</span> word in freqMap:
+            freqMap[word] += <span class="dv">1</span>
+        <span class="kw">else</span>:
+            freqMap[word] = <span class="dv">1</span>
+    <span class="kw">return</span> freqMap
+
+
+<span class="kw">def</span> freq_list(items):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Create a sorted list from map items</span>
+<span class="co">        from a word frequency dictionary.</span>
+<span class="co">        The items must be 2-tuples in the format</span>
+<span class="co">        (word, count). Return a list of 2-tuples</span>
+<span class="co">        in (word, frequency) order, sorted with</span>
+<span class="co">        the most frequent words at the start</span>
+<span class="co">        of the list.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    freqList = []
+    <span class="kw">for</span> word, count in items:
+        freqList.append( (count, word) )
+
+    freqList.sort(reverse=<span class="ot">True</span>)
+
+    <span class="co"># now swap it back to word,count order in our tuples</span>
+    swapped = []
+    <span class="kw">for</span> count,word in freqList:
+        swapped.append( (word,count) )
+
+    <span class="kw">return</span> swapped
+
+<span class="kw">def</span> common_filter(items):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Filter out the most common</span>
+<span class="co">        English words from from a list</span>
+<span class="co">        of 500 common words. ``items``</span>
+<span class="co">        is a list of tuples where the</span>
+<span class="co">        first element is the word.</span>
+<span class="co">        Returns a new list of items,</span>
+<span class="co">        without the common words.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    <span class="co"># 500 common English words, in frequency order</span>
+    <span class="co"># edited here for brevity</span>
+    commonWords = [<span class="st">&#39;the&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;and&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;in&#39;</span>] <span class="co">#...</span>
+
+    filtered = []
+    <span class="kw">for</span> item in items:
+        word = item[<span class="dv">0</span>]
+        <span class="kw">if</span> word not in commonWords:
+            filtered.append( item )
+
+    <span class="kw">return</span> filtered
+
+
+<span class="kw">def</span> neighbors(words, targetWords, n):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        This function takes a list of</span>
+<span class="co">        words and returns a dict with</span>
+<span class="co">        each word as the key, and a</span>
+<span class="co">        sorted list of frequency</span>
+<span class="co">        2-tuples in the form (word,</span>
+<span class="co">        freq) with all of the words in</span>
+<span class="co">        the text within ``n`` spaces</span>
+<span class="co">        either before or after the word.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    neighborMap = {}
+
+    <span class="co">#initialize our dict with empty lists</span>
+    <span class="kw">for</span> target in targetWords:
+        neighborMap[target] = []
+
+    <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(words)):
+        <span class="co"># current word</span>
+        word = words[i]
+        <span class="kw">if</span> word in targetWords:
+            
+            <span class="co"># use max to guard against </span>
+            <span class="co"># going beyond end of list</span>
+            start = <span class="dt">max</span>(<span class="dv">0</span>,i-n)
+
+            <span class="co"># use min to make sure</span>
+            <span class="co"># we don&#39;t go below zero</span>
+            end = <span class="dt">min</span>(<span class="dt">len</span>(words)-<span class="dv">1</span>, i+n)
+
+            neighborList = neighborMap[word]
+            neighborList.extend(words[start:i] + words[i<span class="dv">+1</span>:end<span class="dv">+1</span>])
+            neighborMap[word] = neighborList
+
+    <span class="kw">for</span> key in neighborMap.keys():
+        neighborMap[key] = freq(neighborMap[key])
+
+    <span class="kw">return</span> neighborMap
+
+<span class="kw">def</span> compare(a, b):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Compare the word frequency dictionaries</span>
+<span class="co">        ``a`` and ``b`` by created a new sorted list</span>
+<span class="co">        of 2-tuples in the format </span>
+<span class="co">        (word, difference in counts).</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    wordSet = <span class="dt">set</span>(a.keys())
+    wordSet.update(b.keys())
+
+    freqDifList = []
+
+    <span class="kw">for</span> word in wordSet:
+        aCount = a.get(word, <span class="dv">0</span>)
+        bCount = b.get(word, <span class="dv">0</span>)
+        dif = <span class="dt">abs</span>(aCount - bCount)
+        freqDifList.append( (word, dif) )
+
+    sortedDifs = freq_list(freqDifList)
+    <span class="kw">return</span> sortedDifs
+
+
+<span class="kw">def</span> analyze(fName, targets):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Analyze the texts along several lines:</span>
+<span class="co">          - split into words</span>
+<span class="co">          - create a frequency map for the document</span>
+<span class="co">          - analyze neighbors for the </span>
+<span class="co">            list of ``target`` words</span>
+<span class="co">        Return the results as a tuple:</span>
+<span class="co">        (list of all words, freq map, freq map for neighbors)</span>
+<span class="co">    &quot;&quot;&quot;</span>
+ 
+    words = read_and_prep(fName)
+    frequencies = freq(words)
+    neigh = neighbors(words, targets, <span class="dv">2</span>)
+    <span class="kw">return</span> words, frequencies, neigh
+
+<span class="kw">def</span> print_counts(freqList):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Takes a list of tuples in the format (word, count)</span>
+<span class="co">        and prints the result in a table.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    col = <span class="dv">20</span>
+
+    <span class="dt">print</span>(<span class="st">&quot;word&quot;</span>.ljust(col) + <span class="st">&quot;  count&quot;</span>)
+    <span class="dt">print</span>(<span class="st">&quot;-&quot;</span> * col + <span class="st">&quot;  &quot;</span> + <span class="st">&quot;---------&quot;</span>)
+
+    <span class="kw">for</span> word, count in freqList:
+        <span class="dt">print</span>(<span class="dt">str</span>(word.rjust(col)) + <span class="st">&quot;  &quot;</span> + <span class="dt">str</span>(count))
+
+
+<span class="kw">def</span> print_targets(neigh, count=<span class="dv">10</span>):
+    <span class="kw">for</span> target in neigh.keys():
+        <span class="dt">print</span>(target)
+        <span class="dt">print</span>(<span class="st">&quot;==========================================&quot;</span>)
+        com = freq_list(neigh[target].items())
+        com = common_filter(com)
+        show = <span class="dt">min</span>(count, <span class="dt">len</span>(com)-<span class="dv">1</span> )
+        print_counts(com[<span class="dv">0</span>:show])
+        <span class="dt">print</span>()
+        <span class="dt">print</span>()
+
+<span class="kw">def</span> report(header, words, freqList, neighborList):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Print a generic report with the analysis.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="dt">print</span>(<span class="st">&quot;RUNNING ANALYSIS FOR:&quot;</span>, header)
+    <span class="dt">print</span>(<span class="st">&quot;==========================================&quot;</span>)
+    <span class="dt">print</span>()
+    <span class="dt">print</span>(<span class="st">&quot;Total words:&quot;</span>, <span class="dt">len</span>(words))
+    uncommon = common_filter(freqList)
+    print_counts(uncommon[<span class="dv">0</span>:<span class="dv">100</span>])
+    print_targets(neighborList)
+
+
+<span class="kw">def</span> print_compare(compared, a, b):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Print out a table comparing two</span>
+<span class="co">        dictionaries. ``Compared`` is the</span>
+<span class="co">        ordered list of keys-freq to compare.</span>
+<span class="co">        ``a`` and ``b`` are the two word</span>
+<span class="co">        frequency dictionaries to compare.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    col = <span class="dv">20</span>
+    <span class="dt">print</span>(<span class="st">&quot;word&quot;</span>.ljust(col) + <span class="st">&quot;  a list  b list&quot;</span>)
+    <span class="dt">print</span>(<span class="st">&quot;-&quot;</span> * col + <span class="st">&quot;  ------  ------&quot;</span>)
+
+    <span class="kw">for</span> word, dif in compared:
+        <span class="dt">print</span>(word.rjust(col) + <span class="st">&quot;  &quot;</span> + 
+          <span class="dt">str</span>(a.get(word,<span class="dv">0</span>)).ljust(<span class="dv">6</span>) + <span class="st">&quot;  &quot;</span> + 
+          <span class="dt">str</span>(b.get(word,<span class="dv">0</span>)).ljust(<span class="dv">6</span>))</code></pre></td></tr></table>
+</section>
+<section id="neighbor-details" class="level2">
+<h2>Neighbor details</h2>
+<p><code>neighbors</code> is more complicated than other code we have looked at because it calls one of our functions in a loop and it uses nested <strong>dictionaries</strong> — a dictionary that has more dictionaries as data. To unpack the function a little bit, consider this example text:</p>
+<p style="color: gray; margin: .5em 2em;">
+While previously well <span style="color: 
+blue">known in <span style="color: red">education</span> circles, she</span> gained a much broader audience after she publicly rejected almost everything she had once believed. In a surprise 2010 best seller, “The Death and Life of the Great American School System,” she openly declared that she had been wrong to <span style="color: blue">champion standardized <span style="color: 
+red">testing</span>, charter schools</span> and vouchers. She says she is trying now to make up for past errors.
+</p>
+
+
+<p>If we run <code>neighbors</code> with <code>targetWords=[&quot;testing&quot;, &quot;education&quot;], n=2</code> we would create a dictionary that looks something like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">education</td>
+<td style="text-align: left;">{“known”: 1, “in”: 1, “circles”: 1, “she”: 1}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">testing</td>
+<td style="text-align: left;">{“champion”: 1, “standardized”: 1, “charter”: 1, “schools”: 1}</td>
+</tr>
+</tbody>
+</table>
+<p>Here are the actual results for this neighbors call against the ‘teachers_2013.txt’; showing the top 3 neighbors for each word.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">testing</td>
+<td style="text-align: left;">{“standardized”: 30, “high-stakes”: 15, “students”: 8}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">education</td>
+<td style="text-align: left;">{“department”: 169, “board”: 54, “higher”: 52}</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</body>
+</html>
